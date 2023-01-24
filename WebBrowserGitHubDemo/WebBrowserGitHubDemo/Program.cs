@@ -11,8 +11,6 @@ namespace WebBrowserGitHubDemo
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        /// Test
-        /// Ryan
         [STAThread]
         static void Main()
         {
