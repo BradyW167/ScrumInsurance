@@ -12,6 +12,7 @@ namespace WebBrowserGitHubDemo
         /// The main entry point for the application.
         /// </summary>
         /// Dr. R was here.
+        /// Go Dawgs
         [STAThread]
         static void Main()
         {
