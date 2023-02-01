@@ -11,6 +11,7 @@ namespace WebBrowserGitHubDemo
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// Dr. R is here.
         /// Dr. R was here.
         /// Go Dawgs
         [STAThread]
