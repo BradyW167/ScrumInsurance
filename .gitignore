@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/WebBrowserGitHubDemo/WebBrowserGitHubDemo/Properties/Resources.Designer.cs
+/WebBrowserGitHubDemo/WebBrowserGitHubDemo/Properties/Settings.Designer.cs
+/WebBrowserGitHubDemo/WebBrowserGitHubDemo/App.config
