@@ -40,13 +40,13 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(26, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 20);
+            this.label1.Size = new System.Drawing.Size(139, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Enter URL:";
             // 
             // txtURL
             // 
-            this.txtURL.Location = new System.Drawing.Point(132, 41);
+            this.txtURL.Location = new System.Drawing.Point(166, 47);
             this.txtURL.Name = "txtURL";
             this.txtURL.Size = new System.Drawing.Size(266, 20);
             this.txtURL.TabIndex = 1;
@@ -54,7 +54,7 @@
             // btnGO
             // 
             this.btnGO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGO.Location = new System.Drawing.Point(404, 35);
+            this.btnGO.Location = new System.Drawing.Point(438, 41);
             this.btnGO.Name = "btnGO";
             this.btnGO.Size = new System.Drawing.Size(75, 34);
             this.btnGO.TabIndex = 2;
