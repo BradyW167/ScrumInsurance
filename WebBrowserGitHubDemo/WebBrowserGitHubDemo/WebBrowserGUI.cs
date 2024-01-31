@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-// Hello World
+// Hello World, Goodbye World (Section 01 is dark)
 namespace WebBrowserGitHubDemo
 {
     public partial class WebBrowserGUI : Form
