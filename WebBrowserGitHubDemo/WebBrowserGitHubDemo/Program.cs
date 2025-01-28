@@ -13,7 +13,7 @@ namespace WebBrowserGitHubDemo
         /// </summary>
         /// Dr. R is here.
         /// Dr. R was here.
-        /// Go Dawgs
+        /// Go Dawg
         [STAThread]
         static void Main()
         {
