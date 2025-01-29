@@ -80,10 +80,10 @@
             this.btnHome.Location = new System.Drawing.Point(624, 42);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(75, 34);
-            this.btnHome.TabIndex = 2;
+            this.btnHome.TabIndex = 4;
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
-            this.btnHome.Click += new System.EventHandler(this.btn_button1_Click);
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // WebBrowserGUI
             // 
