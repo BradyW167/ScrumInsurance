@@ -27,5 +27,10 @@ namespace WebBrowserGitHubDemo
         {
             wbrDisplay.GoHome();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            wbrDisplay.GoBack();
+        }
     }
 }
