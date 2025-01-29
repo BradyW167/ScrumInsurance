@@ -13,7 +13,6 @@ namespace WebBrowserGitHubDemo
         /// </summary>
         /// Dr. R is here.
         /// Dr. R was here.
-        /// 
         /// practice
         /// testing
         [STAThread]
