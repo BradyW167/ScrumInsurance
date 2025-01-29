@@ -32,6 +32,7 @@
             this.txtURL = new System.Windows.Forms.TextBox();
             this.btnGO = new System.Windows.Forms.Button();
             this.wbrDisplay = new System.Windows.Forms.WebBrowser();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -81,13 +82,25 @@
             this.wbrDisplay.TabIndex = 3;
             this.wbrDisplay.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.wbrDisplay_DocumentCompleted);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.SystemColors.Control;
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnRefresh.Location = new System.Drawing.Point(754, 10);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(90, 35);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // btnHome
             // 
             this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnHome.Location = new System.Drawing.Point(861, 51);
+            this.btnHome.Location = new System.Drawing.Point(850, 50);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(75, 34);
-            this.btnHome.TabIndex = 2;
+            this.btnHome.Size = new System.Drawing.Size(90, 35);
+            this.btnHome.TabIndex = 4;
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
@@ -96,9 +109,9 @@
             // 
             this.btnBack.BackColor = System.Drawing.SystemColors.Control;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnBack.Location = new System.Drawing.Point(863, 12);
+            this.btnBack.Location = new System.Drawing.Point(850, 10);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(73, 34);
+            this.btnBack.Size = new System.Drawing.Size(90, 35);
             this.btnBack.TabIndex = 4;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -111,6 +124,7 @@
             this.ClientSize = new System.Drawing.Size(948, 532);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.wbrDisplay);
             this.Controls.Add(this.btnGO);
             this.Controls.Add(this.txtURL);
@@ -118,6 +132,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "WebBrowserGUI";
             this.Text = "Web Browser";
+            this.Load += new System.EventHandler(this.WebBrowserGUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,6 +144,7 @@
         private System.Windows.Forms.TextBox txtURL;
         private System.Windows.Forms.Button btnGO;
         private System.Windows.Forms.WebBrowser wbrDisplay;
+        private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Button btnBack;
     }

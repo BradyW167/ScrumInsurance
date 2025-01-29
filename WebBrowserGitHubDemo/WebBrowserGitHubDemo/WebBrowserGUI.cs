@@ -23,6 +23,16 @@ namespace WebBrowserGitHubDemo
             wbrDisplay.Navigate(txtURL.Text);
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            btnBack.Text = "Load";
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            wbrDisplay.Refresh();
+        }
+
         private void btnHome_Click(object sender, EventArgs e)
         {
             wbrDisplay.GoHome();
@@ -30,10 +40,16 @@ namespace WebBrowserGitHubDemo
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            btnBack.Text = "Back";
             wbrDisplay.GoBack();
         }
 
         private void wbrDisplay_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
+
+        private void WebBrowserGUI_Load(object sender, EventArgs e)
         {
 
         }
