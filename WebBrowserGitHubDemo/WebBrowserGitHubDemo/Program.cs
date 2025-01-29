@@ -14,7 +14,6 @@ namespace WebBrowserGitHubDemo
         /// Dr. R is here.
         /// Dr. R was here.
         /// 
-        /// practice
         /// testing
         [STAThread]
         static void Main()
