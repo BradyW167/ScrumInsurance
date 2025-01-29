@@ -22,5 +22,10 @@ namespace WebBrowserGitHubDemo
         {
             wbrDisplay.Navigate(txtURL.Text);
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            wbrDisplay.GoBack();
+        }
     }
 }
