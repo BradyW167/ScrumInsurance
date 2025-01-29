@@ -22,5 +22,20 @@ namespace WebBrowserGitHubDemo
         {
             wbrDisplay.Navigate(txtURL.Text);
         }
+
+        private void btnFirstButton_Click(object sender, EventArgs e)
+        {
+            btnFirstButton.Text = "You clicked me didnt you";
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            btnFirstButton.Text = "Do Not Click Me";
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            wbrDisplay.Refresh();
+        }
     }
 }
