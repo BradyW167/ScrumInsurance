@@ -83,7 +83,7 @@
             // btnHome
             // 
             this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnHome.Location = new System.Drawing.Point(519, 41);
+            this.btnHome.Location = new System.Drawing.Point(624, 42);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(75, 34);
             this.btnHome.TabIndex = 2;
