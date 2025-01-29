@@ -39,6 +39,7 @@ namespace WebBrowserGitHubDemo
         }
 
         private void btn_button1_Click(object sender, EventArgs e)
+        private void btnHome_Click(object sender, EventArgs e)
         {
             wbrDisplay.GoHome();
         }
