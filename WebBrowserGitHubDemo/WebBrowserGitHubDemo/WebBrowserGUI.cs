@@ -23,6 +23,11 @@ namespace WebBrowserGitHubDemo
             wbrDisplay.Navigate(txtURL.Text);
         }
 
+        private void btn_button1_Click(object sender, EventArgs e)
+        {
+            wbrDisplay.GoHome();
+        }
+
         private void btnBack_Click(object sender, EventArgs e)
         {
             wbrDisplay.GoBack();
