@@ -9,12 +9,12 @@ namespace WebBrowserGitHubDemo
     static class Program
     {
         /// <summary>
-        /// The main entry point for the application.
+        /// The main entry point for the .
         /// </summary>
         /// Dr. R is here.
         /// Dr. R was here.
-        /// practice
-        /// testing
+        /// Go Dawgs
+        /// New Comment
         [STAThread]
         static void Main()
         {
