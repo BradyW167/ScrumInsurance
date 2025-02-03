@@ -63,8 +63,9 @@
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.textBox1.Location = new System.Drawing.Point(216, 270);
             this.textBox1.Name = "textBox1";
+            this.textBox1.PasswordChar = '●';
             this.textBox1.Size = new System.Drawing.Size(350, 36);
-            this.textBox1.TabIndex = 2;
+            this.textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
@@ -72,13 +73,13 @@
             this.textBox2.Location = new System.Drawing.Point(216, 185);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(350, 36);
-            this.textBox2.TabIndex = 3;
+            this.textBox2.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label3.Location = new System.Drawing.Point(225, 77);
+            this.label3.Location = new System.Drawing.Point(213, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(350, 39);
             this.label3.TabIndex = 4;
