@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace WebBrowserGitHubDemo
 {
-    public partial class Form1 : Form
+    public partial class ForgotPassword : Form
     {
-        public Form1()
+        public ForgotPassword()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
