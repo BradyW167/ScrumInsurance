@@ -28,37 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_enterEmailForgotPassword = new System.Windows.Forms.Label();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtbx_emailForgotPassword = new System.Windows.Forms.TextBox();
+            this.btn_confirmEmailForgotPassword = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lbl_enterEmailForgotPassword
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Enter Email";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lbl_enterEmailForgotPassword.AutoSize = true;
+            this.lbl_enterEmailForgotPassword.Location = new System.Drawing.Point(25, 25);
+            this.lbl_enterEmailForgotPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_enterEmailForgotPassword.Name = "lbl_enterEmailForgotPassword";
+            this.lbl_enterEmailForgotPassword.Size = new System.Drawing.Size(60, 13);
+            this.lbl_enterEmailForgotPassword.TabIndex = 0;
+            this.lbl_enterEmailForgotPassword.Text = "Enter Email";
             // 
-            // textBox1
+            // txtbx_emailForgotPassword
             // 
-            this.textBox1.Location = new System.Drawing.Point(36, 50);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(89, 22);
-            this.textBox1.TabIndex = 1;
+            this.txtbx_emailForgotPassword.Location = new System.Drawing.Point(27, 40);
+            this.txtbx_emailForgotPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtbx_emailForgotPassword.Name = "txtbx_emailForgotPassword";
+            this.txtbx_emailForgotPassword.Size = new System.Drawing.Size(68, 20);
+            this.txtbx_emailForgotPassword.TabIndex = 1;
+            // 
+            // btn_confirmEmailForgotPassword
+            // 
+            this.btn_confirmEmailForgotPassword.Location = new System.Drawing.Point(100, 40);
+            this.btn_confirmEmailForgotPassword.Name = "btn_confirmEmailForgotPassword";
+            this.btn_confirmEmailForgotPassword.Size = new System.Drawing.Size(75, 23);
+            this.btn_confirmEmailForgotPassword.TabIndex = 2;
+            this.btn_confirmEmailForgotPassword.Text = "Confirm";
+            this.btn_confirmEmailForgotPassword.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 360);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ClientSize = new System.Drawing.Size(533, 292);
+            this.Controls.Add(this.btn_confirmEmailForgotPassword);
+            this.Controls.Add(this.txtbx_emailForgotPassword);
+            this.Controls.Add(this.lbl_enterEmailForgotPassword);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -68,8 +79,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_enterEmailForgotPassword;
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtbx_emailForgotPassword;
+        private System.Windows.Forms.Button btn_confirmEmailForgotPassword;
     }
 }

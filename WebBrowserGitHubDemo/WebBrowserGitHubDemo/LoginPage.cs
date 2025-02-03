@@ -31,5 +31,10 @@ namespace WebBrowserGitHubDemo
         {
 
         }
+
+        private void lbl_createAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
     }
 }
