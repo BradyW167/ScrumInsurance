@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Registration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registration.Designer.cs">
+      <DependentUpon>Registration.cs</DependentUpon>
+    </Compile>
     <Compile Include="ForgotPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Registration.resx">
+      <DependentUpon>Registration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ForgotPassword.resx">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
     </EmbeddedResource>
