@@ -28,151 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.welcomeLabel = new System.Windows.Forms.Label();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lbl_ForgotPass = new System.Windows.Forms.LinkLabel();
-            this.lbl_createAccount = new System.Windows.Forms.LinkLabel();
+            this.pnlMain = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
             // 
-            // label1
+            // pnlMain
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(158, 127);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Username";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(161, 196);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Password";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.textBox1.Location = new System.Drawing.Point(162, 220);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '●';
-            this.textBox1.Size = new System.Drawing.Size(263, 30);
-            this.textBox1.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.textBox2.Location = new System.Drawing.Point(162, 150);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(263, 30);
-            this.textBox2.TabIndex = 2;
-            // 
-            // welcomeLabel
-            // 
-            this.welcomeLabel.AutoSize = true;
-            this.welcomeLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.welcomeLabel.Location = new System.Drawing.Point(203, 36);
-            this.welcomeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.welcomeLabel.Name = "welcomeLabel";
-            this.welcomeLabel.Size = new System.Drawing.Size(184, 40);
-            this.welcomeLabel.TabIndex = 4;
-            this.welcomeLabel.Text = "Welcome!";
-            this.welcomeLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.welcomeLabel.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLogin.Location = new System.Drawing.Point(162, 263);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(263, 29);
-            this.btnLogin.TabIndex = 5;
-            this.btnLogin.Text = "Log In";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(222, 75);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 26);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Please Log In";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.Click += new System.EventHandler(this.label3_Click_1);
-            // 
-            // lbl_ForgotPass
-            // 
-            this.lbl_ForgotPass.AutoSize = true;
-            this.lbl_ForgotPass.Location = new System.Drawing.Point(159, 305);
-            this.lbl_ForgotPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_ForgotPass.Name = "lbl_ForgotPass";
-            this.lbl_ForgotPass.Size = new System.Drawing.Size(92, 13);
-            this.lbl_ForgotPass.TabIndex = 8;
-            this.lbl_ForgotPass.TabStop = true;
-            this.lbl_ForgotPass.Text = "Forgot Password?";
-            // 
-            // lbl_createAccount
-            // 
-            this.lbl_createAccount.AutoSize = true;
-            this.lbl_createAccount.Location = new System.Drawing.Point(329, 305);
-            this.lbl_createAccount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_createAccount.Name = "lbl_createAccount";
-            this.lbl_createAccount.Size = new System.Drawing.Size(96, 13);
-            this.lbl_createAccount.TabIndex = 9;
-            this.lbl_createAccount.TabStop = true;
-            this.lbl_createAccount.Text = "Create an Account";
-            this.lbl_createAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbl_createAccount_LinkClicked);
+            this.pnlMain.ColumnCount = 3;
+            this.pnlMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.pnlMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.pnlMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMain.Location = new System.Drawing.Point(0, 0);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.RowCount = 1;
+            this.pnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.pnlMain.Size = new System.Drawing.Size(792, 493);
+            this.pnlMain.TabIndex = 1;
+            this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
             // 
             // LoginPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 400);
-            this.Controls.Add(this.lbl_createAccount);
-            this.Controls.Add(this.lbl_ForgotPass);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.welcomeLabel);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.ClientSize = new System.Drawing.Size(792, 493);
+            this.Controls.Add(this.pnlMain);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "LoginPage";
             this.Text = "Form1";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label welcomeLabel;
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.LinkLabel lbl_ForgotPass;
-        private System.Windows.Forms.LinkLabel lbl_createAccount;
+        private System.Windows.Forms.TableLayoutPanel pnlMain;
     }
 }

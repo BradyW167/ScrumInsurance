@@ -1,6 +1,6 @@
 ﻿namespace WebBrowserGitHubDemo
 {
-    partial class ForgotPassword
+    partial class Registration
     {
         /// <summary>
         /// Required designer variable.

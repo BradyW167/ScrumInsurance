@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WebBrowserGitHubDemo
 {
-    public partial class ForgotPassword : Form
+    public partial class Registration : Form
     {
-        public ForgotPassword()
+        public Registration()
         {
             InitializeComponent();
         }
