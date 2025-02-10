@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseConnection.cs" />
+    <Compile Include="DatabaseController.cs" />
     <Compile Include="Registration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +136,12 @@
     <Compile Include="ctrlLogin.Designer.cs">
       <DependentUpon>ctrlLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="ctrlForgotPass.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlForgotPass.Designer.cs">
+      <DependentUpon>ctrlForgotPass.cs</DependentUpon>
+    </Compile>
     <Compile Include="WebBrowserGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +162,9 @@
     <EmbeddedResource Include="ctrlLogin.resx">
       <DependentUpon>ctrlLogin.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrlForgotPass.resx">
+      <DependentUpon>ctrlForgotPass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WebBrowserGUI.resx">
       <DependentUpon>WebBrowserGUI.cs</DependentUpon>

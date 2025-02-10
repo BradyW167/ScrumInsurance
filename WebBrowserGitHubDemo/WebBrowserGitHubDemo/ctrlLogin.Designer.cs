@@ -80,6 +80,7 @@
             this.btnLogin.TabIndex = 15;
             this.btnLogin.Text = "Log In";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnLogin_Click);
             // 
             // welcomeLabel
             // 
