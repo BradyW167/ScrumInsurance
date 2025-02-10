@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMain));
             this.pnlMain = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
             // 
@@ -53,9 +54,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 493);
             this.Controls.Add(this.pnlMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "formMain";
-            this.Text = "Form1";
+            this.Text = "Scrum Insurance Ltd.";
             this.ResumeLayout(false);
 
         }
