@@ -1,6 +1,6 @@
 ﻿namespace WebBrowserGitHubDemo
 {
-    partial class LoginControl
+    partial class ctrlLogin
     {
         /// <summary> 
         /// Required designer variable.
@@ -83,7 +83,6 @@
             // 
             // welcomeLabel
             // 
-            this.welcomeLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.welcomeLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.welcomeLabel.Location = new System.Drawing.Point(58, 0);
             this.welcomeLabel.Name = "welcomeLabel";
@@ -131,7 +130,7 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Username";
             // 
-            // LoginControl
+            // ctrlLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -145,9 +144,9 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "LoginControl";
+            this.Name = "ctrlLogin";
             this.Size = new System.Drawing.Size(360, 360);
-            this.Load += new System.EventHandler(this.LoginControl_Load);
+            this.Load += new System.EventHandler(this.ctrlLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

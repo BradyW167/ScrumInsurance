@@ -1,6 +1,6 @@
 ﻿namespace WebBrowserGitHubDemo
 {
-    partial class LoginPage
+    partial class formMain
     {
         /// <summary>
         /// Required designer variable.
@@ -42,19 +42,19 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.RowCount = 1;
             this.pnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.pnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 493F));
             this.pnlMain.Size = new System.Drawing.Size(792, 493);
             this.pnlMain.TabIndex = 1;
             this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
             // 
-            // LoginPage
+            // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 493);
             this.Controls.Add(this.pnlMain);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "LoginPage";
+            this.Name = "formMain";
             this.Text = "Form1";
             this.ResumeLayout(false);
 

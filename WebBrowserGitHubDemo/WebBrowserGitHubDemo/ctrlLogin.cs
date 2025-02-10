@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace WebBrowserGitHubDemo
 {
-    public partial class LoginControl : UserControl
+    public partial class ctrlLogin : UserControl
     {
-        public LoginControl()
+        public ctrlLogin()
         {
             InitializeComponent();
         }
 
-        private void LoginControl_Load(object sender, EventArgs e)
+        private void ctrlLogin_Load(object sender, EventArgs e)
         {
 
         }

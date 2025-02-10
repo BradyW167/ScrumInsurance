@@ -10,48 +10,49 @@ using System.Windows.Forms;
 
 namespace WebBrowserGitHubDemo
 {
-    public partial class LoginPage : Form
+    public partial class formMain : Form
     {
-        public LoginPage()
+        public formMain()
         {
             InitializeComponent();
 
             // Initialize controls for main panel
-            UserControl ctrlLogin = new LoginControl();
+            UserControl ctrlLogin = new ctrlLogin();
 
             ctrlLogin.Anchor = AnchorStyles.None; // Prevent stretching
 
             pnlMain.Controls.Add(ctrlLogin, 1, 0); // Add to center column
-            CenterUserControl(ctrlLogin);
+
+            CenterUserControl(ctrlLogin, pnlMain); // Center login control inside the main panel
         }
 
         // Function to center the UserControl inside the column
-        private void CenterUserControl(Control control)
+        private void CenterUserControl(Control control, TableLayoutPanel pnl)
         {
             int columnIndex = 1; // Assuming it's in the middle column
             int rowIndex = 0;     // Assuming it's in row 0
 
             // Get the column width
-            int columnWidth = pnlMain.GetColumnWidths()[columnIndex];
-            int rowHeight = pnlMain.GetRowHeights()[rowIndex];
+            int columnWidth = pnl.GetColumnWidths()[columnIndex];
+            int rowHeight = pnl.GetRowHeights()[rowIndex];
 
             // Set the position dynamically
             control.Left = (columnWidth - control.Width) / 2;
             control.Top = (rowHeight - control.Height) / 2;
         }
 
-        private void LoginPage_Load(object sender, EventArgs e)
+        private void formMain_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void LoginPage_Resize(object sender, EventArgs e)
+        private void formMain_Resize(object sender, EventArgs e)
         {
             foreach (Control ctrl in pnlMain.Controls)
             {
-                if (ctrl is LoginPage)
+                if (ctrl is formMain)
                 {
-                    CenterUserControl(ctrl);
+                    CenterUserControl(ctrl, pnlMain);
                 }
             }
         }
