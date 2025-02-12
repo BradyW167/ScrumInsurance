@@ -22,6 +22,11 @@ namespace WebBrowserGitHubDemo
             return Username.Equals(username) && Password.Equals(password);
         }
 
+        public bool ValidCreditials(string email)
+        {
+            return Email.Equals(email);
+        }
+
         public string Username { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }

@@ -165,6 +165,12 @@
       <DependentUpon>ctrlForgotPass.cs</DependentUpon>
     </Compile>
     <Compile Include="Session.cs" />
+    <Compile Include="ctrlCreateAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlCreateAccount.Designer.cs">
+      <DependentUpon>ctrlCreateAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="WebBrowserGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +179,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ctrlCreateAccount.resx">
+      <DependentUpon>ctrlCreateAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ctrlLanding.resx">
       <DependentUpon>ctrlLanding.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,7 +217,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MySql.Data.DLL" />
     <Content Include="src\scrum-logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

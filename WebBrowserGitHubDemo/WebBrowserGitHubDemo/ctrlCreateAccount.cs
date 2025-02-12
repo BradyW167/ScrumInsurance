@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WebBrowserGitHubDemo
 {
@@ -17,9 +19,15 @@ namespace WebBrowserGitHubDemo
             InitializeComponent();
         }
 
+        private void ctrlCreateAccount_Load(object sender, EventArgs e)
+        {
+        }
+
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            formMain.session.AddAccount(txtUsername.Text, txtPassword.Text, txtEmail.Text, txtSecurityQuestion.Text, txtlSecurtyQuestionAnswer.Text); ;
+            Session.AddAccount(txtCreateUsername.Text, txtCreatePassword.Text, txtCreateEmail.Text, txtCreateQuestion.Text, txtCreateAnswer.Text);
+            ctrlLogin c = new ctrlLogin();
+            Session.swapControl(this, c);
         }
     }
 }

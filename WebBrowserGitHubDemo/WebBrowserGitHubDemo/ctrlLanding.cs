@@ -15,11 +15,13 @@ namespace WebBrowserGitHubDemo
         public ctrlLanding()
         {
             InitializeComponent();
+            lblWelcome.Text = "Welcome, " + Session.GetAccount(Session.UserID).Username;
         }
 
         private void lblLogout_Click(object sender, EventArgs e)
         {
-
+            ctrlLogin c = new ctrlLogin();
+            Session.swapControl(this, c);
             
         }
     }

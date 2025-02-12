@@ -16,5 +16,10 @@ namespace WebBrowserGitHubDemo
         {
             InitializeComponent();
         }
+
+        private void ctrlForgotPass_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
