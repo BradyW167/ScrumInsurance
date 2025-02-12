@@ -17,8 +17,16 @@ namespace WebBrowserGitHubDemo
         public ctrlLogin()
         {
             InitializeComponent();
+            if (dbController_ == null)
+            {
+                dbController_ = new DatabaseController();
+            }
+        }
 
-            dbController_ = new DatabaseController();
+        public ctrlLogin(DatabaseController dbController)
+        {
+            InitializeComponent();
+            dbController_ = dbController;
         }
 
         private void ctrlLogin_Load(object sender, EventArgs e)
@@ -28,37 +36,34 @@ namespace WebBrowserGitHubDemo
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // Load next page if database connection established
-            if (dbController_.openConnection())
+            // Load next page if database connection established & account with correct username & password is found
+            Session.UserID = Session.FindAccount(txtUsername.Text, txtPassword.Text);
+            if (Session.UserID >= 0 && dbController_.openConnection())
             {
                 ctrlLanding newControl = new ctrlLanding();
-                swapControl(newControl);
+                Session.swapControl(this, newControl);
             }
-            else {
-                btnLogin.Text = "Failed";
-            }
-        }   
-
-        // Deletes the current user control in parent panel and load a new input control
-        private void swapControl(UserControl c)
-        {
-            TableLayoutPanel parentPanel = this.Parent as TableLayoutPanel;
-
-            if (parentPanel != null)
+            //Error if account with correct username & password isn't found
+            else if (Session.UserID < 0)
             {
-                int columnIndex = parentPanel.GetColumn(this);
-                int rowIndex = parentPanel.GetRow(this);
-
-                // Remove the current UserControl
-                parentPanel.Controls.Remove(this);
-                this.Dispose();
-
-                // Load the new UserControl
-                c.Dock = DockStyle.Fill;
-
-                // Add new UserControl to the same cell
-                parentPanel.Controls.Add(c, columnIndex, rowIndex);
+                lblLoginError.Text = "Incorrect username or password\nPlease make an account if you haven't already";
             }
+            else
+            {
+                lblLoginError.Text = "Failed to connect to database";
+            }
+        }
+
+        private void lbl_createAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ctrlCreateAccount c = new ctrlCreateAccount();
+            Session.swapControl(this, c);
+        }
+
+        private void lbl_ForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ctrlForgotPass c = new ctrlForgotPass();
+            Session.swapControl(this, c);
         }
     }
 }

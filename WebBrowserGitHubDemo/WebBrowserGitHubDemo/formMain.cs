@@ -12,14 +12,16 @@ namespace WebBrowserGitHubDemo
 {
     public partial class formMain : Form
     {
-        public Session session;
+        private DatabaseController dbController_;
+
         public formMain()
         {
             InitializeComponent();
 
+            dbController_ = new DatabaseController();
+
             // Initialize controls for main panel
-            UserControl ctrlLogin = new ctrlLogin();
-            session = new Session();
+            UserControl ctrlLogin = new ctrlLogin(dbController_);
 
             ctrlLogin.Anchor = AnchorStyles.None; // Prevent stretching
 
@@ -50,7 +52,7 @@ namespace WebBrowserGitHubDemo
 
         private void formMain_Closing(object sender, FormClosingEventArgs e)
         {
-
+            
         }
 
         private void formMain_Resize(object sender, EventArgs e)
