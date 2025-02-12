@@ -100,6 +100,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ctrlLanding.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlLanding.Designer.cs">
+      <DependentUpon>ctrlLanding.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="DatabaseController.cs" />
     <Compile Include="Registration.cs">
@@ -150,6 +156,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ctrlLanding.resx">
+      <DependentUpon>ctrlLanding.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
     </EmbeddedResource>
