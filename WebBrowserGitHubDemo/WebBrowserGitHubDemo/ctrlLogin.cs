@@ -60,5 +60,11 @@ namespace WebBrowserGitHubDemo
                 parentPanel.Controls.Add(c, columnIndex, rowIndex);
             }
         }
+
+        private void lbl_createAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ctrlCreateAccount frmCreateAccount = new ctrlCreateAccount();
+            swapControl(frmCreateAccount);
+        }
     }
 }

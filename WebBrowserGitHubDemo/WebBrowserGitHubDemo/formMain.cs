@@ -12,7 +12,7 @@ namespace WebBrowserGitHubDemo
 {
     public partial class formMain : Form
     {
-        public Session session;
+        private Session session;
         public formMain()
         {
             InitializeComponent();
@@ -26,6 +26,11 @@ namespace WebBrowserGitHubDemo
             pnlMain.Controls.Add(ctrlLogin, 1, 0); // Add to center column
 
             CenterUserControl(ctrlLogin, pnlMain); // Center login control inside the main panel
+        }
+
+        public void AddAccount(string username, string password, string email, string securityQuestion, string securityQuestionAnswer)
+        {
+            session.AddAccount(username, password, email, securityQuestion, securityQuestionAnswer);
         }
 
         // Function to center the UserControl inside the column
