@@ -17,8 +17,8 @@ namespace WebBrowserGitHubDemo
 
             // We can move this to a property file later to avoid unncessary clutter and hardcoding.
             myConnection_.ServerName = "trevor.butler.edu";
-            myConnection_.DatabaseName = "scrumgang";
-            myConnection_.DatabaseUsername = "scrumgang";
+            myConnection_.DatabaseName = "scrum_gang";
+            myConnection_.DatabaseUsername = "scrum_gang";
             myConnection_.DatabasePassword = "Z9wAabwUKeZy5pxvF5GE";
         }
 

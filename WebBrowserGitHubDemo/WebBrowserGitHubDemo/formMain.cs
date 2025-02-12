@@ -12,12 +12,14 @@ namespace WebBrowserGitHubDemo
 {
     public partial class formMain : Form
     {
+        public Session session;
         public formMain()
         {
             InitializeComponent();
 
             // Initialize controls for main panel
             UserControl ctrlLogin = new ctrlLogin();
+            session = new Session();
 
             ctrlLogin.Anchor = AnchorStyles.None; // Prevent stretching
 

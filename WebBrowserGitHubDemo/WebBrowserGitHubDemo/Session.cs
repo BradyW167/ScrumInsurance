@@ -8,9 +8,12 @@ namespace WebBrowserGitHubDemo
 {
     public class Session
     {
-        public Session() { }
+        private List<Account> accounts;
 
-        private List<Account> accounts = new List<Account>();
+        public Session()
+        {
+            accounts = new List<Account>();
+        }
 
         public void AddAccount(string username, string password, string email, string securityQuestion, string securityQuestionAnswer)
         {
