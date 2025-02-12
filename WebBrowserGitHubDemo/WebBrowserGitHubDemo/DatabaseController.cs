@@ -14,10 +14,6 @@ namespace WebBrowserGitHubDemo
         public DatabaseController()
         {
             myConnection_ = new DatabaseConnection();
-            myConnection_.serverName_ = "trevor.butler.edu";
-            myConnection_.databaseName_ = "scrumgang";
-            myConnection_.databasePassword_ = "scrumgang";
-            myConnection_.databaseUsername_ = "Z9wAabwUKeZy5pxvF5GE";
 
             // We can move this to a property file later to avoid unncessary clutter and hardcoding.
             myConnection_.ServerName = "trevor.butler.edu";
