@@ -53,7 +53,7 @@
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=9.2.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.9.2.0\lib\net48\MySql.Data.dll</HintPath>
+      <HintPath>..\..\..\..\..\Downloads\MySql.Data_x86\MySql.Data.DLL</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -100,14 +100,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ctrlLanding.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ctrlLanding.Designer.cs">
-      <DependentUpon>ctrlLanding.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Account.cs" />
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="DatabaseController.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +149,7 @@
     <Compile Include="ctrlForgotPass.Designer.cs">
       <DependentUpon>ctrlForgotPass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Session.cs" />
     <Compile Include="WebBrowserGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,9 +158,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ctrlLanding.resx">
-      <DependentUpon>ctrlLanding.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
     </EmbeddedResource>
