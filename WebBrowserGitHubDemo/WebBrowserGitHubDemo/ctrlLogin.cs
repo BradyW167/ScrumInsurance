@@ -36,8 +36,7 @@ namespace WebBrowserGitHubDemo
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // Load next page if database connection established
-            // & account with correct username & password is found
+            // Load next page if database connection established & account with correct username & password is found
             Session.UserID = Session.FindAccount(txtUsername.Text, txtPassword.Text);
             if (Session.UserID >= 0 && dbController_.openConnection())
             {
