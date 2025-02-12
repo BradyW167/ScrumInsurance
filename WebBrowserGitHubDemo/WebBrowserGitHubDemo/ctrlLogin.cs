@@ -17,6 +17,10 @@ namespace WebBrowserGitHubDemo
         public ctrlLogin()
         {
             InitializeComponent();
+            if (dbController_ == null)
+            {
+                dbController_ = new DatabaseController();
+            }
         }
 
         public ctrlLogin(DatabaseController dbController)
@@ -45,7 +49,7 @@ namespace WebBrowserGitHubDemo
             }
             else
             {
-                lblLoginError.Text = "Failed";
+                lblLoginError.Text = "Failed to connect to database";
             }
         }
 
@@ -53,24 +57,6 @@ namespace WebBrowserGitHubDemo
         {
             ctrlCreateAccount c = new ctrlCreateAccount();
             Session.swapControl(this, c);
-            TableLayoutPanel parentPanel = this.Parent as TableLayoutPanel;
-
-            if (parentPanel != null)
-            {
-                int columnIndex = parentPanel.GetColumn(this);
-                int rowIndex = parentPanel.GetRow(this);
-
-                // Remove the current UserControl
-                parentPanel.Controls.Remove(this);
-                this.Dispose();
-
-                // Load the new UserControl
-                c.AutoSize = true;
-                c.Dock = DockStyle.Fill;
-
-                // Add new UserControl to the same cell
-                parentPanel.Controls.Add(c, columnIndex, rowIndex);
-            }
         }
 
         private void lbl_ForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
