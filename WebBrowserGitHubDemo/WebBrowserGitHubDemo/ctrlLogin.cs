@@ -14,11 +14,10 @@ namespace WebBrowserGitHubDemo
     {
         private DatabaseController dbController_;
 
-        public ctrlLogin()
+        public ctrlLogin(DatabaseController dbController)
         {
             InitializeComponent();
-
-            dbController_ = new DatabaseController();
+            dbController_ = dbController;
         }
 
         private void ctrlLogin_Load(object sender, EventArgs e)
@@ -37,7 +36,7 @@ namespace WebBrowserGitHubDemo
             else {
                 btnLogin.Text = "Failed";
             }
-        }   
+        }
 
         // Deletes the current user control in parent panel and load a new input control
         private void swapControl(UserControl c)
@@ -54,6 +53,7 @@ namespace WebBrowserGitHubDemo
                 this.Dispose();
 
                 // Load the new UserControl
+                c.AutoSize = true;
                 c.Dock = DockStyle.Fill;
 
                 // Add new UserControl to the same cell
