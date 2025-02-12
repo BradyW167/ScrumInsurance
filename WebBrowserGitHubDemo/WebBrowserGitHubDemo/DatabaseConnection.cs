@@ -16,5 +16,10 @@ namespace formMain
         private string databasePassword_;
         private string databaseUsername_;
         private MySqlConnection connection_;
+
+        /*connection_.ServerName = "trevor.butler.edu";
+        connection_.DatabaseName = "scrumgang";
+        connection_.DatabaseUsername = "scrumgang";
+        connection_.DatabasePassword = "Z9wAabwUKeZy5pxvF5GE";*/
     }
 }

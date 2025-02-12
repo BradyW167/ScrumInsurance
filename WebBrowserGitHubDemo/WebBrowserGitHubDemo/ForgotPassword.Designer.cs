@@ -47,7 +47,7 @@
             // txtbx_emailForgotPassword
             // 
             this.txtbx_emailForgotPassword.Location = new System.Drawing.Point(27, 40);
-            this.txtbx_emailForgotPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtbx_emailForgotPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtbx_emailForgotPassword.Name = "txtbx_emailForgotPassword";
             this.txtbx_emailForgotPassword.Size = new System.Drawing.Size(68, 20);
             this.txtbx_emailForgotPassword.TabIndex = 1;
@@ -60,8 +60,9 @@
             this.btn_confirmEmailForgotPassword.TabIndex = 2;
             this.btn_confirmEmailForgotPassword.Text = "Confirm";
             this.btn_confirmEmailForgotPassword.UseVisualStyleBackColor = true;
+            this.btn_confirmEmailForgotPassword.Click += new System.EventHandler(this.btn_confirmEmailForgotPassword_Click);
             // 
-            // Form1
+            // ForgotPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -69,8 +70,8 @@
             this.Controls.Add(this.btn_confirmEmailForgotPassword);
             this.Controls.Add(this.txtbx_emailForgotPassword);
             this.Controls.Add(this.lbl_enterEmailForgotPassword);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "ForgotPassword";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

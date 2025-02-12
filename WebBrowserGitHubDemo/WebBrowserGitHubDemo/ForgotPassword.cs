@@ -21,5 +21,10 @@ namespace WebBrowserGitHubDemo
         {
 
         }
+
+        private void btn_confirmEmailForgotPassword_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
