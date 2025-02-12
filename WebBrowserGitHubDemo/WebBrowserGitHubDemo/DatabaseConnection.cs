@@ -1,27 +1,54 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
-using System.Security.Cryptography;
 
-
-namespace formMain
+namespace WebBrowserGitHubDemo
 {
+    // Database Connection Class
+    //
+    // By: Dr. Ryan Rybarczyk
     public class DatabaseConnection
     {
+        // Default Constructor
         public DatabaseConnection() { }
 
-        private string serverName_;
-        private string databaseName_;
-        private string databasePassword_;
-        private string databaseUsername_;
-        private MySqlConnection connection_;
+        // Class Properties (Attributes)
+        public string ServerName { get; set; }
+        public string DatabaseName { get; set; }
+        public string DatabasePassword { get; set; }
+        public string DatabaseUsername { get; set; }
+        public MySqlConnection Connection { get; set; }
 
-        /*connection_.ServerName = "trevor.butler.edu";
-        connection_.DatabaseName = "scrumgang";
-        connection_.DatabaseUsername = "scrumgang";
-        connection_.DatabasePassword = "Z9wAabwUKeZy5pxvF5GE";*/
+        // Attempts to open a connection to a MySQL database.
+        //
+        // Returns TRUE if successful and FALSE if unsuccessful.
+        public bool openConnection()
+        {
+            if (Connection == null)
+            {
+                string connString = string.Format("Server={0}; database={1}; UID={2}; password={3}", ServerName, DatabaseName, DatabaseUsername, DatabasePassword);
+                Connection = new MySqlConnection(connString);
+
+                // Try-Catch to catch exceptions...
+                try
+                {
+                    Connection.Open();
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Closes a MySQL database connection.
+        public void closeConnection()
+        {
+            Connection.Close();
+        }
     }
 }

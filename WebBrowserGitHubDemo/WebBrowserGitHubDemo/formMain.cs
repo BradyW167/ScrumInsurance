@@ -46,6 +46,11 @@ namespace WebBrowserGitHubDemo
 
         }
 
+        private void formMain_Closing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+
         private void formMain_Resize(object sender, EventArgs e)
         {
             foreach (Control ctrl in pnlMain.Controls)
@@ -56,22 +61,6 @@ namespace WebBrowserGitHubDemo
                 }
             }
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void lbl_createAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
