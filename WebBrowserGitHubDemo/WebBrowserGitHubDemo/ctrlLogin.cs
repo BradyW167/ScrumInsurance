@@ -22,25 +22,32 @@ namespace WebBrowserGitHubDemo
 
         private void ctrlLogin_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // Load next page if database connection established
-            if (dbController_.openConnection())
+            Session.UserID = Session.FindAccount(txtUsername.Text, txtPassword.Text);
+            if (Session.UserID >= 0 && dbController_.openConnection())
             {
-                ctrlForgotPass newControl = new ctrlForgotPass();
-                swapControl(newControl);
+                ctrlLanding newControl = new ctrlLanding();
+                Session.swapControl(this, newControl);
             }
-            else {
-                btnLogin.Text = "Failed";
+            else if (Session.UserID < 0)
+            {
+                lblLoginError.Text = "Incorrect username or password\nPlease make an account if you haven't already";
+            }
+            else
+            {
+                lblLoginError.Text = "Failed";
             }
         }
 
-        // Deletes the current user control in parent panel and load a new input control
-        private void swapControl(UserControl c)
+        private void lbl_createAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            ctrlCreateAccount c = new ctrlCreateAccount();
+            Session.swapControl(this, c);
             TableLayoutPanel parentPanel = this.Parent as TableLayoutPanel;
 
             if (parentPanel != null)

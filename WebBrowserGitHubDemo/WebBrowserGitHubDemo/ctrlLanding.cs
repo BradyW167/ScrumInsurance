@@ -10,16 +10,19 @@ using System.Windows.Forms;
 
 namespace WebBrowserGitHubDemo
 {
-    public partial class ctrlForgotPass : UserControl
+    public partial class ctrlLanding : UserControl
     {
-        public ctrlForgotPass()
+        public ctrlLanding()
         {
             InitializeComponent();
+            lblWelcome.Text = "Welcome, " + Session.GetAccount(Session.UserID).Username;
         }
 
-        private void ctrlForgotPass_Load(object sender, EventArgs e)
+        private void lblLogout_Click(object sender, EventArgs e)
         {
-
+            ctrlLogin c = new ctrlLogin();
+            Session.swapControl(this, c);
+            
         }
     }
 }
