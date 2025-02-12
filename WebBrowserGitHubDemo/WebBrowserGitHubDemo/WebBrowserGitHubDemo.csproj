@@ -116,11 +116,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
-    <Compile Include="ctrlCreateAccount.cs">
+    <Compile Include="ctrlLanding.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrlCreateAccount.Designer.cs">
-      <DependentUpon>ctrlCreateAccount.cs</DependentUpon>
+    <Compile Include="ctrlLanding.Designer.cs">
+      <DependentUpon>ctrlLanding.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="DatabaseController.cs" />
@@ -173,8 +173,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ctrlCreateAccount.resx">
-      <DependentUpon>ctrlCreateAccount.cs</DependentUpon>
+    <EmbeddedResource Include="ctrlLanding.resx">
+      <DependentUpon>ctrlLanding.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>

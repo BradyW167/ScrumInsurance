@@ -31,7 +31,7 @@ namespace WebBrowserGitHubDemo
             // Load next page if database connection established
             if (dbController_.openConnection())
             {
-                ctrlForgotPass newControl = new ctrlForgotPass();
+                ctrlLanding newControl = new ctrlLanding();
                 swapControl(newControl);
             }
             else {
@@ -63,8 +63,8 @@ namespace WebBrowserGitHubDemo
 
         private void lbl_createAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ctrlCreateAccount frmCreateAccount = new ctrlCreateAccount();
-            swapControl(frmCreateAccount);
+            //ctrlCreateAccount frmCreateAccount = new ctrlCreateAccount();
+            //swapControl(frmCreateAccount);
         }
     }
 }
