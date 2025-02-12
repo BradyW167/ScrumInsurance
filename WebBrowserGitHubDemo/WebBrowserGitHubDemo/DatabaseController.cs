@@ -12,9 +12,9 @@ namespace WebBrowserGitHubDemo
         {
             myConnection_ = new DatabaseConnection();
             myConnection_.serverName_ = "trevor.butler.edu";
-            myConnection_.databaseName_ = "jesibbitt";
-            myConnection_.databasePassword_ = "jesibbitt";
-            myConnection_.databaseUsername_ = "";
+            myConnection_.databaseName_ = "scrumgang";
+            myConnection_.databasePassword_ = "scrumgang";
+            myConnection_.databaseUsername_ = "Z9wAabwUKeZy5pxvF5GE";
 
         }
 
