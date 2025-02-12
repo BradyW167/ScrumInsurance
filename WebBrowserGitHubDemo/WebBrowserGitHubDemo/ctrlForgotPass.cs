@@ -21,5 +21,43 @@ namespace WebBrowserGitHubDemo
         {
 
         }
+
+        private void btn_confirmEmailForgotPassword_Click(object sender, EventArgs e)
+        {
+            string question = Session.FindQuestion(txtbx_emailForgotPassword.Text);
+            if (question != null)
+            {
+                lblForgotPasswordQuestion.Text = "Question: " + question;
+                lblForgotPasswordQuestion.Visible = true;
+                txtForgotPasswordAnswer.Visible = true;
+                btnForgotPasswordSubmit.Visible = true;
+                Session.UserID = Session.FindAccount(txtbx_emailForgotPassword.Text);
+            }
+            else
+            {
+                lblForgotPasswordEmailError.Text = "Email not found";
+            }
+        }
+
+        private void btnForgotPasswordSubmit_Click(object sender, EventArgs e)
+        {
+            if (txtForgotPasswordAnswer.Text.Equals(Session.GetAccount(Session.UserID).SecurityQuestionAnswer))
+            {
+                lblForgotPasswordNewPassword.Visible = true;
+                txtForgotPasswordNewPassword.Visible = true;
+                btnForgotPasswordNewPassword.Visible = true;
+            }
+            else
+            {
+                lblForgotPasswordQuestionError.Text = "Inccorrect Answer";
+            }
+        }
+
+        private void btnForgotPasswordNewPassword_Click(object sender, EventArgs e)
+        {
+            Session.GetAccount(Session.UserID).Password = txtForgotPasswordNewPassword.Text;
+            ctrlLogin c = new ctrlLogin();
+            Session.swapControl(this, c);
+        }
     }
 }

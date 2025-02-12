@@ -35,7 +35,12 @@
             this.txtForgotPasswordAnswer = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblForgotPasswordQuestion = new System.Windows.Forms.Label();
-            this.lblForgotPasswordError = new System.Windows.Forms.Label();
+            this.lblForgotPasswordQuestionError = new System.Windows.Forms.Label();
+            this.btnForgotPasswordSubmit = new System.Windows.Forms.Button();
+            this.lblForgotPasswordEmailError = new System.Windows.Forms.Label();
+            this.lblForgotPasswordNewPassword = new System.Windows.Forms.Label();
+            this.txtForgotPasswordNewPassword = new System.Windows.Forms.TextBox();
+            this.btnForgotPasswordNewPassword = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_confirmEmailForgotPassword
@@ -46,6 +51,7 @@
             this.btn_confirmEmailForgotPassword.TabIndex = 5;
             this.btn_confirmEmailForgotPassword.Text = "Confirm";
             this.btn_confirmEmailForgotPassword.UseVisualStyleBackColor = true;
+            this.btn_confirmEmailForgotPassword.Click += new System.EventHandler(this.btn_confirmEmailForgotPassword_Click);
             // 
             // txtbx_emailForgotPassword
             // 
@@ -61,9 +67,9 @@
             this.lbl_enterEmailForgotPassword.Location = new System.Drawing.Point(38, 63);
             this.lbl_enterEmailForgotPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_enterEmailForgotPassword.Name = "lbl_enterEmailForgotPassword";
-            this.lbl_enterEmailForgotPassword.Size = new System.Drawing.Size(60, 13);
+            this.lbl_enterEmailForgotPassword.Size = new System.Drawing.Size(63, 13);
             this.lbl_enterEmailForgotPassword.TabIndex = 3;
-            this.lbl_enterEmailForgotPassword.Text = "Enter Email";
+            this.lbl_enterEmailForgotPassword.Text = "Enter Email:";
             // 
             // lblTitle
             // 
@@ -78,7 +84,7 @@
             // 
             // txtForgotPasswordAnswer
             // 
-            this.txtForgotPasswordAnswer.Location = new System.Drawing.Point(39, 131);
+            this.txtForgotPasswordAnswer.Location = new System.Drawing.Point(39, 147);
             this.txtForgotPasswordAnswer.Margin = new System.Windows.Forms.Padding(2);
             this.txtForgotPasswordAnswer.Name = "txtForgotPasswordAnswer";
             this.txtForgotPasswordAnswer.Size = new System.Drawing.Size(268, 20);
@@ -96,27 +102,83 @@
             // 
             // lblForgotPasswordQuestion
             // 
-            this.lblForgotPasswordQuestion.Location = new System.Drawing.Point(36, 116);
+            this.lblForgotPasswordQuestion.Location = new System.Drawing.Point(36, 132);
             this.lblForgotPasswordQuestion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblForgotPasswordQuestion.Name = "lblForgotPasswordQuestion";
             this.lblForgotPasswordQuestion.Size = new System.Drawing.Size(271, 13);
             this.lblForgotPasswordQuestion.TabIndex = 9;
-            this.lblForgotPasswordQuestion.Text = "Question";
+            this.lblForgotPasswordQuestion.Text = "Question: ";
+            this.lblForgotPasswordQuestion.Visible = false;
             // 
-            // lblForgotPasswordError
+            // lblForgotPasswordQuestionError
             // 
-            this.lblForgotPasswordError.ForeColor = System.Drawing.Color.Crimson;
-            this.lblForgotPasswordError.Location = new System.Drawing.Point(38, 164);
-            this.lblForgotPasswordError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblForgotPasswordError.Name = "lblForgotPasswordError";
-            this.lblForgotPasswordError.Size = new System.Drawing.Size(271, 13);
-            this.lblForgotPasswordError.TabIndex = 10;
+            this.lblForgotPasswordQuestionError.ForeColor = System.Drawing.Color.Crimson;
+            this.lblForgotPasswordQuestionError.Location = new System.Drawing.Point(38, 180);
+            this.lblForgotPasswordQuestionError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblForgotPasswordQuestionError.Name = "lblForgotPasswordQuestionError";
+            this.lblForgotPasswordQuestionError.Size = new System.Drawing.Size(271, 13);
+            this.lblForgotPasswordQuestionError.TabIndex = 10;
+            // 
+            // btnForgotPasswordSubmit
+            // 
+            this.btnForgotPasswordSubmit.Location = new System.Drawing.Point(132, 207);
+            this.btnForgotPasswordSubmit.Name = "btnForgotPasswordSubmit";
+            this.btnForgotPasswordSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnForgotPasswordSubmit.TabIndex = 11;
+            this.btnForgotPasswordSubmit.Text = "Submit";
+            this.btnForgotPasswordSubmit.UseVisualStyleBackColor = true;
+            this.btnForgotPasswordSubmit.Visible = false;
+            this.btnForgotPasswordSubmit.Click += new System.EventHandler(this.btnForgotPasswordSubmit_Click);
+            // 
+            // lblForgotPasswordEmailError
+            // 
+            this.lblForgotPasswordEmailError.ForeColor = System.Drawing.Color.Crimson;
+            this.lblForgotPasswordEmailError.Location = new System.Drawing.Point(38, 103);
+            this.lblForgotPasswordEmailError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblForgotPasswordEmailError.Name = "lblForgotPasswordEmailError";
+            this.lblForgotPasswordEmailError.Size = new System.Drawing.Size(271, 13);
+            this.lblForgotPasswordEmailError.TabIndex = 12;
+            // 
+            // lblForgotPasswordNewPassword
+            // 
+            this.lblForgotPasswordNewPassword.Location = new System.Drawing.Point(38, 233);
+            this.lblForgotPasswordNewPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblForgotPasswordNewPassword.Name = "lblForgotPasswordNewPassword";
+            this.lblForgotPasswordNewPassword.Size = new System.Drawing.Size(271, 13);
+            this.lblForgotPasswordNewPassword.TabIndex = 14;
+            this.lblForgotPasswordNewPassword.Text = "New Password:";
+            this.lblForgotPasswordNewPassword.Visible = false;
+            // 
+            // txtForgotPasswordNewPassword
+            // 
+            this.txtForgotPasswordNewPassword.Location = new System.Drawing.Point(41, 248);
+            this.txtForgotPasswordNewPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.txtForgotPasswordNewPassword.Name = "txtForgotPasswordNewPassword";
+            this.txtForgotPasswordNewPassword.Size = new System.Drawing.Size(268, 20);
+            this.txtForgotPasswordNewPassword.TabIndex = 13;
+            this.txtForgotPasswordNewPassword.Visible = false;
+            // 
+            // btnForgotPasswordNewPassword
+            // 
+            this.btnForgotPasswordNewPassword.Location = new System.Drawing.Point(132, 284);
+            this.btnForgotPasswordNewPassword.Name = "btnForgotPasswordNewPassword";
+            this.btnForgotPasswordNewPassword.Size = new System.Drawing.Size(75, 23);
+            this.btnForgotPasswordNewPassword.TabIndex = 15;
+            this.btnForgotPasswordNewPassword.Text = "Confirm";
+            this.btnForgotPasswordNewPassword.UseVisualStyleBackColor = true;
+            this.btnForgotPasswordNewPassword.Visible = false;
+            this.btnForgotPasswordNewPassword.Click += new System.EventHandler(this.btnForgotPasswordNewPassword_Click);
             // 
             // ctrlForgotPass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lblForgotPasswordError);
+            this.Controls.Add(this.btnForgotPasswordNewPassword);
+            this.Controls.Add(this.lblForgotPasswordNewPassword);
+            this.Controls.Add(this.txtForgotPasswordNewPassword);
+            this.Controls.Add(this.lblForgotPasswordEmailError);
+            this.Controls.Add(this.btnForgotPasswordSubmit);
+            this.Controls.Add(this.lblForgotPasswordQuestionError);
             this.Controls.Add(this.lblForgotPasswordQuestion);
             this.Controls.Add(this.txtForgotPasswordAnswer);
             this.Controls.Add(this.label1);
@@ -126,7 +188,7 @@
             this.Controls.Add(this.lbl_enterEmailForgotPassword);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ctrlForgotPass";
-            this.Size = new System.Drawing.Size(372, 196);
+            this.Size = new System.Drawing.Size(372, 335);
             this.Load += new System.EventHandler(this.ctrlForgotPass_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -142,6 +204,11 @@
         private System.Windows.Forms.TextBox txtForgotPasswordAnswer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblForgotPasswordQuestion;
-        private System.Windows.Forms.Label lblForgotPasswordError;
+        private System.Windows.Forms.Label lblForgotPasswordQuestionError;
+        private System.Windows.Forms.Button btnForgotPasswordSubmit;
+        private System.Windows.Forms.Label lblForgotPasswordEmailError;
+        private System.Windows.Forms.Label lblForgotPasswordNewPassword;
+        private System.Windows.Forms.TextBox txtForgotPasswordNewPassword;
+        private System.Windows.Forms.Button btnForgotPasswordNewPassword;
     }
 }

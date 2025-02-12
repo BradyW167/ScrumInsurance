@@ -50,5 +50,11 @@ namespace WebBrowserGitHubDemo
             ctrlCreateAccount c = new ctrlCreateAccount();
             Session.swapControl(this, c);
         }
+
+        private void lbl_ForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ctrlForgotPass c = new ctrlForgotPass();
+            Session.swapControl(this, c);
+        }
     }
 }

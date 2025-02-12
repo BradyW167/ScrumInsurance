@@ -62,6 +62,7 @@
             this.lbl_ForgotPass.TabIndex = 17;
             this.lbl_ForgotPass.TabStop = true;
             this.lbl_ForgotPass.Text = "Forgot Password?";
+            this.lbl_ForgotPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbl_ForgotPass_LinkClicked);
             // 
             // label3
             // 

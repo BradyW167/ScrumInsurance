@@ -22,7 +22,6 @@ namespace WebBrowserGitHubDemo
         {
             ctrlLogin c = new ctrlLogin();
             Session.swapControl(this, c);
-            
         }
     }
 }

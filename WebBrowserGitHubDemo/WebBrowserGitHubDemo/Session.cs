@@ -67,5 +67,17 @@ namespace WebBrowserGitHubDemo
                 parentPanel.Controls.Add(newControl, columnIndex, rowIndex);
             }
         }
+
+        public static string FindQuestion(string email)
+        {
+            for (int i = 0; i < accounts.Count; i++)
+            {
+                if (accounts[i].ValidCreditials(email))
+                {
+                    return accounts[i].SecurityQuestion;
+                }
+            }
+            return null;
+        }
     }
 }

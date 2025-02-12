@@ -27,7 +27,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
-        {
+        {/*
             this.lbl_enterEmailForgotPassword = new System.Windows.Forms.Label();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.txtbx_emailForgotPassword = new System.Windows.Forms.TextBox();
@@ -74,7 +74,7 @@
             this.Name = "ForgotPassword";
             this.Text = "Form1";
             this.ResumeLayout(false);
-            this.PerformLayout();
+            this.PerformLayout();*/
 
         }
 
