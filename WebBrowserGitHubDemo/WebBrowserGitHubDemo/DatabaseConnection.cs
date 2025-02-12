@@ -5,23 +5,36 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Security.Cryptography;
+using Org.BouncyCastle.Tls;
 
 
-namespace formMain
+namespace WebBrowserGitHubDemo
 {
     public class DatabaseConnection
     {
         public DatabaseConnection() { }
 
-        private string serverName_;
-        private string databaseName_;
-        private string databasePassword_;
-        private string databaseUsername_;
-        private MySqlConnection connection_;
+        public string serverName_;
+        public string databaseName_;
+        public string databasePassword_;
+        public string databaseUsername_;
+        public MySqlConnection connection_;
 
         /*connection_.ServerName = "trevor.butler.edu";
         connection_.DatabaseName = "scrumgang";
         connection_.DatabaseUsername = "scrumgang";
         connection_.DatabasePassword = "Z9wAabwUKeZy5pxvF5GE";*/
+
+
+        public bool connectToDatabase()
+        {
+            if (connection_ == null)
+            {
+                string connString = string.Format("Server={0}; database={1}; UID = {2}; password={3}", serverName_, databaseName_, databaseUsername_, databasePassword_);
+                connection_ = new MySqlConnection(connString);
+                connection_.Open();
+            }
+            return true;
+        }
     }
 }
