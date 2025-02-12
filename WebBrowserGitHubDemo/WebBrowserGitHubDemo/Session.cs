@@ -17,8 +17,7 @@ namespace WebBrowserGitHubDemo
             accounts.Add(new Account(username, password, email, securityQuestion, securityQuestionAnswer));
         }
 
-        //Returns index of first account in list of accounts with specified username + password
-        //returns -1 otherwise
+        //Returns index of first account in list of accounts with specified username + password, returns -1 otherwise
         public static int FindAccount(string username, string password)
         {
             for (int i = 0; i < accounts.Count; i++)
