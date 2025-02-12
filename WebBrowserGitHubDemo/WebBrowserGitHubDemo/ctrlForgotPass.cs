@@ -22,6 +22,7 @@ namespace WebBrowserGitHubDemo
 
         }
 
+        //Shows security question step if email is associated with account
         private void btn_confirmEmailForgotPassword_Click(object sender, EventArgs e)
         {
             string question = Session.FindQuestion(txtbx_emailForgotPassword.Text);
@@ -39,6 +40,7 @@ namespace WebBrowserGitHubDemo
             }
         }
 
+        //Shows reset password step if security question is answered correctly
         private void btnForgotPasswordSubmit_Click(object sender, EventArgs e)
         {
             if (txtForgotPasswordAnswer.Text.Equals(Session.GetAccount(Session.UserID).SecurityQuestionAnswer))

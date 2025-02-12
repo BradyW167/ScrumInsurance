@@ -14,6 +14,11 @@ namespace WebBrowserGitHubDemo
     {
         private DatabaseController dbController_;
 
+        public ctrlLogin()
+        {
+            InitializeComponent();
+        }
+
         public ctrlLogin(DatabaseController dbController)
         {
             InitializeComponent();
