@@ -12,11 +12,13 @@ namespace WebBrowserGitHubDemo
 {
     public partial class ctrlLogin : UserControl
     {
+        private DatabaseController dbController_;
+
         public ctrlLogin()
         {
             InitializeComponent();
 
-            DatabaseController dbController_ = new DatabaseController();
+            dbController_ = new DatabaseController();
         }
 
         private void ctrlLogin_Load(object sender, EventArgs e)
@@ -26,13 +28,22 @@ namespace WebBrowserGitHubDemo
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            // Load next page if database connection established
+            if (dbController_.openConnection())
+            {
+                ctrlForgotPass newControl = new ctrlForgotPass();
+                swapControl(newControl);
+            }
+            else {
+                btnLogin.Text = "Failed";
+            }
+        }   
+
+        // Deletes the current user control in parent panel and load a new input control
+        private void swapControl(UserControl c)
+        {
             TableLayoutPanel parentPanel = this.Parent as TableLayoutPanel;
 
-            // Load next page if database connection established
-            /*if (dbController_.isConnected())
-             * {
-             * 
-            */
             if (parentPanel != null)
             {
                 int columnIndex = parentPanel.GetColumn(this);
@@ -43,11 +54,10 @@ namespace WebBrowserGitHubDemo
                 this.Dispose();
 
                 // Load the new UserControl
-                ctrlForgotPass newControl = new ctrlForgotPass();
-                newControl.Dock = DockStyle.Fill;
+                c.Dock = DockStyle.Fill;
 
                 // Add new UserControl to the same cell
-                parentPanel.Controls.Add(newControl, columnIndex, rowIndex);
+                parentPanel.Controls.Add(c, columnIndex, rowIndex);
             }
         }
     }
