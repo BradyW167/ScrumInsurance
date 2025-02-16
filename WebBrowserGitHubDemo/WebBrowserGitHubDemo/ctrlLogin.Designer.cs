@@ -145,7 +145,6 @@
             this.lblLoginError.Size = new System.Drawing.Size(396, 52);
             this.lblLoginError.TabIndex = 19;
             this.lblLoginError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblLoginError.Click += new System.EventHandler(this.lblLoginError_Click);
             // 
             // ctrlLogin
             // 
