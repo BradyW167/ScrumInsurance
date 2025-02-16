@@ -57,7 +57,15 @@ namespace WebBrowserGitHubDemo
 
         private void btnForgotPasswordNewPassword_Click(object sender, EventArgs e)
         {
+            //updates the user's password and takes the user back to the login page
             Session.GetAccount(Session.UserID).Password = txtForgotPasswordNewPassword.Text;
+            ctrlLogin c = new ctrlLogin();
+            Session.swapControl(this, c);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //takes the user back to the login page
             ctrlLogin c = new ctrlLogin();
             Session.swapControl(this, c);
         }
