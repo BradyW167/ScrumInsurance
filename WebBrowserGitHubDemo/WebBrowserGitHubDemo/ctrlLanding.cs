@@ -16,7 +16,7 @@ namespace WebBrowserGitHubDemo
         {
             InitializeComponent();
             lblWelcome.Text = "Welcome";
-            lblUser.Text = Session.GetAccount(Session.UserID).Username + " | ";
+            lblUser.Text = Session.GetAccount(Session.UserID).Username;
         }
 
         private void lblLogout_Click(object sender, EventArgs e)
@@ -25,6 +25,9 @@ namespace WebBrowserGitHubDemo
             Session.swapControl(this, c);
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

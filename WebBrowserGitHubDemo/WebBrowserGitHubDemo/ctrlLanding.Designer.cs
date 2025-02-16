@@ -31,13 +31,18 @@
             this.lblLogout = new System.Windows.Forms.Label();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
+            this.tblQueryOutput = new System.Windows.Forms.DataGridView();
+            this.rtxtQuery = new System.Windows.Forms.RichTextBox();
+            this.lblEnterQuery = new System.Windows.Forms.Label();
+            this.btnSubmitQuery = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.tblQueryOutput)).BeginInit();
             this.SuspendLayout();
             // 
             // lblLogout
             // 
             this.lblLogout.AutoSize = true;
             this.lblLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogout.Location = new System.Drawing.Point(567, 11);
+            this.lblLogout.Location = new System.Drawing.Point(567, 33);
             this.lblLogout.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLogout.Name = "lblLogout";
             this.lblLogout.Size = new System.Drawing.Size(66, 20);
@@ -58,24 +63,72 @@
             // 
             // lblUser
             // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(500, 11);
+            this.lblUser.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblUser.Location = new System.Drawing.Point(550, 13);
+            this.lblUser.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.lblUser.MaximumSize = new System.Drawing.Size(100, 20);
+            this.lblUser.MinimumSize = new System.Drawing.Size(100, 20);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(65, 20);
+            this.lblUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblUser.Size = new System.Drawing.Size(100, 20);
             this.lblUser.TabIndex = 2;
-            this.lblUser.Text = "              ";
-            this.lblUser.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblUser.Text = "testing";
+            this.lblUser.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // tblQueryOutput
+            // 
+            this.tblQueryOutput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tblQueryOutput.Location = new System.Drawing.Point(37, 316);
+            this.tblQueryOutput.Name = "tblQueryOutput";
+            this.tblQueryOutput.RowHeadersWidth = 62;
+            this.tblQueryOutput.RowTemplate.Height = 28;
+            this.tblQueryOutput.Size = new System.Drawing.Size(596, 259);
+            this.tblQueryOutput.TabIndex = 3;
+            // 
+            // rtxtQuery
+            // 
+            this.rtxtQuery.Location = new System.Drawing.Point(168, 179);
+            this.rtxtQuery.Name = "rtxtQuery";
+            this.rtxtQuery.Size = new System.Drawing.Size(329, 110);
+            this.rtxtQuery.TabIndex = 4;
+            this.rtxtQuery.Text = "";
+            // 
+            // lblEnterQuery
+            // 
+            this.lblEnterQuery.AutoSize = true;
+            this.lblEnterQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnterQuery.Location = new System.Drawing.Point(167, 154);
+            this.lblEnterQuery.Name = "lblEnterQuery";
+            this.lblEnterQuery.Size = new System.Drawing.Size(324, 22);
+            this.lblEnterQuery.TabIndex = 5;
+            this.lblEnterQuery.Text = "Please Enter your database Query:";
+            // 
+            // btnSubmitQuery
+            // 
+            this.btnSubmitQuery.Location = new System.Drawing.Point(503, 213);
+            this.btnSubmitQuery.Name = "btnSubmitQuery";
+            this.btnSubmitQuery.Size = new System.Drawing.Size(82, 37);
+            this.btnSubmitQuery.TabIndex = 6;
+            this.btnSubmitQuery.Text = "Submit";
+            this.btnSubmitQuery.UseVisualStyleBackColor = true;
+            this.btnSubmitQuery.Click += new System.EventHandler(this.button1_Click);
             // 
             // ctrlLanding
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.Controls.Add(this.btnSubmitQuery);
+            this.Controls.Add(this.lblEnterQuery);
+            this.Controls.Add(this.rtxtQuery);
+            this.Controls.Add(this.tblQueryOutput);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.lblLogout);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ctrlLanding";
             this.Size = new System.Drawing.Size(675, 692);
+            ((System.ComponentModel.ISupportInitialize)(this.tblQueryOutput)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -86,5 +139,9 @@
         private System.Windows.Forms.Label lblLogout;
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.DataGridView tblQueryOutput;
+        private System.Windows.Forms.RichTextBox rtxtQuery;
+        private System.Windows.Forms.Label lblEnterQuery;
+        private System.Windows.Forms.Button btnSubmitQuery;
     }
 }
