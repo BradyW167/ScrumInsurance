@@ -50,7 +50,7 @@ namespace WebBrowserGitHubDemo
             }
             else
             {
-                lblLoginError.Text = "Failed to connect to database";
+                lblLoginError.Text = "Failed to connect to database. Make sure you are connected to the Butler servers";
             }
         }
 
@@ -65,5 +65,6 @@ namespace WebBrowserGitHubDemo
             ctrlForgotPass c = new ctrlForgotPass();
             Session.swapControl(this, c);
         }
+
     }
 }
