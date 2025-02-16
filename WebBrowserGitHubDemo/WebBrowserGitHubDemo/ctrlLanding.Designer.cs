@@ -35,6 +35,9 @@
             this.rtxtQuery = new System.Windows.Forms.RichTextBox();
             this.lblEnterQuery = new System.Windows.Forms.Label();
             this.btnSubmitQuery = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tblQueryOutput)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,6 +81,10 @@
             // tblQueryOutput
             // 
             this.tblQueryOutput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tblQueryOutput.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
             this.tblQueryOutput.Location = new System.Drawing.Point(37, 316);
             this.tblQueryOutput.Name = "tblQueryOutput";
             this.tblQueryOutput.RowHeadersWidth = 62;
@@ -113,6 +120,27 @@
             this.btnSubmitQuery.UseVisualStyleBackColor = true;
             this.btnSubmitQuery.Click += new System.EventHandler(this.button1_Click);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Column2";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Column3";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 150;
+            // 
             // ctrlLanding
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -143,5 +171,8 @@
         private System.Windows.Forms.RichTextBox rtxtQuery;
         private System.Windows.Forms.Label lblEnterQuery;
         private System.Windows.Forms.Button btnSubmitQuery;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

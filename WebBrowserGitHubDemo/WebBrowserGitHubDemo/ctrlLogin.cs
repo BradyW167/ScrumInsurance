@@ -40,7 +40,7 @@ namespace WebBrowserGitHubDemo
             Session.UserID = Session.FindAccount(txtUsername.Text, txtPassword.Text);
             if (Session.UserID >= 0 && dbController_.openConnection())
             {
-                ctrlLanding newControl = new ctrlLanding();
+                ctrlLanding newControl = new ctrlLanding(dbController_);
                 Session.swapControl(this, newControl);
             }
             //Error if account with correct username & password isn't found
