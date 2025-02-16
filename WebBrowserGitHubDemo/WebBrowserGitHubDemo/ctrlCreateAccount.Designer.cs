@@ -59,7 +59,7 @@
             this.btnCreateAccount.Name = "btnCreateAccount";
             this.btnCreateAccount.Size = new System.Drawing.Size(101, 23);
             this.btnCreateAccount.TabIndex = 9;
-            this.btnCreateAccount.Text = "CreateAccount";
+            this.btnCreateAccount.Text = "Create Account";
             this.btnCreateAccount.UseVisualStyleBackColor = true;
             this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
             // 

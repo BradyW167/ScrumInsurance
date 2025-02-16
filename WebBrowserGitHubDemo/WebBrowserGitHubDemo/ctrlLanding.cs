@@ -29,6 +29,7 @@ namespace WebBrowserGitHubDemo
         {
             //this will carry over the same database used on the connection from the login screen
             InitializeComponent();
+            lblUser.Text = Session.GetAccount(Session.UserID).Username;
             dbController_ = dbController;
         }
 

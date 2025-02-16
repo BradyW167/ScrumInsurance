@@ -33,6 +33,7 @@ namespace WebBrowserGitHubDemo
                 txtForgotPasswordAnswer.Visible = true;
                 btnForgotPasswordSubmit.Visible = true;
                 Session.UserID = Session.FindAccount(txtbx_emailForgotPassword.Text);
+                lblForgotPasswordEmailError.Text = "";
             }
             else
             {
@@ -48,6 +49,7 @@ namespace WebBrowserGitHubDemo
                 lblForgotPasswordNewPassword.Visible = true;
                 txtForgotPasswordNewPassword.Visible = true;
                 btnForgotPasswordNewPassword.Visible = true;
+                lblForgotPasswordQuestionError.Text = "";
             }
             else
             {
