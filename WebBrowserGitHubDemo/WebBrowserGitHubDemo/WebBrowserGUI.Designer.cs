@@ -31,10 +31,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtURL = new System.Windows.Forms.TextBox();
             this.btnGO = new System.Windows.Forms.Button();
-            this.wbrDisplay = new System.Windows.Forms.WebBrowser();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnFavorite = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.wbrDisplay = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
             // label1
@@ -68,19 +72,6 @@
             this.btnGO.Text = "GO";
             this.btnGO.UseVisualStyleBackColor = true;
             this.btnGO.Click += new System.EventHandler(this.btnGO_Click);
-            // 
-            // wbrDisplay
-            // 
-            this.wbrDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.wbrDisplay.Location = new System.Drawing.Point(-4, 92);
-            this.wbrDisplay.Margin = new System.Windows.Forms.Padding(4);
-            this.wbrDisplay.MinimumSize = new System.Drawing.Size(27, 25);
-            this.wbrDisplay.Name = "wbrDisplay";
-            this.wbrDisplay.Size = new System.Drawing.Size(959, 443);
-            this.wbrDisplay.TabIndex = 3;
-            this.wbrDisplay.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.wbrDisplay_DocumentCompleted);
             // 
             // btnRefresh
             // 
@@ -117,11 +108,65 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(326, 69);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(160, 38);
+            this.btnClear.TabIndex = 5;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(12, 10);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(41, 23);
+            this.btnExit.TabIndex = 6;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnFavorite
+            // 
+            this.btnFavorite.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.btnFavorite.Location = new System.Drawing.Point(754, 47);
+            this.btnFavorite.Name = "btnFavorite";
+            this.btnFavorite.Size = new System.Drawing.Size(90, 38);
+            this.btnFavorite.TabIndex = 7;
+            this.btnFavorite.Text = "Favorite";
+            this.btnFavorite.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(12, 124);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(231, 22);
+            this.dateTimePicker1.TabIndex = 8;
+            // 
+            // wbrDisplay
+            // 
+            this.wbrDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.wbrDisplay.Location = new System.Drawing.Point(-4, 114);
+            this.wbrDisplay.Margin = new System.Windows.Forms.Padding(4);
+            this.wbrDisplay.MinimumSize = new System.Drawing.Size(27, 25);
+            this.wbrDisplay.Name = "wbrDisplay";
+            this.wbrDisplay.Size = new System.Drawing.Size(959, 421);
+            this.wbrDisplay.TabIndex = 3;
+            this.wbrDisplay.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.wbrDisplay_DocumentCompleted);
+            // 
             // WebBrowserGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 532);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.btnFavorite);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnRefresh);
@@ -143,10 +188,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtURL;
         private System.Windows.Forms.Button btnGO;
-        private System.Windows.Forms.WebBrowser wbrDisplay;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnFavorite;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.WebBrowser wbrDisplay;
     }
 }
 
