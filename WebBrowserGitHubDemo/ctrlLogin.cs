@@ -37,14 +37,14 @@ namespace WebBrowserGitHubDemo
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // Load next page if database connection established & account with correct username & password is found
-            Session.UserID = Session.FindAccount(txtUsername.Text, txtPassword.Text);
-            if (Session.UserID >= 0 && dbController_.openConnection())
+            Session.userID = Session.findAccount(txtUsername.Text, txtPassword.Text);
+            if (Session.userID >= 0 && dbController_.openConnection())
             {
                 ctrlLanding newControl = new ctrlLanding(dbController_);
                 Session.swapControl(this, newControl);
             }
             //Error if account with correct username & password isn't found
-            else if (Session.UserID < 0)
+            else if (Session.userID < 0)
             {
                 lblLoginError.Text = "Incorrect username or password\nPlease make an account if you haven't already";
             }

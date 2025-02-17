@@ -88,7 +88,7 @@ namespace WebBrowserGitHubDemo
         // Deletes the current user control in parent panel and load a new input control
         public static void swapControl(UserControl oldControl, UserControl newControl)
         {
-            TableLayoutPanel parentPanel = this.Parent as TableLayoutPanel;
+            TableLayoutPanel parentPanel = oldControl.Parent as TableLayoutPanel;
 
             if (parentPanel != null)
             {

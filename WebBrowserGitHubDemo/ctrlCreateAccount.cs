@@ -25,7 +25,7 @@ namespace WebBrowserGitHubDemo
 
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            Session.AddAccount(txtCreateUsername.Text, txtCreatePassword.Text, txtCreateEmail.Text, txtCreateQuestion.Text, txtCreateAnswer.Text);
+            Session.addAccount(txtCreateUsername.Text, txtCreatePassword.Text, txtCreateEmail.Text, txtCreateQuestion.Text, txtCreateAnswer.Text);
             ctrlLogin c = new ctrlLogin();
             Session.swapControl(this, c);
         }

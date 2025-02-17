@@ -18,7 +18,7 @@ namespace WebBrowserGitHubDemo
             //while the landing page SHOULD always carry over the database from the login, this ensures that it will always have a non null database
             InitializeComponent();
             lblWelcome.Text = "Welcome";
-            lblUser.Text = Session.GetAccount(Session.UserID).Username;
+            lblUser.Text = Session.getAccount(Session.userID).username_;
             if (dbController_ == null)
             {
                 dbController_ = new DatabaseController();
@@ -29,7 +29,7 @@ namespace WebBrowserGitHubDemo
         {
             //this will carry over the same database used on the connection from the login screen
             InitializeComponent();
-            lblUser.Text = Session.GetAccount(Session.UserID).Username;
+            lblUser.Text = Session.getAccount(Session.userID).username_;
             dbController_ = dbController;
         }
 
