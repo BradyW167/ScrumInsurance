@@ -130,12 +130,6 @@
     <Compile Include="Registration.Designer.cs">
       <DependentUpon>Registration.cs</DependentUpon>
     </Compile>
-    <Compile Include="ForgotPassword.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ForgotPassword.Designer.cs">
-      <DependentUpon>ForgotPassword.cs</DependentUpon>
-    </Compile>
     <Compile Include="formMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,12 +165,6 @@
     <Compile Include="ctrlCreateAccount.Designer.cs">
       <DependentUpon>ctrlCreateAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="WebBrowserGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WebBrowserGUI.Designer.cs">
-      <DependentUpon>WebBrowserGUI.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ctrlCreateAccount.resx">
@@ -188,9 +176,6 @@
     <EmbeddedResource Include="Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ForgotPassword.resx">
-      <DependentUpon>ForgotPassword.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="formMain.resx">
       <DependentUpon>formMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,9 +185,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ctrlForgotPass.resx">
       <DependentUpon>ctrlForgotPass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WebBrowserGUI.resx">
-      <DependentUpon>WebBrowserGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

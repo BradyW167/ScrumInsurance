@@ -84,5 +84,27 @@ namespace WebBrowserGitHubDemo
         {
 
         }
+
+        // Deletes the current user control in parent panel and load a new input control
+        public static void swapControl(UserControl oldControl, UserControl newControl)
+        {
+            TableLayoutPanel parentPanel = this.Parent as TableLayoutPanel;
+
+            if (parentPanel != null)
+            {
+                int columnIndex = parentPanel.GetColumn(oldControl);
+                int rowIndex = parentPanel.GetRow(oldControl);
+
+                // Remove the current UserControl
+                parentPanel.Controls.Remove(oldControl);
+                oldControl.Dispose();
+
+                // Load the new UserControl
+                newControl.Dock = DockStyle.Fill;
+
+                // Add new UserControl to the same cell
+                parentPanel.Controls.Add(newControl, columnIndex, rowIndex);
+            }
+        }
     }
 }

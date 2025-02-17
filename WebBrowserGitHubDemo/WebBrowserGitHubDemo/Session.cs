@@ -21,7 +21,7 @@ namespace WebBrowserGitHubDemo
         {
             for (int i = 0; i < accounts.Count; i++)
             {
-                if (accounts[i].ValidCreditials(username, password))
+                if (accounts[i].validCreds(username, password))
                 {
                     return i;
                 }
@@ -33,7 +33,7 @@ namespace WebBrowserGitHubDemo
         {
             for (int i = 0; i < accounts.Count; i++)
             {
-                if (accounts[i].ValidCreditials(email))
+                if (accounts[i].validCreds(email))
                 {
                     return i;
                 }
@@ -46,26 +46,8 @@ namespace WebBrowserGitHubDemo
             return accounts[index];
         }
 
-        // Deletes the current user control in parent panel and load a new input control
-        public static void swapControl(UserControl oldControl, UserControl newControl)
-        {
-            TableLayoutPanel parentPanel = oldControl.Parent as TableLayoutPanel;
-
-            if (parentPanel != null)
-            {
-                int columnIndex = parentPanel.GetColumn(oldControl);
-                int rowIndex = parentPanel.GetRow(oldControl);
-
-                // Remove the current UserControl
-                parentPanel.Controls.Remove(oldControl);
-                oldControl.Dispose();
-
-                // Load the new UserControl
-                newControl.Dock = DockStyle.Fill;
-
-                // Add new UserControl to the same cell
-                parentPanel.Controls.Add(newControl, columnIndex, rowIndex);
-            }
-        }
+        // Moved swapcontrol back to main form
+        // It is part of the UI not part of the login system
+        // So it should sit with the other UI code
     }
 }

@@ -10,27 +10,27 @@ namespace WebBrowserGitHubDemo
     {
         public Account(string username, string password, string email, string securityQuestion, string securityAnswer)
         {
-            Username = username;
-            Password = password;
-            Email = email;
-            SecurityQuestion = securityQuestion;
-            SecurityQuestionAnswer = securityAnswer;
+            username_ = username;
+            password_ = password;
+            email_ = email;
+            securityQuestion_ = securityQuestion;
+            securityAnswer_ = securityAnswer;
         }
 
-        public bool ValidCreditials(string username, string password)
+        public bool validCreds(string username, string password)
         {
-            return Username.Equals(username) && Password.Equals(password);
+            return username_.Equals(username) && password_.Equals(password);
         }
 
-        public bool ValidCreditials(string email)
+        public bool validCreds(string email)
         {
-            return Email.Equals(email);
+            return email_.Equals(email);
         }
 
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Email { get; set; }
-        public string SecurityQuestion  {  get; set; }
-        public string SecurityQuestionAnswer { get; set; }
+        public string username_ { get; set; }
+        public string password_ { get; set; }
+        public string email_ { get; set; }
+        public string securityQuestion_  {  get; set; }
+        public string securityAnswer_ { get; set; }
     }
 }
