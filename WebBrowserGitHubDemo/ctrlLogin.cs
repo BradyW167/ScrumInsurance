@@ -14,6 +14,15 @@ namespace WebBrowserGitHubDemo
     {
         private DatabaseController dbController_;
 
+        public ctrlLogin()
+        {
+            InitializeComponent();
+            if (dbController_ == null)
+            {
+                dbController_ = new DatabaseController();
+            }
+        }
+
         public ctrlLogin(DatabaseController dbController)
         {
             InitializeComponent();
@@ -27,20 +36,21 @@ namespace WebBrowserGitHubDemo
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // Load next page if database connection established
+            // Load next page if database connection established & account with correct username & password is found
             Session.UserID = Session.FindAccount(txtUsername.Text, txtPassword.Text);
             if (Session.UserID >= 0 && dbController_.openConnection())
             {
-                ctrlLanding newControl = new ctrlLanding();
+                ctrlLanding newControl = new ctrlLanding(dbController_);
                 Session.swapControl(this, newControl);
             }
+            //Error if account with correct username & password isn't found
             else if (Session.UserID < 0)
             {
                 lblLoginError.Text = "Incorrect username or password\nPlease make an account if you haven't already";
             }
             else
             {
-                lblLoginError.Text = "Failed";
+                lblLoginError.Text = "Failed to connect to database. Make sure you are connected to the Butler servers";
             }
         }
 
@@ -48,24 +58,13 @@ namespace WebBrowserGitHubDemo
         {
             ctrlCreateAccount c = new ctrlCreateAccount();
             Session.swapControl(this, c);
-            TableLayoutPanel parentPanel = this.Parent as TableLayoutPanel;
-
-            if (parentPanel != null)
-            {
-                int columnIndex = parentPanel.GetColumn(this);
-                int rowIndex = parentPanel.GetRow(this);
-
-                // Remove the current UserControl
-                parentPanel.Controls.Remove(this);
-                this.Dispose();
-
-                // Load the new UserControl
-                c.AutoSize = true;
-                c.Dock = DockStyle.Fill;
-
-                // Add new UserControl to the same cell
-                parentPanel.Controls.Add(c, columnIndex, rowIndex);
-            }
         }
+
+        private void lbl_ForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ctrlForgotPass c = new ctrlForgotPass();
+            Session.swapControl(this, c);
+        }
+
     }
 }

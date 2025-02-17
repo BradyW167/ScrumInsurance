@@ -17,6 +17,7 @@ namespace WebBrowserGitHubDemo
             accounts.Add(new Account(username, password, email, securityQuestion, securityQuestionAnswer));
         }
 
+        //Returns index of first account in list of accounts with specified username + password, returns -1 otherwise
         public static int FindAccount(string username, string password)
         {
             for (int i = 0; i < accounts.Count; i++)
@@ -29,6 +30,7 @@ namespace WebBrowserGitHubDemo
             return -1;
         }
 
+        //Returns index of first account in list of accounts with specified email, returns -1 otherwise
         public static int FindAccount(string email)
         {
             for (int i = 0; i < accounts.Count; i++)
@@ -39,6 +41,19 @@ namespace WebBrowserGitHubDemo
                 }
             }
             return -1;
+        }
+
+        //Returns security question of first account with speciifed email, returns null otherwise
+        public static string FindQuestion(string email)
+        {
+            for (int i = 0; i < accounts.Count; i++)
+            {
+                if (accounts[i].ValidCreditials(email))
+                {
+                    return accounts[i].SecurityQuestion;
+                }
+            }
+            return null;
         }
 
         public static Account GetAccount(int index)
