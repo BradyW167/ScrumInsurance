@@ -15,6 +15,8 @@ namespace ScrumInsurance
         public Session()
         {
             accounts_ = new List<Account>();
+            //this will need to be taken out later, however it is here for now just for testing purposes. 
+            accounts_.Add(new Account("admin", "admin", "adming@scrum.com", "Background Color?", "Steel Blue"));
             dbController_ = new DatabaseController();
         }
 
