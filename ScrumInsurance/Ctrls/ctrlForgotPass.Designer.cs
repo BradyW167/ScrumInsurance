@@ -177,6 +177,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnForgotPasswordNewPassword);
             this.Controls.Add(this.lblForgotPasswordNewPassword);

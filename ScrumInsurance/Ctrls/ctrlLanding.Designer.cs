@@ -32,12 +32,12 @@
             this.lblWelcome = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
             this.tblQueryOutput = new System.Windows.Forms.DataGridView();
-            this.rtxtQuery = new System.Windows.Forms.RichTextBox();
-            this.lblEnterQuery = new System.Windows.Forms.Label();
-            this.btnSubmitQuery = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rtxtQuery = new System.Windows.Forms.RichTextBox();
+            this.lblEnterQuery = new System.Windows.Forms.Label();
+            this.btnSubmitQuery = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tblQueryOutput)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,6 +92,27 @@
             this.tblQueryOutput.Size = new System.Drawing.Size(596, 259);
             this.tblQueryOutput.TabIndex = 3;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Column2";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Column3";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 150;
+            // 
             // rtxtQuery
             // 
             this.rtxtQuery.Location = new System.Drawing.Point(168, 179);
@@ -120,32 +141,12 @@
             this.btnSubmitQuery.UseVisualStyleBackColor = true;
             this.btnSubmitQuery.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Column2";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Column3";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 150;
-            // 
             // ctrlLanding
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.Controls.Add(this.btnSubmitQuery);
             this.Controls.Add(this.lblEnterQuery);
             this.Controls.Add(this.rtxtQuery);
@@ -153,7 +154,6 @@
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.lblLogout);
-            this.Load += ctrlLanding_Load;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ctrlLanding";
             this.Size = new System.Drawing.Size(675, 692);

@@ -176,6 +176,9 @@
     <EmbeddedResource Include="Ctrls\ctrlForgotPass.resx">
       <DependentUpon>ctrlForgotPass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ctrls\ctrlLanding.resx">
+      <DependentUpon>ctrlLanding.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlLogin.resx">
       <DependentUpon>ctrlLogin.cs</DependentUpon>
     </EmbeddedResource>
