@@ -153,6 +153,7 @@
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.lblLogout);
+            this.Load += ctrlLanding_Load;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ctrlLanding";
             this.Size = new System.Drawing.Size(675, 692);

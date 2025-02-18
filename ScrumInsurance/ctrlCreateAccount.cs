@@ -12,7 +12,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ScrumInsurance
 {
-    public partial class ctrlCreateAccount : UserControl
+    public partial class ctrlCreateAccount : ScrumUserControl
     {
         public ctrlCreateAccount()
         {
@@ -25,9 +25,8 @@ namespace ScrumInsurance
 
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            Session.addAccount(txtCreateUsername.Text, txtCreatePassword.Text, txtCreateEmail.Text, txtCreateQuestion.Text, txtCreateAnswer.Text);
-            ctrlLogin c = new ctrlLogin();
-            Session.swapControl(this, c);
+            session_.addAccount(txtCreateUsername.Text, txtCreatePassword.Text, txtCreateEmail.Text, txtCreateQuestion.Text, txtCreateAnswer.Text);
+            this.swapControl(new ctrlLogin());
         }
     }
 }

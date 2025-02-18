@@ -38,8 +38,9 @@ namespace ScrumInsurance
                 {
                     Connection.Open();
                 }
-                catch (Exception ex)
+                catch (MySqlException ex)
                 {
+                    Console.WriteLine($"MySQL Connection Error {ex.Message}");
                     return false;
                 }
             }

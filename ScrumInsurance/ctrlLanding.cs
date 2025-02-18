@@ -10,33 +10,23 @@ using System.Windows.Forms;
 
 namespace ScrumInsurance
 {
-    public partial class ctrlLanding : UserControl
+    public partial class ctrlLanding : ScrumUserControl
     {
-        private DatabaseController dbController_;
         public ctrlLanding()
         {
-            //while the landing page SHOULD always carry over the database from the login, this ensures that it will always have a non null database
             InitializeComponent();
-            lblWelcome.Text = "Welcome";
-            lblUser.Text = Session.getAccount(Session.userID).username_;
-            if (dbController_ == null)
-            {
-                dbController_ = new DatabaseController();
-            }
         }
 
-        public ctrlLanding(DatabaseController dbController)
+        private void ctrlLanding_Load(object sender, EventArgs e)
         {
-            //this will carry over the same database used on the connection from the login screen
-            InitializeComponent();
-            lblUser.Text = Session.getAccount(Session.userID).username_;
-            dbController_ = dbController;
+            // Load username into text label
+            lblUser.Text = session_.getAccount(session_.userID).Username;
         }
 
         private void lblLogout_Click(object sender, EventArgs e)
         {
             ctrlLogin c = new ctrlLogin();
-            Session.swapControl(this, c);
+            this.swapControl(c);
         }
 
         private void button1_Click(object sender, EventArgs e)
