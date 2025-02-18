@@ -10,27 +10,29 @@ namespace ScrumInsurance
     {
         public Account(string username, string password, string email, string securityQuestion, string securityAnswer)
         {
-            username_ = username;
-            password_ = password;
-            email_ = email;
-            securityQuestion_ = securityQuestion;
-            securityAnswer_ = securityAnswer;
+            Username = username;
+            Password = password;
+            Email = email;
+            SecurityQuestion = securityQuestion;
+            SecurityAnswer = securityAnswer;
+            isAdmin = false;
         }
 
         public bool validCreds(string username, string password)
         {
-            return username_.Equals(username) && password_.Equals(password);
+            return Username.Equals(username) && Password.Equals(password);
         }
 
         public bool validCreds(string email)
         {
-            return email_.Equals(email);
+            return Email.Equals(email);
         }
 
-        public string username_ { get; set; }
-        public string password_ { get; set; }
-        public string email_ { get; set; }
-        public string securityQuestion_  {  get; set; }
-        public string securityAnswer_ { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        public string SecurityQuestion  {  get; set; }
+        public string SecurityAnswer { get; set; }
+        public bool isAdmin { get; set; }
     }
 }

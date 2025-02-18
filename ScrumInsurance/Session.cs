@@ -7,18 +7,32 @@ using System.Windows.Forms;
 
 namespace ScrumInsurance
 {
-    public static class Session
+    public class Session
     {
-        private static List<Account> accounts_ = new List<Account>();
-        public static int userID { get; set; }
+        private List<Account> accounts_;
+        private DatabaseController dbController_;
 
-        public static void addAccount(string username, string password, string email, string securityQuestion, string securityQuestionAnswer)
+        public Session()
+        {
+            accounts_ = new List<Account>();
+            //this will need to be taken out later, however it is here for now just for testing purposes. 
+            accounts_.Add(new Account("admin", "admin", "adming@scrum.com", "Background Color?", "Steel Blue"));
+            accounts_[0].isAdmin = true;
+
+            dbController_ = new DatabaseController();
+        }
+
+        public int userID { get; set; }
+
+        public bool isConnected () { return dbController_.openConnection(); }
+
+        public void addAccount(string username, string password, string email, string securityQuestion, string securityQuestionAnswer)
         {
             accounts_.Add(new Account(username, password, email, securityQuestion, securityQuestionAnswer));
         }
 
         //Returns index of first account in list of accounts with specified username + password, returns -1 otherwise
-        public static int findAccount(string username, string password)
+        public int findAccount(string username, string password)
         {
             for (int i = 0; i < accounts_.Count; i++)
             {
@@ -31,7 +45,7 @@ namespace ScrumInsurance
         }
 
         //Returns index of first account in list of accounts with specified email, returns -1 otherwise
-        public static int findAccount(string email)
+        public int findAccount(string email)
         {
             for (int i = 0; i < accounts_.Count; i++)
             {
@@ -44,43 +58,21 @@ namespace ScrumInsurance
         }
 
         //Returns security question of first account with speciifed email, returns null otherwise
-        public static string findQuestion(string email)
+        public string findQuestion(string email)
         {
             for (int i = 0; i < accounts_.Count; i++)
             {
                 if (accounts_[i].validCreds(email))
                 {
-                    return accounts_[i].securityQuestion_;
+                    return accounts_[i].SecurityQuestion;
                 }
             }
             return null;
         }
 
-        public static Account getAccount(int index)
+        public Account getAccount(int index)
         {
             return accounts_[index];
-        }
-
-        // Deletes the current user control in parent panel and load a new input control
-        public static void swapControl(UserControl oldControl, UserControl newControl)
-        {
-            TableLayoutPanel parentPanel = oldControl.Parent as TableLayoutPanel;
-
-            if (parentPanel != null)
-            {
-                int columnIndex = parentPanel.GetColumn(oldControl);
-                int rowIndex = parentPanel.GetRow(oldControl);
-
-                // Remove the current UserControl
-                parentPanel.Controls.Remove(oldControl);
-                oldControl.Dispose();
-
-                // Load the new UserControl
-                newControl.Dock = DockStyle.Fill;
-
-                // Add new UserControl to the same cell
-                parentPanel.Controls.Add(newControl, columnIndex, rowIndex);
-            }
         }
     }
 }

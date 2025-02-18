@@ -42,27 +42,28 @@
             this.lblAnswer = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblCreateAccountError = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCreateAccount
             // 
             this.lblCreateAccount.AutoSize = true;
-            this.lblCreateAccount.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblCreateAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.lblCreateAccount.Location = new System.Drawing.Point(107, 29);
-            this.lblCreateAccount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCreateAccount.BackColor = System.Drawing.Color.SteelBlue;
+            this.lblCreateAccount.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreateAccount.Location = new System.Drawing.Point(71, 35);
             this.lblCreateAccount.Name = "lblCreateAccount";
-            this.lblCreateAccount.Size = new System.Drawing.Size(148, 25);
+            this.lblCreateAccount.Size = new System.Drawing.Size(231, 39);
             this.lblCreateAccount.TabIndex = 10;
             this.lblCreateAccount.Text = "Create Account";
             // 
             // btnCreateAccount
             // 
             this.btnCreateAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnCreateAccount.Location = new System.Drawing.Point(56, 369);
+            this.btnCreateAccount.Location = new System.Drawing.Point(84, 587);
+            this.btnCreateAccount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCreateAccount.Name = "btnCreateAccount";
-            this.btnCreateAccount.Size = new System.Drawing.Size(251, 30);
+            this.btnCreateAccount.Size = new System.Drawing.Size(376, 46);
             this.btnCreateAccount.TabIndex = 9;
             this.btnCreateAccount.Text = "Create Account";
             this.btnCreateAccount.UseVisualStyleBackColor = true;
@@ -71,10 +72,9 @@
             // txtCreateUsername
             // 
             this.txtCreateUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txtCreateUsername.Location = new System.Drawing.Point(56, 75);
-            this.txtCreateUsername.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCreateUsername.Location = new System.Drawing.Point(84, 134);
             this.txtCreateUsername.Name = "txtCreateUsername";
-            this.txtCreateUsername.Size = new System.Drawing.Size(251, 30);
+            this.txtCreateUsername.Size = new System.Drawing.Size(374, 41);
             this.txtCreateUsername.TabIndex = 8;
             // 
             // lblCretaeUsername
@@ -82,20 +82,18 @@
             this.lblCretaeUsername.AutoSize = true;
             this.lblCretaeUsername.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblCretaeUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCretaeUsername.Location = new System.Drawing.Point(52, 53);
-            this.lblCretaeUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCretaeUsername.Location = new System.Drawing.Point(78, 101);
             this.lblCretaeUsername.Name = "lblCretaeUsername";
-            this.lblCretaeUsername.Size = new System.Drawing.Size(83, 20);
+            this.lblCretaeUsername.Size = new System.Drawing.Size(124, 29);
             this.lblCretaeUsername.TabIndex = 7;
             this.lblCretaeUsername.Text = "Username";
             // 
             // txtCreatePassword
             // 
             this.txtCreatePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txtCreatePassword.Location = new System.Drawing.Point(56, 129);
-            this.txtCreatePassword.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCreatePassword.Location = new System.Drawing.Point(84, 217);
             this.txtCreatePassword.Name = "txtCreatePassword";
-            this.txtCreatePassword.Size = new System.Drawing.Size(251, 30);
+            this.txtCreatePassword.Size = new System.Drawing.Size(374, 41);
             this.txtCreatePassword.TabIndex = 12;
             // 
             // lblCreatePassword
@@ -103,20 +101,18 @@
             this.lblCreatePassword.AutoSize = true;
             this.lblCreatePassword.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblCreatePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCreatePassword.Location = new System.Drawing.Point(53, 107);
-            this.lblCreatePassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCreatePassword.Location = new System.Drawing.Point(80, 184);
             this.lblCreatePassword.Name = "lblCreatePassword";
-            this.lblCreatePassword.Size = new System.Drawing.Size(78, 20);
+            this.lblCreatePassword.Size = new System.Drawing.Size(120, 29);
             this.lblCreatePassword.TabIndex = 11;
             this.lblCreatePassword.Text = "Password";
             // 
             // txtCreateEmail
             // 
             this.txtCreateEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txtCreateEmail.Location = new System.Drawing.Point(56, 183);
-            this.txtCreateEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCreateEmail.Location = new System.Drawing.Point(84, 301);
             this.txtCreateEmail.Name = "txtCreateEmail";
-            this.txtCreateEmail.Size = new System.Drawing.Size(251, 30);
+            this.txtCreateEmail.Size = new System.Drawing.Size(374, 41);
             this.txtCreateEmail.TabIndex = 14;
             // 
             // lblCreateEmail
@@ -124,20 +120,18 @@
             this.lblCreateEmail.AutoSize = true;
             this.lblCreateEmail.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblCreateEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCreateEmail.Location = new System.Drawing.Point(52, 161);
-            this.lblCreateEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCreateEmail.Location = new System.Drawing.Point(78, 267);
             this.lblCreateEmail.Name = "lblCreateEmail";
-            this.lblCreateEmail.Size = new System.Drawing.Size(48, 20);
+            this.lblCreateEmail.Size = new System.Drawing.Size(74, 29);
             this.lblCreateEmail.TabIndex = 13;
             this.lblCreateEmail.Text = "Email";
             // 
             // txtCreateQuestion
             // 
-            this.txtCreateQuestion.Location = new System.Drawing.Point(56, 237);
-            this.txtCreateQuestion.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCreateQuestion.Location = new System.Drawing.Point(84, 384);
             this.txtCreateQuestion.Multiline = true;
             this.txtCreateQuestion.Name = "txtCreateQuestion";
-            this.txtCreateQuestion.Size = new System.Drawing.Size(251, 30);
+            this.txtCreateQuestion.Size = new System.Drawing.Size(374, 44);
             this.txtCreateQuestion.TabIndex = 16;
             // 
             // lblSecurityQuestion
@@ -145,21 +139,19 @@
             this.lblSecurityQuestion.AutoSize = true;
             this.lblSecurityQuestion.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblSecurityQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblSecurityQuestion.Location = new System.Drawing.Point(53, 215);
-            this.lblSecurityQuestion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSecurityQuestion.Location = new System.Drawing.Point(80, 350);
             this.lblSecurityQuestion.Name = "lblSecurityQuestion";
-            this.lblSecurityQuestion.Size = new System.Drawing.Size(134, 20);
+            this.lblSecurityQuestion.Size = new System.Drawing.Size(202, 29);
             this.lblSecurityQuestion.TabIndex = 15;
             this.lblSecurityQuestion.Text = "Security Question";
             // 
             // txtCreateAnswer
             // 
             this.txtCreateAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtCreateAnswer.Location = new System.Drawing.Point(56, 289);
-            this.txtCreateAnswer.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCreateAnswer.Location = new System.Drawing.Point(84, 464);
             this.txtCreateAnswer.Multiline = true;
             this.txtCreateAnswer.Name = "txtCreateAnswer";
-            this.txtCreateAnswer.Size = new System.Drawing.Size(251, 30);
+            this.txtCreateAnswer.Size = new System.Drawing.Size(374, 44);
             this.txtCreateAnswer.TabIndex = 18;
             // 
             // lblAnswer
@@ -167,10 +159,9 @@
             this.lblAnswer.AutoSize = true;
             this.lblAnswer.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblAnswer.Location = new System.Drawing.Point(52, 267);
-            this.lblAnswer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAnswer.Location = new System.Drawing.Point(78, 430);
             this.lblAnswer.Name = "lblAnswer";
-            this.lblAnswer.Size = new System.Drawing.Size(62, 20);
+            this.lblAnswer.Size = new System.Drawing.Size(93, 29);
             this.lblAnswer.TabIndex = 17;
             this.lblAnswer.Text = "Answer";
             // 
@@ -178,9 +169,10 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pictureBox1.Location = new System.Drawing.Point(44, 27);
+            this.pictureBox1.Location = new System.Drawing.Point(66, 79);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(274, 383);
+            this.pictureBox1.Size = new System.Drawing.Size(411, 571);
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
@@ -194,16 +186,27 @@
             this.lblCreateAccountError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCreateAccountError.Name = "lblCreateAccountError";
             this.lblCreateAccountError.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblCreateAccountError.Size = new System.Drawing.Size(251, 34);
+            this.lblCreateAccountError.Size = new System.Drawing.Size(376, 52);
             this.lblCreateAccountError.TabIndex = 22;
             this.lblCreateAccountError.Text = "CLEAR ON INITIALIZE";
             this.lblCreateAccountError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(451, 13);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(73, 37);
+            this.btnBack.TabIndex = 23;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // ctrlCreateAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblCreateAccountError);
             this.Controls.Add(this.txtCreateAnswer);
             this.Controls.Add(this.lblAnswer);
@@ -218,8 +221,9 @@
             this.Controls.Add(this.txtCreateUsername);
             this.Controls.Add(this.lblCretaeUsername);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ctrlCreateAccount";
-            this.Size = new System.Drawing.Size(362, 435);
+            this.Size = new System.Drawing.Size(543, 669);
             this.Load += new System.EventHandler(this.ctrlCreateAccount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -243,5 +247,6 @@
         private System.Windows.Forms.Label lblAnswer;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblCreateAccountError;
+        private System.Windows.Forms.Button btnBack;
     }
 }

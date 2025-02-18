@@ -10,10 +10,8 @@ using System.Windows.Forms;
 
 namespace ScrumInsurance
 {
-    public partial class ctrlLogin : UserControl
+    public partial class ctrlLogin : ScrumUserControl
     {
-        private DatabaseController dbController_;
-
         public ctrlLogin()
         {
             InitializeComponent();
@@ -39,14 +37,13 @@ namespace ScrumInsurance
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // Load next page if database connection established & account with correct username & password is found
-            Session.userID = Session.findAccount(txtUsername.Text, txtPassword.Text);
-            if (Session.userID >= 0 && dbController_.openConnection())
+            session_.userID = session_.findAccount(txtUsername.Text, txtPassword.Text);
+            if (session_.userID >= 0 && session_.isConnected())
             {
-                ctrlLanding newControl = new ctrlLanding(dbController_);
-                Session.swapControl(this, newControl);
+                this.swapControl(new ctrlLanding());
             }
             //Error if account with correct username & password isn't found
-            else if (Session.userID < 0)
+            else if (session_.userID < 0)
             {
                 lblLoginError.Text = "Incorrect username or password";
             }
@@ -58,14 +55,12 @@ namespace ScrumInsurance
 
         private void lbl_createAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ctrlCreateAccount c = new ctrlCreateAccount();
-            Session.swapControl(this, c);
+            this.swapControl(new ctrlCreateAccount());
         }
 
         private void lbl_ForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ctrlForgotPass c = new ctrlForgotPass();
-            Session.swapControl(this, c);
+            this.swapControl(new ctrlForgotPass());
         }
 
     }
