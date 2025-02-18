@@ -49,7 +49,7 @@
             // 
             this.lbl_createAccount.AutoSize = true;
             this.lbl_createAccount.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lbl_createAccount.Location = new System.Drawing.Point(306, 602);
+            this.lbl_createAccount.Location = new System.Drawing.Point(324, 602);
             this.lbl_createAccount.Name = "lbl_createAccount";
             this.lbl_createAccount.Size = new System.Drawing.Size(120, 20);
             this.lbl_createAccount.TabIndex = 18;
@@ -73,12 +73,12 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(128, 226);
+            this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(51, 220);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(211, 37);
+            this.label3.Size = new System.Drawing.Size(370, 46);
             this.label3.TabIndex = 16;
-            this.label3.Text = "Please Log In";
+            this.label3.Text = "Please log in using your \r\nSCRUM INSURANCE username and password";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnLogin
@@ -87,7 +87,7 @@
             this.btnLogin.Location = new System.Drawing.Point(48, 552);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(376, 45);
+            this.btnLogin.Size = new System.Drawing.Size(396, 45);
             this.btnLogin.TabIndex = 15;
             this.btnLogin.Text = "Log In";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -95,12 +95,12 @@
             // 
             // welcomeLabel
             // 
-            this.welcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.welcomeLabel.Location = new System.Drawing.Point(106, 166);
+            this.welcomeLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.welcomeLabel.Location = new System.Drawing.Point(18, 166);
             this.welcomeLabel.Name = "welcomeLabel";
-            this.welcomeLabel.Size = new System.Drawing.Size(258, 63);
+            this.welcomeLabel.Size = new System.Drawing.Size(453, 63);
             this.welcomeLabel.TabIndex = 14;
-            this.welcomeLabel.Text = "Welcome!";
+            this.welcomeLabel.Text = "SCRUM INSURANCE";
             this.welcomeLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txtUsername
@@ -109,7 +109,7 @@
             this.txtUsername.Location = new System.Drawing.Point(48, 320);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(374, 41);
+            this.txtUsername.Size = new System.Drawing.Size(396, 41);
             this.txtUsername.TabIndex = 12;
             // 
             // txtPassword
@@ -119,7 +119,7 @@
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
-            this.txtPassword.Size = new System.Drawing.Size(374, 41);
+            this.txtPassword.Size = new System.Drawing.Size(396, 41);
             this.txtPassword.TabIndex = 13;
             // 
             // label2
@@ -150,7 +150,7 @@
             this.lblLoginError.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblLoginError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.lblLoginError.ForeColor = System.Drawing.Color.Crimson;
-            this.lblLoginError.Location = new System.Drawing.Point(48, 483);
+            this.lblLoginError.Location = new System.Drawing.Point(55, 486);
             this.lblLoginError.Name = "lblLoginError";
             this.lblLoginError.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblLoginError.Size = new System.Drawing.Size(376, 52);
@@ -161,10 +161,10 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pictureBox1.Location = new System.Drawing.Point(32, 271);
+            this.pictureBox1.Location = new System.Drawing.Point(27, 271);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(411, 362);
+            this.pictureBox1.Size = new System.Drawing.Size(444, 362);
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             // 
