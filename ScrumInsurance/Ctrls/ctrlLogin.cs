@@ -12,6 +12,8 @@ namespace ScrumInsurance
 {
     public partial class ctrlLogin : ScrumUserControl
     {
+        DatabaseController dbController_;
+
         public ctrlLogin()
         {
             InitializeComponent();
