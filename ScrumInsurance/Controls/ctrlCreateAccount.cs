@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+
+namespace ScrumInsurance
+{
+    public partial class ctrlCreateAccount : ScrumUserControl
+    {
+        public ctrlCreateAccount()
+        {
+            InitializeComponent();
+        }
+
+        private void ctrlCreateAccount_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void btnCreateAccount_Click(object sender, EventArgs e)
+        {
+            session_.addAccount(txtCreateUsername.Text, txtCreatePassword.Text, txtCreateEmail.Text, txtCreateQuestion.Text, txtCreateAnswer.Text);
+            this.swapControl(new ctrlLogin());
+        }
+    }
+}
