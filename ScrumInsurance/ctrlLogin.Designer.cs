@@ -1,4 +1,4 @@
-﻿namespace WebBrowserGitHubDemo
+﻿namespace ScrumInsurance
 {
     partial class ctrlLogin
     {
