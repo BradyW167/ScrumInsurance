@@ -124,12 +124,6 @@
     </Compile>
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="DatabaseController.cs" />
-    <Compile Include="Registration.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Registration.Designer.cs">
-      <DependentUpon>Registration.cs</DependentUpon>
-    </Compile>
     <Compile Include="formMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,9 +166,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ctrlLanding.resx">
       <DependentUpon>ctrlLanding.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Registration.resx">
-      <DependentUpon>Registration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formMain.resx">
       <DependentUpon>formMain.cs</DependentUpon>
