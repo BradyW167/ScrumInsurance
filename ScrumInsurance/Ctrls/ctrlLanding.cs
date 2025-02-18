@@ -15,11 +15,13 @@ namespace ScrumInsurance
         public ctrlLanding()
         {
             InitializeComponent();
+            /* Causes error because "session_ is null"
+            lblUser.Text = session_.getAccount(session_.userID).Username;*/
         }
 
         private void ctrlLanding_Load(object sender, EventArgs e)
         {
-            // Load username into text label
+            // Load username into text label Doesn't run when page is loaded
             lblUser.Text = session_.getAccount(session_.userID).Username;
         }
 
