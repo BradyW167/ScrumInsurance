@@ -25,8 +25,7 @@ namespace ScrumInsurance
 
         private void lblLogout_Click(object sender, EventArgs e)
         {
-            ctrlLogin c = new ctrlLogin();
-            this.swapControl(c);
+            this.swapControl(new ctrlLogin());
         }
 
         private void button1_Click(object sender, EventArgs e)

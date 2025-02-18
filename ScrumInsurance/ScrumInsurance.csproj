@@ -116,11 +116,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
-    <Compile Include="ctrlLanding.cs">
+    <Compile Include="Ctrls\ctrlCreateAccount.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrlLanding.Designer.cs">
+    <Compile Include="Ctrls\ctrlCreateAccount.Designer.cs">
+      <DependentUpon>ctrlCreateAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ctrls\ctrlForgotPass.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctrls\ctrlForgotPass.Designer.cs">
+      <DependentUpon>ctrlForgotPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ctrls\ctrlLanding.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctrls\ctrlLanding.Designer.cs">
       <DependentUpon>ctrlLanding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ctrls\ctrlLogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctrls\ctrlLogin.Designer.cs">
+      <DependentUpon>ctrlLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ctrls\ScrumUserControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="DatabaseController.cs" />
@@ -146,45 +167,20 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="ctrlLogin.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ctrlLogin.Designer.cs">
-      <DependentUpon>ctrlLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ctrlForgotPass.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ctrlForgotPass.Designer.cs">
-      <DependentUpon>ctrlForgotPass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ScrumUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Session.cs" />
-    <Compile Include="ctrlCreateAccount.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ctrlCreateAccount.Designer.cs">
-      <DependentUpon>ctrlCreateAccount.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ctrlCreateAccount.resx">
+    <EmbeddedResource Include="Ctrls\ctrlCreateAccount.resx">
       <DependentUpon>ctrlCreateAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrlLanding.resx">
-      <DependentUpon>ctrlLanding.cs</DependentUpon>
+    <EmbeddedResource Include="Ctrls\ctrlForgotPass.resx">
+      <DependentUpon>ctrlForgotPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctrls\ctrlLogin.resx">
+      <DependentUpon>ctrlLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ctrlLogin.resx">
-      <DependentUpon>ctrlLogin.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ctrlForgotPass.resx">
-      <DependentUpon>ctrlForgotPass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -204,6 +200,7 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
