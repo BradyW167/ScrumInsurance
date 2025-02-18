@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WebBrowserGitHubDemo
+namespace ScrumInsurance
 {
-    public partial class formMain : Form
+    public partial class frmMain : Form
     {
         private DatabaseController dbController_;
 
-        public formMain()
+        public frmMain()
         {
             InitializeComponent();
 
@@ -59,7 +59,7 @@ namespace WebBrowserGitHubDemo
         {
             foreach (Control ctrl in pnlMain.Controls)
             {
-                if (ctrl is formMain)
+                if (ctrl is frmMain)
                 {
                     CenterUserControl(ctrl, pnlMain);
                 }

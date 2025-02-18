@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace WebBrowserGitHubDemo
+namespace ScrumInsurance
 {
     public partial class ctrlCreateAccount : UserControl
     {

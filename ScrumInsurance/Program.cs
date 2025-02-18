@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WebBrowserGitHubDemo
+namespace ScrumInsurance
 {
     static class Program
     {
@@ -20,7 +20,7 @@ namespace WebBrowserGitHubDemo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formMain());
+            Application.Run(new frmMain());
         }
     }
 }
