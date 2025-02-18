@@ -15,6 +15,7 @@ namespace ScrumInsurance
             Email = email;
             SecurityQuestion = securityQuestion;
             SecurityAnswer = securityAnswer;
+            isAdmin = false;
         }
 
         public bool validCreds(string username, string password)
@@ -32,5 +33,6 @@ namespace ScrumInsurance
         public string Email { get; set; }
         public string SecurityQuestion  {  get; set; }
         public string SecurityAnswer { get; set; }
+        public bool isAdmin { get; set; }
     }
 }
