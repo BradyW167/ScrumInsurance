@@ -124,11 +124,11 @@
     </Compile>
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="DatabaseController.cs" />
-    <Compile Include="formMain.cs">
+    <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formMain.Designer.cs">
-      <DependentUpon>formMain.cs</DependentUpon>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -167,8 +167,8 @@
     <EmbeddedResource Include="ctrlLanding.resx">
       <DependentUpon>ctrlLanding.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formMain.resx">
-      <DependentUpon>formMain.cs</DependentUpon>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ctrlLogin.resx">
       <DependentUpon>ctrlLogin.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace WebBrowserGitHubDemo
 {
-    partial class formMain
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMain));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.pnlMain = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
             // 
