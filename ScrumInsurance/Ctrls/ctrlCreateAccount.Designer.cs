@@ -42,24 +42,25 @@
             this.lblAnswer = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblCreateAccountError = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCreateAccount
             // 
             this.lblCreateAccount.AutoSize = true;
-            this.lblCreateAccount.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblCreateAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.lblCreateAccount.Location = new System.Drawing.Point(160, 45);
+            this.lblCreateAccount.BackColor = System.Drawing.Color.SteelBlue;
+            this.lblCreateAccount.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreateAccount.Location = new System.Drawing.Point(71, 35);
             this.lblCreateAccount.Name = "lblCreateAccount";
-            this.lblCreateAccount.Size = new System.Drawing.Size(220, 36);
+            this.lblCreateAccount.Size = new System.Drawing.Size(231, 39);
             this.lblCreateAccount.TabIndex = 10;
             this.lblCreateAccount.Text = "Create Account";
             // 
             // btnCreateAccount
             // 
             this.btnCreateAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnCreateAccount.Location = new System.Drawing.Point(84, 568);
+            this.btnCreateAccount.Location = new System.Drawing.Point(84, 587);
             this.btnCreateAccount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCreateAccount.Name = "btnCreateAccount";
             this.btnCreateAccount.Size = new System.Drawing.Size(376, 46);
@@ -71,7 +72,7 @@
             // txtCreateUsername
             // 
             this.txtCreateUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txtCreateUsername.Location = new System.Drawing.Point(84, 115);
+            this.txtCreateUsername.Location = new System.Drawing.Point(84, 134);
             this.txtCreateUsername.Name = "txtCreateUsername";
             this.txtCreateUsername.Size = new System.Drawing.Size(374, 41);
             this.txtCreateUsername.TabIndex = 8;
@@ -81,7 +82,7 @@
             this.lblCretaeUsername.AutoSize = true;
             this.lblCretaeUsername.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblCretaeUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCretaeUsername.Location = new System.Drawing.Point(78, 82);
+            this.lblCretaeUsername.Location = new System.Drawing.Point(78, 101);
             this.lblCretaeUsername.Name = "lblCretaeUsername";
             this.lblCretaeUsername.Size = new System.Drawing.Size(124, 29);
             this.lblCretaeUsername.TabIndex = 7;
@@ -90,7 +91,7 @@
             // txtCreatePassword
             // 
             this.txtCreatePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txtCreatePassword.Location = new System.Drawing.Point(84, 198);
+            this.txtCreatePassword.Location = new System.Drawing.Point(84, 217);
             this.txtCreatePassword.Name = "txtCreatePassword";
             this.txtCreatePassword.Size = new System.Drawing.Size(374, 41);
             this.txtCreatePassword.TabIndex = 12;
@@ -100,7 +101,7 @@
             this.lblCreatePassword.AutoSize = true;
             this.lblCreatePassword.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblCreatePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCreatePassword.Location = new System.Drawing.Point(80, 165);
+            this.lblCreatePassword.Location = new System.Drawing.Point(80, 184);
             this.lblCreatePassword.Name = "lblCreatePassword";
             this.lblCreatePassword.Size = new System.Drawing.Size(120, 29);
             this.lblCreatePassword.TabIndex = 11;
@@ -109,7 +110,7 @@
             // txtCreateEmail
             // 
             this.txtCreateEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txtCreateEmail.Location = new System.Drawing.Point(84, 282);
+            this.txtCreateEmail.Location = new System.Drawing.Point(84, 301);
             this.txtCreateEmail.Name = "txtCreateEmail";
             this.txtCreateEmail.Size = new System.Drawing.Size(374, 41);
             this.txtCreateEmail.TabIndex = 14;
@@ -119,7 +120,7 @@
             this.lblCreateEmail.AutoSize = true;
             this.lblCreateEmail.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblCreateEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCreateEmail.Location = new System.Drawing.Point(78, 248);
+            this.lblCreateEmail.Location = new System.Drawing.Point(78, 267);
             this.lblCreateEmail.Name = "lblCreateEmail";
             this.lblCreateEmail.Size = new System.Drawing.Size(74, 29);
             this.lblCreateEmail.TabIndex = 13;
@@ -127,7 +128,7 @@
             // 
             // txtCreateQuestion
             // 
-            this.txtCreateQuestion.Location = new System.Drawing.Point(84, 365);
+            this.txtCreateQuestion.Location = new System.Drawing.Point(84, 384);
             this.txtCreateQuestion.Multiline = true;
             this.txtCreateQuestion.Name = "txtCreateQuestion";
             this.txtCreateQuestion.Size = new System.Drawing.Size(374, 44);
@@ -138,7 +139,7 @@
             this.lblSecurityQuestion.AutoSize = true;
             this.lblSecurityQuestion.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblSecurityQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblSecurityQuestion.Location = new System.Drawing.Point(80, 331);
+            this.lblSecurityQuestion.Location = new System.Drawing.Point(80, 350);
             this.lblSecurityQuestion.Name = "lblSecurityQuestion";
             this.lblSecurityQuestion.Size = new System.Drawing.Size(202, 29);
             this.lblSecurityQuestion.TabIndex = 15;
@@ -147,7 +148,7 @@
             // txtCreateAnswer
             // 
             this.txtCreateAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtCreateAnswer.Location = new System.Drawing.Point(84, 445);
+            this.txtCreateAnswer.Location = new System.Drawing.Point(84, 464);
             this.txtCreateAnswer.Multiline = true;
             this.txtCreateAnswer.Name = "txtCreateAnswer";
             this.txtCreateAnswer.Size = new System.Drawing.Size(374, 44);
@@ -158,7 +159,7 @@
             this.lblAnswer.AutoSize = true;
             this.lblAnswer.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblAnswer.Location = new System.Drawing.Point(78, 411);
+            this.lblAnswer.Location = new System.Drawing.Point(78, 430);
             this.lblAnswer.Name = "lblAnswer";
             this.lblAnswer.Size = new System.Drawing.Size(93, 29);
             this.lblAnswer.TabIndex = 17;
@@ -168,10 +169,10 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pictureBox1.Location = new System.Drawing.Point(66, 42);
+            this.pictureBox1.Location = new System.Drawing.Point(66, 79);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(411, 589);
+            this.pictureBox1.Size = new System.Drawing.Size(411, 571);
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
@@ -181,18 +182,29 @@
             this.lblCreateAccountError.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblCreateAccountError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.lblCreateAccountError.ForeColor = System.Drawing.Color.Crimson;
-            this.lblCreateAccountError.Location = new System.Drawing.Point(84, 511);
+            this.lblCreateAccountError.Location = new System.Drawing.Point(84, 530);
             this.lblCreateAccountError.Name = "lblCreateAccountError";
             this.lblCreateAccountError.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblCreateAccountError.Size = new System.Drawing.Size(376, 52);
             this.lblCreateAccountError.TabIndex = 22;
             this.lblCreateAccountError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(451, 13);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(73, 37);
+            this.btnBack.TabIndex = 23;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // ctrlCreateAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblCreateAccountError);
             this.Controls.Add(this.txtCreateAnswer);
             this.Controls.Add(this.lblAnswer);
@@ -233,5 +245,6 @@
         private System.Windows.Forms.Label lblAnswer;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblCreateAccountError;
+        private System.Windows.Forms.Button btnBack;
     }
 }

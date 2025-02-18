@@ -28,5 +28,11 @@ namespace ScrumInsurance
             session_.addAccount(txtCreateUsername.Text, txtCreatePassword.Text, txtCreateEmail.Text, txtCreateQuestion.Text, txtCreateAnswer.Text);
             this.swapControl(new ctrlLogin());
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            // Takes the user back to the login page
+            this.swapControl(new ctrlLogin());
+        }
     }
 }

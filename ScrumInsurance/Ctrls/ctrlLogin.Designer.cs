@@ -171,7 +171,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.AliceBlue;
-            this.pictureBox2.Location = new System.Drawing.Point(126, 23);
+            this.pictureBox2.Location = new System.Drawing.Point(145, 23);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(218, 138);
@@ -182,7 +182,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.AliceBlue;
-            this.label4.Location = new System.Drawing.Point(204, 85);
+            this.label4.Location = new System.Drawing.Point(226, 86);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 20);

@@ -42,6 +42,8 @@
             this.txtForgotPasswordNewPassword = new System.Windows.Forms.TextBox();
             this.btnForgotPasswordNewPassword = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_confirmEmailForgotPassword
@@ -65,6 +67,7 @@
             // lbl_enterEmailForgotPassword
             // 
             this.lbl_enterEmailForgotPassword.AutoSize = true;
+            this.lbl_enterEmailForgotPassword.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lbl_enterEmailForgotPassword.Location = new System.Drawing.Point(57, 97);
             this.lbl_enterEmailForgotPassword.Name = "lbl_enterEmailForgotPassword";
             this.lbl_enterEmailForgotPassword.Size = new System.Drawing.Size(95, 20);
@@ -74,10 +77,10 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(52, 31);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(242, 36);
+            this.lblTitle.Size = new System.Drawing.Size(253, 39);
             this.lblTitle.TabIndex = 6;
             this.lblTitle.Text = "Forgot Password";
             // 
@@ -99,6 +102,7 @@
             // 
             // lblForgotPasswordQuestion
             // 
+            this.lblForgotPasswordQuestion.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblForgotPasswordQuestion.Location = new System.Drawing.Point(54, 203);
             this.lblForgotPasswordQuestion.Name = "lblForgotPasswordQuestion";
             this.lblForgotPasswordQuestion.Size = new System.Drawing.Size(406, 20);
@@ -108,6 +112,7 @@
             // 
             // lblForgotPasswordQuestionError
             // 
+            this.lblForgotPasswordQuestionError.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblForgotPasswordQuestionError.ForeColor = System.Drawing.Color.Crimson;
             this.lblForgotPasswordQuestionError.Location = new System.Drawing.Point(57, 277);
             this.lblForgotPasswordQuestionError.Name = "lblForgotPasswordQuestionError";
@@ -128,6 +133,7 @@
             // 
             // lblForgotPasswordEmailError
             // 
+            this.lblForgotPasswordEmailError.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblForgotPasswordEmailError.ForeColor = System.Drawing.Color.Crimson;
             this.lblForgotPasswordEmailError.Location = new System.Drawing.Point(57, 158);
             this.lblForgotPasswordEmailError.Name = "lblForgotPasswordEmailError";
@@ -136,6 +142,7 @@
             // 
             // lblForgotPasswordNewPassword
             // 
+            this.lblForgotPasswordNewPassword.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblForgotPasswordNewPassword.Location = new System.Drawing.Point(57, 358);
             this.lblForgotPasswordNewPassword.Name = "lblForgotPasswordNewPassword";
             this.lblForgotPasswordNewPassword.Size = new System.Drawing.Size(406, 20);
@@ -173,6 +180,15 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.button1_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pictureBox1.Location = new System.Drawing.Point(52, 81);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(425, 401);
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
+            // 
             // ctrlForgotPass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -192,9 +208,11 @@
             this.Controls.Add(this.btn_confirmEmailForgotPassword);
             this.Controls.Add(this.txtbx_emailForgotPassword);
             this.Controls.Add(this.lbl_enterEmailForgotPassword);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "ctrlForgotPass";
             this.Size = new System.Drawing.Size(558, 515);
             this.Load += new System.EventHandler(this.ctrlForgotPass_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,5 +234,6 @@
         private System.Windows.Forms.TextBox txtForgotPasswordNewPassword;
         private System.Windows.Forms.Button btnForgotPasswordNewPassword;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
