@@ -12,37 +12,21 @@ namespace ScrumInsurance
 {
     public partial class frmMain : Form
     {
-        private DatabaseController dbController_;
-
         public frmMain()
         {
             InitializeComponent();
 
-            dbController_ = new DatabaseController();
+            Session session = new Session();
 
             // Initialize controls for main panel
-            UserControl ctrlLogin = new ctrlLogin(dbController_);
+            ScrumUserControl ctrlLogin = new ctrlLogin();
 
-            ctrlLogin.Anchor = AnchorStyles.None; // Prevent stretching
+            // Set initial parent panel and session
+            ctrlLogin.setParentPanel(pnlMain);
+            ctrlLogin.setSession(session);
 
-            pnlMain.Controls.Add(ctrlLogin, 1, 0); // Add to center column
-
-            CenterUserControl(ctrlLogin, pnlMain); // Center login control inside the main panel
-        }
-
-        // Function to center the UserControl inside the column
-        private void CenterUserControl(Control control, TableLayoutPanel pnl)
-        {
-            int columnIndex = 1; // Assuming it's in the middle column
-            int rowIndex = 0;     // Assuming it's in row 0
-
-            // Get the column width
-            int columnWidth = pnl.GetColumnWidths()[columnIndex];
-            int rowHeight = pnl.GetRowHeights()[rowIndex];
-
-            // Set the position dynamically
-            control.Left = (columnWidth - control.Width) / 2;
-            control.Top = (rowHeight - control.Height) / 2;
+            // Load login page as first control into panel
+            ctrlLogin.loadControl();
         }
 
         private void formMain_Load(object sender, EventArgs e)
@@ -61,7 +45,7 @@ namespace ScrumInsurance
             {
                 if (ctrl is frmMain)
                 {
-                    CenterUserControl(ctrl, pnlMain);
+                    // ctrl.CenterUserControl(ctrl, pnlMain);
                 }
             }
         }
@@ -83,28 +67,6 @@ namespace ScrumInsurance
         private void pnlMain_Paint(object sender, PaintEventArgs e)
         {
 
-        }
-
-        // Deletes the current user control in parent panel and load a new input control
-        public static void swapControl(UserControl oldControl, UserControl newControl)
-        {
-            TableLayoutPanel parentPanel = oldControl.Parent as TableLayoutPanel;
-
-            if (parentPanel != null)
-            {
-                int columnIndex = parentPanel.GetColumn(oldControl);
-                int rowIndex = parentPanel.GetRow(oldControl);
-
-                // Remove the current UserControl
-                parentPanel.Controls.Remove(oldControl);
-                oldControl.Dispose();
-
-                // Load the new UserControl
-                newControl.Dock = DockStyle.Fill;
-
-                // Add new UserControl to the same cell
-                parentPanel.Controls.Add(newControl, columnIndex, rowIndex);
-            }
         }
     }
 }
