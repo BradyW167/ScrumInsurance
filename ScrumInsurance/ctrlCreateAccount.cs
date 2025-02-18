@@ -17,12 +17,14 @@ namespace ScrumInsurance
         public ctrlCreateAccount()
         {
             InitializeComponent();
+            lblCreateAccountError.Text = "";
         }
 
         private void ctrlCreateAccount_Load(object sender, EventArgs e)
         {
         }
 
+        //Check if username, password and email are valid (not blank, classic password requirements)
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
             Session.addAccount(txtCreateUsername.Text, txtCreatePassword.Text, txtCreateEmail.Text, txtCreateQuestion.Text, txtCreateAnswer.Text);

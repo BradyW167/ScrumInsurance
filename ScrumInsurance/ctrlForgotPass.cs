@@ -15,6 +15,8 @@ namespace ScrumInsurance
         public ctrlForgotPass()
         {
             InitializeComponent();
+            lblForgotPasswordEmailError.Text = "";
+            lblForgotPasswordQuestionError.Text = "";
         }
 
         private void ctrlForgotPass_Load(object sender, EventArgs e)

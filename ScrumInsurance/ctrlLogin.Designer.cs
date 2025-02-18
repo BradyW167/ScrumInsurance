@@ -162,6 +162,7 @@
             this.lblLoginError.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblLoginError.Size = new System.Drawing.Size(251, 34);
             this.lblLoginError.TabIndex = 19;
+            this.lblLoginError.Text = "CLEAR ON INITIALIZE";
             this.lblLoginError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
@@ -212,7 +213,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ctrlLogin";
             this.Size = new System.Drawing.Size(315, 429);
             this.Load += new System.EventHandler(this.ctrlLogin_Load);

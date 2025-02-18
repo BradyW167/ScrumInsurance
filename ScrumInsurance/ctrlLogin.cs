@@ -17,6 +17,7 @@ namespace ScrumInsurance
         public ctrlLogin()
         {
             InitializeComponent();
+            lblLoginError.Text = "";
             if (dbController_ == null)
             {
                 dbController_ = new DatabaseController();
@@ -26,6 +27,7 @@ namespace ScrumInsurance
         public ctrlLogin(DatabaseController dbController)
         {
             InitializeComponent();
+            lblLoginError.Text = "";
             dbController_ = dbController;
         }
 
@@ -46,7 +48,7 @@ namespace ScrumInsurance
             //Error if account with correct username & password isn't found
             else if (Session.userID < 0)
             {
-                lblLoginError.Text = "Incorrect username or password\nPlease make an account if you haven't already";
+                lblLoginError.Text = "Incorrect username or password";
             }
             else
             {

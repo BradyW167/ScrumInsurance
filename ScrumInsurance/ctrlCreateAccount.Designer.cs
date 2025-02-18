@@ -190,12 +190,13 @@
             this.lblCreateAccountError.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblCreateAccountError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.lblCreateAccountError.ForeColor = System.Drawing.Color.Crimson;
-            this.lblCreateAccountError.Location = new System.Drawing.Point(56, 332);
+            this.lblCreateAccountError.Location = new System.Drawing.Point(56, 328);
             this.lblCreateAccountError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCreateAccountError.Name = "lblCreateAccountError";
             this.lblCreateAccountError.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblCreateAccountError.Size = new System.Drawing.Size(251, 34);
             this.lblCreateAccountError.TabIndex = 22;
+            this.lblCreateAccountError.Text = "CLEAR ON INITIALIZE";
             this.lblCreateAccountError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ctrlCreateAccount
