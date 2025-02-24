@@ -40,6 +40,8 @@ namespace ScrumInsurance
                 // Load the new UserControl
                 control.Dock = DockStyle.Fill;
 
+                control.AutoSize = false;
+
                 control.Anchor = AnchorStyles.None; // Prevent stretching
 
                 // Add new UserControl to the same cell in the parent panel
