@@ -20,14 +20,41 @@ namespace ScrumInsurance
             myConnection_.DatabaseName = "scrum_gang";
             myConnection_.DatabaseUsername = "scrumgang";
             myConnection_.DatabasePassword = "Z9wAabwUKeZy5pxvF5GE";
+
+            username_ = "";
+            password_ = "";
         }
 
-        public bool openConnection()
+        public bool validateLogin(string username, string password)
         {
-            return myConnection_.openConnection();
+            username_ = username;
+            password_ = password;
+
+            if (password_.Length < 8)
+            {
+                return false;
+            }
+            else
+            {
+                string[] args = new string[2];
+
+                args[0] = username_;
+                args[1] = password_;
+
+                // Change first parameter to actual table name
+                if (myConnection_.selectQuery("login", args))
+                {
+                    return true;
+                }
+            }
+
+            return true;
         }
+
 
         // Trailing underscore to identify local member.
         private DatabaseConnection myConnection_;
+        private string username_;
+        private string password_;
     }
 }
