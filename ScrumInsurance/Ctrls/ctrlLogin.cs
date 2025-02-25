@@ -40,7 +40,7 @@ namespace ScrumInsurance
         {
             // Load next page if database connection established & account with correct username & password is found
             session_.userID = session_.findAccount(txtUsername.Text, txtPassword.Text);
-            if (session_.userID >= 0 && session_.isConnected())
+            if (session_.userID >= 0)
             {
                 this.swapControl(new ctrlLanding());
             }

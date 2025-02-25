@@ -24,8 +24,6 @@ namespace ScrumInsurance
 
         public int userID { get; set; }
 
-        public bool isConnected () { return dbController_.openConnection(); }
-
         public void addAccount(string username, string password, string email, string securityQuestion, string securityQuestionAnswer)
         {
             accounts_.Add(new Account(username, password, email, securityQuestion, securityQuestionAnswer));

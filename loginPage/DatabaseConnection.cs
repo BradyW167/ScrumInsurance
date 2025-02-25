@@ -5,9 +5,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Security.Cryptography;
 
-namespace ScrumInsurance
+namespace LoginPage
 {
     // Database Connection Class
     //
@@ -42,9 +41,8 @@ namespace ScrumInsurance
                 {
                     Connection.Open();
                 }
-                catch (MySqlException ex)
+                catch (Exception ex)
                 {
-                    Console.WriteLine($"MySQL Connection Error {ex.Message}");
                     return false;
                 }
             }
