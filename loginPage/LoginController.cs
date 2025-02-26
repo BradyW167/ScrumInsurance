@@ -11,15 +11,9 @@ namespace LoginPage
     // By: Dr. Ryan Rybarczyk
     public class LoginController
     {
-        public LoginController() 
+        public LoginController()
         {
             myConnection_ = new DatabaseConnection();
-
-            // We can move this to a property file later to avoid unncessary clutter and hardcoding.
-            myConnection_.ServerName = "trevor.butler.edu";
-            myConnection_.DatabaseName = "";
-            myConnection_.DatabaseUsername = "";
-            myConnection_.DatabasePassword = "";
 
             username_ = "";
             password_ = "";
@@ -28,9 +22,9 @@ namespace LoginPage
         public bool validateLogin(string username, string password)
         {
             username_ = username;
-            password_ = password;   
+            password_ = password;
 
-            if (password_.Length < 8)
+            if (password_.Length < 1)
             {
                 return false;
             }
@@ -41,16 +35,15 @@ namespace LoginPage
                 args[0] = username_;
                 args[1] = password_;
 
-                // Change first parameter to actual table name
                 if (myConnection_.selectQuery("login", args))
                 {
                     return true;
                 }
             }
 
-            return true;
+            return false;
         }
-        
+
 
         // Trailing underscore to identify local member.
         private DatabaseConnection myConnection_;

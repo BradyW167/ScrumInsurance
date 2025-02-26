@@ -1,28 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
 namespace LoginPage
 {
-    public partial class frmLogin
+    public partial class frmLogin : Form
     {
         private LoginController loginController_;
-
         public frmLogin()
         {
             InitializeComponent();
             loginController_ = new LoginController();
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void linkLabel1_LinkClicked(object sender, EventArgs e)
-        {
-
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -50,26 +44,21 @@ namespace LoginPage
             {
                 lblErrorPassword.Show();
             }
+            else
+            {
+                frmHome frmHome = new frmHome();
+                frmHome.Show();
+                this.Hide();
+            }
         }
-
         private void frmLogin_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void frmLogin_Closing(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
