@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace ScrumInsurance
 {
@@ -21,7 +22,10 @@ namespace ScrumInsurance
         public string DatabaseName { get; set; }
         public string DatabasePassword { get; set; }
         public string DatabaseUsername { get; set; }
+
         public MySqlConnection Connection { get; set; }
+        public MySqlDataReader Reader { get; set; }
+        public MySqlCommand Command { get; set; }
 
         // Attempts to open a connection to a MySQL database.
         //
@@ -51,6 +55,29 @@ namespace ScrumInsurance
         public void closeConnection()
         {
             Connection.Close();
+        }
+
+        public bool selectQuery(string tableName, string[] args)
+        {
+            Command = Connection.CreateCommand();
+
+            Command.CommandText = "SELECT * FROM " + tableName + " WHERE username = @username and password = @password";
+            Command.Parameters.AddWithValue("@username", args[0]);
+            Command.Parameters.AddWithValue("@password", args[1]);
+
+            Reader = Command.ExecuteReader();
+
+            if (Reader.HasRows)
+            {
+                closeConnection();
+                return true;
+            }
+            else
+            {
+                closeConnection();
+                return false;
+            }
+
         }
     }
 }

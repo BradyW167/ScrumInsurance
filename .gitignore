@@ -398,3 +398,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/loginPage/frmLoginBad.cs
+/loginPage/frmLoginBad.Designer.cs
+/loginPage/frmLoginBad.cs

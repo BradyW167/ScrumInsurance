@@ -4,22 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ScrumInsurance
+namespace LoginPage
 {
     // Login Controller Class
     //
     // By: Dr. Ryan Rybarczyk
-    public class DatabaseController
+    public class LoginController
     {
-        public DatabaseController()
+        public LoginController()
         {
             myConnection_ = new DatabaseConnection();
-
-            // We can move this to a property file later to avoid unncessary clutter and hardcoding.
-            myConnection_.ServerName = "trevor.butler.edu";
-            myConnection_.DatabaseName = "scrum_gang";
-            myConnection_.DatabaseUsername = "scrumgang";
-            myConnection_.DatabasePassword = "Z9wAabwUKeZy5pxvF5GE";
 
             username_ = "";
             password_ = "";
@@ -30,7 +24,7 @@ namespace ScrumInsurance
             username_ = username;
             password_ = password;
 
-            if (password_.Length < 8)
+            if (password_.Length < 1)
             {
                 return false;
             }
@@ -41,14 +35,13 @@ namespace ScrumInsurance
                 args[0] = username_;
                 args[1] = password_;
 
-                // Change first parameter to actual table name
                 if (myConnection_.selectQuery("login", args))
                 {
                     return true;
                 }
             }
 
-            return true;
+            return false;
         }
 
 
