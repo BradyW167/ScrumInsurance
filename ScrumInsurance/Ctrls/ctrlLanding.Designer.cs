@@ -39,6 +39,11 @@
             this.lblEnterQuery = new System.Windows.Forms.Label();
             this.btnSubmitQuery = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnLanding = new System.Windows.Forms.Button();
+            this.btnAccount = new System.Windows.Forms.Button();
+            this.btnSupport = new System.Windows.Forms.Button();
+            this.btnRequest = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tblQueryOutput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -151,9 +156,74 @@
             this.pictureBox1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pictureBox1.Location = new System.Drawing.Point(-2, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(548, 55);
+            this.pictureBox1.Size = new System.Drawing.Size(506, 55);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
+            // 
+            // btnLanding
+            // 
+            this.btnLanding.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnLanding.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
+            this.btnLanding.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLanding.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLanding.Location = new System.Drawing.Point(0, 0);
+            this.btnLanding.Name = "btnLanding";
+            this.btnLanding.Size = new System.Drawing.Size(101, 55);
+            this.btnLanding.TabIndex = 8;
+            this.btnLanding.Text = "Landing";
+            this.btnLanding.UseVisualStyleBackColor = false;
+            // 
+            // btnAccount
+            // 
+            this.btnAccount.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnAccount.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
+            this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnAccount.Location = new System.Drawing.Point(100, 0);
+            this.btnAccount.Name = "btnAccount";
+            this.btnAccount.Size = new System.Drawing.Size(101, 55);
+            this.btnAccount.TabIndex = 9;
+            this.btnAccount.Text = "Account";
+            this.btnAccount.UseVisualStyleBackColor = false;
+            // 
+            // btnSupport
+            // 
+            this.btnSupport.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnSupport.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
+            this.btnSupport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSupport.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSupport.Location = new System.Drawing.Point(201, 0);
+            this.btnSupport.Name = "btnSupport";
+            this.btnSupport.Size = new System.Drawing.Size(101, 55);
+            this.btnSupport.TabIndex = 10;
+            this.btnSupport.Text = "Support";
+            this.btnSupport.UseVisualStyleBackColor = false;
+            // 
+            // btnRequest
+            // 
+            this.btnRequest.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnRequest.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
+            this.btnRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRequest.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnRequest.Location = new System.Drawing.Point(302, 0);
+            this.btnRequest.Name = "btnRequest";
+            this.btnRequest.Size = new System.Drawing.Size(101, 55);
+            this.btnRequest.TabIndex = 11;
+            this.btnRequest.Text = "Submit Request";
+            this.btnRequest.UseVisualStyleBackColor = false;
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnSettings.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSettings.Location = new System.Drawing.Point(403, 0);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(101, 55);
+            this.btnSettings.TabIndex = 12;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.UseVisualStyleBackColor = false;
             // 
             // ctrlLanding
             // 
@@ -161,6 +231,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.SteelBlue;
+            this.Controls.Add(this.btnSettings);
+            this.Controls.Add(this.btnRequest);
+            this.Controls.Add(this.btnSupport);
+            this.Controls.Add(this.btnAccount);
+            this.Controls.Add(this.btnLanding);
             this.Controls.Add(this.btnSubmitQuery);
             this.Controls.Add(this.lblEnterQuery);
             this.Controls.Add(this.rtxtQuery);
@@ -192,5 +267,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnLanding;
+        private System.Windows.Forms.Button btnAccount;
+        private System.Windows.Forms.Button btnSupport;
+        private System.Windows.Forms.Button btnRequest;
+        private System.Windows.Forms.Button btnSettings;
     }
 }
