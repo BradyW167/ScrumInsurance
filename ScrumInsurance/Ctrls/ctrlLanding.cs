@@ -12,6 +12,7 @@ namespace ScrumInsurance
 {
     public partial class ctrlLanding : ScrumUserControl
     {
+        DatabaseController dbController_; // we will need this later. Might be efficient to pass in db?
         public ctrlLanding()
         {
             InitializeComponent();
