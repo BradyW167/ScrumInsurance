@@ -61,17 +61,21 @@ namespace ScrumInsurance
         {
             Command = Connection.CreateCommand();
 
+            // Assign query to command and insert args as parameters
             Command.CommandText = "SELECT * FROM " + tableName + " WHERE username = @username and password = @password";
             Command.Parameters.AddWithValue("@username", args[0]);
             Command.Parameters.AddWithValue("@password", args[1]);
 
+            // Execute command and store returned data
             Reader = Command.ExecuteReader();
 
+            // If reader has data (matching user and password were found)
             if (Reader.HasRows)
             {
                 closeConnection();
                 return true;
             }
+            // Else no matching data was found (invalid username or password)
             else
             {
                 closeConnection();

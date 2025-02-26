@@ -51,7 +51,6 @@ namespace ScrumInsurance
             return true;
         }
 
-
         // Trailing underscore to identify local member.
         private DatabaseConnection myConnection_;
         private string username_;
