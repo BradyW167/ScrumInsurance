@@ -24,7 +24,7 @@ namespace LoginPage
             username_ = username;
             password_ = password;
 
-            if (password_.Length < 1)
+            if (password_.Length < 8)
             {
                 return false;
             }
