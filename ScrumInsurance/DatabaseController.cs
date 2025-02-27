@@ -30,7 +30,7 @@ namespace ScrumInsurance
             username_ = username;
             password_ = password;
 
-            if (password_.Length < 8)
+            if (password_.Length > 8)
             {
                 return false;
             }
@@ -45,13 +45,13 @@ namespace ScrumInsurance
                 if (myConnection_.selectQuery("login", args))
                 {
                     return true;
+                } else
+                {
+                    return false;
                 }
             }
-
-            return true;
         }
 
-        // Trailing underscore to identify local member.
         private DatabaseConnection myConnection_;
         private string username_;
         private string password_;

@@ -13,7 +13,7 @@ namespace ScrumInsurance
 
         protected Session session_;
 
-
+        private DatabaseController databaseController_;
 
         public ScrumUserControl() {}
 
@@ -24,6 +24,8 @@ namespace ScrumInsurance
         public TableLayoutPanel getParentPanel() { return parentPanel_; }
 
         public Session getSession() { return session_; }
+
+        public DatabaseController getDbController() { return session_.getDbController(); }
 
         // When called without an input control to load
         // Load this control into the parent panel
@@ -60,7 +62,8 @@ namespace ScrumInsurance
 
             newControl.setParentPanel(parentPanel_);
             newControl.setSession(session_);
-
+            newControl.databaseController_ = session_.getDbController();
+            
             loadControl(newControl);
         }
 

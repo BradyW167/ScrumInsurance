@@ -22,6 +22,8 @@ namespace ScrumInsurance
             dbController_ = new DatabaseController();
         }
 
+        public DatabaseController getDbController() { return dbController_; }
+
         public int userID { get; set; }
 
         public void addAccount(string username, string password, string email, string securityQuestion, string securityQuestionAnswer)

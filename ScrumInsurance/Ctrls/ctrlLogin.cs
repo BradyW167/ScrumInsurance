@@ -12,23 +12,16 @@ namespace ScrumInsurance
 {
     public partial class ctrlLogin : ScrumUserControl
     {
-        DatabaseController dbController_;
-
         public ctrlLogin()
         {
             InitializeComponent();
             lblLoginError.Text = "";
-            if (dbController_ == null)
-            {
-                dbController_ = new DatabaseController();
-            }
         }
 
         public ctrlLogin(DatabaseController dbController)
         {
             InitializeComponent();
             lblLoginError.Text = "";
-            dbController_ = dbController;
         }
 
         private void ctrlLogin_Load(object sender, EventArgs e)
@@ -38,20 +31,17 @@ namespace ScrumInsurance
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // Load next page if database connection established & account with correct username & password is found
-            session_.userID = session_.findAccount(txtUsername.Text, txtPassword.Text);
-            if (session_.userID >= 0)
+            Console.WriteLine("User (" + txtUsername.Text + ") Pass (" + txtPassword.Text + ")");
+            // If username and password text is found in database (valid login)
+            if (session_.getDbController().validateLogin(txtUsername.Text, txtPassword.Text))
             {
+                // Load landing page
                 this.swapControl(new ctrlLanding());
             }
-            //Error if account with correct username & password isn't found
-            else if (session_.userID < 0)
-            {
-                lblLoginError.Text = "Incorrect username or password";
-            }
+            // Error if account with correct username & password isn't found
             else
             {
-                lblLoginError.Text = "Failed to connect to database. Make sure you are connected to the Butler servers";
+                lblLoginError.Text = "Incorrect username or password";
             }
         }
 

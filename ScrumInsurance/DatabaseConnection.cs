@@ -32,9 +32,11 @@ namespace ScrumInsurance
         // Returns TRUE if successful and FALSE if unsuccessful.
         public bool openConnection()
         {
-            if (Connection == null)
+            // If connection is not instantiated or connection has been closed
+            if (Connection == null || Connection.State == System.Data.ConnectionState.Closed)
             {
-                string connString = string.Format("Server={0}; database={1}; UID={2}; password={3}", ServerName, DatabaseName, DatabaseUsername, DatabasePassword);
+                // Format connection string
+                string connString = string.Format("Server={0};Database={1};Uid={2};Pwd={3}", ServerName, DatabaseName, DatabaseUsername, DatabasePassword);
                 Connection = new MySqlConnection(connString);
 
                 // Try-Catch to catch exceptions...
@@ -59,6 +61,14 @@ namespace ScrumInsurance
 
         public bool selectQuery(string tableName, string[] args)
         {
+            // Open SQL connection for queries
+            if (!openConnection())
+            {
+                // Return false when connection fails
+                return false;
+            }
+
+            // Initialize command to query database
             Command = Connection.CreateCommand();
 
             // Assign query to command and insert args as parameters
@@ -66,22 +76,44 @@ namespace ScrumInsurance
             Command.Parameters.AddWithValue("@username", args[0]);
             Command.Parameters.AddWithValue("@password", args[1]);
 
+            Console.WriteLine(Command.CommandText);
+
             // Execute command and store returned data
             Reader = Command.ExecuteReader();
 
             // If reader has data (matching user and password were found)
             if (Reader.HasRows)
             {
+                printData(Reader);
                 closeConnection();
                 return true;
             }
             // Else no matching data was found (invalid username or password)
             else
             {
+                Console.WriteLine("No matching data");
                 closeConnection();
                 return false;
             }
 
         }
+
+        public void printData(MySqlDataReader dr)
+        {
+            while (Reader.Read()) // Iterate through each row
+            {
+                object[] values = new object[Reader.FieldCount]; // Create array to hold all field values
+                Reader.GetValues(values); // Get all values
+
+                for (int i = 0; i < values.Length; i++)
+                {
+                    Console.WriteLine($"{Reader.GetName(i)}: {values[i]}");
+                }
+
+                Console.WriteLine("-------------");
+            }
+        }
+
+
     }
 }
