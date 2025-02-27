@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 
 namespace ScrumInsurance
 {
-    // Login Controller Class
-    //
-    // By: Dr. Ryan Rybarczyk
     public class DatabaseController
     {
         public DatabaseController()

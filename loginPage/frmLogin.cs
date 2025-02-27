@@ -13,6 +13,7 @@ namespace LoginPage
     public partial class frmLogin : Form
     {
         private LoginController loginController_;
+
         public frmLogin()
         {
             InitializeComponent();
@@ -30,24 +31,34 @@ namespace LoginPage
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            // If username input box is empty...
             if (txtUsername.Text == String.Empty)
             {
+                // Show the username error label
                 lblErrorUsername.Show();
+                return;
             }
-
-            if (txtPassword.Text == String.Empty)
+            // If password input box is empty...
+            else if (txtPassword.Text == String.Empty)
             {
+                // Show the password error label
                 lblErrorPassword.Show();
+                return;
             }
-
+            // If login is invalid...
             if (!loginController_.validateLogin(txtUsername.Text, txtPassword.Text))
             {
+                // Show the password error label
                 lblErrorPassword.Show();
             }
+            // Else login is valid
             else
             {
+                // Create and show home form
                 frmHome frmHome = new frmHome();
                 frmHome.Show();
+
+                // Hide this form
                 this.Hide();
             }
         }

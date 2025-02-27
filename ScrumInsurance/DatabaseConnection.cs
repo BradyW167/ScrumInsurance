@@ -9,9 +9,6 @@ using System.Security.Cryptography;
 
 namespace ScrumInsurance
 {
-    // Database Connection Class
-    //
-    // By: Dr. Ryan Rybarczyk
     public class DatabaseConnection
     {
         // Default Constructor

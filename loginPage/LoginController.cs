@@ -15,8 +15,14 @@ namespace LoginPage
         {
             myConnection_ = new DatabaseConnection();
 
-            username_ = "";
-            password_ = "";
+            // We can move this to a property file later to avoid unncessary clutter and hardcoding.
+            myConnection_.ServerName = "trevor.butler.edu";
+            myConnection_.DatabaseName = "scrum_gang";
+            myConnection_.DatabaseUsername = "scrumgang";
+            myConnection_.DatabasePassword = "Z9wAabwUKeZy5pxvF5GE";
+
+            username_ = String.Empty;
+            password_ = String.Empty;
         }
 
         public bool validateLogin(string username, string password)
@@ -24,8 +30,10 @@ namespace LoginPage
             username_ = username;
             password_ = password;
 
-            if (password_.Length < 8)
+            // If password is longer than 8 characters...
+            if (password_.Length > 8)
             {
+                // Invalid login, return false
                 return false;
             }
             else
@@ -35,17 +43,18 @@ namespace LoginPage
                 args[0] = username_;
                 args[1] = password_;
 
+                // Change first parameter to actual table name
                 if (myConnection_.selectQuery("login", args))
                 {
                     return true;
                 }
+                else
+                {
+                    return false;
+                }
             }
-
-            return false;
         }
 
-
-        // Trailing underscore to identify local member.
         private DatabaseConnection myConnection_;
         private string username_;
         private string password_;
