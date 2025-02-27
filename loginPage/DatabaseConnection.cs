@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace LoginPage
 {
+    public class DatabaseConnection
     {
         // Default Constructor
         public DatabaseConnection()
@@ -62,4 +63,5 @@ namespace LoginPage
             }
         }
     }
+    
 }
