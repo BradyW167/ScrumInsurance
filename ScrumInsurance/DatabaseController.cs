@@ -33,10 +33,12 @@ namespace ScrumInsurance
             }
             else
             {
-                string[] args = new string[2];
+                string[] args = new string[4];
 
-                args[0] = username_;
-                args[1] = password_;
+                args[0] = "username";
+                args[1] = username_;
+                args[2] = "password";
+                args[3] = password_;
 
                 // Change first parameter to actual table name
                 if (myConnection_.selectQuery("login", args))

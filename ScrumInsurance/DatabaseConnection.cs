@@ -65,13 +65,32 @@ namespace ScrumInsurance
                 return false;
             }
 
+            if ((args.Length % 2) == 1) //because function is now abstract, this means it NEEDS an even num of args to work. 
+            {
+                return false;
+            }
+
             // Initialize command to query database
             Command = Connection.CreateCommand();
 
             // Assign query to command and insert args as parameters
-            Command.CommandText = "SELECT * FROM " + tableName + " WHERE username = @username and password = @password";
-            Command.Parameters.AddWithValue("@username", args[0]);
-            Command.Parameters.AddWithValue("@password", args[1]);
+            Command.CommandText = "SELECT * FROM " + tableName + " WHERE ";
+            for (int i = 0; i < args.Length; i+=2)
+            {
+                Command.CommandText += "@" + i + "= @" + (i+1);
+                if ((i+2) < args.Length) 
+                {
+                    Command.CommandText += " and ";
+                }
+            }
+
+            for (int i = 0; i < args.Length; i++)
+            {
+                string paramString = "@" + i;
+                Command.Parameters.AddWithValue(paramString, args[0]);
+            }
+                
+  
 
             Console.WriteLine(Command.CommandText);
 
