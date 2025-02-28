@@ -28,6 +28,7 @@ namespace ScrumInsurance
 
         public void addAccount(string username, string password, string email, string securityQuestion, string securityQuestionAnswer)
         {
+
             accounts_.Add(new Account(username, password, email, securityQuestion, securityQuestionAnswer));
         }
 

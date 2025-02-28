@@ -95,6 +95,61 @@ namespace ScrumInsurance
 
         }
 
+        public bool insertQuery(string tableName, string[] args)
+        {
+            // Open SQL connection for queries
+            if (!openConnection())
+            {
+                // Return false when connection fails
+                return false;
+            }
+
+            // Initialize command to query database
+            Command = Connection.CreateCommand();
+            // INSERT INTO login VALUES("admin", "admin1234");
+            // Assign query to command and insert args as parameters
+            Command.CommandText = "INSERT INTO " + tableName + " VALUES( " ;
+            for (int i = 0; i<args.Length; i++)
+            {
+                //set up this way to make it as abstract as possible. 
+                Command.CommandText = Command.CommandText + "@" + i; // we have to do @i, because text can contain @'s (for emails)
+                                                                // and to pass it in as a string we need to add it via the parameter function.
+                if (i < args.Length - 1)
+                {
+                    Command.CommandText = Command.CommandText + ", " ;
+                }
+                
+            }
+            Command.CommandText = Command.CommandText + ")";
+
+            for (int i = 0; i < args.Length; i++)
+            {
+                string paramNum = "@" + i;
+                Command.Parameters.AddWithValue(paramNum, args[i]);
+            }
+
+            Console.WriteLine(Command.CommandText);
+
+            // Execute command and store returned data
+            Reader = Command.ExecuteReader();
+
+            // If reader has data (matching user and password were found)
+            if (Reader.HasRows)
+            {
+                printData(Reader);
+                closeConnection();
+                return true;
+            }
+            // Else no matching data was found (invalid username or password)
+            else
+            {
+                Console.WriteLine("No matching data");
+                closeConnection();
+                return false;
+            }
+
+        }
+
         public void printData(MySqlDataReader dr)
         {
             while (Reader.Read()) // Iterate through each row
