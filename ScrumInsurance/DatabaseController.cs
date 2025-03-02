@@ -51,14 +51,15 @@ namespace ScrumInsurance
             }
         }
 
-        public bool addAccount(string username, string password, string email, string question, string answer)
+        public bool addAccount(string username, string password, string email, string question, string answer, string role)
         {
-            string[] args = new string[5];
+            string[] args = new string[6];
             args[0] = username;
             args[1] = password;
             args[2] = email;
             args[3] = question;
             args[4] = answer;
+            args[5] = role;
             
             //will verify that it went through. if it doesnt go through, will return false. 
             if (myConnection_.insertQuery("login", args))
