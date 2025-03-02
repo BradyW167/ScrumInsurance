@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using System.Diagnostics;
 
 namespace ScrumInsurance
 {
@@ -56,18 +57,18 @@ namespace ScrumInsurance
             Connection.Close();
         }
 
-        public bool selectQuery(string tableName, string[] args)
+        public string[] selectQuery(string tableName, string[] args)
         {
             // Open SQL connection for queries
             if (!openConnection())
             {
                 // Return false when connection fails
-                return false;
+                return null;
             }
 
             if ((args.Length % 2) == 1) //because function is now abstract, this means it NEEDS an even num of args to work. 
             {
-                return false;
+                return null;
             }
 
             // Initialize command to query database
@@ -100,18 +101,30 @@ namespace ScrumInsurance
             // If reader has data (matching user and password were found)
             if (Reader.HasRows)
             {
-                printData(Reader);
+                //Reads every matching row
+                while (Reader.Read())
+                {
+                    //Returns username (0th column) and role (5th column) to be used by login and session
+                    //Uses password (1st column) temporarily find into correct account
+                    string[] usernamePasswordRole = new string[] { Reader.GetString(0), Reader.GetString(1), Reader.GetString(5) };
+                    if (usernamePasswordRole[0].Equals(args[1]) && usernamePasswordRole[1].Equals(args[3]))
+                    {
+                        printData(Reader);
+                        closeConnection();
+                        return new string[] { usernamePasswordRole[0], usernamePasswordRole[2] };
+                    }
+                }
+                Console.WriteLine("Reader has no matching rows, this should never happen");
                 closeConnection();
-                return true;
+                return null;
             }
             // Else no matching data was found (invalid username or password)
             else
             {
                 Console.WriteLine("No matching data");
                 closeConnection();
-                return false;
+                return null;
             }
-
         }
 
         public bool insertQuery(string tableName, string[] args)

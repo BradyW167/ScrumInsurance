@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -33,10 +34,21 @@ namespace ScrumInsurance
         {
             Console.WriteLine("User (" + txtUsername.Text + ") Pass (" + txtPassword.Text + ")");
             // If username and password text is found in database (valid login)
-            if (session_.getDbController().validateLogin(txtUsername.Text, txtPassword.Text))
+            // if it is not found null was returned, not a string array
+            string[] usernameAndRole = session_.getDbController().validateLogin(txtUsername.Text, txtPassword.Text);
+            if (usernameAndRole != null)
             {
-                // Load landing page
-                this.swapControl(new ctrlLanding());
+                session_.Username = usernameAndRole[0];
+                session_.Role = usernameAndRole[1];
+                // Load landing page, admins go to admin page, clients go to new client page, decided by role coloumn in database
+                if (session_.Role.Equals("admin"))
+                {
+                    this.swapControl(new ctrlLanding(session_));
+                }
+                else
+                {
+                    this.swapControl(new ctrlLandingClient(session_));
+                }
             }
             // Error if account with correct username & password isn't found
             else

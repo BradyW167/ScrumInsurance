@@ -134,6 +134,12 @@
     <Compile Include="Ctrls\ctrlForgotPass.Designer.cs">
       <DependentUpon>ctrlForgotPass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ctrls\ctrlLandingClient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctrls\ctrlLandingClient.Designer.cs">
+      <DependentUpon>ctrlLandingClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ctrls\ctrlLanding.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlForgotPass.resx">
       <DependentUpon>ctrlForgotPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctrls\ctrlLandingClient.resx">
+      <DependentUpon>ctrlLandingClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlLanding.resx">
       <DependentUpon>ctrlLanding.cs</DependentUpon>

@@ -22,14 +22,14 @@ namespace ScrumInsurance
             password_ = "";
         }
 
-        public bool validateLogin(string username, string password)
+        public string[] validateLogin(string username, string password)
         {
             username_ = username;
             password_ = password;
 
-            if (password_.Length > 8)
+            if (password_.Length < 8)
             {
-                return false;
+                return null;
             }
             else
             {
@@ -41,13 +41,7 @@ namespace ScrumInsurance
                 args[3] = password_;
 
                 // Change first parameter to actual table name
-                if (myConnection_.selectQuery("login", args))
-                {
-                    return true;
-                } else
-                {
-                    return false;
-                }
+                return myConnection_.selectQuery("login", args);
             }
         }
 

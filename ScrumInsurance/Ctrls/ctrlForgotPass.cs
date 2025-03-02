@@ -26,7 +26,7 @@ namespace ScrumInsurance
 
         //Shows security question step if email is associated with account
         private void btn_confirmEmailForgotPassword_Click(object sender, EventArgs e)
-        {
+        {/*
             string question = session_.findQuestion(txtbx_emailForgotPassword.Text);
             if (question != null)
             {
@@ -40,12 +40,12 @@ namespace ScrumInsurance
             else
             {
                 lblForgotPasswordEmailError.Text = "Email not found";
-            }
+            }*/
         }
 
         //Shows reset password step if security question is answered correctly
         private void btnForgotPasswordSubmit_Click(object sender, EventArgs e)
-        {
+        {/*
             if (txtForgotPasswordAnswer.Text.Equals(session_.getAccount(session_.userID).SecurityAnswer))
             {
                 lblForgotPasswordNewPassword.Visible = true;
@@ -56,14 +56,14 @@ namespace ScrumInsurance
             else
             {
                 lblForgotPasswordQuestionError.Text = "Inccorrect Answer";
-            }
+            }*/
         }
 
         private void btnForgotPasswordNewPassword_Click(object sender, EventArgs e)
-        {
+        {/*
             // Updates the user's password and takes the user back to the login page
             session_.getAccount(session_.userID).Password = txtForgotPasswordNewPassword.Text;
-            this.swapControl(new ctrlLogin());
+            this.swapControl(new ctrlLogin());*/
         }
 
         private void button1_Click(object sender, EventArgs e)

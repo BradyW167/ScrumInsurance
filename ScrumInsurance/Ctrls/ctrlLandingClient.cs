@@ -10,12 +10,13 @@ using System.Windows.Forms;
 
 namespace ScrumInsurance
 {
-    public partial class ctrlLanding : ScrumUserControl
+    public partial class ctrlLandingClient : ScrumUserControl
     {
         DatabaseController dbController_; // we will need this later. Might be efficient to pass in db?
-        public ctrlLanding(Session session)
+        public ctrlLandingClient(Session session)
         {
             InitializeComponent();
+            lblWelcome.Text = "Welcome,\n" + session.Username;
             lblUser.Text = session.Username;
         }
 

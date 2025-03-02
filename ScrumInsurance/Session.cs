@@ -24,7 +24,9 @@ namespace ScrumInsurance
 
         public DatabaseController getDbController() { return dbController_; }
 
-        public int userID { get; set; }
+        //Eventually, session should save an account, with all the current user's info from database
+        public string Username { get; set; }
+        public string Role { get; set; }
 
         public void addAccount(string username, string password, string email, string securityQuestion, string securityQuestionAnswer)
         {
