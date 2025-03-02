@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ScrumInsurance.Ctrls;
 
 namespace ScrumInsurance
 {
@@ -43,7 +44,7 @@ namespace ScrumInsurance
                 // Load landing page, admins go to admin page, clients go to new client page, decided by role coloumn in database
                 if (session_.Role.Equals("admin"))
                 {
-                    this.swapControl(new ctrlLanding(session_));
+                    this.swapControl(new adminLanding(session_));
                 }
                 else
                 {

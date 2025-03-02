@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace ScrumInsurance.Ctrls
 {
-    public partial class adminLanding : UserControl
+    public partial class adminLanding : ScrumUserControl
     {
         private string[] args_ = null;
-        public adminLanding()
+        public adminLanding(Session session)
         {
             InitializeComponent();
-            dgUserinfo.Rows.Add();
+            
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -26,7 +26,8 @@ namespace ScrumInsurance.Ctrls
 
         private void btnSubmitUser_Click(object sender, EventArgs e)
         {
-
+            string[] row = session_.getDbController().validateLogin("test", "admin12345");
+            dgUserinfo.Rows.Add(row);
         }
     }
 }
