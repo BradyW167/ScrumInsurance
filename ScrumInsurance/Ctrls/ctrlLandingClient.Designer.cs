@@ -207,7 +207,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(352, 36);
             this.button1.TabIndex = 24;
-            this.button1.Text = "Recieve you funds";
+            this.button1.Text = "Recieve your funds";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -241,7 +241,7 @@
             this.Controls.Add(this.lblLogout);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ctrlLandingClient";
             this.Size = new System.Drawing.Size(600, 554);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
