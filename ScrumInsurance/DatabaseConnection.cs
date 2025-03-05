@@ -16,19 +16,19 @@ namespace ScrumInsurance
         // Default Constructor
         public DatabaseConnection() { }
 
-        // Class Properties (Attributes)
+        // Database connection string properties
         public string ServerName { get; set; }
         public string DatabaseName { get; set; }
         public string DatabasePassword { get; set; }
         public string DatabaseUsername { get; set; }
 
+        // Database data accessproperties
         public MySqlConnection Connection { get; set; }
         public MySqlDataReader Reader { get; set; }
         public MySqlCommand Command { get; set; }
 
         // Attempts to open a connection to a MySQL database.
-        //
-        // Returns TRUE if successful and FALSE if unsuccessful.
+        // Returns true on successful connection, false on failure
         public bool openConnection()
         {
             // If connection is not instantiated or connection has been closed
@@ -58,6 +58,9 @@ namespace ScrumInsurance
             Connection.Close();
         }
 
+        // Queries the database for input username and password
+        // Returns string array of username, password, and role if match was found
+        // Returns null when no matching user is found
         public string[] loginQuery(string username, string password)
         {
             // Create parameter dictionary for login query
