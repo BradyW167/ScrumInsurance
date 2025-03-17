@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Diagnostics;
+using System.Windows.Forms.VisualStyles;
 
 namespace ScrumInsurance
 {
@@ -15,19 +16,19 @@ namespace ScrumInsurance
         // Default Constructor
         public DatabaseConnection() { }
 
-        // Class Properties (Attributes)
+        // Database connection string properties
         public string ServerName { get; set; }
         public string DatabaseName { get; set; }
         public string DatabasePassword { get; set; }
         public string DatabaseUsername { get; set; }
 
+        // Database data accessproperties
         public MySqlConnection Connection { get; set; }
         public MySqlDataReader Reader { get; set; }
         public MySqlCommand Command { get; set; }
 
         // Attempts to open a connection to a MySQL database.
-        //
-        // Returns TRUE if successful and FALSE if unsuccessful.
+        // Returns true on successful connection, false on failure
         public bool openConnection()
         {
             // If connection is not instantiated or connection has been closed
@@ -57,66 +58,38 @@ namespace ScrumInsurance
             Connection.Close();
         }
 
-        public string[] selectQuery(string tableName, string[] args)
+        // Queries the database for input username and password
+        // Returns string array of username, password, and role if match was found
+        // Returns null when no matching user is found
+        public string[] loginQuery(string username, string password)
         {
-            // Open SQL connection for queries
-            if (!openConnection())
+            // Create parameter dictionary for login query
+            Dictionary<string, string> login_info = new Dictionary<string, string> 
             {
-                // Return false when connection fails
-                return null;
-            }
+                { "username", username },
+                { "password", password }
+            };
 
-            if ((args.Length % 2) == 1) //because function is now abstract, this means it NEEDS an even num of args to work. 
-            {
-                return null;
-            }
-
-            // Initialize command to query database
-            Command = Connection.CreateCommand();
-
-            // Assign query to command and insert args as parameters
-            Command.CommandText = "SELECT * FROM " + tableName + " WHERE ";
-            for (int i = 0; i < args.Length; i+=2)
-            {
-                Command.CommandText += "@" + i + "= @" + (i+1) + "";
-                if ((i+2) < args.Length) 
-                {
-                    Command.CommandText += " and ";
-                }
-            }
-
-            for (int i = 0; i < args.Length; i++)
-            {
-                string paramString = "@" + i;
-                Command.Parameters.AddWithValue(paramString, args[0]);
-            }
-                
-  
-
-            Console.WriteLine(Command.CommandText);
-
-            // Execute command and store returned data
-            Reader = Command.ExecuteReader();
+            // Run select query for username and password
+            selectQuery("login", login_info);
 
             // If reader has data (matching user and password were found)
             if (Reader.HasRows)
             {
-                //Reads every matching row
+                // Loop through each entry in the reader
                 while (Reader.Read())
                 {
+                    // Store username, password, and role from reader
+                    string[] user_info = { Reader["username"].ToString(), Reader["password"].ToString(), Reader["role"].ToString() };
 
-                    //this needs to be taken out since its not abstract - needs to be handled in controller.
-                    //Returns username (0th column) and role (5th column) to be used by login and session
-                    //Uses password (1st column) temporarily find into correct account
-                    string[] usernamePasswordRole = new string[] { Reader.GetString(0), Reader.GetString(1), Reader.GetString(5) };
-                    if (usernamePasswordRole[0].Equals(args[1]) && usernamePasswordRole[1].Equals(args[3]))
+                    // If username and password are exact matches for input username and password...
+                    if (user_info[0].Equals(username) && user_info[1].Equals(password))
                     {
-                        printData(Reader);
                         closeConnection();
-                        return new string[] { usernamePasswordRole[0], usernamePasswordRole[2] };
+                        return user_info;
                     }
                 }
-                Console.WriteLine("Reader has no matching rows, this should never happen");
+                Console.WriteLine("Case-Matching was off or some other unexpected matching occurred");
                 closeConnection();
                 return null;
             }
@@ -127,6 +100,58 @@ namespace ScrumInsurance
                 closeConnection();
                 return null;
             }
+
+        }
+
+        // Executes a select query using the args Dicionary as WHERE conditions
+        // Results are stored in the Reader attribute
+        // Returns true on succesful query, false on failed connection
+        public bool selectQuery(string tableName, Dictionary<string, string> args)
+        {
+            // Open SQL connection for queries
+            if (!openConnection())
+            {
+                // Return false when connection fails
+                return false;
+            }
+
+            // Initialize command to query database
+            Command = Connection.CreateCommand();
+
+            // Initialize string to build query
+            StringBuilder query = new StringBuilder("SELECT * FROM " + tableName + " WHERE ");
+
+            // Handles the AND placement for first condition
+            bool firstCondition = true;
+
+            // Add each condition to the WHERE clause
+            foreach (var kvp in args)
+            {
+                if (!firstCondition)
+                {
+                    query.Append(" AND ");
+                }
+                query.Append($"{kvp.Key} = @{kvp.Key}");
+                firstCondition = false;
+            }
+
+            // Read query string into Command object
+            Command.CommandText = query.ToString();
+
+            // Input actual values into the query string
+            foreach (var kvp in args)
+            {
+                Command.Parameters.AddWithValue("@" + kvp.Key, kvp.Value);
+            }
+
+            // Write command to console for debugging
+            Console.WriteLine(Command.CommandText);
+
+            // Execute command and store returned data
+            Reader = Command.ExecuteReader();
+
+            // Return true on successful query
+            return true;
         }
 
         public bool insertQuery(string tableName, string[] args)

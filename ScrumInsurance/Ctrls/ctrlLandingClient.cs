@@ -16,7 +16,7 @@ namespace ScrumInsurance
         public ctrlLandingClient(Session session)
         {
             InitializeComponent();
-            lblWelcome.Text = "Welcome,\n" + session.Username;
+            lblWelcome.Text = "Welcome, " + session.Username;
             lblUser.Text = session.Username;
         }
 

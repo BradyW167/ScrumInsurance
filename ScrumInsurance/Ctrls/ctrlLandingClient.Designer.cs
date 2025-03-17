@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlLandingClient));
             this.lblLogout = new System.Windows.Forms.Label();
-            this.lblWelcome = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLanding = new System.Windows.Forms.Button();
@@ -37,44 +37,50 @@
             this.btnSupport = new System.Windows.Forms.Button();
             this.btnRequest = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
-            this.lblEnterQuery = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lblWelcome = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.lblWelcomeInformation = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.lblBottomInformation = new System.Windows.Forms.Label();
+            this.lblClaimOne = new System.Windows.Forms.Label();
+            this.lblClaimOneStatus = new System.Windows.Forms.Label();
+            this.btnClaimOneSubmit = new System.Windows.Forms.Button();
+            this.txtClaimOne = new System.Windows.Forms.TextBox();
+            this.lblClaimOneDesc = new System.Windows.Forms.Label();
+            this.lblTrademark = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // lblLogout
             // 
             this.lblLogout.AutoSize = true;
-            this.lblLogout.BackColor = System.Drawing.Color.Transparent;
+            this.lblLogout.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogout.ForeColor = System.Drawing.Color.GhostWhite;
-            this.lblLogout.Location = new System.Drawing.Point(378, 20);
+            this.lblLogout.ForeColor = System.Drawing.Color.Black;
+            this.lblLogout.Location = new System.Drawing.Point(1008, 20);
             this.lblLogout.Name = "lblLogout";
             this.lblLogout.Size = new System.Drawing.Size(45, 13);
             this.lblLogout.TabIndex = 0;
             this.lblLogout.Text = "Log Out";
             this.lblLogout.Click += new System.EventHandler(this.lblLogout_Click);
             // 
-            // lblWelcome
-            // 
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.Location = new System.Drawing.Point(98, 53);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(259, 55);
-            this.lblWelcome.TabIndex = 1;
-            this.lblWelcome.Text = "Welcome, ";
-            // 
             // lblUser
             // 
-            this.lblUser.BackColor = System.Drawing.Color.Transparent;
+            this.lblUser.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblUser.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.lblUser.Location = new System.Drawing.Point(367, 6);
+            this.lblUser.Location = new System.Drawing.Point(996, 5);
             this.lblUser.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblUser.MaximumSize = new System.Drawing.Size(67, 13);
             this.lblUser.MinimumSize = new System.Drawing.Size(67, 13);
@@ -82,16 +88,16 @@
             this.lblUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblUser.Size = new System.Drawing.Size(67, 13);
             this.lblUser.TabIndex = 2;
-            this.lblUser.Text = "testing";
+            this.lblUser.Text = "Username";
             this.lblUser.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(0, -1);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(337, 36);
+            this.pictureBox1.Size = new System.Drawing.Size(1080, 38);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
@@ -101,12 +107,12 @@
             this.btnLanding.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnLanding.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLanding.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLanding.Location = new System.Drawing.Point(0, 0);
+            this.btnLanding.Location = new System.Drawing.Point(73, 0);
             this.btnLanding.Margin = new System.Windows.Forms.Padding(2);
             this.btnLanding.Name = "btnLanding";
             this.btnLanding.Size = new System.Drawing.Size(67, 36);
             this.btnLanding.TabIndex = 8;
-            this.btnLanding.Text = "Landing";
+            this.btnLanding.Text = "SCRUM Insurance";
             this.btnLanding.UseVisualStyleBackColor = false;
             // 
             // btnAccount
@@ -115,7 +121,7 @@
             this.btnAccount.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnAccount.Location = new System.Drawing.Point(67, 0);
+            this.btnAccount.Location = new System.Drawing.Point(144, 0);
             this.btnAccount.Margin = new System.Windows.Forms.Padding(2);
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Size = new System.Drawing.Size(67, 36);
@@ -129,7 +135,7 @@
             this.btnSupport.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnSupport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSupport.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSupport.Location = new System.Drawing.Point(134, 0);
+            this.btnSupport.Location = new System.Drawing.Point(215, 0);
             this.btnSupport.Margin = new System.Windows.Forms.Padding(2);
             this.btnSupport.Name = "btnSupport";
             this.btnSupport.Size = new System.Drawing.Size(67, 36);
@@ -143,7 +149,7 @@
             this.btnRequest.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRequest.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnRequest.Location = new System.Drawing.Point(201, 0);
+            this.btnRequest.Location = new System.Drawing.Point(286, 0);
             this.btnRequest.Margin = new System.Windows.Forms.Padding(2);
             this.btnRequest.Name = "btnRequest";
             this.btnRequest.Size = new System.Drawing.Size(67, 36);
@@ -157,7 +163,7 @@
             this.btnSettings.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSettings.Location = new System.Drawing.Point(269, 0);
+            this.btnSettings.Location = new System.Drawing.Point(357, 0);
             this.btnSettings.Margin = new System.Windows.Forms.Padding(2);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(67, 36);
@@ -165,85 +171,216 @@
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = false;
             // 
-            // lblEnterQuery
-            // 
-            this.lblEnterQuery.AutoSize = true;
-            this.lblEnterQuery.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblEnterQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnterQuery.Location = new System.Drawing.Point(131, 184);
-            this.lblEnterQuery.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblEnterQuery.Name = "lblEnterQuery";
-            this.lblEnterQuery.Size = new System.Drawing.Size(178, 15);
-            this.lblEnterQuery.TabIndex = 13;
-            this.lblEnterQuery.Text = "What would you like to do?";
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pictureBox2.Location = new System.Drawing.Point(46, 43);
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(-1, -1);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(356, 381);
+            this.pictureBox2.Size = new System.Drawing.Size(68, 38);
             this.pictureBox2.TabIndex = 22;
             this.pictureBox2.TabStop = false;
             // 
-            // btnLogin
+            // pictureBox3
             // 
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLogin.Location = new System.Drawing.Point(93, 211);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(264, 29);
-            this.btnLogin.TabIndex = 23;
-            this.btnLogin.Text = "Make a claim";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.pictureBox3.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pictureBox3.Location = new System.Drawing.Point(-1, 0);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(68, 607);
+            this.pictureBox3.TabIndex = 23;
+            this.pictureBox3.TabStop = false;
             // 
-            // button1
+            // lblWelcome
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.Location = new System.Drawing.Point(93, 263);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(264, 29);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Recieve you funds";
-            this.button1.UseVisualStyleBackColor = true;
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
+            this.lblWelcome.Location = new System.Drawing.Point(110, 75);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(264, 37);
+            this.lblWelcome.TabIndex = 24;
+            this.lblWelcome.Text = "Welcome, Client";
             // 
-            // button2
+            // pictureBox4
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button2.Location = new System.Drawing.Point(93, 311);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(264, 29);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Contant your claim manager";
-            this.button2.UseVisualStyleBackColor = true;
+            this.pictureBox4.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pictureBox4.Location = new System.Drawing.Point(90, 62);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(990, 84);
+            this.pictureBox4.TabIndex = 25;
+            this.pictureBox4.TabStop = false;
+            // 
+            // lblWelcomeInformation
+            // 
+            this.lblWelcomeInformation.AutoSize = true;
+            this.lblWelcomeInformation.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblWelcomeInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcomeInformation.Location = new System.Drawing.Point(114, 122);
+            this.lblWelcomeInformation.Name = "lblWelcomeInformation";
+            this.lblWelcomeInformation.Size = new System.Drawing.Size(561, 13);
+            this.lblWelcomeInformation.TabIndex = 26;
+            this.lblWelcomeInformation.Text = "Here is where you put a breif description of what the client can do on this page " +
+    "or other important account information.";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pictureBox5.Location = new System.Drawing.Point(90, 168);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(263, 258);
+            this.pictureBox5.TabIndex = 27;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pictureBox6.Location = new System.Drawing.Point(453, 168);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(263, 258);
+            this.pictureBox6.TabIndex = 28;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pictureBox7.Location = new System.Drawing.Point(790, 168);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(263, 258);
+            this.pictureBox7.TabIndex = 29;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pictureBox8.Location = new System.Drawing.Point(66, 523);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(1014, 84);
+            this.pictureBox8.TabIndex = 30;
+            this.pictureBox8.TabStop = false;
+            // 
+            // lblBottomInformation
+            // 
+            this.lblBottomInformation.AutoSize = true;
+            this.lblBottomInformation.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblBottomInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBottomInformation.Location = new System.Drawing.Point(152, 544);
+            this.lblBottomInformation.Name = "lblBottomInformation";
+            this.lblBottomInformation.Size = new System.Drawing.Size(860, 13);
+            this.lblBottomInformation.TabIndex = 31;
+            this.lblBottomInformation.Text = "Here is where you put all the random links and information that is at the bottom " +
+    "of the web page like privacy, terms, about, sponsors, maybe also a disclaimer or" +
+    " maintenence message";
+            // 
+            // lblClaimOne
+            // 
+            this.lblClaimOne.AutoSize = true;
+            this.lblClaimOne.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblClaimOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
+            this.lblClaimOne.Location = new System.Drawing.Point(151, 180);
+            this.lblClaimOne.Name = "lblClaimOne";
+            this.lblClaimOne.Size = new System.Drawing.Size(140, 29);
+            this.lblClaimOne.TabIndex = 33;
+            this.lblClaimOne.Text = "Claim Title";
+            // 
+            // lblClaimOneStatus
+            // 
+            this.lblClaimOneStatus.AutoSize = true;
+            this.lblClaimOneStatus.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblClaimOneStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClaimOneStatus.Location = new System.Drawing.Point(187, 209);
+            this.lblClaimOneStatus.Name = "lblClaimOneStatus";
+            this.lblClaimOneStatus.Size = new System.Drawing.Size(69, 13);
+            this.lblClaimOneStatus.TabIndex = 34;
+            this.lblClaimOneStatus.Text = "Status: None";
+            // 
+            // btnClaimOneSubmit
+            // 
+            this.btnClaimOneSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnClaimOneSubmit.Location = new System.Drawing.Point(149, 388);
+            this.btnClaimOneSubmit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnClaimOneSubmit.Name = "btnClaimOneSubmit";
+            this.btnClaimOneSubmit.Size = new System.Drawing.Size(145, 29);
+            this.btnClaimOneSubmit.TabIndex = 35;
+            this.btnClaimOneSubmit.Text = "Submit";
+            this.btnClaimOneSubmit.UseVisualStyleBackColor = true;
+            // 
+            // txtClaimOne
+            // 
+            this.txtClaimOne.Location = new System.Drawing.Point(105, 272);
+            this.txtClaimOne.Multiline = true;
+            this.txtClaimOne.Name = "txtClaimOne";
+            this.txtClaimOne.Size = new System.Drawing.Size(233, 110);
+            this.txtClaimOne.TabIndex = 36;
+            // 
+            // lblClaimOneDesc
+            // 
+            this.lblClaimOneDesc.AutoSize = true;
+            this.lblClaimOneDesc.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblClaimOneDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblClaimOneDesc.Location = new System.Drawing.Point(175, 249);
+            this.lblClaimOneDesc.Name = "lblClaimOneDesc";
+            this.lblClaimOneDesc.Size = new System.Drawing.Size(93, 20);
+            this.lblClaimOneDesc.TabIndex = 37;
+            this.lblClaimOneDesc.Text = "Description:";
+            // 
+            // lblTrademark
+            // 
+            this.lblTrademark.AutoSize = true;
+            this.lblTrademark.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblTrademark.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrademark.Location = new System.Drawing.Point(550, 572);
+            this.lblTrademark.Name = "lblTrademark";
+            this.lblTrademark.Size = new System.Drawing.Size(95, 13);
+            this.lblTrademark.TabIndex = 32;
+            this.lblTrademark.Text = "Scrum Insurance®";
             // 
             // ctrlLandingClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.lblEnterQuery);
+            this.Controls.Add(this.lblClaimOneDesc);
+            this.Controls.Add(this.txtClaimOne);
+            this.Controls.Add(this.btnClaimOneSubmit);
+            this.Controls.Add(this.lblClaimOneStatus);
+            this.Controls.Add(this.lblClaimOne);
+            this.Controls.Add(this.lblTrademark);
+            this.Controls.Add(this.lblBottomInformation);
+            this.Controls.Add(this.pictureBox8);
+            this.Controls.Add(this.pictureBox7);
+            this.Controls.Add(this.pictureBox6);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.lblWelcomeInformation);
+            this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnRequest);
             this.Controls.Add(this.btnSupport);
             this.Controls.Add(this.btnAccount);
             this.Controls.Add(this.btnLanding);
             this.Controls.Add(this.lblUser);
-            this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.lblLogout);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox4);
             this.Name = "ctrlLandingClient";
-            this.Size = new System.Drawing.Size(450, 450);
+            this.Size = new System.Drawing.Size(1080, 607);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,7 +389,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblLogout;
-        private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnLanding;
@@ -260,10 +396,21 @@
         private System.Windows.Forms.Button btnSupport;
         private System.Windows.Forms.Button btnRequest;
         private System.Windows.Forms.Button btnSettings;
-        private System.Windows.Forms.Label lblEnterQuery;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label lblWelcomeInformation;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Label lblBottomInformation;
+        private System.Windows.Forms.Label lblClaimOne;
+        private System.Windows.Forms.Label lblClaimOneStatus;
+        private System.Windows.Forms.Button btnClaimOneSubmit;
+        private System.Windows.Forms.TextBox txtClaimOne;
+        private System.Windows.Forms.Label lblClaimOneDesc;
+        private System.Windows.Forms.Label lblTrademark;
     }
 }
