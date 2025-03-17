@@ -78,7 +78,7 @@ namespace ScrumInsurance
             Command.CommandText = "SELECT * FROM " + tableName + " WHERE ";
             for (int i = 0; i < args.Length; i+=2)
             {
-                Command.CommandText += "@" + i + "= @" + (i+1);
+                Command.CommandText += "@" + i + "= @" + (i+1) + "";
                 if ((i+2) < args.Length) 
                 {
                     Command.CommandText += " and ";
@@ -104,6 +104,8 @@ namespace ScrumInsurance
                 //Reads every matching row
                 while (Reader.Read())
                 {
+
+                    //this needs to be taken out since its not abstract - needs to be handled in controller.
                     //Returns username (0th column) and role (5th column) to be used by login and session
                     //Uses password (1st column) temporarily find into correct account
                     string[] usernamePasswordRole = new string[] { Reader.GetString(0), Reader.GetString(1), Reader.GetString(5) };

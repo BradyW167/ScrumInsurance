@@ -45,6 +45,14 @@ namespace ScrumInsurance
             }
         }
 
+        public string[] getUser(string username)
+        {
+            string[] args = new string[2];
+            args[0] = "username";
+            args[1] = username;
+            return myConnection_.selectQuery("login", args);
+        }
+
         public bool addAccount(string username, string password, string email, string question, string answer, string role)
         {
             string[] args = new string[6];
