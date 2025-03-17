@@ -237,7 +237,7 @@
             this.lblWelcomeInformation.Name = "lblWelcomeInformation";
             this.lblWelcomeInformation.Size = new System.Drawing.Size(561, 13);
             this.lblWelcomeInformation.TabIndex = 26;
-            this.lblWelcomeInformation.Text = "Here is where you put a breif description of what the client can do on this page " +
+            this.lblWelcomeInformation.Text = "Here is where you put a brief description of what the client can do on this page " +
     "or other important account information.";
             // 
             // pictureBox5
