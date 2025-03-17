@@ -50,15 +50,22 @@
             this.lblClaimOne = new System.Windows.Forms.Label();
             this.lblClaimOneStatus = new System.Windows.Forms.Label();
             this.btnClaimOneSubmit = new System.Windows.Forms.Button();
-            this.txtClaimOne = new System.Windows.Forms.TextBox();
             this.lblClaimOneDesc = new System.Windows.Forms.Label();
             this.lblTrademark = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -291,52 +298,46 @@
             this.lblClaimOne.AutoSize = true;
             this.lblClaimOne.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblClaimOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.lblClaimOne.Location = new System.Drawing.Point(151, 180);
+            this.lblClaimOne.Location = new System.Drawing.Point(96, 180);
             this.lblClaimOne.Name = "lblClaimOne";
-            this.lblClaimOne.Size = new System.Drawing.Size(140, 29);
+            this.lblClaimOne.Size = new System.Drawing.Size(250, 29);
             this.lblClaimOne.TabIndex = 33;
-            this.lblClaimOne.Text = "Claim Title";
+            this.lblClaimOne.Text = "Current Claim: None";
             // 
             // lblClaimOneStatus
             // 
+            this.lblClaimOneStatus.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblClaimOneStatus.AutoSize = true;
             this.lblClaimOneStatus.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblClaimOneStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClaimOneStatus.Location = new System.Drawing.Point(187, 209);
+            this.lblClaimOneStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblClaimOneStatus.Location = new System.Drawing.Point(142, 210);
             this.lblClaimOneStatus.Name = "lblClaimOneStatus";
-            this.lblClaimOneStatus.Size = new System.Drawing.Size(69, 13);
+            this.lblClaimOneStatus.Size = new System.Drawing.Size(160, 20);
             this.lblClaimOneStatus.TabIndex = 34;
-            this.lblClaimOneStatus.Text = "Status: None";
+            this.lblClaimOneStatus.Text = "Date Recieved: None";
+            this.lblClaimOneStatus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnClaimOneSubmit
             // 
             this.btnClaimOneSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnClaimOneSubmit.Location = new System.Drawing.Point(149, 388);
+            this.btnClaimOneSubmit.Location = new System.Drawing.Point(149, 315);
             this.btnClaimOneSubmit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnClaimOneSubmit.Name = "btnClaimOneSubmit";
             this.btnClaimOneSubmit.Size = new System.Drawing.Size(145, 29);
             this.btnClaimOneSubmit.TabIndex = 35;
-            this.btnClaimOneSubmit.Text = "Submit";
+            this.btnClaimOneSubmit.Text = "Edit";
             this.btnClaimOneSubmit.UseVisualStyleBackColor = true;
-            // 
-            // txtClaimOne
-            // 
-            this.txtClaimOne.Location = new System.Drawing.Point(105, 272);
-            this.txtClaimOne.Multiline = true;
-            this.txtClaimOne.Name = "txtClaimOne";
-            this.txtClaimOne.Size = new System.Drawing.Size(233, 110);
-            this.txtClaimOne.TabIndex = 36;
             // 
             // lblClaimOneDesc
             // 
             this.lblClaimOneDesc.AutoSize = true;
             this.lblClaimOneDesc.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblClaimOneDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblClaimOneDesc.Location = new System.Drawing.Point(175, 249);
+            this.lblClaimOneDesc.Location = new System.Drawing.Point(170, 235);
             this.lblClaimOneDesc.Name = "lblClaimOneDesc";
-            this.lblClaimOneDesc.Size = new System.Drawing.Size(93, 20);
+            this.lblClaimOneDesc.Size = new System.Drawing.Size(102, 20);
             this.lblClaimOneDesc.TabIndex = 37;
-            this.lblClaimOneDesc.Text = "Description:";
+            this.lblClaimOneDesc.Text = "Status: None";
             // 
             // lblTrademark
             // 
@@ -349,78 +350,183 @@
             this.lblTrademark.TabIndex = 32;
             this.lblTrademark.Text = "Scrum Insurance®";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label5.Location = new System.Drawing.Point(177, 260);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 20);
+            this.label5.TabIndex = 45;
+            this.label5.Text = "Type: None";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label6.Location = new System.Drawing.Point(168, 285);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(107, 20);
+            this.label6.TabIndex = 46;
+            this.label6.Text = "Service: None";
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button3.Location = new System.Drawing.Point(110, 350);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(223, 29);
+            this.button3.TabIndex = 47;
+            this.button3.Text = "Contact Claim Manager";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button4.Location = new System.Drawing.Point(110, 388);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(223, 29);
+            this.button4.TabIndex = 48;
+            this.button4.Text = "Contact Admin";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(551, 209);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(471, 180);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 13);
-            this.label1.TabIndex = 39;
-            this.label1.Text = "Status: None";
+            this.label1.Size = new System.Drawing.Size(227, 29);
+            this.label1.TabIndex = 49;
+            this.label1.Text = "No Current Claims";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.button1.Location = new System.Drawing.Point(509, 235);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 150);
+            this.button1.TabIndex = 50;
+            this.button1.Text = "Make a New Claim";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(460, 180);
+            this.label2.Location = new System.Drawing.Point(830, 180);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(250, 29);
-            this.label2.TabIndex = 38;
-            this.label2.Text = "Current Claim: None";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.Location = new System.Drawing.Point(473, 388);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(223, 29);
-            this.button1.TabIndex = 40;
-            this.button1.Text = "Upload";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label2.Size = new System.Drawing.Size(183, 29);
+            this.label2.TabIndex = 51;
+            this.label2.Text = "My Information";
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(520, 225);
+            this.label3.Location = new System.Drawing.Point(873, 210);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 20);
-            this.label3.TabIndex = 41;
-            this.label3.Text = "Document: None";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(468, 294);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(233, 84);
-            this.textBox1.TabIndex = 42;
+            this.label3.Size = new System.Drawing.Size(97, 20);
+            this.label3.TabIndex = 52;
+            this.label3.Text = "Name: None";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label4.Location = new System.Drawing.Point(538, 270);
+            this.label4.Location = new System.Drawing.Point(846, 240);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 20);
-            this.label4.TabIndex = 43;
-            this.label4.Text = "Description:";
+            this.label4.Size = new System.Drawing.Size(150, 20);
+            this.label4.TabIndex = 53;
+            this.label4.Text = "Primary Email: None";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label7.Location = new System.Drawing.Point(834, 260);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(174, 20);
+            this.label7.TabIndex = 54;
+            this.label7.Text = "Secondary Email: None";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label8.Location = new System.Drawing.Point(847, 290);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(148, 20);
+            this.label8.TabIndex = 55;
+            this.label8.Text = "Home Phone: None";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label9.Location = new System.Drawing.Point(850, 310);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(142, 20);
+            this.label9.TabIndex = 56;
+            this.label9.Text = "Work Phone: None";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label10.Location = new System.Drawing.Point(838, 340);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(167, 20);
+            this.label10.TabIndex = 57;
+            this.label10.Text = "Mailing Address: None";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label11.Location = new System.Drawing.Point(804, 370);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(234, 20);
+            this.label11.TabIndex = 58;
+            this.label11.Text = "Prefered Contact Method: None";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // button2
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.button2.Location = new System.Drawing.Point(556, 248);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button2.Location = new System.Drawing.Point(849, 392);
             this.button2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(56, 22);
-            this.button2.TabIndex = 44;
-            this.button2.Text = "Attach";
+            this.button2.Size = new System.Drawing.Size(145, 29);
+            this.button2.TabIndex = 59;
+            this.button2.Text = "Edit";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // ctrlLandingClient
@@ -429,14 +535,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.Controls.Add(this.button2);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.lblClaimOneDesc);
-            this.Controls.Add(this.txtClaimOne);
             this.Controls.Add(this.btnClaimOneSubmit);
             this.Controls.Add(this.lblClaimOneStatus);
             this.Controls.Add(this.lblClaimOne);
@@ -497,15 +610,22 @@
         private System.Windows.Forms.Label lblClaimOne;
         private System.Windows.Forms.Label lblClaimOneStatus;
         private System.Windows.Forms.Button btnClaimOneSubmit;
-        private System.Windows.Forms.TextBox txtClaimOne;
         private System.Windows.Forms.Label lblClaimOneDesc;
         private System.Windows.Forms.Label lblTrademark;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button2;
     }
 }
