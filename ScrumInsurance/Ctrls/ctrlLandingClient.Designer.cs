@@ -399,11 +399,11 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(471, 180);
+            this.label1.Location = new System.Drawing.Point(517, 180);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(227, 29);
+            this.label1.Size = new System.Drawing.Size(134, 29);
             this.label1.TabIndex = 49;
-            this.label1.Text = "No Current Claims";
+            this.label1.Text = "No Claims";
             // 
             // button1
             // 
