@@ -134,11 +134,23 @@
     <Compile Include="Ctrls\ctrlCreateAccount.Designer.cs">
       <DependentUpon>ctrlCreateAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ctrls\ctrlEditProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctrls\ctrlEditProfile.Designer.cs">
+      <DependentUpon>ctrlEditProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ctrls\ctrlForgotPass.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ctrls\ctrlForgotPass.Designer.cs">
       <DependentUpon>ctrlForgotPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ctrls\ctrlInbox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctrls\ctrlInbox.Designer.cs">
+      <DependentUpon>ctrlInbox.cs</DependentUpon>
     </Compile>
     <Compile Include="Ctrls\ctrlLandingClient.cs">
       <SubType>UserControl</SubType>
@@ -191,8 +203,14 @@
     <EmbeddedResource Include="Ctrls\ctrlCreateAccount.resx">
       <DependentUpon>ctrlCreateAccount.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ctrls\ctrlEditProfile.resx">
+      <DependentUpon>ctrlEditProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlForgotPass.resx">
       <DependentUpon>ctrlForgotPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctrls\ctrlInbox.resx">
+      <DependentUpon>ctrlInbox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlLandingClient.resx">
       <DependentUpon>ctrlLandingClient.cs</DependentUpon>
