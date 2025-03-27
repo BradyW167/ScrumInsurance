@@ -38,22 +38,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblLoginError = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_createAccount
             // 
             this.lbl_createAccount.AutoSize = true;
-            this.lbl_createAccount.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lbl_createAccount.BackColor = System.Drawing.Color.Black;
+            this.lbl_createAccount.ForeColor = System.Drawing.Color.White;
+            this.lbl_createAccount.LinkColor = System.Drawing.Color.LightSteelBlue;
             this.lbl_createAccount.Location = new System.Drawing.Point(584, 473);
             this.lbl_createAccount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_createAccount.Name = "lbl_createAccount";
@@ -62,12 +60,15 @@
             this.lbl_createAccount.TabStop = true;
             this.lbl_createAccount.Text = "Create Account";
             this.lbl_createAccount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbl_createAccount.VisitedLinkColor = System.Drawing.Color.Thistle;
             this.lbl_createAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbl_createAccount_LinkClicked);
             // 
             // lbl_ForgotPass
             // 
             this.lbl_ForgotPass.AutoSize = true;
-            this.lbl_ForgotPass.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lbl_ForgotPass.BackColor = System.Drawing.Color.Black;
+            this.lbl_ForgotPass.ForeColor = System.Drawing.Color.White;
+            this.lbl_ForgotPass.LinkColor = System.Drawing.Color.LightSteelBlue;
             this.lbl_ForgotPass.Location = new System.Drawing.Point(397, 473);
             this.lbl_ForgotPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_ForgotPass.Name = "lbl_ForgotPass";
@@ -75,13 +76,15 @@
             this.lbl_ForgotPass.TabIndex = 17;
             this.lbl_ForgotPass.TabStop = true;
             this.lbl_ForgotPass.Text = "Forgot Password?";
+            this.lbl_ForgotPass.VisitedLinkColor = System.Drawing.Color.Thistle;
             this.lbl_ForgotPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbl_ForgotPass_LinkClicked);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label3.BackColor = System.Drawing.Color.Black;
             this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(408, 225);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
@@ -104,8 +107,9 @@
             // 
             // welcomeLabel
             // 
-            this.welcomeLabel.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.welcomeLabel.BackColor = System.Drawing.Color.Black;
             this.welcomeLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.welcomeLabel.ForeColor = System.Drawing.Color.White;
             this.welcomeLabel.Location = new System.Drawing.Point(394, 28);
             this.welcomeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.welcomeLabel.Name = "welcomeLabel";
@@ -136,8 +140,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(394, 332);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
@@ -148,8 +153,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(394, 267);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
@@ -159,9 +165,9 @@
             // 
             // lblLoginError
             // 
-            this.lblLoginError.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblLoginError.BackColor = System.Drawing.Color.Black;
             this.lblLoginError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.lblLoginError.ForeColor = System.Drawing.Color.Crimson;
+            this.lblLoginError.ForeColor = System.Drawing.Color.LightCoral;
             this.lblLoginError.Location = new System.Drawing.Point(406, 397);
             this.lblLoginError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLoginError.Name = "lblLoginError";
@@ -171,20 +177,9 @@
             this.lblLoginError.Text = "CLEAR ON INITIALIZE";
             this.lblLoginError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.SteelBlue;
-            this.pictureBox3.Image = global::ScrumInsurance.Properties.Resources.scrum_logo;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(540, 506);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 63;
-            this.pictureBox3.TabStop = false;
-            // 
             // pictureBox9
             // 
-            this.pictureBox9.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pictureBox9.BackColor = System.Drawing.Color.Black;
             this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox9.Image = global::ScrumInsurance.Properties.Resources.scrum_logo;
             this.pictureBox9.Location = new System.Drawing.Point(456, 65);
@@ -197,7 +192,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pictureBox1.BackColor = System.Drawing.Color.Black;
             this.pictureBox1.Location = new System.Drawing.Point(383, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(296, 607);
@@ -207,22 +202,13 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.SteelBlue;
-            this.pictureBox2.Image = global::ScrumInsurance.Properties.Resources.scrum_logo;
-            this.pictureBox2.Location = new System.Drawing.Point(540, 0);
+            this.pictureBox2.Image = global::ScrumInsurance.Properties.Resources.bluecity;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(540, 506);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.Size = new System.Drawing.Size(1080, 607);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 64;
             this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.pictureBox4.Location = new System.Drawing.Point(0, 463);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(1080, 144);
-            this.pictureBox4.TabIndex = 65;
-            this.pictureBox4.TabStop = false;
             // 
             // ctrlLogin
             // 
@@ -241,18 +227,14 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox4);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "ctrlLogin";
             this.Size = new System.Drawing.Size(1080, 607);
             this.Load += new System.EventHandler(this.ctrlLogin_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,8 +254,6 @@
         private System.Windows.Forms.Label lblLoginError;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }
