@@ -32,5 +32,10 @@ namespace ScrumInsurance
         {
 
         }
+
+        private void btnLanding_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
