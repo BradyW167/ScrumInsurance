@@ -46,10 +46,9 @@
             this.lblLogout.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogout.ForeColor = System.Drawing.Color.Black;
-            this.lblLogout.Location = new System.Drawing.Point(1344, 25);
-            this.lblLogout.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLogout.Location = new System.Drawing.Point(1008, 20);
             this.lblLogout.Name = "lblLogout";
-            this.lblLogout.Size = new System.Drawing.Size(59, 17);
+            this.lblLogout.Size = new System.Drawing.Size(45, 13);
             this.lblLogout.TabIndex = 0;
             this.lblLogout.Text = "Log Out";
             this.lblLogout.Click += new System.EventHandler(this.lblLogout_Click);
@@ -58,13 +57,13 @@
             // 
             this.lblUser.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblUser.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.lblUser.Location = new System.Drawing.Point(1328, 6);
+            this.lblUser.Location = new System.Drawing.Point(996, 5);
             this.lblUser.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.lblUser.MaximumSize = new System.Drawing.Size(89, 16);
-            this.lblUser.MinimumSize = new System.Drawing.Size(89, 16);
+            this.lblUser.MaximumSize = new System.Drawing.Size(67, 13);
+            this.lblUser.MinimumSize = new System.Drawing.Size(67, 13);
             this.lblUser.Name = "lblUser";
             this.lblUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblUser.Size = new System.Drawing.Size(89, 16);
+            this.lblUser.Size = new System.Drawing.Size(67, 13);
             this.lblUser.TabIndex = 2;
             this.lblUser.Text = "Username";
             this.lblUser.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -75,10 +74,10 @@
             this.btnLanding.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnLanding.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLanding.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLanding.Location = new System.Drawing.Point(97, 0);
-            this.btnLanding.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLanding.Location = new System.Drawing.Point(73, 0);
+            this.btnLanding.Margin = new System.Windows.Forms.Padding(2);
             this.btnLanding.Name = "btnLanding";
-            this.btnLanding.Size = new System.Drawing.Size(89, 44);
+            this.btnLanding.Size = new System.Drawing.Size(67, 36);
             this.btnLanding.TabIndex = 8;
             this.btnLanding.Text = "SCRUM Insurance";
             this.btnLanding.UseVisualStyleBackColor = false;
@@ -89,10 +88,10 @@
             this.btnAccount.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnAccount.Location = new System.Drawing.Point(192, 0);
-            this.btnAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAccount.Location = new System.Drawing.Point(144, 0);
+            this.btnAccount.Margin = new System.Windows.Forms.Padding(2);
             this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(89, 44);
+            this.btnAccount.Size = new System.Drawing.Size(67, 36);
             this.btnAccount.TabIndex = 9;
             this.btnAccount.Text = "Account";
             this.btnAccount.UseVisualStyleBackColor = false;
@@ -103,10 +102,10 @@
             this.btnSupport.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnSupport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSupport.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSupport.Location = new System.Drawing.Point(287, 0);
-            this.btnSupport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSupport.Location = new System.Drawing.Point(215, 0);
+            this.btnSupport.Margin = new System.Windows.Forms.Padding(2);
             this.btnSupport.Name = "btnSupport";
-            this.btnSupport.Size = new System.Drawing.Size(89, 44);
+            this.btnSupport.Size = new System.Drawing.Size(67, 36);
             this.btnSupport.TabIndex = 10;
             this.btnSupport.Text = "Support";
             this.btnSupport.UseVisualStyleBackColor = false;
@@ -117,10 +116,10 @@
             this.btnRequest.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRequest.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnRequest.Location = new System.Drawing.Point(381, 0);
-            this.btnRequest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRequest.Location = new System.Drawing.Point(286, 0);
+            this.btnRequest.Margin = new System.Windows.Forms.Padding(2);
             this.btnRequest.Name = "btnRequest";
-            this.btnRequest.Size = new System.Drawing.Size(89, 44);
+            this.btnRequest.Size = new System.Drawing.Size(67, 36);
             this.btnRequest.TabIndex = 11;
             this.btnRequest.Text = "Submit Request";
             this.btnRequest.UseVisualStyleBackColor = false;
@@ -131,10 +130,10 @@
             this.btnSettings.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSettings.Location = new System.Drawing.Point(476, 0);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSettings.Location = new System.Drawing.Point(357, 0);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(2);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(89, 44);
+            this.btnSettings.Size = new System.Drawing.Size(67, 36);
             this.btnSettings.TabIndex = 12;
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = false;
@@ -145,15 +144,15 @@
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Location = new System.Drawing.Point(1, 1);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(91, 47);
+            this.pictureBox2.Size = new System.Drawing.Size(68, 38);
             this.pictureBox2.TabIndex = 22;
             this.pictureBox2.TabStop = false;
             // 
             // ctrlDashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.Controls.Add(this.btnSettings);
@@ -164,9 +163,9 @@
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.lblLogout);
             this.Controls.Add(this.pictureBox2);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ctrlDashboard";
-            this.Size = new System.Drawing.Size(1440, 50);
+            this.Size = new System.Drawing.Size(1080, 41);
+            this.Load += new System.EventHandler(this.ctrlDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

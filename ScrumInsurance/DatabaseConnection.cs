@@ -195,7 +195,7 @@ namespace ScrumInsurance
             Reader = Command.ExecuteReader();
 
             // If reader has data (matching user and password were found)
-            if (Reader.HasRows)
+            if (Reader != null && Reader.HasRows)
             {
                 printData(Reader);
                 closeConnection();

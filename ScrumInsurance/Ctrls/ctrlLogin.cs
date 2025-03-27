@@ -26,11 +26,22 @@ namespace ScrumInsurance
             lblLoginError.Text = "";
             Session = session;
             PnlMain = pnlMain;
+            Session.CtrlMain = this;
         }
 
         private void ctrlLogin_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Check if the Enter key was pressed
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Call the login button's click event or method
+                btnLogin.PerformClick();
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -46,13 +57,13 @@ namespace ScrumInsurance
                 // Load landing page, admins go to admin page, clients go to new client page, decided by role column in database
                 if (Session.Role.Equals("admin"))
                 {
-                    this.swapControl(new adminLanding());
-                    // this.loadDash();
+                    swapCtrlMain(new adminLanding());
+                    loadCtrlDash();
                 }
                 else
                 {
-                    this.swapControl(new ctrlLandingClient(Session));
-                    this.loadDash();
+                    swapCtrlMain(new ctrlLandingClient());
+                    loadCtrlDash();
                 }
             }
             // Error if account with correct username & password isn't found
@@ -64,12 +75,12 @@ namespace ScrumInsurance
 
         private void lbl_createAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.swapControl(new ctrlCreateAccount());
+            swapCtrlMain(new ctrlCreateAccount());
         }
 
         private void lbl_ForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.swapControl(new ctrlForgotPass());
+            swapCtrlMain(new ctrlForgotPass());
         }
 
     }

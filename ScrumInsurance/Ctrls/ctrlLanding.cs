@@ -12,11 +12,9 @@ namespace ScrumInsurance
 {
     public partial class ctrlLanding : ScrumUserControl
     {
-        DatabaseController dbController_; // we will need this later. Might be efficient to pass in db?
         public ctrlLanding(Session session)
         {
             InitializeComponent();
-            lblUser.Text = session.Username;
         }
 
         private void ctrlLanding_Load(object sender, EventArgs e)
@@ -26,7 +24,7 @@ namespace ScrumInsurance
 
         private void lblLogout_Click(object sender, EventArgs e)
         {
-            this.swapControl(new ctrlLogin());
+
         }
 
         private void button1_Click(object sender, EventArgs e)

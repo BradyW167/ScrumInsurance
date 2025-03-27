@@ -1,4 +1,6 @@
-﻿namespace ScrumInsurance
+﻿using System.Windows.Forms;
+
+namespace ScrumInsurance
 {
     partial class ctrlLogin
     {
@@ -100,7 +102,7 @@
             this.btnLogin.TabIndex = 15;
             this.btnLogin.Text = "Log In";
             this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnLogin_Click);
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // welcomeLabel
             // 
@@ -132,6 +134,7 @@
             this.txtPassword.PasswordChar = '●';
             this.txtPassword.Size = new System.Drawing.Size(265, 30);
             this.txtPassword.TabIndex = 13;
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // label2
             // 

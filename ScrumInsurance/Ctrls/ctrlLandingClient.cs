@@ -12,20 +12,18 @@ namespace ScrumInsurance
 {
     public partial class ctrlLandingClient : ScrumUserControl
     {
-        public ctrlLandingClient(Session session)
+        public ctrlLandingClient()
         {
             InitializeComponent();
-            lblWelcome.Text = "Welcome, " + session.Username;
         }
 
         private void ctrlLanding_Load(object sender, EventArgs e)
         {
-
         }
 
         private void lblLogout_Click(object sender, EventArgs e)
         {
-            this.swapControl(new ctrlLogin());
+            this.swapCtrlMain(new ctrlLogin());
         }
 
         private void button1_Click(object sender, EventArgs e)

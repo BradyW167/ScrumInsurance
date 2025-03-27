@@ -28,17 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblLogout = new System.Windows.Forms.Label();
-            this.lblUser = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnLanding = new System.Windows.Forms.Button();
-            this.btnAccount = new System.Windows.Forms.Button();
-            this.btnSupport = new System.Windows.Forms.Button();
-            this.btnRequest = new System.Windows.Forms.Button();
-            this.btnSettings = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -57,6 +46,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -66,11 +56,17 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnLanding = new System.Windows.Forms.Button();
+            this.btnAccount = new System.Windows.Forms.Button();
+            this.btnSupport = new System.Windows.Forms.Button();
+            this.btnRequest = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.lblLogout = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -78,136 +74,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            // lblLogout
-            // 
-            this.lblLogout.AutoSize = true;
-            this.lblLogout.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogout.ForeColor = System.Drawing.Color.Black;
-            this.lblLogout.Location = new System.Drawing.Point(1008, 20);
-            this.lblLogout.Name = "lblLogout";
-            this.lblLogout.Size = new System.Drawing.Size(45, 13);
-            this.lblLogout.TabIndex = 0;
-            this.lblLogout.Text = "Log Out";
-            this.lblLogout.Click += new System.EventHandler(this.lblLogout_Click);
-            // 
-            // lblUser
-            // 
-            this.lblUser.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblUser.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.lblUser.Location = new System.Drawing.Point(996, 5);
-            this.lblUser.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.lblUser.MaximumSize = new System.Drawing.Size(67, 13);
-            this.lblUser.MinimumSize = new System.Drawing.Size(67, 13);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblUser.Size = new System.Drawing.Size(67, 13);
-            this.lblUser.TabIndex = 2;
-            this.lblUser.Text = "Username";
-            this.lblUser.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pictureBox1.Location = new System.Drawing.Point(0, -1);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1080, 38);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnLanding
-            // 
-            this.btnLanding.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnLanding.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
-            this.btnLanding.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLanding.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLanding.Location = new System.Drawing.Point(73, 0);
-            this.btnLanding.Margin = new System.Windows.Forms.Padding(2);
-            this.btnLanding.Name = "btnLanding";
-            this.btnLanding.Size = new System.Drawing.Size(67, 36);
-            this.btnLanding.TabIndex = 8;
-            this.btnLanding.Text = "SCRUM Insurance";
-            this.btnLanding.UseVisualStyleBackColor = false;
-            // 
-            // btnAccount
-            // 
-            this.btnAccount.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnAccount.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
-            this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnAccount.Location = new System.Drawing.Point(144, 0);
-            this.btnAccount.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(67, 36);
-            this.btnAccount.TabIndex = 9;
-            this.btnAccount.Text = "Account";
-            this.btnAccount.UseVisualStyleBackColor = false;
-            // 
-            // btnSupport
-            // 
-            this.btnSupport.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnSupport.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
-            this.btnSupport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSupport.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSupport.Location = new System.Drawing.Point(215, 0);
-            this.btnSupport.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSupport.Name = "btnSupport";
-            this.btnSupport.Size = new System.Drawing.Size(67, 36);
-            this.btnSupport.TabIndex = 10;
-            this.btnSupport.Text = "Support";
-            this.btnSupport.UseVisualStyleBackColor = false;
-            // 
-            // btnRequest
-            // 
-            this.btnRequest.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnRequest.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
-            this.btnRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRequest.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnRequest.Location = new System.Drawing.Point(286, 0);
-            this.btnRequest.Margin = new System.Windows.Forms.Padding(2);
-            this.btnRequest.Name = "btnRequest";
-            this.btnRequest.Size = new System.Drawing.Size(67, 36);
-            this.btnRequest.TabIndex = 11;
-            this.btnRequest.Text = "Submit Request";
-            this.btnRequest.UseVisualStyleBackColor = false;
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnSettings.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
-            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSettings.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSettings.Location = new System.Drawing.Point(357, 0);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(67, 36);
-            this.btnSettings.TabIndex = 12;
-            this.btnSettings.Text = "Settings";
-            this.btnSettings.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Image = global::ScrumInsurance.Properties.Resources.scrum_logo;
-            this.pictureBox2.Location = new System.Drawing.Point(-1, -1);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(68, 38);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 22;
-            this.pictureBox2.TabStop = false;
-            // 
-            // 
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Location = new System.Drawing.Point(-1, 0);
-            this.pictureBox3.Size = new System.Drawing.Size(68, 607);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(91, 747);
+            this.pictureBox3.Size = new System.Drawing.Size(68, 607);
             this.pictureBox3.TabIndex = 23;
             this.pictureBox3.TabStop = false;
             // 
@@ -215,18 +91,16 @@
             // 
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Location = new System.Drawing.Point(110, 75);
-            this.lblWelcome.Location = new System.Drawing.Point(147, 92);
-            this.lblWelcome.Size = new System.Drawing.Size(264, 37);
+            this.lblWelcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(327, 46);
+            this.lblWelcome.Size = new System.Drawing.Size(84, 13);
             this.lblWelcome.TabIndex = 24;
             this.lblWelcome.Text = "Welcome, Client";
             // 
             // pictureBox4
-            this.pictureBox4.Location = new System.Drawing.Point(90, 62);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
+            // 
             this.pictureBox4.Location = new System.Drawing.Point(120, 76);
-            this.pictureBox4.Size = new System.Drawing.Size(990, 84);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(1320, 103);
             this.pictureBox4.TabIndex = 25;
@@ -237,7 +111,8 @@
             this.lblWelcomeInformation.AutoSize = true;
             this.lblWelcomeInformation.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblWelcomeInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcomeInformation.Location = new System.Drawing.Point(114, 122);
+            this.lblWelcomeInformation.Location = new System.Drawing.Point(86, 99);
+            this.lblWelcomeInformation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWelcomeInformation.Name = "lblWelcomeInformation";
             this.lblWelcomeInformation.Size = new System.Drawing.Size(561, 13);
             this.lblWelcomeInformation.TabIndex = 26;
@@ -247,40 +122,40 @@
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pictureBox5.Location = new System.Drawing.Point(90, 168);
+            this.pictureBox5.Location = new System.Drawing.Point(68, 136);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(263, 258);
+            this.pictureBox5.Size = new System.Drawing.Size(197, 210);
             this.pictureBox5.TabIndex = 27;
             this.pictureBox5.TabStop = false;
             // 
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pictureBox6.Location = new System.Drawing.Point(453, 168);
+            this.pictureBox6.Location = new System.Drawing.Point(340, 136);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(263, 258);
+            this.pictureBox6.Size = new System.Drawing.Size(197, 210);
             this.pictureBox6.TabIndex = 28;
             this.pictureBox6.TabStop = false;
             // 
             // pictureBox7
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pictureBox7.Location = new System.Drawing.Point(790, 168);
+            this.pictureBox7.Location = new System.Drawing.Point(592, 136);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(263, 258);
+            this.pictureBox7.Size = new System.Drawing.Size(197, 210);
             this.pictureBox7.TabIndex = 29;
             this.pictureBox7.TabStop = false;
             // 
             // pictureBox8
             // 
             this.pictureBox8.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pictureBox8.Location = new System.Drawing.Point(66, 523);
+            this.pictureBox8.Location = new System.Drawing.Point(50, 425);
             this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(1014, 84);
+            this.pictureBox8.Size = new System.Drawing.Size(760, 68);
             this.pictureBox8.TabIndex = 30;
             this.pictureBox8.TabStop = false;
             // 
@@ -289,7 +164,8 @@
             this.lblBottomInformation.AutoSize = true;
             this.lblBottomInformation.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblBottomInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBottomInformation.Location = new System.Drawing.Point(152, 544);
+            this.lblBottomInformation.Location = new System.Drawing.Point(114, 442);
+            this.lblBottomInformation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBottomInformation.Name = "lblBottomInformation";
             this.lblBottomInformation.Size = new System.Drawing.Size(860, 13);
             this.lblBottomInformation.TabIndex = 31;
@@ -302,7 +178,8 @@
             this.lblClaimOne.AutoSize = true;
             this.lblClaimOne.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblClaimOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.lblClaimOne.Location = new System.Drawing.Point(96, 180);
+            this.lblClaimOne.Location = new System.Drawing.Point(72, 146);
+            this.lblClaimOne.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblClaimOne.Name = "lblClaimOne";
             this.lblClaimOne.Size = new System.Drawing.Size(250, 29);
             this.lblClaimOne.TabIndex = 33;
@@ -314,7 +191,8 @@
             this.lblClaimOneStatus.AutoSize = true;
             this.lblClaimOneStatus.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblClaimOneStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblClaimOneStatus.Location = new System.Drawing.Point(142, 210);
+            this.lblClaimOneStatus.Location = new System.Drawing.Point(106, 171);
+            this.lblClaimOneStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblClaimOneStatus.Name = "lblClaimOneStatus";
             this.lblClaimOneStatus.Size = new System.Drawing.Size(160, 20);
             this.lblClaimOneStatus.TabIndex = 34;
@@ -324,10 +202,10 @@
             // btnClaimOneSubmit
             // 
             this.btnClaimOneSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnClaimOneSubmit.Location = new System.Drawing.Point(149, 315);
-            this.btnClaimOneSubmit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnClaimOneSubmit.Location = new System.Drawing.Point(112, 256);
+            this.btnClaimOneSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClaimOneSubmit.Name = "btnClaimOneSubmit";
-            this.btnClaimOneSubmit.Size = new System.Drawing.Size(145, 29);
+            this.btnClaimOneSubmit.Size = new System.Drawing.Size(109, 24);
             this.btnClaimOneSubmit.TabIndex = 35;
             this.btnClaimOneSubmit.Text = "Edit";
             this.btnClaimOneSubmit.UseVisualStyleBackColor = true;
@@ -337,7 +215,8 @@
             this.lblClaimOneDesc.AutoSize = true;
             this.lblClaimOneDesc.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblClaimOneDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblClaimOneDesc.Location = new System.Drawing.Point(170, 235);
+            this.lblClaimOneDesc.Location = new System.Drawing.Point(128, 191);
+            this.lblClaimOneDesc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblClaimOneDesc.Name = "lblClaimOneDesc";
             this.lblClaimOneDesc.Size = new System.Drawing.Size(102, 20);
             this.lblClaimOneDesc.TabIndex = 37;
@@ -348,7 +227,8 @@
             this.lblTrademark.AutoSize = true;
             this.lblTrademark.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblTrademark.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrademark.Location = new System.Drawing.Point(550, 572);
+            this.lblTrademark.Location = new System.Drawing.Point(412, 465);
+            this.lblTrademark.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTrademark.Name = "lblTrademark";
             this.lblTrademark.Size = new System.Drawing.Size(95, 13);
             this.lblTrademark.TabIndex = 32;
@@ -359,7 +239,8 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label5.Location = new System.Drawing.Point(177, 260);
+            this.label5.Location = new System.Drawing.Point(133, 211);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 20);
             this.label5.TabIndex = 45;
@@ -370,7 +251,8 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(168, 285);
+            this.label6.Location = new System.Drawing.Point(126, 232);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(107, 20);
             this.label6.TabIndex = 46;
@@ -379,10 +261,10 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button3.Location = new System.Drawing.Point(110, 350);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.button3.Location = new System.Drawing.Point(82, 284);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(223, 29);
+            this.button3.Size = new System.Drawing.Size(167, 24);
             this.button3.TabIndex = 47;
             this.button3.Text = "Contact Claim Manager";
             this.button3.UseVisualStyleBackColor = true;
@@ -390,20 +272,31 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button4.Location = new System.Drawing.Point(110, 388);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.button4.Location = new System.Drawing.Point(82, 315);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(223, 29);
+            this.button4.Size = new System.Drawing.Size(167, 24);
             this.button4.TabIndex = 48;
             this.button4.Text = "Contact Admin";
             this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(849, 392);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(145, 29);
+            this.button2.TabIndex = 59;
+            this.button2.Text = "Edit";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(517, 180);
+            this.label1.Location = new System.Drawing.Point(388, 146);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(134, 29);
             this.label1.TabIndex = 49;
@@ -412,10 +305,10 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.button1.Location = new System.Drawing.Point(509, 235);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.button1.Location = new System.Drawing.Point(382, 191);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 150);
+            this.button1.Size = new System.Drawing.Size(112, 122);
             this.button1.TabIndex = 50;
             this.button1.Text = "Make a New Claim";
             this.button1.UseVisualStyleBackColor = true;
@@ -425,7 +318,8 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(830, 180);
+            this.label2.Location = new System.Drawing.Point(622, 146);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(183, 29);
             this.label2.TabIndex = 51;
@@ -437,118 +331,224 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(873, 210);
+            this.label3.Location = new System.Drawing.Point(655, 171);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 20);
             this.label3.TabIndex = 52;
             this.label3.Text = "Name: None";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(846, 240);
-            this.label4.Location = new System.Drawing.Point(1128, 295);
-            this.label4.Size = new System.Drawing.Size(150, 20);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(189, 25);
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label4.Size = new System.Drawing.Size(101, 13);
             this.label4.TabIndex = 53;
             this.label4.Text = "Primary Email: None";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(834, 260);
-            this.label7.Location = new System.Drawing.Point(1112, 320);
-            this.label7.Size = new System.Drawing.Size(174, 20);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(218, 25);
-            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label7.Size = new System.Drawing.Size(118, 13);
             this.label7.TabIndex = 54;
             this.label7.Text = "Secondary Email: None";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             // label8
             // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(847, 290);
-            this.label8.Location = new System.Drawing.Point(1129, 357);
-            this.label8.Size = new System.Drawing.Size(148, 20);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(184, 25);
-            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label8.Size = new System.Drawing.Size(101, 13);
             this.label8.TabIndex = 55;
             this.label8.Text = "Home Phone: None";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
             // label9
             // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(850, 310);
-            this.label9.Location = new System.Drawing.Point(1133, 382);
-            this.label9.Size = new System.Drawing.Size(142, 20);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(179, 25);
-            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label9.Size = new System.Drawing.Size(99, 13);
             this.label9.TabIndex = 56;
             this.label9.Text = "Work Phone: None";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
             // label10
             // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(838, 340);
-            this.label10.Location = new System.Drawing.Point(1117, 418);
-            this.label10.Size = new System.Drawing.Size(167, 20);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(210, 25);
-            this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label10.Size = new System.Drawing.Size(113, 13);
             this.label10.TabIndex = 57;
             this.label10.Text = "Mailing Address: None";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
             // label11
             // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(804, 370);
-            this.label11.Location = new System.Drawing.Point(1072, 455);
-            this.label11.Size = new System.Drawing.Size(234, 20);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(288, 25);
-            this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label11.Size = new System.Drawing.Size(158, 13);
             this.label11.TabIndex = 58;
             this.label11.Text = "Prefered Contact Method: None";
-            // 
-            // button2
-            this.button2.Location = new System.Drawing.Point(849, 392);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.button2.Location = new System.Drawing.Point(1132, 482);
-            this.button2.Size = new System.Drawing.Size(145, 29);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(193, 36);
-            this.button2.TabIndex = 59;
-            this.button2.Text = "Edit";
-            this.button2.UseVisualStyleBackColor = true;
+            this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pictureBox9
             // 
             this.pictureBox9.BackColor = System.Drawing.Color.SteelBlue;
             this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox9.Image = global::ScrumInsurance.Properties.Resources.scrum_logo;
-            this.pictureBox9.Location = new System.Drawing.Point(241, 0);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox9.Location = new System.Drawing.Point(181, 0);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(718, 528);
+            this.pictureBox9.Size = new System.Drawing.Size(538, 429);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox9.TabIndex = 60;
             this.pictureBox9.TabStop = false;
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            // pictureBox2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.pictureBox2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Image = global::ScrumInsurance.Properties.Resources.scrum_logo;
+            this.pictureBox2.Location = new System.Drawing.Point(-1, -1);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(51, 31);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 22;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnLanding
+            // 
+            this.btnLanding.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnLanding.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
+            this.btnLanding.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLanding.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLanding.Location = new System.Drawing.Point(55, 0);
+            this.btnLanding.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLanding.Name = "btnLanding";
+            this.btnLanding.Size = new System.Drawing.Size(50, 29);
+            this.btnLanding.TabIndex = 8;
+            this.btnLanding.Text = "SCRUM Insurance";
+            this.btnLanding.UseVisualStyleBackColor = false;
+            // 
+            // btnAccount
+            // 
+            this.btnAccount.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnAccount.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
+            this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnAccount.Location = new System.Drawing.Point(108, 0);
+            this.btnAccount.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAccount.Name = "btnAccount";
+            this.btnAccount.Size = new System.Drawing.Size(50, 29);
+            this.btnAccount.TabIndex = 9;
+            this.btnAccount.Text = "Account";
+            this.btnAccount.UseVisualStyleBackColor = false;
+            // 
+            // btnSupport
+            // 
+            this.btnSupport.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnSupport.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
+            this.btnSupport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSupport.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSupport.Location = new System.Drawing.Point(161, 0);
+            this.btnSupport.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSupport.Name = "btnSupport";
+            this.btnSupport.Size = new System.Drawing.Size(50, 29);
+            this.btnSupport.TabIndex = 10;
+            this.btnSupport.Text = "Support";
+            this.btnSupport.UseVisualStyleBackColor = false;
+            // 
+            // btnRequest
+            // 
+            this.btnRequest.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnRequest.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
+            this.btnRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRequest.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnRequest.Location = new System.Drawing.Point(214, 0);
+            this.btnRequest.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRequest.Name = "btnRequest";
+            this.btnRequest.Size = new System.Drawing.Size(50, 29);
+            this.btnRequest.TabIndex = 11;
+            this.btnRequest.Text = "Submit Request";
+            this.btnRequest.UseVisualStyleBackColor = false;
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnSettings.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSettings.Location = new System.Drawing.Point(268, 0);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(50, 29);
+            this.btnSettings.TabIndex = 12;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.UseVisualStyleBackColor = false;
+            // 
+            // lblUser
+            // 
+            this.lblUser.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblUser.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblUser.Location = new System.Drawing.Point(747, 4);
+            this.lblUser.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.lblUser.MaximumSize = new System.Drawing.Size(50, 11);
+            this.lblUser.MinimumSize = new System.Drawing.Size(50, 11);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblUser.Size = new System.Drawing.Size(50, 11);
+            this.lblUser.TabIndex = 2;
+            this.lblUser.Text = "Username";
+            this.lblUser.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblLogout
+            // 
+            this.lblLogout.AutoSize = true;
+            this.lblLogout.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogout.ForeColor = System.Drawing.Color.Black;
+            this.lblLogout.Location = new System.Drawing.Point(756, 16);
+            this.lblLogout.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLogout.Name = "lblLogout";
+            this.lblLogout.Size = new System.Drawing.Size(45, 13);
+            this.lblLogout.TabIndex = 0;
+            this.lblLogout.Text = "Log Out";
+            this.lblLogout.Click += new System.EventHandler(this.lblLogout_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pictureBox1.Location = new System.Drawing.Point(0, -1);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(810, 31);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // ctrlLandingClient
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.Controls.Add(this.button2);
@@ -589,11 +589,9 @@
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox3);
-            this.Size = new System.Drawing.Size(1080, 607);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ctrlLandingClient";
-            this.Size = new System.Drawing.Size(1440, 747);
+            this.Size = new System.Drawing.Size(1080, 607);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -601,20 +599,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
-        private System.Windows.Forms.Label lblLogout;
-        private System.Windows.Forms.Label lblUser;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnLanding;
-        private System.Windows.Forms.Button btnAccount;
-        private System.Windows.Forms.Button btnSupport;
-        private System.Windows.Forms.Button btnRequest;
-        private System.Windows.Forms.Button btnSettings;
-        private System.Windows.Forms.PictureBox pictureBox2;
 
         #endregion
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -647,5 +637,14 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnLanding;
+        private System.Windows.Forms.Button btnAccount;
+        private System.Windows.Forms.Button btnSupport;
+        private System.Windows.Forms.Button btnRequest;
+        private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.Label lblLogout;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -15,16 +15,16 @@ namespace ScrumInsurance
         public ctrlDashboard()
         {
             InitializeComponent();
-            lblUser.Text = Session.Username;
         }
 
-        private void ctrlLanding_Load(object sender, EventArgs e)
+        private void ctrlDashboard_Load(object sender, EventArgs e)
         {
-
+            lblUser.Text = Session.Username;
         }
 
         private void lblLogout_Click(object sender, EventArgs e)
         {
+            swapCtrlMain(new ctrlLogin());
             removeDash();
         }
 
