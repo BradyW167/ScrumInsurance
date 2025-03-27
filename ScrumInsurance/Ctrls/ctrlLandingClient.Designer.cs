@@ -37,6 +37,8 @@
             this.btnRequest = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -64,10 +66,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -76,8 +78,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            this.SuspendLayout();
-            // 
             // lblLogout
             // 
             this.lblLogout.AutoSize = true;
@@ -199,34 +199,36 @@
             this.pictureBox2.TabIndex = 22;
             this.pictureBox2.TabStop = false;
             // 
+            // 
+            // 
             // pictureBox3
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pictureBox3.Location = new System.Drawing.Point(-1, 0);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Location = new System.Drawing.Point(-1, 0);
             this.pictureBox3.Size = new System.Drawing.Size(68, 607);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(91, 747);
             this.pictureBox3.TabIndex = 23;
             this.pictureBox3.TabStop = false;
             // 
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
-            this.lblWelcome.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
             this.lblWelcome.Location = new System.Drawing.Point(110, 75);
-            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Location = new System.Drawing.Point(147, 92);
             this.lblWelcome.Size = new System.Drawing.Size(264, 37);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(327, 46);
             this.lblWelcome.TabIndex = 24;
             this.lblWelcome.Text = "Welcome, Client";
             // 
             // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pictureBox4.Location = new System.Drawing.Point(90, 62);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Location = new System.Drawing.Point(120, 76);
             this.pictureBox4.Size = new System.Drawing.Size(990, 84);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(1320, 103);
             this.pictureBox4.TabIndex = 25;
             this.pictureBox4.TabStop = false;
             // 
@@ -442,91 +444,91 @@
             this.label3.Text = "Name: None";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label4
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label4.Location = new System.Drawing.Point(846, 240);
-            this.label4.Name = "label4";
+            this.label4.Location = new System.Drawing.Point(1128, 295);
             this.label4.Size = new System.Drawing.Size(150, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(189, 25);
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label4.TabIndex = 53;
             this.label4.Text = "Primary Email: None";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            // label7
+            // 
             this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label7.Location = new System.Drawing.Point(834, 260);
-            this.label7.Name = "label7";
+            this.label7.Location = new System.Drawing.Point(1112, 320);
             this.label7.Size = new System.Drawing.Size(174, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(218, 25);
+            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label7.TabIndex = 54;
             this.label7.Text = "Secondary Email: None";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            // label8
+            // 
             this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label8.Location = new System.Drawing.Point(847, 290);
-            this.label8.Name = "label8";
+            this.label8.Location = new System.Drawing.Point(1129, 357);
             this.label8.Size = new System.Drawing.Size(148, 20);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(184, 25);
+            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label8.TabIndex = 55;
             this.label8.Text = "Home Phone: None";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            // label9
+            // 
             this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label9.Location = new System.Drawing.Point(850, 310);
-            this.label9.Name = "label9";
+            this.label9.Location = new System.Drawing.Point(1133, 382);
             this.label9.Size = new System.Drawing.Size(142, 20);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(179, 25);
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label9.TabIndex = 56;
             this.label9.Text = "Work Phone: None";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label10
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            // label10
+            // 
             this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label10.Location = new System.Drawing.Point(838, 340);
-            this.label10.Name = "label10";
+            this.label10.Location = new System.Drawing.Point(1117, 418);
             this.label10.Size = new System.Drawing.Size(167, 20);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(210, 25);
+            this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label10.TabIndex = 57;
             this.label10.Text = "Mailing Address: None";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            // label11
+            // 
             this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label11.Location = new System.Drawing.Point(804, 370);
-            this.label11.Name = "label11";
+            this.label11.Location = new System.Drawing.Point(1072, 455);
             this.label11.Size = new System.Drawing.Size(234, 20);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(288, 25);
+            this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label11.TabIndex = 58;
             this.label11.Text = "Prefered Contact Method: None";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button2.Location = new System.Drawing.Point(849, 392);
             this.button2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.button2.Name = "button2";
+            this.button2.Location = new System.Drawing.Point(1132, 482);
             this.button2.Size = new System.Drawing.Size(145, 29);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(193, 36);
             this.button2.TabIndex = 59;
             this.button2.Text = "Edit";
             this.button2.UseVisualStyleBackColor = true;
@@ -544,9 +546,9 @@
             this.pictureBox9.TabIndex = 60;
             this.pictureBox9.TabStop = false;
             // 
-            // ctrlLandingClient
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.Controls.Add(this.button2);
@@ -574,8 +576,6 @@
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.lblWelcomeInformation);
-            this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnRequest);
             this.Controls.Add(this.btnSupport);
@@ -585,13 +585,15 @@
             this.Controls.Add(this.lblLogout);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.lblWelcomeInformation);
+            this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.pictureBox9);
-            this.Name = "ctrlLandingClient";
+            this.Controls.Add(this.pictureBox3);
             this.Size = new System.Drawing.Size(1080, 607);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.Name = "ctrlLandingClient";
+            this.Size = new System.Drawing.Size(1440, 747);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -604,8 +606,6 @@
 
         }
 
-        #endregion
-
         private System.Windows.Forms.Label lblLogout;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -615,6 +615,8 @@
         private System.Windows.Forms.Button btnRequest;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.PictureBox pictureBox2;
+
+        #endregion
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.PictureBox pictureBox4;

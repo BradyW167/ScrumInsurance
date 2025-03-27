@@ -146,6 +146,12 @@
     <Compile Include="Ctrls\ctrlForgotPass.Designer.cs">
       <DependentUpon>ctrlForgotPass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ctrls\ctrlDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctrls\ctrlDashboard.Designer.cs">
+      <DependentUpon>ctrlDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ctrls\ctrlInbox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -208,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlForgotPass.resx">
       <DependentUpon>ctrlForgotPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctrls\ctrlDashboard.resx">
+      <DependentUpon>ctrlDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlInbox.resx">
       <DependentUpon>ctrlInbox.cs</DependentUpon>
