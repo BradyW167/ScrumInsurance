@@ -19,11 +19,7 @@ namespace ScrumInsurance
             Session session = new Session();
 
             // Initialize controls for main panel
-            ScrumUserControl ctrlLogin = new ctrlLogin();
-
-            // Set initial parent panel and session
-            ctrlLogin.setParentPanel(pnlMain);
-            ctrlLogin.setSession(session);
+            ScrumUserControl ctrlLogin = new ctrlLogin(session, pnlMain);
 
             // Load login page as first control into panel
             ctrlLogin.loadControl();

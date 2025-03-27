@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace ScrumInsurance
 {
-    public partial class ctrlLandingClient : ScrumUserControl
+    public partial class ctrlDashboard : ScrumUserControl
     {
-        public ctrlLandingClient(Session session)
+        public ctrlDashboard()
         {
             InitializeComponent();
-            lblWelcome.Text = "Welcome, " + session.Username;
+            lblUser.Text = Session.Username;
         }
 
         private void ctrlLanding_Load(object sender, EventArgs e)
@@ -25,7 +25,7 @@ namespace ScrumInsurance
 
         private void lblLogout_Click(object sender, EventArgs e)
         {
-            this.swapControl(new ctrlLogin());
+            removeDash();
         }
 
         private void button1_Click(object sender, EventArgs e)

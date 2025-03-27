@@ -10,7 +10,6 @@ namespace ScrumInsurance
     public class Session
     {
         private List<Account> accounts_;
-        private DatabaseController dbController_;
 
         public Session()
         {
@@ -19,18 +18,18 @@ namespace ScrumInsurance
             accounts_.Add(new Account("admin", "admin", "adming@scrum.com", "Background Color?", "Steel Blue"));
             accounts_[0].isAdmin = true;
 
-            dbController_ = new DatabaseController();
+            DBController = new DatabaseController();
         }
 
-        public DatabaseController getDbController() { return dbController_; }
-
-        //Eventually, session should save an account, with all the current user's info from database
+        // Eventually, session should save an account, with all the current user's info from database
         public string Username { get; set; }
         public string Role { get; set; }
+        public DatabaseController DBController { get; set; }
+        public ScrumUserControl CtrlMain { get; set; }
+        public ScrumUserControl CtrlDashboard { get; set; }
 
         public void addAccount(string username, string password, string email, string securityQuestion, string securityQuestionAnswer)
         {
-
             accounts_.Add(new Account(username, password, email, securityQuestion, securityQuestionAnswer));
         }
 

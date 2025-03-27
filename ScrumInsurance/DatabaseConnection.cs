@@ -103,9 +103,11 @@ namespace ScrumInsurance
 
         }
 
-        // Executes a select query using the args Dicionary as WHERE conditions
-        // Results are stored in the Reader attribute
-        // Returns true on succesful query, false on failed connection
+        /* 
+         * Executes a select query using the args Dicionary as WHERE conditions
+         * Results are stored in the Reader attribute
+         * Returns true on succesful query, false on failed connection
+         */
         public bool selectQuery(string tableName, Dictionary<string, string> args)
         {
             // Open SQL connection for queries
@@ -209,6 +211,75 @@ namespace ScrumInsurance
 
         }
 
+        public bool updateQuery(string tableName)
+        {
+            string query = "UPDATE " + tableName + " SET password = 'fortnite' WHERE username = 'brady'";
+
+            Command = Connection.CreateCommand();
+
+            Command.CommandText = query;
+
+            int result = 0;
+
+            try
+            {
+                result = Command.ExecuteNonQuery();
+            }
+            catch (Exception ex) {
+                // Print error to console
+                Console.WriteLine("Update Query Error: " + ex.Message);
+
+                // Return false on failed query
+                return false;
+            }
+
+            // If any number of columns were altered...
+            if (result > 0)
+            {
+                // Return true for successful update
+                return true;
+            } else
+            {
+                // Return false on no changes
+                return false;
+            }
+        }
+        
+        public bool deleteQuery(string tableName)
+        {
+            string query = "DELETE " + tableName + " SET password = 'fortnite' WHERE username = 'brady'";
+
+            Command = Connection.CreateCommand();
+
+            Command.CommandText = query;
+
+            int result = 0;
+
+            try
+            {
+                result = Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                // Print error to console
+                Console.WriteLine("Update Query Error: " + ex.Message);
+
+                // Return false on failed query
+                return false;
+            }
+
+            // If any number of columns were altered...
+            if (result > 0)
+            {
+                // Return true for successful update
+                return true;
+            }
+            else
+            {
+                // Return false on no changes
+                return false;
+            }
+        }
         public void printData(MySqlDataReader dr)
         {
             while (Reader.Read()) // Iterate through each row
