@@ -21,21 +21,38 @@ namespace ScrumInsurance
         public void loadControl() { loadControl(this, 0, 0); }
 
         // Creates a new row in the table and loads the dashboard
-        public void loadDash()
+        public void loadCtrlDash()
         {
             // Initialize dashboard control if not already
             if (Session.CtrlDashboard == null) {
                 Session.CtrlDashboard = new ctrlDashboard();
+
+                // Load the dashboard control into first row
+                loadControl(Session.CtrlDashboard, 0, 0);
+
+                // Set the row to a fixed size of 50 pixels
+                PnlMain.RowStyles[0] = new RowStyle(SizeType.Absolute, 50);
             }
+        }
 
-            // Add another row to the table layout panel
-            PnlMain.RowCount = 2;
+        // Loads a new control into the main control row
+        public void loadCtrlMain(ScrumUserControl newCtrl)
+        {
+            // Set session object for main control to newCtrl
+            Session.CtrlMain = newCtrl;
 
-            // Set the row to a fixed size of 50 pixels
-            PnlMain.RowStyles[0] = new RowStyle(SizeType.Absolute, 50);
-
-            // Load the dashboard control into first row
-            loadControl(Session.CtrlDashboard, 0, 0);
+            // If the dashboard does not exist...
+            if (Session.CtrlDashboard == null)
+            {
+                // Load the new main control into first row
+                loadControl(Session.CtrlDashboard, 0, 0);
+            }
+            // Else dashboard does exist
+            else
+            {
+                // Load the new main control into second row
+                loadControl(Session.CtrlDashboard, 1, 0);
+            }
         }
 
         // Removes the dashboard control and decreases row count
@@ -46,6 +63,11 @@ namespace ScrumInsurance
             {
                 // Remove the dashboard control
                 removeControl(Session.CtrlDashboard);
+
+                // Set dashboard property back to null after deletion
+                Session.CtrlDashboard = null;
+
+                PnlMain.RowStyles[0] = new RowStyle(SizeType.AutoSize);
             }
             else
             {
@@ -56,11 +78,33 @@ namespace ScrumInsurance
         // Load input control into parent table layout panel at input column and row
         public void loadControl(ScrumUserControl newCtrl, int columnIndex, int rowIndex)
         {
+
             // Return if main panel does not exist
             if (PnlMain == null) { return; }
 
-            // Return if cell already has a control within
-            if (PnlMain.GetControlFromPosition(columnIndex, rowIndex ) != null) { return; }
+            // If cell at input column and row already has a control within...
+            if (PnlMain.GetControlFromPosition(columnIndex, rowIndex) != null) {
+                // Add a row to the main panel
+                PnlMain.RowCount++;
+
+                // Stores the control for each loop
+                Control loopCtrl = null;
+
+                // Loop through all the row indices starting at last non-empty row
+                // Must be done backwards to not copy the same row all the way down
+                for (int row = PnlMain.RowCount - 2; row >= rowIndex; row--)
+                {
+                    // Store the control 
+                    loopCtrl = PnlMain.GetControlFromPosition(0, row);
+
+                    // If there is a control in this row
+                    if (loopCtrl != null)
+                    {
+                        // Shift the loopCtrl down one row
+                        PnlMain.SetRow(loopCtrl, row + 1);
+                    }
+                }
+            }
             
             // Update ScrumUserControl attributes for new control
             newCtrl.PnlMain = PnlMain;
@@ -77,60 +121,66 @@ namespace ScrumInsurance
             CenterUserControl(newCtrl);
         }
 
-        /*
+        /* 
          * Remove control by position in table
          * Defaults to first column and row
          */
         private void removeControl(ScrumUserControl control)
         {
-            // Get the position of input control in the panel
-            int columnIndex = PnlMain.GetRow(control);
-            int rowIndex = PnlMain.GetRow(control);
-
-            // Stores the control for each loop
-            Control loopCtrl = null;
-
-            // Loop through all the row indices after input control
-            for (int row = rowIndex + 1; row < PnlMain.RowCount; row++)
+            // If multiple rows exist...
+            if (PnlMain.RowCount > 1)
             {
-                // Store the control 
-                loopCtrl = PnlMain.GetControlFromPosition(0, row);
+                // Get the position of input control in the panel
+                int columnIndex = PnlMain.GetRow(control);
+                int rowIndex = PnlMain.GetRow(control);
 
-                // If there is a control in this row
-                if (loopCtrl != null)
+                // Stores the control for each loop
+                Control loopCtrl = null;
+
+                // Loop through all the row indices after input control
+                for (int row = rowIndex + 1; row < PnlMain.RowCount; row++)
                 {
-                    // Shift the loopCtrl down 1 row
-                    PnlMain.SetRow(loopCtrl, row - 1);
+                    // Store the control 
+                    loopCtrl = PnlMain.GetControlFromPosition(0, row);
+
+                    // If there is a control in this row
+                    if (loopCtrl != null)
+                    {
+                        // Shift the loopCtrl down 1 row
+                        PnlMain.SetRow(loopCtrl, row - 1);
+                    }
                 }
+
+                // Delete a row from the table layout panel
+                PnlMain.RowCount--;
             }
 
             // Remove the control and clean up resources allocated
             PnlMain.Controls.Remove(control);
             control.Dispose();
-
-            // Delete a row from the table layout panel
-            PnlMain.RowCount--;
         }
 
         // Deletes this user control in parent panel and loads a new input control
-        public void swapControl(ScrumUserControl newControl)
+        public void swapCtrlMain(ScrumUserControl newControl)
         {
             // Get the position of this control in the panel
-            int columnIndex = PnlMain.GetRow(this);
-            int rowIndex = PnlMain.GetRow(this);
+            int columnIndex = PnlMain.GetColumn(Session.CtrlMain);
+            int rowIndex = PnlMain.GetRow(Session.CtrlMain);
 
-            // Remove this control
-            removeControl(this);
+            // Remove the main control
+            removeControl(Session.CtrlMain);
 
-            // Load the new control in this control's position
+            // Load the new control into the main control's position
             loadControl(newControl, columnIndex, rowIndex);
+
+            Session.CtrlMain = newControl;
         }
 
         // Function to center the UserControl inside the column
         public void CenterUserControl(ScrumUserControl control)
         {
             // Get the position of input control in the panel
-            int columnIndex = PnlMain.GetRow(control);
+            int columnIndex = PnlMain.GetColumn(control);
             int rowIndex = PnlMain.GetRow(control);
 
             // Get the column width and row height

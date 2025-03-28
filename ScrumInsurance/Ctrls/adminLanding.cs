@@ -12,7 +12,8 @@ namespace ScrumInsurance.Ctrls
 {
     public partial class adminLanding : ScrumUserControl
     {
-        private string[] args_ = null;
+        // private string[] args_ = null;
+
         public adminLanding()
         {
             InitializeComponent();

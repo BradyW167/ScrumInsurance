@@ -63,13 +63,13 @@ namespace ScrumInsurance
         {/*
             // Updates the user's password and takes the user back to the login page
             Session.getAccount(Session.userID).Password = txtForgotPasswordNewPassword.Text;
-            this.swapControl(new ctrlLogin());*/
+            this.swapCtrlMain(new ctrlLogin());*/
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             // Takes the user back to the login page
-            this.swapControl(new ctrlLogin());
+            this.swapCtrlMain(new ctrlLogin());
         }
     }
 }
