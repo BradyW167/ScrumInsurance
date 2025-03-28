@@ -128,7 +128,7 @@
             // lblForgotPasswordQuestionError
             // 
             this.lblForgotPasswordQuestionError.BackColor = System.Drawing.Color.Black;
-            this.lblForgotPasswordQuestionError.ForeColor = System.Drawing.Color.Crimson;
+            this.lblForgotPasswordQuestionError.ForeColor = System.Drawing.Color.LightCoral;
             this.lblForgotPasswordQuestionError.Location = new System.Drawing.Point(390, 405);
             this.lblForgotPasswordQuestionError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblForgotPasswordQuestionError.Name = "lblForgotPasswordQuestionError";
@@ -152,7 +152,7 @@
             // lblForgotPasswordEmailError
             // 
             this.lblForgotPasswordEmailError.BackColor = System.Drawing.Color.Black;
-            this.lblForgotPasswordEmailError.ForeColor = System.Drawing.Color.Crimson;
+            this.lblForgotPasswordEmailError.ForeColor = System.Drawing.Color.LightCoral;
             this.lblForgotPasswordEmailError.Location = new System.Drawing.Point(390, 235);
             this.lblForgotPasswordEmailError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblForgotPasswordEmailError.Name = "lblForgotPasswordEmailError";
