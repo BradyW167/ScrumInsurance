@@ -66,11 +66,11 @@
             this.lblAddress = new System.Windows.Forms.Label();
             this.pbxFloatingTextBG = new System.Windows.Forms.PictureBox();
             this.pbxSidePanel = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblClaim1 = new System.Windows.Forms.Label();
+            this.lblMyClaims = new System.Windows.Forms.Label();
+            this.lblClaim2 = new System.Windows.Forms.Label();
+            this.lblClaim3 = new System.Windows.Forms.Label();
+            this.lblClaim4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxTopPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -326,7 +326,7 @@
             // 
             this.btnClaimOneSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnClaimOneSubmit.Location = new System.Drawing.Point(185, 350);
-            this.btnClaimOneSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClaimOneSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnClaimOneSubmit.Name = "btnClaimOneSubmit";
             this.btnClaimOneSubmit.Size = new System.Drawing.Size(109, 24);
             this.btnClaimOneSubmit.TabIndex = 35;
@@ -389,7 +389,7 @@
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button3.Location = new System.Drawing.Point(156, 380);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(167, 24);
             this.button3.TabIndex = 47;
@@ -400,7 +400,7 @@
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button4.Location = new System.Drawing.Point(156, 410);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(167, 24);
             this.button4.TabIndex = 48;
@@ -424,7 +424,7 @@
             // 
             this.btnNewClaim.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.btnNewClaim.Location = new System.Drawing.Point(528, 265);
-            this.btnNewClaim.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNewClaim.Margin = new System.Windows.Forms.Padding(2);
             this.btnNewClaim.Name = "btnNewClaim";
             this.btnNewClaim.Size = new System.Drawing.Size(112, 122);
             this.btnNewClaim.TabIndex = 50;
@@ -543,81 +543,81 @@
             this.pbxSidePanel.TabIndex = 59;
             this.pbxSidePanel.TabStop = false;
             // 
-            // label1
+            // lblClaim1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 80);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 30);
-            this.label1.TabIndex = 61;
-            this.label1.Text = "Unnamed Claim\r\nStatus: Incomplete";
+            this.lblClaim1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblClaim1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblClaim1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lblClaim1.ForeColor = System.Drawing.Color.Black;
+            this.lblClaim1.Location = new System.Drawing.Point(3, 80);
+            this.lblClaim1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblClaim1.Name = "lblClaim1";
+            this.lblClaim1.Size = new System.Drawing.Size(95, 30);
+            this.lblClaim1.TabIndex = 61;
+            this.lblClaim1.Text = "Unnamed Claim\r\nStatus: Incomplete";
             // 
-            // label2
+            // lblMyClaims
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Black;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(2, 52);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 20);
-            this.label2.TabIndex = 62;
-            this.label2.Text = "My Claims";
+            this.lblMyClaims.AutoSize = true;
+            this.lblMyClaims.BackColor = System.Drawing.Color.Black;
+            this.lblMyClaims.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblMyClaims.ForeColor = System.Drawing.Color.White;
+            this.lblMyClaims.Location = new System.Drawing.Point(2, 52);
+            this.lblMyClaims.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMyClaims.Name = "lblMyClaims";
+            this.lblMyClaims.Size = new System.Drawing.Size(89, 20);
+            this.lblMyClaims.TabIndex = 62;
+            this.lblMyClaims.Text = "My Claims";
             // 
-            // label3
+            // lblClaim2
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label3.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(3, 120);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 30);
-            this.label3.TabIndex = 63;
-            this.label3.Text = "Unnamed Claim\r\nStatus: Incomplete";
+            this.lblClaim2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblClaim2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblClaim2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lblClaim2.ForeColor = System.Drawing.Color.Black;
+            this.lblClaim2.Location = new System.Drawing.Point(3, 120);
+            this.lblClaim2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblClaim2.Name = "lblClaim2";
+            this.lblClaim2.Size = new System.Drawing.Size(95, 30);
+            this.lblClaim2.TabIndex = 63;
+            this.lblClaim2.Text = "Unnamed Claim\r\nStatus: Incomplete";
             // 
-            // label4
+            // lblClaim3
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label4.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(3, 160);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 30);
-            this.label4.TabIndex = 64;
-            this.label4.Text = "Unnamed Claim\r\nStatus: Incomplete";
+            this.lblClaim3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblClaim3.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblClaim3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lblClaim3.ForeColor = System.Drawing.Color.Black;
+            this.lblClaim3.Location = new System.Drawing.Point(3, 160);
+            this.lblClaim3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblClaim3.Name = "lblClaim3";
+            this.lblClaim3.Size = new System.Drawing.Size(95, 30);
+            this.lblClaim3.TabIndex = 64;
+            this.lblClaim3.Text = "Unnamed Claim\r\nStatus: Incomplete";
             // 
-            // label5
+            // lblClaim4
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label5.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(3, 200);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 30);
-            this.label5.TabIndex = 65;
-            this.label5.Text = "Unnamed Claim\r\nStatus: Incomplete";
+            this.lblClaim4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblClaim4.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblClaim4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lblClaim4.ForeColor = System.Drawing.Color.Black;
+            this.lblClaim4.Location = new System.Drawing.Point(3, 200);
+            this.lblClaim4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblClaim4.Name = "lblClaim4";
+            this.lblClaim4.Size = new System.Drawing.Size(95, 30);
+            this.lblClaim4.TabIndex = 65;
+            this.lblClaim4.Text = "Unnamed Claim\r\nStatus: Incomplete";
             // 
             // ctrlLandingClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblClaim4);
+            this.Controls.Add(this.lblClaim3);
+            this.Controls.Add(this.lblClaim2);
+            this.Controls.Add(this.lblMyClaims);
+            this.Controls.Add(this.lblClaim1);
             this.Controls.Add(this.pbxSidePanel);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblPhone2);
@@ -654,7 +654,7 @@
             this.Controls.Add(this.lblWelcomeInformation);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.pbxFloatingTextBG);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ctrlLandingClient";
             this.Size = new System.Drawing.Size(1080, 607);
             ((System.ComponentModel.ISupportInitialize)(this.pbxTopPanel)).EndInit();
@@ -712,10 +712,10 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pbxFloatingTextBG;
         private System.Windows.Forms.PictureBox pbxSidePanel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblClaim1;
+        private System.Windows.Forms.Label lblMyClaims;
+        private System.Windows.Forms.Label lblClaim2;
+        private System.Windows.Forms.Label lblClaim3;
+        private System.Windows.Forms.Label lblClaim4;
     }
 }
