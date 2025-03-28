@@ -328,9 +328,10 @@
             this.btnClaimOneSubmit.Location = new System.Drawing.Point(185, 350);
             this.btnClaimOneSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnClaimOneSubmit.Name = "btnClaimOneSubmit";
-            this.btnClaimOneSubmit.Size = new System.Drawing.Size(109, 24);
+            this.btnClaimOneSubmit.Size = new System.Drawing.Size(109, 27);
             this.btnClaimOneSubmit.TabIndex = 35;
             this.btnClaimOneSubmit.Text = "Edit";
+            this.btnClaimOneSubmit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnClaimOneSubmit.UseVisualStyleBackColor = true;
             // 
             // lblClaimStatus
@@ -391,7 +392,7 @@
             this.button3.Location = new System.Drawing.Point(156, 380);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(167, 24);
+            this.button3.Size = new System.Drawing.Size(167, 27);
             this.button3.TabIndex = 47;
             this.button3.Text = "Contact Manager";
             this.button3.UseVisualStyleBackColor = true;
@@ -402,7 +403,7 @@
             this.button4.Location = new System.Drawing.Point(156, 410);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(167, 24);
+            this.button4.Size = new System.Drawing.Size(167, 27);
             this.button4.TabIndex = 48;
             this.button4.Text = "Contact Admin";
             this.button4.UseVisualStyleBackColor = true;
