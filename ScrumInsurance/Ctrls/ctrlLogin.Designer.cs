@@ -41,9 +41,9 @@ namespace ScrumInsurance
             this.label1 = new System.Windows.Forms.Label();
             this.lblLoginError = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbxCenterPanel = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxCenterPanel)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_createAccount
@@ -191,14 +191,14 @@ namespace ScrumInsurance
             this.pictureBox9.TabIndex = 61;
             this.pictureBox9.TabStop = false;
             // 
-            // pictureBox1
+            // pbxCenterPanel
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Black;
-            this.pictureBox1.Location = new System.Drawing.Point(383, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(296, 607);
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
+            this.pbxCenterPanel.BackColor = System.Drawing.Color.Black;
+            this.pbxCenterPanel.Location = new System.Drawing.Point(383, 0);
+            this.pbxCenterPanel.Name = "pbxCenterPanel";
+            this.pbxCenterPanel.Size = new System.Drawing.Size(296, 607);
+            this.pbxCenterPanel.TabIndex = 20;
+            this.pbxCenterPanel.TabStop = false;
             // 
             // ctrlLogin
             // 
@@ -218,13 +218,13 @@ namespace ScrumInsurance
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbxCenterPanel);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "ctrlLogin";
             this.Size = new System.Drawing.Size(1080, 607);
             this.Load += new System.EventHandler(this.ctrlLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxCenterPanel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,7 +242,7 @@ namespace ScrumInsurance
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblLoginError;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbxCenterPanel;
         private System.Windows.Forms.PictureBox pictureBox9;
     }
 }
