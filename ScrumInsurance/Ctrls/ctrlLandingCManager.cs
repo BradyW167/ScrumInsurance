@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ScrumInsurance
 {
-    public partial class ctrlLandingClient : ScrumUserControl
+    public partial class ctrlLandingCManager : ScrumUserControl
     {
-        public ctrlLandingClient()
+        public ctrlLandingCManager()
         {
             InitializeComponent();
         }
