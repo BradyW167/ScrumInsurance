@@ -158,6 +158,12 @@
     <Compile Include="Ctrls\ctrlInbox.Designer.cs">
       <DependentUpon>ctrlInbox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ctrls\ctrlLandingCManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctrls\ctrlLandingCManager.Designer.cs">
+      <DependentUpon>ctrlLandingCManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ctrls\ctrlLandingClient.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlInbox.resx">
       <DependentUpon>ctrlInbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctrls\ctrlLandingCManager.resx">
+      <DependentUpon>ctrlLandingCManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlLandingClient.resx">
       <DependentUpon>ctrlLandingClient.cs</DependentUpon>
