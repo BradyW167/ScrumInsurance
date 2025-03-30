@@ -27,15 +27,15 @@ namespace ScrumInsurance
         //Check if username, password and email are valid (not blank, classic password requirements)
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            session_.getDbController().addAccount(txtCreateUsername.Text, txtCreatePassword.Text, txtCreateEmail.Text, txtCreateQuestion.Text, txtCreateAnswer.Text, "client");
+            Session.DBController.addAccount(txtCreateUsername.Text, txtCreatePassword.Text, txtCreateEmail.Text, txtCreateQuestion.Text, txtCreateAnswer.Text, "client");
             
-            this.swapControl(new ctrlLogin());
+            this.swapCtrlMain(new ctrlLogin());
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             // Takes the user back to the login page
-            this.swapControl(new ctrlLogin());
+            this.swapCtrlMain(new ctrlLogin());
         }
     }
 }

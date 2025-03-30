@@ -27,14 +27,14 @@ namespace ScrumInsurance
         //Shows security question step if email is associated with account
         private void btn_confirmEmailForgotPassword_Click(object sender, EventArgs e)
         {/*
-            string question = session_.findQuestion(txtbx_emailForgotPassword.Text);
+            string question = Session.findQuestion(txtbx_emailForgotPassword.Text);
             if (question != null)
             {
                 lblForgotPasswordQuestion.Text = "Question: " + question;
                 lblForgotPasswordQuestion.Visible = true;
                 txtForgotPasswordAnswer.Visible = true;
                 btnForgotPasswordSubmit.Visible = true;
-                session_.userID = session_.findAccount(txtbx_emailForgotPassword.Text);
+                Session.userID = Session.findAccount(txtbx_emailForgotPassword.Text);
                 lblForgotPasswordEmailError.Text = "";
             }
             else
@@ -46,7 +46,7 @@ namespace ScrumInsurance
         //Shows reset password step if security question is answered correctly
         private void btnForgotPasswordSubmit_Click(object sender, EventArgs e)
         {/*
-            if (txtForgotPasswordAnswer.Text.Equals(session_.getAccount(session_.userID).SecurityAnswer))
+            if (txtForgotPasswordAnswer.Text.Equals(Session.getAccount(Session.userID).SecurityAnswer))
             {
                 lblForgotPasswordNewPassword.Visible = true;
                 txtForgotPasswordNewPassword.Visible = true;
@@ -62,14 +62,14 @@ namespace ScrumInsurance
         private void btnForgotPasswordNewPassword_Click(object sender, EventArgs e)
         {/*
             // Updates the user's password and takes the user back to the login page
-            session_.getAccount(session_.userID).Password = txtForgotPasswordNewPassword.Text;
-            this.swapControl(new ctrlLogin());*/
+            Session.getAccount(Session.userID).Password = txtForgotPasswordNewPassword.Text;
+            this.swapCtrlMain(new ctrlLogin());*/
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             // Takes the user back to the login page
-            this.swapControl(new ctrlLogin());
+            this.swapCtrlMain(new ctrlLogin());
         }
     }
 }

@@ -12,8 +12,9 @@ namespace ScrumInsurance.Ctrls
 {
     public partial class adminLanding : ScrumUserControl
     {
-        private string[] args_ = null;
-        public adminLanding(Session session)
+        // private string[] args_ = null;
+
+        public adminLanding()
         {
             InitializeComponent();
             
@@ -26,7 +27,7 @@ namespace ScrumInsurance.Ctrls
 
         private void btnSubmitUser_Click(object sender, EventArgs e)
         {
-            string[] row = session_.getDbController().validateLogin("test", "admin12345");
+            string[] row = Session.DBController.validateLogin("test", "admin12345");
             dgUserinfo.Rows.Add(row);
         }
     }

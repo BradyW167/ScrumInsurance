@@ -20,10 +20,13 @@ namespace ScrumInsurance
             lblLoginError.Text = "";
         }
 
-        public ctrlLogin(DatabaseController dbController)
+        public ctrlLogin(Session session, TableLayoutPanel pnlMain)
         {
             InitializeComponent();
             lblLoginError.Text = "";
+            Session = session;
+            PnlMain = pnlMain;
+            Session.CtrlMain = this;
         }
 
         private void ctrlLogin_Load(object sender, EventArgs e)
@@ -31,24 +34,36 @@ namespace ScrumInsurance
             
         }
 
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Check if the Enter key was pressed
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Call the login button's click event or method
+                btnLogin.PerformClick();
+            }
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("User (" + txtUsername.Text + ") Pass (" + txtPassword.Text + ")");
-            // If username and password text is found in database (valid login)
-            // if it is not found null was returned, not a string array
-            string[] usernameAndRole = session_.getDbController().validateLogin(txtUsername.Text, txtPassword.Text);
-            if (usernameAndRole != null)
+            // Console.WriteLine("User (" + txtUsername.Text + ") Pass (" + txtPassword.Text + ")");
+            // Store user info
+            // Null on invalid login
+            string[] user_info = Session.DBController.validateLogin(txtUsername.Text, txtPassword.Text);
+            if (user_info != null)
             {
-                session_.Username = usernameAndRole[0];
-                session_.Role = usernameAndRole[1];
-                // Load landing page, admins go to admin page, clients go to new client page, decided by role coloumn in database
-                if (session_.Role.Equals("admin"))
+                Session.Username = user_info[0];
+                Session.Role = user_info[1];
+                // Load landing page, admins go to admin page, clients go to new client page, decided by role column in database
+                if (Session.Role.Equals("admin"))
                 {
-                    this.swapControl(new adminLanding(session_));
+                    swapCtrlMain(new adminLanding());
+                    loadCtrlDash();
                 }
                 else
                 {
-                    this.swapControl(new ctrlLandingClient(session_));
+                    swapCtrlMain(new ctrlLandingClient());
+                    loadCtrlDash();
                 }
             }
             // Error if account with correct username & password isn't found
@@ -60,12 +75,12 @@ namespace ScrumInsurance
 
         private void lbl_createAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.swapControl(new ctrlCreateAccount());
+            swapCtrlMain(new ctrlCreateAccount());
         }
 
         private void lbl_ForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.swapControl(new ctrlForgotPass());
+            swapCtrlMain(new ctrlForgotPass());
         }
 
     }
