@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace ScrumInsurance
 {
@@ -40,10 +41,12 @@ namespace ScrumInsurance
 
         public string[] getUser(string username)
         {
-            string[] args = new string[2];
-            args[0] = "username";
-            args[1] = username;
-            return myConnection_.selectQuery("login", args);
+            Dictionary<string, string> args = new Dictionary<string, string>();
+            args.Add("username", username_);
+
+            myConnection_.selectQuery("login", args);
+            MySqlDataReader Reader = myConnection_.Reader;
+            return null;
         }
 
         public bool addAccount(string username, string password, string email, string question, string answer, string role)
