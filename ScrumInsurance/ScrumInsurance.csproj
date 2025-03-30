@@ -128,6 +128,12 @@
     <Compile Include="Ctrls\ClaimApply.Designer.cs">
       <DependentUpon>ClaimApply.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ctrls\ctrlClaimsViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctrls\ctrlClaimsViewer.Designer.cs">
+      <DependentUpon>ctrlClaimsViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ctrls\ctrlCreateAccount.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -217,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ClaimApply.resx">
       <DependentUpon>ClaimApply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctrls\ctrlClaimsViewer.resx">
+      <DependentUpon>ctrlClaimsViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlCreateAccount.resx">
       <DependentUpon>ctrlCreateAccount.cs</DependentUpon>
