@@ -152,6 +152,12 @@
     <Compile Include="Ctrls\ctrlDashboard.Designer.cs">
       <DependentUpon>ctrlDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ctrls\ctrlClaimsList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctrls\ctrlClaimsList.Designer.cs">
+      <DependentUpon>ctrlClaimsList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ctrls\ctrlInbox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -223,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlDashboard.resx">
       <DependentUpon>ctrlDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctrls\ctrlClaimsList.resx">
+      <DependentUpon>ctrlClaimsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlInbox.resx">
       <DependentUpon>ctrlInbox.cs</DependentUpon>
