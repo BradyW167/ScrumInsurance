@@ -23,7 +23,9 @@ namespace ScrumInsurance
 
         // Eventually, session should save an account, with all the current user's info from database
         public string Username { get; set; }
+        public string Password { get; set; }
         public string Role { get; set; }
+        public string Email { get; set; }
         public DatabaseController DBController { get; set; }
         public ScrumUserControl CtrlMain { get; set; }
         public ScrumUserControl CtrlDashboard { get; set; }

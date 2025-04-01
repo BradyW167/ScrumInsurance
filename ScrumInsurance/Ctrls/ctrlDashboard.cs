@@ -53,7 +53,7 @@ namespace ScrumInsurance
 
         private void btnAccount_Click(object sender, EventArgs e)
         {
-            swapCtrlMain(new ctrlEditProfile());
+            swapCtrlMain(new ctrlEditProfile(Session));
         }
 
         private void btnInbox_Click(object sender, EventArgs e)

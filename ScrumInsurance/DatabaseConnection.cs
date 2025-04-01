@@ -80,7 +80,7 @@ namespace ScrumInsurance
                 while (Reader.Read())
                 {
                     // Store username, password, and role from reader
-                    string[] user_info = { Reader["username"].ToString(), Reader["password"].ToString(), Reader["role"].ToString() };
+                    string[] user_info = { Reader["username"].ToString(), Reader["password"].ToString(), Reader["role"].ToString(), Reader["email"].ToString() };
 
                     // If username and password are exact matches for input username and password...
                     if (user_info[0].Equals(username) && user_info[1].Equals(password))

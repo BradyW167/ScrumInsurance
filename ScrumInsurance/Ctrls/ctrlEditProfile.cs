@@ -7,19 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ScrumInsurance.Ctrls
 {
     public partial class ctrlEditProfile : ScrumUserControl
     {
-        public ctrlEditProfile()
+        public ctrlEditProfile(Session session)
         {
             InitializeComponent();
+            txtNewUser.Text = session.Username;
+            txtNewPass.Text = session.Password;
+            txtNewEmail.Text = session.Email;
         }
 
         private void passCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            txtNewPass.UseSystemPasswordChar = false;
+            txtNewPass.UseSystemPasswordChar = !txtNewPass.UseSystemPasswordChar;
         }
     }
 }
