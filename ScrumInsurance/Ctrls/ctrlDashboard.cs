@@ -40,7 +40,7 @@ namespace ScrumInsurance
             {
                 swapCtrlMain(new ctrlLandingClient());
             }
-            else if (Session.Role == "claims-manager")
+            else if (Session.Role == "claim-manager")
             {
                 swapCtrlMain(new ctrlLandingCManager());
             }
