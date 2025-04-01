@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ScrumInsurance.Ctrls;
 
 namespace ScrumInsurance
 {
@@ -31,6 +32,28 @@ namespace ScrumInsurance
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLanding_Click(object sender, EventArgs e)
+        {
+            if (Session.Role == "client")
+            {
+                swapCtrlMain(new ctrlLandingClient());
+            }
+            else if (Session.Role == "claims-manager")
+            {
+                swapCtrlMain(new ctrlLandingCManager());
+            }
+            else if (Session.Role == "admin")
+            {
+                swapCtrlMain(new ctrlLandingCManager());
+            }
+
+        }
+
+        private void btnAccount_Click(object sender, EventArgs e)
+        {
+            swapCtrlMain(new ctrlEditProfile());
         }
     }
 }

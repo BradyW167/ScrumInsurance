@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ScrumInsurance.Ctrls
 {
-    public partial class ctrlEditProfile : UserControl
+    public partial class ctrlEditProfile : ScrumUserControl
     {
         public ctrlEditProfile()
         {
