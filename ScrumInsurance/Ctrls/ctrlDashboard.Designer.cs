@@ -34,7 +34,7 @@
             this.btnLanding = new System.Windows.Forms.Button();
             this.btnAccount = new System.Windows.Forms.Button();
             this.btnSupport = new System.Windows.Forms.Button();
-            this.btnRequest = new System.Windows.Forms.Button();
+            this.btnInbox = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -110,18 +110,19 @@
             this.btnSupport.Text = "Support";
             this.btnSupport.UseVisualStyleBackColor = false;
             // 
-            // btnRequest
+            // btnInbox
             // 
-            this.btnRequest.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnRequest.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
-            this.btnRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRequest.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnRequest.Location = new System.Drawing.Point(429, 0);
-            this.btnRequest.Name = "btnRequest";
-            this.btnRequest.Size = new System.Drawing.Size(100, 55);
-            this.btnRequest.TabIndex = 11;
-            this.btnRequest.Text = "Submit Request";
-            this.btnRequest.UseVisualStyleBackColor = false;
+            this.btnInbox.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnInbox.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
+            this.btnInbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnInbox.Location = new System.Drawing.Point(429, 0);
+            this.btnInbox.Name = "btnInbox";
+            this.btnInbox.Size = new System.Drawing.Size(100, 55);
+            this.btnInbox.TabIndex = 11;
+            this.btnInbox.Text = "Inbox";
+            this.btnInbox.UseVisualStyleBackColor = false;
+            this.btnInbox.Click += new System.EventHandler(this.btnInbox_Click);
             // 
             // btnSettings
             // 
@@ -154,7 +155,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.Controls.Add(this.btnSettings);
-            this.Controls.Add(this.btnRequest);
+            this.Controls.Add(this.btnInbox);
             this.Controls.Add(this.btnSupport);
             this.Controls.Add(this.btnAccount);
             this.Controls.Add(this.btnLanding);
@@ -178,7 +179,7 @@
         private System.Windows.Forms.Button btnLanding;
         private System.Windows.Forms.Button btnAccount;
         private System.Windows.Forms.Button btnSupport;
-        private System.Windows.Forms.Button btnRequest;
+        private System.Windows.Forms.Button btnInbox;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.PictureBox pictureBox2;
     }

@@ -55,5 +55,10 @@ namespace ScrumInsurance
         {
             swapCtrlMain(new ctrlEditProfile());
         }
+
+        private void btnInbox_Click(object sender, EventArgs e)
+        {
+            swapCtrlMain(new ctrlInbox());
+        }
     }
 }

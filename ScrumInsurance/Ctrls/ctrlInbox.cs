@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ScrumInsurance.Ctrls
 {
-    public partial class ctrlInbox : UserControl
+    public partial class ctrlInbox : ScrumUserControl
     {
         public ctrlInbox()
         {
