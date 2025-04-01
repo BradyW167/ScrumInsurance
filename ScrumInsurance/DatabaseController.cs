@@ -21,6 +21,7 @@ namespace ScrumInsurance
 
             username_ = "";
             password_ = "";
+            
         }
 
         public string[] validateLogin(string username, string password)

@@ -53,7 +53,7 @@ namespace ScrumInsurance
             if (user_info != null)
             {
                 Session.Username = user_info[0];
-                Session.Role = user_info[1];
+                Session.Role = user_info[2];
                 // Load landing page, admins go to admin page, clients go to new client page, decided by role column in database
                 if (Session.Role.Equals("admin"))
                 {
