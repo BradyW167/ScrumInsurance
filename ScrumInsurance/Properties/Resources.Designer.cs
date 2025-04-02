@@ -73,6 +73,16 @@ namespace ScrumInsurance.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap default_User {
+            get {
+                object obj = ResourceManager.GetObject("default_User", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap istockphoto_1411968933_612x612 {
             get {
                 object obj = ResourceManager.GetObject("istockphoto-1411968933-612x612", resourceCulture);

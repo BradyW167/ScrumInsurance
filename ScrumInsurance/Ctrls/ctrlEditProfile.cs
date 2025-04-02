@@ -25,5 +25,21 @@ namespace ScrumInsurance.Ctrls
         {
             txtNewPass.UseSystemPasswordChar = !txtNewPass.UseSystemPasswordChar;
         }
+
+        private void btnChangeProfilePicture_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "Select a Profile Picture",
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
+            };
+
+            // Show dialog + check a file was selected
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Load the image 
+                pbxProfile.ImageLocation = openFileDialog.FileName;
+            }
+        }
     }
 }
