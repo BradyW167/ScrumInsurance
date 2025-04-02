@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-using ScrumInsurance.src;
 
 namespace ScrumInsurance
 {
@@ -64,7 +63,7 @@ namespace ScrumInsurance
 
         public bool UpdateAccount(string username, string[] columnNames, string[] columnValues)
         {
-            return myConnection_.updateQuery("login", new UpdateRow("username", username, columnNames, columnValues));
+            return myConnection_.updateQuery("login", "username", username, columnNames, columnValues);
         }
 
         private DatabaseConnection myConnection_;

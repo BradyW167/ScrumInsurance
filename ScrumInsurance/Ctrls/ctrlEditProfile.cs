@@ -50,7 +50,15 @@ namespace ScrumInsurance
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            Session.DBController.UpdateAccount(Session.Username,  new string[] { "password", "email"}, new string[] { txtNewPass.Text, txtNewEmail.Text });
+            //Add check for if new password and email are valid
+            if (Session.DBController.UpdateAccount(Session.Username, new string[] { "password", "email" }, new string[] { txtNewPass.Text, txtNewEmail.Text }))
+            {
+                lblError.Text = "Profile successfully updated";
+            }
+            else
+            {
+                lblError.Text = "Failed to update profile";
+            }
         }
     }
 }

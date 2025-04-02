@@ -213,13 +213,21 @@ namespace ScrumInsurance
 
         public bool updateQuery(string tableName, string indexColumn, string indexColumnValue, string[] changeColumns, string[] changeColumnsValues)
         {
-            string query = "UPDATE " + tableName;
+            if (!openConnection())
+            {
+                // Return false when connection fails
+                return false;
+            }
+            string query = "UPDATE " + tableName + " SET ";
             for (int i = 0; i < changeColumns.Length; i++)
             {
-                query += " SET " + changeColumns[i] + " = '" + changeColumnsValues[i] + "'";
+                if (i > 0)
+                {
+                    query += ", ";
+                }
+                query += changeColumns[i] + " = '" + changeColumnsValues[i] + "'";
             }
             query += " WHERE " + indexColumn + " = '" + indexColumnValue + "'";
-
             Command = Connection.CreateCommand();
 
             Command.CommandText = query;
@@ -235,6 +243,7 @@ namespace ScrumInsurance
                 Console.WriteLine("Update Query Error: " + ex.Message);
 
                 // Return false on failed query
+                closeConnection();
                 return false;
             }
 
@@ -242,10 +251,13 @@ namespace ScrumInsurance
             if (result > 0)
             {
                 // Return true for successful update
+                closeConnection();
                 return true;
-            } else
+            }
+            else
             {
                 // Return false on no changes
+                closeConnection();
                 return false;
             }
         }
