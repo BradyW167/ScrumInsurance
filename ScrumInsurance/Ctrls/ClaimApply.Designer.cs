@@ -350,30 +350,30 @@
             // 
             // btnUploadDocument
             // 
-            this.btnUploadDocument.Location = new System.Drawing.Point(480, 291);
-            this.btnUploadDocument.Name = "btnUploadDocument";
-            this.btnUploadDocument.Size = new System.Drawing.Size(86, 32);
-            this.btnUploadDocument.TabIndex = 100;
-            this.btnUploadDocument.Text = "Upload";
-            this.btnUploadDocument.UseVisualStyleBackColor = true;
-            this.btnUploadDocument.Click += new System.EventHandler(this.btnUploadDocument_Click);
+        //    this.btnUploadDocument.Location = new System.Drawing.Point(480, 291);
+        //    this.btnUploadDocument.Name = "btnUploadDocument";
+        //    this.btnUploadDocument.Size = new System.Drawing.Size(86, 32);
+        //    this.btnUploadDocument.TabIndex = 100;
+        //    this.btnUploadDocument.Text = "Upload";
+         //   this.btnUploadDocument.UseVisualStyleBackColor = true;
+         //  this.btnUploadDocument.Click += new System.EventHandler(this.btnUploadDocument_Click);
             // 
             // txtFilePath
             // 
-            this.txtFilePath.Location = new System.Drawing.Point(462, 215);
-            this.txtFilePath.Name = "txtFilePath";
-            this.txtFilePath.Size = new System.Drawing.Size(117, 22);
-            this.txtFilePath.TabIndex = 101;
+        //    this.txtFilePath.Location = new System.Drawing.Point(462, 215);
+        //    this.txtFilePath.Name = "txtFilePath";
+        //    this.txtFilePath.Size = new System.Drawing.Size(117, 22);
+        //    this.txtFilePath.TabIndex = 101;
             // 
             // btnBrowseDoc
             // 
-            this.btnBrowseDoc.Location = new System.Drawing.Point(480, 246);
-            this.btnBrowseDoc.Name = "btnBrowseDoc";
-            this.btnBrowseDoc.Size = new System.Drawing.Size(86, 32);
-            this.btnBrowseDoc.TabIndex = 102;
-            this.btnBrowseDoc.Text = "Browse";
-            this.btnBrowseDoc.UseVisualStyleBackColor = true;
-            this.btnBrowseDoc.Click += new System.EventHandler(this.btnBrowseDoc_Click);
+       //     this.btnBrowseDoc.Location = new System.Drawing.Point(480, 246);
+       //     this.btnBrowseDoc.Name = "btnBrowseDoc";
+       //     this.btnBrowseDoc.Size = new System.Drawing.Size(86, 32);
+       //     this.btnBrowseDoc.TabIndex = 102;
+        //    this.btnBrowseDoc.Text = "Browse";
+        //    this.btnBrowseDoc.UseVisualStyleBackColor = true;
+        //    this.btnBrowseDoc.Click += new System.EventHandler(this.btnBrowseDoc_Click);
             // 
             // ClaimApply
             // 
