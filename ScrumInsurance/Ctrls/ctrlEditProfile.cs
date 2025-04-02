@@ -19,6 +19,12 @@ namespace ScrumInsurance.Ctrls
             txtNewUser.Text = session.Username;
             txtNewPass.Text = session.Password;
             txtNewEmail.Text = session.Email;
+
+        //needs to be added
+            //pbxProfile.Image = session.Profile
+            //txtFirstName.Text = session.FirstName;
+            //txtLastName.Text = session.LastName;
+            //txtDOB.Text = session.DOB
         }
 
         private void passCheckbox_CheckedChanged(object sender, EventArgs e)
