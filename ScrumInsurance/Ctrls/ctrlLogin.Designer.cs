@@ -30,6 +30,7 @@ namespace ScrumInsurance
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlLogin));
             this.lbl_createAccount = new System.Windows.Forms.LinkLabel();
             this.lbl_ForgotPass = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,7 +53,7 @@ namespace ScrumInsurance
             this.lbl_createAccount.BackColor = System.Drawing.Color.Black;
             this.lbl_createAccount.ForeColor = System.Drawing.Color.White;
             this.lbl_createAccount.LinkColor = System.Drawing.Color.LightSteelBlue;
-            this.lbl_createAccount.Location = new System.Drawing.Point(584, 473);
+            this.lbl_createAccount.Location = new System.Drawing.Point(584, 513);
             this.lbl_createAccount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_createAccount.Name = "lbl_createAccount";
             this.lbl_createAccount.Size = new System.Drawing.Size(81, 13);
@@ -69,7 +70,7 @@ namespace ScrumInsurance
             this.lbl_ForgotPass.BackColor = System.Drawing.Color.Black;
             this.lbl_ForgotPass.ForeColor = System.Drawing.Color.White;
             this.lbl_ForgotPass.LinkColor = System.Drawing.Color.LightSteelBlue;
-            this.lbl_ForgotPass.Location = new System.Drawing.Point(397, 473);
+            this.lbl_ForgotPass.Location = new System.Drawing.Point(397, 513);
             this.lbl_ForgotPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_ForgotPass.Name = "lbl_ForgotPass";
             this.lbl_ForgotPass.Size = new System.Drawing.Size(92, 13);
@@ -85,7 +86,7 @@ namespace ScrumInsurance
             this.label3.BackColor = System.Drawing.Color.Black;
             this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(408, 225);
+            this.label3.Location = new System.Drawing.Point(408, 265);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(245, 32);
@@ -96,7 +97,7 @@ namespace ScrumInsurance
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLogin.Location = new System.Drawing.Point(401, 441);
+            this.btnLogin.Location = new System.Drawing.Point(401, 481);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(264, 29);
@@ -110,7 +111,7 @@ namespace ScrumInsurance
             this.welcomeLabel.BackColor = System.Drawing.Color.Black;
             this.welcomeLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.welcomeLabel.ForeColor = System.Drawing.Color.White;
-            this.welcomeLabel.Location = new System.Drawing.Point(394, 28);
+            this.welcomeLabel.Location = new System.Drawing.Point(394, 68);
             this.welcomeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.welcomeLabel.Name = "welcomeLabel";
             this.welcomeLabel.Size = new System.Drawing.Size(276, 41);
@@ -121,7 +122,7 @@ namespace ScrumInsurance
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txtUsername.Location = new System.Drawing.Point(397, 290);
+            this.txtUsername.Location = new System.Drawing.Point(397, 330);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(265, 30);
@@ -130,7 +131,7 @@ namespace ScrumInsurance
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txtPassword.Location = new System.Drawing.Point(397, 363);
+            this.txtPassword.Location = new System.Drawing.Point(397, 403);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
@@ -144,7 +145,7 @@ namespace ScrumInsurance
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(394, 332);
+            this.label2.Location = new System.Drawing.Point(394, 372);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 20);
@@ -157,7 +158,7 @@ namespace ScrumInsurance
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(394, 267);
+            this.label1.Location = new System.Drawing.Point(394, 307);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 20);
@@ -169,7 +170,7 @@ namespace ScrumInsurance
             this.lblLoginError.BackColor = System.Drawing.Color.Black;
             this.lblLoginError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.lblLoginError.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblLoginError.Location = new System.Drawing.Point(406, 397);
+            this.lblLoginError.Location = new System.Drawing.Point(406, 437);
             this.lblLoginError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLoginError.Name = "lblLoginError";
             this.lblLoginError.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -183,7 +184,7 @@ namespace ScrumInsurance
             this.pictureBox9.BackColor = System.Drawing.Color.Black;
             this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox9.Image = global::ScrumInsurance.Properties.Resources.scrum_logo;
-            this.pictureBox9.Location = new System.Drawing.Point(456, 65);
+            this.pictureBox9.Location = new System.Drawing.Point(456, 105);
             this.pictureBox9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(156, 121);
@@ -194,9 +195,9 @@ namespace ScrumInsurance
             // pbxCenterPanel
             // 
             this.pbxCenterPanel.BackColor = System.Drawing.Color.Black;
-            this.pbxCenterPanel.Location = new System.Drawing.Point(383, 0);
+            this.pbxCenterPanel.Location = new System.Drawing.Point(383, 40);
             this.pbxCenterPanel.Name = "pbxCenterPanel";
-            this.pbxCenterPanel.Size = new System.Drawing.Size(296, 607);
+            this.pbxCenterPanel.Size = new System.Drawing.Size(300, 500);
             this.pbxCenterPanel.TabIndex = 20;
             this.pbxCenterPanel.TabStop = false;
             // 
@@ -205,7 +206,7 @@ namespace ScrumInsurance
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.BackgroundImage = global::ScrumInsurance.Properties.Resources.bluecity;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.lblLoginError);
