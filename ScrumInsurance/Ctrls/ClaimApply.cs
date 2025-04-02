@@ -48,31 +48,14 @@ namespace ScrumInsurance.Ctrls
 
             // Get the file name
             string fileName = Path.GetFileName(filePath);
-
-            // Define your connection string (replace with your actual connection string)
-            string connectionString = "your_connection_string_here";
-
-            // Insert the file data into the database
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = "INSERT INTO Document (fileName, fileData) VALUES (@Document_ID, @Document_Image)";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    // Add parameters to the SQL command
-                    cmd.Parameters.AddWithValue("@Document_ID", fileName);
-                    cmd.Parameters.AddWithValue("@Document_Image", fileData);
-
-                    // Open the connection and execute the query
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                }
-            }
-
-            // Optionally, display a message to indicate success
+        
+            // need to use insert query here with the filename from the filepath, and filedata from the image upload
+            //not sure how to do this with the sessions set up
+         
             MessageBox.Show("File uploaded successfully!");
         }
         */
-      
+
     }
 }
   
