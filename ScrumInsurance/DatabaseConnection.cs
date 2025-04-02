@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Diagnostics;
 using System.Windows.Forms.VisualStyles;
-using ScrumInsurance.src;
 
 namespace ScrumInsurance
 {
@@ -212,14 +211,14 @@ namespace ScrumInsurance
 
         }
 
-        public bool updateQuery(string tableName, UpdateRow row)
+        public bool updateQuery(string tableName, string indexColumn, string indexColumnValue, string[] changeColumns, string[] changeColumnsValues)
         {
             string query = "UPDATE " + tableName;
-            for (int i = 0; i < row.ChangeColumns.Length; i++)
+            for (int i = 0; i < changeColumns.Length; i++)
             {
-                query += " SET " + row.ChangeColumns[i] + " = '" + row.ChangeColumnsValues[i] + "'";
+                query += " SET " + changeColumns[i] + " = '" + changeColumnsValues[i] + "'";
             }
-            query += " WHERE " + row.IndexColumn + " = '" + row.IndexColumnValue + "'";
+            query += " WHERE " + indexColumn + " = '" + indexColumnValue + "'";
 
             Command = Connection.CreateCommand();
 
