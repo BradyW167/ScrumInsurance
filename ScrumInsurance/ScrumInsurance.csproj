@@ -224,6 +224,7 @@
     <Compile Include="Session.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdateRow.cs" />
     <EmbeddedResource Include="Ctrls\ctrlAdminLanding.resx">
       <DependentUpon>ctrlAdminLanding.cs</DependentUpon>
     </EmbeddedResource>

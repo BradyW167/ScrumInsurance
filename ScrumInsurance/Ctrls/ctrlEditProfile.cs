@@ -47,5 +47,12 @@ namespace ScrumInsurance
                 pbxProfile.ImageLocation = openFileDialog.FileName;
             }
         }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            string[] columns = new string[2];
+            //columns[0] = 
+            //Session.DBController.UpdateAccount(Session.Username, );
+        }
     }
 }

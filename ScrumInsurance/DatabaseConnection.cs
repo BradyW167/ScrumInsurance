@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Diagnostics;
 using System.Windows.Forms.VisualStyles;
+using ScrumInsurance.src;
 
 namespace ScrumInsurance
 {
@@ -211,9 +212,14 @@ namespace ScrumInsurance
 
         }
 
-        public bool updateQuery(string tableName)
+        public bool updateQuery(string tableName, UpdateRow row)
         {
-            string query = "UPDATE " + tableName + " SET password = 'fortnite' WHERE username = 'brady'";
+            string query = "UPDATE " + tableName;
+            for (int i = 0; i < row.ChangeColumns.Length; i++)
+            {
+                query += " SET " + row.ChangeColumns[i] + " = '" + row.ChangeColumnsValues[i] + "'";
+            }
+            query += " WHERE " + row.IndexColumn + " = '" + row.IndexColumnValue + "'";
 
             Command = Connection.CreateCommand();
 
