@@ -50,9 +50,7 @@ namespace ScrumInsurance
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string[] columns = new string[2];
-            //columns[0] = 
-            //Session.DBController.UpdateAccount(Session.Username, );
+            Session.DBController.UpdateAccount(Session.Username,  new string[] { "password", "email"}, new string[] { txtNewPass.Text, txtNewEmail.Text });
         }
     }
 }
