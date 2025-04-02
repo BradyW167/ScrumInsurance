@@ -10,9 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ScrumInsurance.Ctrls
+namespace ScrumInsurance
 {
-    public partial class ClaimApply : UserControl
+    public partial class ClaimApply : ScrumUserControl
     {
         public ClaimApply()
         {

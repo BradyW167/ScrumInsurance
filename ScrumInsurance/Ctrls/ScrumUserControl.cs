@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,12 @@ namespace ScrumInsurance
 
         protected TableLayoutPanel PnlMain { get; set; }
 
-        public ScrumUserControl() {}
+        public ScrumUserControl() {
+            if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
+            {
+                return; // Prevent instantiation during design time
+            }
+        }
 
         // When called without an input control to load
         // Load this control into the parent panel
@@ -163,12 +169,16 @@ namespace ScrumInsurance
         // Deletes this user control in parent panel and loads a new input control
         public void swapCtrlMain(ScrumUserControl newControl)
         {
+            // Do not swap if new control is of the same type
+            if (Session.CtrlMain.GetType() == newControl.GetType()) { return; }
+
             // Get the position of this control in the panel
             int columnIndex = PnlMain.GetColumn(Session.CtrlMain);
             int rowIndex = PnlMain.GetRow(Session.CtrlMain);
 
-            // Remove the main control
-            removeControl(Session.CtrlMain);
+            // Remove the control and clean up resources allocated
+            PnlMain.Controls.Remove(Session.CtrlMain);
+            Session.CtrlMain.Dispose();
 
             // Load the new control into the main control's position
             loadControl(newControl, columnIndex, rowIndex);

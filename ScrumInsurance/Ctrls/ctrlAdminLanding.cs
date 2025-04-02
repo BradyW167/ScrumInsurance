@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ScrumInsurance.Ctrls
+namespace ScrumInsurance
 {
-    public partial class adminLanding : ScrumUserControl
+    public partial class ctrlAdminLanding : ScrumUserControl
     {
         // private string[] args_ = null;
 
-        public adminLanding()
+        public ctrlAdminLanding()
         {
             InitializeComponent();
             

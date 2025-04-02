@@ -116,11 +116,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
-    <Compile Include="Ctrls\adminLanding.cs">
+    <Compile Include="Ctrls\ctrlAdminLanding.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Ctrls\adminLanding.Designer.cs">
-      <DependentUpon>adminLanding.cs</DependentUpon>
+    <Compile Include="Ctrls\ctrlAdminLanding.Designer.cs">
+      <DependentUpon>ctrlAdminLanding.cs</DependentUpon>
     </Compile>
     <Compile Include="Ctrls\ClaimApply.cs">
       <SubType>UserControl</SubType>
@@ -224,8 +224,8 @@
     <Compile Include="Session.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Ctrls\adminLanding.resx">
-      <DependentUpon>adminLanding.cs</DependentUpon>
+    <EmbeddedResource Include="Ctrls\ctrlAdminLanding.resx">
+      <DependentUpon>ctrlAdminLanding.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ClaimApply.resx">
       <DependentUpon>ClaimApply.cs</DependentUpon>

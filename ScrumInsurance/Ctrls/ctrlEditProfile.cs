@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace ScrumInsurance.Ctrls
+namespace ScrumInsurance
 {
     public partial class ctrlEditProfile : ScrumUserControl
     {

@@ -1,6 +1,6 @@
-﻿namespace ScrumInsurance.Ctrls
+﻿namespace ScrumInsurance
 {
-    partial class adminLanding
+    partial class ctrlAdminLanding
     {
         /// <summary> 
         /// Required designer variable.
@@ -404,7 +404,7 @@
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.pbxPillar2);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "adminLanding";
+            this.Name = "ctrlAdminLanding";
             this.Size = new System.Drawing.Size(1080, 607);
             ((System.ComponentModel.ISupportInitialize)(this.dgUserinfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSidePanel)).EndInit();
