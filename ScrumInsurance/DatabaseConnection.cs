@@ -214,32 +214,32 @@ namespace ScrumInsurance
 
         public bool updateQuery(string tableName, string indexColumn, string indexColumnValue, string[] changeColumns, string[] changeColumnsValues)
         {
-            string nonquery = "UPDATE " + tableName + " SET ";
-            for (int i = 0; i < changeColumns.Length; i++)
-            {
-                if (i > 0)
-                {
-                    nonquery += ", ";
-                }
-                nonquery += changeColumns[i] + " = '" + changeColumnsValues[i] + "'";
-            }
-            nonquery += " WHERE " + indexColumn + " = '" + indexColumnValue + "'";
-            return NonQuery(nonquery);
+            return NonQuery("UPDATE " + tableName +
+                " SET " + ConstructMatchingColumnQuery(", ", changeColumns, changeColumnsValues) +
+                " WHERE " + indexColumn + " = '" + indexColumnValue + "'");
         }
         
         public bool DeleteQuery(string tableName, string[] matchingColumns, string[] matchingColumnValues)
         {
-            string nonquery = "DELETE FROM " + tableName + " WHERE ";
+            return NonQuery("DELETE FROM " + tableName +
+                " WHERE " + ConstructMatchingColumnQuery(" AND ", matchingColumns, matchingColumnValues));
+        }
+
+        //Adds to query "specified column name" = "specifed column vlaue" with delimiter inbetween each set
+        private string ConstructMatchingColumnQuery(string delimiter, string[] matchingColumns, string[] matchingColumnValues)
+        {
+            string query = "";
             for (int i = 0; i < matchingColumns.Length; i++)
             {
                 if (i > 0)
                 {
-                    nonquery += " AND ";
+                    query += delimiter;
                 }
-                nonquery += matchingColumns[i] + " = '" + matchingColumnValues[i] + "'";
+                query += matchingColumns[i] + " = '" + matchingColumnValues[i] + "'";
             }
-            return NonQuery(nonquery);
+            return query;
         }
+
         private  bool NonQuery(string nonquery)
         {
             if (!openConnection())

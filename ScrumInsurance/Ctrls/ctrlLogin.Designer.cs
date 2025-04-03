@@ -43,6 +43,7 @@ namespace ScrumInsurance
             this.lblLoginError = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pbxCenterPanel = new System.Windows.Forms.PictureBox();
+            this.cbxShowPassword = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCenterPanel)).BeginInit();
             this.SuspendLayout();
@@ -201,6 +202,21 @@ namespace ScrumInsurance
             this.pbxCenterPanel.TabIndex = 20;
             this.pbxCenterPanel.TabStop = false;
             // 
+            // cbxShowPassword
+            // 
+            this.cbxShowPassword.AutoSize = true;
+            this.cbxShowPassword.BackColor = System.Drawing.Color.Black;
+            this.cbxShowPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbxShowPassword.ForeColor = System.Drawing.Color.White;
+            this.cbxShowPassword.Location = new System.Drawing.Point(480, 371);
+            this.cbxShowPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxShowPassword.Name = "cbxShowPassword";
+            this.cbxShowPassword.Size = new System.Drawing.Size(141, 24);
+            this.cbxShowPassword.TabIndex = 62;
+            this.cbxShowPassword.Text = "Show Password";
+            this.cbxShowPassword.UseVisualStyleBackColor = false;
+            this.cbxShowPassword.CheckedChanged += new System.EventHandler(this.cbxShowPassword_CheckedChanged);
+            // 
             // ctrlLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,6 +224,7 @@ namespace ScrumInsurance
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.cbxShowPassword);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.lblLoginError);
             this.Controls.Add(this.lbl_createAccount);
@@ -245,5 +262,6 @@ namespace ScrumInsurance
         private System.Windows.Forms.Label lblLoginError;
         private System.Windows.Forms.PictureBox pbxCenterPanel;
         private System.Windows.Forms.PictureBox pictureBox9;
+        private CheckBox cbxShowPassword;
     }
 }

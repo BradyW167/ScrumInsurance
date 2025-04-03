@@ -43,6 +43,15 @@ namespace ScrumInsurance
             }
         }
 
+        private void cbxShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPassword.PasswordChar = '●';
+            if (cbxShowPassword.Checked)
+            {
+                txtPassword.PasswordChar = new char();
+            }
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // Console.WriteLine("User (" + txtUsername.Text + ") Pass (" + txtPassword.Text + ")");
@@ -98,6 +107,5 @@ namespace ScrumInsurance
         {
             swapCtrlMain(new ctrlForgotPass());
         }
-
     }
 }
