@@ -66,6 +66,11 @@ namespace ScrumInsurance
             return myConnection_.updateQuery("login", "username", username, columnNames, columnValues);
         }
 
+        public bool DeleteAccount(string username)
+        {
+            return myConnection_.DeleteQuery("login", new string[] { "username" }, new string[] { username });
+        }
+
         private DatabaseConnection myConnection_;
         private string username_;
         private string password_;

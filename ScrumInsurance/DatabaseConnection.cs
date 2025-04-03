@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Diagnostics;
 using System.Windows.Forms.VisualStyles;
+using System.Collections;
 
 namespace ScrumInsurance
 {
@@ -213,62 +214,42 @@ namespace ScrumInsurance
 
         public bool updateQuery(string tableName, string indexColumn, string indexColumnValue, string[] changeColumns, string[] changeColumnsValues)
         {
+            string nonquery = "UPDATE " + tableName + " SET ";
+            for (int i = 0; i < changeColumns.Length; i++)
+            {
+                if (i > 0)
+                {
+                    nonquery += ", ";
+                }
+                nonquery += changeColumns[i] + " = '" + changeColumnsValues[i] + "'";
+            }
+            nonquery += " WHERE " + indexColumn + " = '" + indexColumnValue + "'";
+            return NonQuery(nonquery);
+        }
+        
+        public bool DeleteQuery(string tableName, string[] matchingColumns, string[] matchingColumnValues)
+        {
+            string nonquery = "DELETE FROM " + tableName + " WHERE ";
+            for (int i = 0; i < matchingColumns.Length; i++)
+            {
+                if (i > 0)
+                {
+                    nonquery += " AND ";
+                }
+                nonquery += matchingColumns[i] + " = '" + matchingColumnValues[i] + "'";
+            }
+            return NonQuery(nonquery);
+        }
+        private  bool NonQuery(string nonquery)
+        {
             if (!openConnection())
             {
                 // Return false when connection fails
                 return false;
             }
-            string query = "UPDATE " + tableName + " SET ";
-            for (int i = 0; i < changeColumns.Length; i++)
-            {
-                if (i > 0)
-                {
-                    query += ", ";
-                }
-                query += changeColumns[i] + " = '" + changeColumnsValues[i] + "'";
-            }
-            query += " WHERE " + indexColumn + " = '" + indexColumnValue + "'";
-            Command = Connection.CreateCommand();
-
-            Command.CommandText = query;
-
-            int result = 0;
-
-            try
-            {
-                result = Command.ExecuteNonQuery();
-            }
-            catch (Exception ex) {
-                // Print error to console
-                Console.WriteLine("Update Query Error: " + ex.Message);
-
-                // Return false on failed query
-                closeConnection();
-                return false;
-            }
-
-            // If any number of columns were altered...
-            if (result > 0)
-            {
-                // Return true for successful update
-                closeConnection();
-                return true;
-            }
-            else
-            {
-                // Return false on no changes
-                closeConnection();
-                return false;
-            }
-        }
-        
-        public bool deleteQuery(string tableName)
-        {
-            string query = "DELETE " + tableName + " SET password = 'fortnite' WHERE username = 'brady'";
 
             Command = Connection.CreateCommand();
-
-            Command.CommandText = query;
+            Command.CommandText = nonquery;
 
             int result = 0;
 
@@ -279,24 +260,18 @@ namespace ScrumInsurance
             catch (Exception ex)
             {
                 // Print error to console
-                Console.WriteLine("Update Query Error: " + ex.Message);
+                Console.WriteLine("Non Query Error: " + ex.Message);
 
                 // Return false on failed query
+                closeConnection();
                 return false;
             }
-
+            closeConnection();
             // If any number of columns were altered...
-            if (result > 0)
-            {
-                // Return true for successful update
-                return true;
-            }
-            else
-            {
-                // Return false on no changes
-                return false;
-            }
+            // Return true for successful update, return false on no changes
+            return result > 0;
         }
+
         public void printData(MySqlDataReader dr)
         {
             while (Reader.Read()) // Iterate through each row

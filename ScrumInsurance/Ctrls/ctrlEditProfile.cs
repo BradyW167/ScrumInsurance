@@ -60,5 +60,17 @@ namespace ScrumInsurance
                 lblError.Text = "Failed to update profile";
             }
         }
+
+        private void btnDeleteAccount_Click(object sender, EventArgs e)
+        {
+            if (Session.DBController.DeleteAccount(Session.Username))
+            {
+                this.swapCtrlMain(new ctrlLogin());
+            }
+            else
+            {
+                lblError.Text = "Failed to delete account";
+            }
+        }
     }
 }
