@@ -375,14 +375,14 @@
             // 
             // txtFilepaths
             // 
-            this.txtFilepaths.Location = new System.Drawing.Point(461, 330);
+            this.txtFilepaths.Location = new System.Drawing.Point(443, 297);
             this.txtFilepaths.Name = "txtFilepaths";
-            this.txtFilepaths.Size = new System.Drawing.Size(100, 22);
+            this.txtFilepaths.Size = new System.Drawing.Size(175, 22);
             this.txtFilepaths.TabIndex = 100;
             // 
             // btnUploadDocuments
             // 
-            this.btnUploadDocuments.Location = new System.Drawing.Point(468, 407);
+            this.btnUploadDocuments.Location = new System.Drawing.Point(445, 367);
             this.btnUploadDocuments.Name = "btnUploadDocuments";
             this.btnUploadDocuments.Size = new System.Drawing.Size(75, 23);
             this.btnUploadDocuments.TabIndex = 101;
@@ -391,19 +391,19 @@
             // 
             // btnBrowseDocument
             // 
-            this.btnBrowseDocument.Location = new System.Drawing.Point(468, 378);
+            this.btnBrowseDocument.Location = new System.Drawing.Point(443, 260);
             this.btnBrowseDocument.Name = "btnBrowseDocument";
-            this.btnBrowseDocument.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowseDocument.Size = new System.Drawing.Size(125, 23);
             this.btnBrowseDocument.TabIndex = 102;
-            this.btnBrowseDocument.Text = "Choose";
+            this.btnBrowseDocument.Text = "Browse File";
             this.btnBrowseDocument.UseVisualStyleBackColor = true;
             // 
             // lblFileName
             // 
-            this.lblFileName.AutoSize = true;
-            this.lblFileName.Location = new System.Drawing.Point(567, 330);
+            this.lblFileName.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblFileName.Location = new System.Drawing.Point(446, 322);
             this.lblFileName.Name = "lblFileName";
-            this.lblFileName.Size = new System.Drawing.Size(69, 16);
+            this.lblFileName.Size = new System.Drawing.Size(97, 15);
             this.lblFileName.TabIndex = 103;
             this.lblFileName.Text = "File Name";
             // 
