@@ -65,7 +65,7 @@ namespace ScrumInsurance
         public string[] loginQuery(string username, string password)
         {
             // Create parameter dictionary for login query
-            Dictionary<string, object> login_info = new Dictionary<string, object> 
+            Dictionary<string, object> login_info = new Dictionary<string, object>
             {
                 { "username", (object)username },
                 { "password", (object)password }
@@ -102,8 +102,27 @@ namespace ScrumInsurance
                 return null;
             }
 
+        //Returns a row of specified columns from a specified table, containing all matching arguments
+        //Currently only returns last matching row's information
+        public string[] DataRequest(string tableName, Dictionary<string, string> args, string[] columns)
+        {
+            string[] row = new string[columns.Length];
+            if (selectQuery(tableName, args) && Reader.HasRows)
+            {
+                while (Reader.Read())
+                {
+                    for (int i = 0; i < row.Length; i++)
+                    {
+                        row[i] = Reader[columns[i]].ToString();
+                    }
+                }
+                closeConnection();
+                return row;
+            }
+            Console.WriteLine("Select found no matching rows.");
+            closeConnection();
+            return null;
         }
-
         /* 
          * Executes a select query using the args Dicionary as WHERE conditions
          * Results are stored in the Reader attribute
@@ -212,30 +231,30 @@ namespace ScrumInsurance
 
         }
 
-        public bool updateQuery(string tableName, string indexColumn, string indexColumnValue, string[] changeColumns, string[] changeColumnsValues)
+        public bool updateQuery(string tableName, Dictionary<string, string> matchingArgs, Dictionary<string, string> altArgs)
         {
             return NonQuery("UPDATE " + tableName +
-                " SET " + ConstructMatchingColumnQuery(", ", changeColumns, changeColumnsValues) +
-                " WHERE " + indexColumn + " = '" + indexColumnValue + "'");
+                " SET " + ConstructMatchingColumnQuery(", ", altArgs) +
+                " WHERE " + ConstructMatchingColumnQuery(" AND ", matchingArgs));
         }
         
-        public bool DeleteQuery(string tableName, string[] matchingColumns, string[] matchingColumnValues)
+        public bool DeleteQuery(string tableName, Dictionary<string, string> args)
         {
             return NonQuery("DELETE FROM " + tableName +
-                " WHERE " + ConstructMatchingColumnQuery(" AND ", matchingColumns, matchingColumnValues));
+                " WHERE " + ConstructMatchingColumnQuery(" AND ", args));
         }
 
         //Adds to query "specified column name" = "specifed column vlaue" with delimiter inbetween each set
-        private string ConstructMatchingColumnQuery(string delimiter, string[] matchingColumns, string[] matchingColumnValues)
+        private string ConstructMatchingColumnQuery(string delimiter, Dictionary<string, string> args)
         {
             string query = "";
-            for (int i = 0; i < matchingColumns.Length; i++)
+            for (int i = 0; i < args.Count; i++)
             {
                 if (i > 0)
                 {
                     query += delimiter;
                 }
-                query += matchingColumns[i] + " = '" + matchingColumnValues[i] + "'";
+                query += args.ElementAt(i).Key + " = '" + args.ElementAt(i).Value + "'";
             }
             return query;
         }

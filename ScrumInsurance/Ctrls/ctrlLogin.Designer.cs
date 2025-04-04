@@ -209,7 +209,7 @@ namespace ScrumInsurance
             this.cbxShowPassword.BackColor = System.Drawing.Color.Black;
             this.cbxShowPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cbxShowPassword.ForeColor = System.Drawing.Color.White;
-            this.cbxShowPassword.Location = new System.Drawing.Point(480, 371);
+            this.cbxShowPassword.Location = new System.Drawing.Point(491, 333);
             this.cbxShowPassword.Margin = new System.Windows.Forms.Padding(2);
             this.cbxShowPassword.Name = "cbxShowPassword";
             this.cbxShowPassword.Size = new System.Drawing.Size(141, 24);
@@ -224,9 +224,8 @@ namespace ScrumInsurance
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Controls.Add(this.pbxTopBorder);
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.pbxTopBorder);
             this.Controls.Add(this.cbxShowPassword);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.lblLoginError);
