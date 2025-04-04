@@ -202,7 +202,7 @@ namespace ScrumInsurance
             this.pbxTopBorder.Size = new System.Drawing.Size(300, 10);
             this.pbxTopBorder.TabIndex = 63;
             this.pbxTopBorder.TabStop = false;
-            //this.pbxTopBorder.Click += new System.EventHandler(this.pbxTopBorder_Click);
+            this.pbxTopBorder.Click += new System.EventHandler(this.pbxTopBorder_Click);
             // 
             // cbxShowPassword
             // 

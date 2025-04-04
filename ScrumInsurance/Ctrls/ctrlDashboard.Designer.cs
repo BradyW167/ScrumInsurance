@@ -43,41 +43,43 @@
             // lblLogout
             // 
             this.lblLogout.AutoSize = true;
-            this.lblLogout.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblLogout.BackColor = System.Drawing.Color.Black;
             this.lblLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogout.ForeColor = System.Drawing.Color.Black;
-            this.lblLogout.Location = new System.Drawing.Point(1512, 31);
+            this.lblLogout.ForeColor = System.Drawing.Color.White;
+            this.lblLogout.Location = new System.Drawing.Point(1344, 25);
             this.lblLogout.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLogout.Name = "lblLogout";
-            this.lblLogout.Size = new System.Drawing.Size(66, 20);
+            this.lblLogout.Size = new System.Drawing.Size(59, 17);
             this.lblLogout.TabIndex = 0;
             this.lblLogout.Text = "Log Out";
             this.lblLogout.Click += new System.EventHandler(this.lblLogout_Click);
             // 
             // lblUser
             // 
-            this.lblUser.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblUser.BackColor = System.Drawing.Color.Black;
+            this.lblUser.ForeColor = System.Drawing.Color.White;
             this.lblUser.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.lblUser.Location = new System.Drawing.Point(1494, 8);
+            this.lblUser.Location = new System.Drawing.Point(1328, 6);
             this.lblUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblUser.MaximumSize = new System.Drawing.Size(100, 20);
-            this.lblUser.MinimumSize = new System.Drawing.Size(100, 20);
+            this.lblUser.MaximumSize = new System.Drawing.Size(89, 16);
+            this.lblUser.MinimumSize = new System.Drawing.Size(89, 16);
             this.lblUser.Name = "lblUser";
             this.lblUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblUser.Size = new System.Drawing.Size(100, 20);
+            this.lblUser.Size = new System.Drawing.Size(89, 16);
             this.lblUser.TabIndex = 2;
             this.lblUser.Text = "Username";
             this.lblUser.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnLanding
             // 
-            this.btnLanding.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnLanding.BackColor = System.Drawing.Color.Black;
             this.btnLanding.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnLanding.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLanding.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLanding.Location = new System.Drawing.Point(110, 0);
+            this.btnLanding.ForeColor = System.Drawing.Color.White;
+            this.btnLanding.Location = new System.Drawing.Point(98, 2);
+            this.btnLanding.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLanding.Name = "btnLanding";
-            this.btnLanding.Size = new System.Drawing.Size(100, 55);
+            this.btnLanding.Size = new System.Drawing.Size(89, 44);
             this.btnLanding.TabIndex = 8;
             this.btnLanding.Text = "SCRUM Insurance";
             this.btnLanding.UseVisualStyleBackColor = false;
@@ -85,13 +87,14 @@
             // 
             // btnAccount
             // 
-            this.btnAccount.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnAccount.BackColor = System.Drawing.Color.Black;
             this.btnAccount.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnAccount.Location = new System.Drawing.Point(216, 0);
+            this.btnAccount.ForeColor = System.Drawing.Color.White;
+            this.btnAccount.Location = new System.Drawing.Point(192, 2);
+            this.btnAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(100, 55);
+            this.btnAccount.Size = new System.Drawing.Size(89, 44);
             this.btnAccount.TabIndex = 9;
             this.btnAccount.Text = "Account";
             this.btnAccount.UseVisualStyleBackColor = false;
@@ -99,26 +102,28 @@
             // 
             // btnSupport
             // 
-            this.btnSupport.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnSupport.BackColor = System.Drawing.Color.Black;
             this.btnSupport.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnSupport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSupport.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSupport.Location = new System.Drawing.Point(322, 0);
+            this.btnSupport.ForeColor = System.Drawing.Color.White;
+            this.btnSupport.Location = new System.Drawing.Point(286, 2);
+            this.btnSupport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSupport.Name = "btnSupport";
-            this.btnSupport.Size = new System.Drawing.Size(100, 55);
+            this.btnSupport.Size = new System.Drawing.Size(89, 44);
             this.btnSupport.TabIndex = 10;
             this.btnSupport.Text = "Support";
             this.btnSupport.UseVisualStyleBackColor = false;
             // 
             // btnInbox
             // 
-            this.btnInbox.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnInbox.BackColor = System.Drawing.Color.Black;
             this.btnInbox.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnInbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnInbox.Location = new System.Drawing.Point(429, 0);
+            this.btnInbox.ForeColor = System.Drawing.Color.White;
+            this.btnInbox.Location = new System.Drawing.Point(381, 2);
+            this.btnInbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInbox.Name = "btnInbox";
-            this.btnInbox.Size = new System.Drawing.Size(100, 55);
+            this.btnInbox.Size = new System.Drawing.Size(89, 44);
             this.btnInbox.TabIndex = 11;
             this.btnInbox.Text = "Inbox";
             this.btnInbox.UseVisualStyleBackColor = false;
@@ -126,34 +131,35 @@
             // 
             // btnSettings
             // 
-            this.btnSettings.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnSettings.BackColor = System.Drawing.Color.Black;
             this.btnSettings.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSettings.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSettings.Location = new System.Drawing.Point(536, 0);
+            this.btnSettings.ForeColor = System.Drawing.Color.White;
+            this.btnSettings.Location = new System.Drawing.Point(476, 2);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(100, 55);
+            this.btnSettings.Size = new System.Drawing.Size(89, 44);
             this.btnSettings.TabIndex = 12;
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = false;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pictureBox2.BackColor = System.Drawing.Color.Black;
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Location = new System.Drawing.Point(2, 2);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(102, 58);
+            this.pictureBox2.Size = new System.Drawing.Size(91, 46);
             this.pictureBox2.TabIndex = 22;
             this.pictureBox2.TabStop = false;
             // 
             // ctrlDashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.BackColor = System.Drawing.Color.Black;
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnInbox);
             this.Controls.Add(this.btnSupport);
@@ -162,9 +168,9 @@
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.lblLogout);
             this.Controls.Add(this.pictureBox2);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ctrlDashboard";
-            this.Size = new System.Drawing.Size(1620, 63);
+            this.Size = new System.Drawing.Size(1440, 50);
             this.Load += new System.EventHandler(this.ctrlDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
