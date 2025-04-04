@@ -18,43 +18,53 @@ namespace ScrumInsurance
         {
             InitializeComponent();
         }
-        private void btnBrowseDoc_Click(object sender, EventArgs e)
+        //upload documents
+        private void btnBrowseDocument_Click(object sender, EventArgs e) //choose which file
         {
-            // Create an instance of OpenFileDialog
+            //make an instance of OpenFileDialog
             OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            // Set filter options and filter index
-            openFileDialog.Filter = "All Files (*.*)|*.*";
-            openFileDialog.FilterIndex = 1;
-
-            // Call the ShowDialog method to show the dialog box
+            
+            openFileDialog.Filter = "All Files (*.*)|*.*"; //filter options
+            openFileDialog.FilterIndex = 1; //filter index
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                // Get the path of specified file
-                string filePath = openFileDialog.FileName;
-
-                // Display the file path in the TextBox
-                txtFilePath.Text = filePath;
+                
+                string filePath = openFileDialog.FileName; //get the path of specified file
+                txtFilepaths.Text = filePath; // displays into the txtbox
+                lblFileName.Text = Path.GetFileName(filePath); //shows the file name
             }
         }
-        /*
-        private void btnUploadDocument_Click(object sender, EventArgs e)
+        private byte[] ReadFile(string filePath)  //reads the uploaded document into an array
         {
-            // Get the file path from the TextBox
-            string filePath = txtFilePath.Text;
-
-            // Read the file into a byte array
-            byte[] fileData = ReadFile(filePath);
-
-            // Get the file name
-            string fileName = Path.GetFileName(filePath);
-        
-            // need to use insert query here with the filename from the filepath, and filedata from the image upload
-            //not sure how to do this with the sessions set up
-         
-            MessageBox.Show("File uploaded successfully!");
+            byte[] fileData = null;
+            using (FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+            {
+                using (BinaryReader br = new BinaryReader(fs))
+                {
+                    fileData = br.ReadBytes((int)fs.Length);
+                }
+                return fileData;
+            }
         }
-        */
+        private void btnUploadDocuments_Click(object sender, EventArgs e) //uploads to database
+        {
+            string filePath = txtFilepaths.Text;
+            byte[] fileData = ReadFile(filePath);
+            string fileName = Path.GetFileName(filePath);
+
+            DatabaseController dbController = new DatabaseController();
+            if (dbController.UploadDocument(filePath, fileName, fileData))
+            {
+                MessageBox.Show("File uploaded successfully!");
+            }
+            else
+            {
+                MessageBox.Show("File upload failed.");
+            }
+
+            
+        }
+        
 
     }
 }

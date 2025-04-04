@@ -43,6 +43,15 @@ namespace ScrumInsurance
             }
         }
 
+        private void cbxShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPassword.PasswordChar = '●';
+            if (cbxShowPassword.Checked)
+            {
+                txtPassword.PasswordChar = new char();
+            }
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // Console.WriteLine("User (" + txtUsername.Text + ") Pass (" + txtPassword.Text + ")");
@@ -97,11 +106,6 @@ namespace ScrumInsurance
         private void lbl_ForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             swapCtrlMain(new ctrlForgotPass());
-        }
-
-        private void pbxTopBorder_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

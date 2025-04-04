@@ -64,6 +64,7 @@
             this.btnLogo = new System.Windows.Forms.PictureBox();
             this.pbxTopPanel = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnDeleteAccount = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSidePanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBottomPanel)).BeginInit();
@@ -86,7 +87,7 @@
             // btnSubmit
             // 
             this.btnSubmit.Location = new System.Drawing.Point(626, 392);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(83, 31);
             this.btnSubmit.TabIndex = 1;
@@ -133,7 +134,7 @@
             // txtNewUser
             // 
             this.txtNewUser.Location = new System.Drawing.Point(420, 144);
-            this.txtNewUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNewUser.Margin = new System.Windows.Forms.Padding(2);
             this.txtNewUser.Name = "txtNewUser";
             this.txtNewUser.Size = new System.Drawing.Size(171, 20);
             this.txtNewUser.TabIndex = 5;
@@ -141,7 +142,7 @@
             // txtNewPass
             // 
             this.txtNewPass.Location = new System.Drawing.Point(420, 188);
-            this.txtNewPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNewPass.Margin = new System.Windows.Forms.Padding(2);
             this.txtNewPass.Name = "txtNewPass";
             this.txtNewPass.Size = new System.Drawing.Size(171, 20);
             this.txtNewPass.TabIndex = 6;
@@ -150,7 +151,7 @@
             // txtNewEmail
             // 
             this.txtNewEmail.Location = new System.Drawing.Point(420, 234);
-            this.txtNewEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNewEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtNewEmail.Name = "txtNewEmail";
             this.txtNewEmail.Size = new System.Drawing.Size(171, 20);
             this.txtNewEmail.TabIndex = 7;
@@ -161,7 +162,7 @@
             this.passCheckbox.BackColor = System.Drawing.Color.LightSteelBlue;
             this.passCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passCheckbox.Location = new System.Drawing.Point(593, 190);
-            this.passCheckbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.passCheckbox.Margin = new System.Windows.Forms.Padding(2);
             this.passCheckbox.Name = "passCheckbox";
             this.passCheckbox.Size = new System.Drawing.Size(115, 17);
             this.passCheckbox.TabIndex = 9;
@@ -194,7 +195,7 @@
             // txtLastName
             // 
             this.txtLastName.Location = new System.Drawing.Point(420, 338);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(2);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(171, 20);
             this.txtLastName.TabIndex = 12;
@@ -202,7 +203,7 @@
             // txtFirstName
             // 
             this.txtFirstName.Location = new System.Drawing.Point(420, 289);
-            this.txtFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(171, 20);
             this.txtFirstName.TabIndex = 13;
@@ -331,7 +332,7 @@
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.ForeColor = System.Drawing.Color.White;
             this.btnSettings.Location = new System.Drawing.Point(325, 0);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(2);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(65, 40);
             this.btnSettings.TabIndex = 104;
@@ -345,7 +346,7 @@
             this.btnRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRequest.ForeColor = System.Drawing.Color.White;
             this.btnRequest.Location = new System.Drawing.Point(260, 0);
-            this.btnRequest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRequest.Margin = new System.Windows.Forms.Padding(2);
             this.btnRequest.Name = "btnRequest";
             this.btnRequest.Size = new System.Drawing.Size(65, 40);
             this.btnRequest.TabIndex = 103;
@@ -359,7 +360,7 @@
             this.btnSupport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSupport.ForeColor = System.Drawing.Color.White;
             this.btnSupport.Location = new System.Drawing.Point(195, 0);
-            this.btnSupport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSupport.Margin = new System.Windows.Forms.Padding(2);
             this.btnSupport.Name = "btnSupport";
             this.btnSupport.Size = new System.Drawing.Size(65, 40);
             this.btnSupport.TabIndex = 102;
@@ -373,7 +374,7 @@
             this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccount.ForeColor = System.Drawing.Color.White;
             this.btnAccount.Location = new System.Drawing.Point(130, 0);
-            this.btnAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAccount.Margin = new System.Windows.Forms.Padding(2);
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Size = new System.Drawing.Size(65, 40);
             this.btnAccount.TabIndex = 101;
@@ -387,7 +388,7 @@
             this.btnLanding.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLanding.ForeColor = System.Drawing.Color.White;
             this.btnLanding.Location = new System.Drawing.Point(65, 0);
-            this.btnLanding.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLanding.Margin = new System.Windows.Forms.Padding(2);
             this.btnLanding.Name = "btnLanding";
             this.btnLanding.Size = new System.Drawing.Size(65, 40);
             this.btnLanding.TabIndex = 100;
@@ -397,7 +398,7 @@
             // txtDOB
             // 
             this.txtDOB.Location = new System.Drawing.Point(420, 385);
-            this.txtDOB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDOB.Margin = new System.Windows.Forms.Padding(2);
             this.txtDOB.Name = "txtDOB";
             this.txtDOB.Size = new System.Drawing.Size(171, 20);
             this.txtDOB.TabIndex = 115;
@@ -417,7 +418,7 @@
             // btnChangeProfilePicture
             // 
             this.btnChangeProfilePicture.Location = new System.Drawing.Point(812, 201);
-            this.btnChangeProfilePicture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnChangeProfilePicture.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangeProfilePicture.Name = "btnChangeProfilePicture";
             this.btnChangeProfilePicture.Size = new System.Drawing.Size(55, 41);
             this.btnChangeProfilePicture.TabIndex = 118;
@@ -429,7 +430,7 @@
             // 
             this.pbxProfile.Image = global::ScrumInsurance.Properties.Resources.default_User;
             this.pbxProfile.Location = new System.Drawing.Point(800, 120);
-            this.pbxProfile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxProfile.Margin = new System.Windows.Forms.Padding(2);
             this.pbxProfile.Name = "pbxProfile";
             this.pbxProfile.Size = new System.Drawing.Size(76, 75);
             this.pbxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -441,7 +442,7 @@
             this.pbxSidePanel.BackColor = System.Drawing.Color.Black;
             this.pbxSidePanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.pbxSidePanel.Location = new System.Drawing.Point(0, 50);
-            this.pbxSidePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxSidePanel.Margin = new System.Windows.Forms.Padding(2);
             this.pbxSidePanel.Name = "pbxSidePanel";
             this.pbxSidePanel.Size = new System.Drawing.Size(100, 407);
             this.pbxSidePanel.TabIndex = 107;
@@ -452,7 +453,7 @@
             this.pbxBottomPanel.BackColor = System.Drawing.Color.Black;
             this.pbxBottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pbxBottomPanel.Location = new System.Drawing.Point(0, 457);
-            this.pbxBottomPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxBottomPanel.Margin = new System.Windows.Forms.Padding(2);
             this.pbxBottomPanel.Name = "pbxBottomPanel";
             this.pbxBottomPanel.Size = new System.Drawing.Size(1080, 150);
             this.pbxBottomPanel.TabIndex = 106;
@@ -476,7 +477,7 @@
             this.pbxTopPanel.BackColor = System.Drawing.Color.Black;
             this.pbxTopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbxTopPanel.Location = new System.Drawing.Point(0, 0);
-            this.pbxTopPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxTopPanel.Margin = new System.Windows.Forms.Padding(2);
             this.pbxTopPanel.Name = "pbxTopPanel";
             this.pbxTopPanel.Size = new System.Drawing.Size(1080, 50);
             this.pbxTopPanel.TabIndex = 99;
@@ -486,17 +487,29 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pictureBox1.Location = new System.Drawing.Point(410, 97);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(482, 344);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
+            // 
+            // btnDeleteAccount
+            // 
+            this.btnDeleteAccount.Location = new System.Drawing.Point(773, 392);
+            this.btnDeleteAccount.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDeleteAccount.Name = "btnDeleteAccount";
+            this.btnDeleteAccount.Size = new System.Drawing.Size(103, 31);
+            this.btnDeleteAccount.TabIndex = 119;
+            this.btnDeleteAccount.Text = "Delete Account";
+            this.btnDeleteAccount.UseVisualStyleBackColor = true;
+            this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
             // 
             // ctrlEditProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
+            this.Controls.Add(this.btnDeleteAccount);
             this.Controls.Add(this.btnChangeProfilePicture);
             this.Controls.Add(this.pbxProfile);
             this.Controls.Add(this.lblDOB);
@@ -533,7 +546,7 @@
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.lblEditProfile);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ctrlEditProfile";
             this.Size = new System.Drawing.Size(1080, 607);
             ((System.ComponentModel.ISupportInitialize)(this.pbxProfile)).EndInit();
@@ -585,5 +598,6 @@
         private System.Windows.Forms.Label lblDOB;
         private System.Windows.Forms.PictureBox pbxProfile;
         private System.Windows.Forms.Button btnChangeProfilePicture;
+        private System.Windows.Forms.Button btnDeleteAccount;
     }
 }

@@ -27,9 +27,20 @@ namespace ScrumInsurance
         //Check if username, password and email are valid (not blank, classic password requirements)
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            Session.DBController.addAccount(txtCreateUsername.Text, txtCreatePassword.Text, txtCreateEmail.Text, txtCreateQuestion.Text, txtCreateAnswer.Text, "client");
-            
-            this.swapCtrlMain(new ctrlLogin());
+            if (txtCreatePassword.Text.Length < 8)
+            {
+                lblCreateAccountError.Text = "Password must be atleast 8 characters";
+            }
+            else if (txtCreateUsername.Text.Length < 1)
+            {
+                lblCreateAccountError.Text = "You must create a unique username";
+            }
+            else
+            {
+                Session.DBController.addAccount(txtCreateUsername.Text, txtCreatePassword.Text, txtCreateEmail.Text, txtCreateQuestion.Text, txtCreateAnswer.Text, "client");
+
+                this.swapCtrlMain(new ctrlLogin());
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
