@@ -34,7 +34,7 @@ namespace ScrumInsurance
             {
                 return null;
             }
-            return myConnection_.DataRequest("login", new Dictionary<string, string> { { "username", username_ }, { "password", password_ } }, new string[] { "username", "password", "role", "email" });
+            return RequestInformation(new Dictionary<string, string> { { "username", username_ }, { "password", password_ } }, new string[] { "username", "password", "role", "email" });
         }
 
         public bool addAccount(string username, string password, string email, string question, string answer, string role)
