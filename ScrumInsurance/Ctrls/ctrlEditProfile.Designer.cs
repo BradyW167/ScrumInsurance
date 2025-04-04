@@ -50,11 +50,6 @@
             this.lblClaim2 = new System.Windows.Forms.Label();
             this.lblMyClaims = new System.Windows.Forms.Label();
             this.lblClaim1 = new System.Windows.Forms.Label();
-            this.btnSettings = new System.Windows.Forms.Button();
-            this.btnRequest = new System.Windows.Forms.Button();
-            this.btnSupport = new System.Windows.Forms.Button();
-            this.btnAccount = new System.Windows.Forms.Button();
-            this.btnLanding = new System.Windows.Forms.Button();
             this.txtDOB = new System.Windows.Forms.TextBox();
             this.lblDOB = new System.Windows.Forms.Label();
             this.btnChangeProfilePicture = new System.Windows.Forms.Button();
@@ -62,13 +57,11 @@
             this.pbxSidePanel = new System.Windows.Forms.PictureBox();
             this.pbxBottomPanel = new System.Windows.Forms.PictureBox();
             this.btnLogo = new System.Windows.Forms.PictureBox();
-            this.pbxTopPanel = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSidePanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBottomPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxTopPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -313,76 +306,6 @@
             this.lblClaim1.TabIndex = 108;
             this.lblClaim1.Text = "Unnamed Claim\r\nStatus: Incomplete";
             // 
-            // btnSettings
-            // 
-            this.btnSettings.BackColor = System.Drawing.Color.Black;
-            this.btnSettings.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
-            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.Location = new System.Drawing.Point(433, 0);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(87, 49);
-            this.btnSettings.TabIndex = 104;
-            this.btnSettings.Text = "Settings";
-            this.btnSettings.UseVisualStyleBackColor = false;
-            // 
-            // btnRequest
-            // 
-            this.btnRequest.BackColor = System.Drawing.Color.Black;
-            this.btnRequest.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
-            this.btnRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRequest.ForeColor = System.Drawing.Color.White;
-            this.btnRequest.Location = new System.Drawing.Point(347, 0);
-            this.btnRequest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRequest.Name = "btnRequest";
-            this.btnRequest.Size = new System.Drawing.Size(87, 49);
-            this.btnRequest.TabIndex = 103;
-            this.btnRequest.Text = "Submit Request";
-            this.btnRequest.UseVisualStyleBackColor = false;
-            // 
-            // btnSupport
-            // 
-            this.btnSupport.BackColor = System.Drawing.Color.Black;
-            this.btnSupport.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
-            this.btnSupport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSupport.ForeColor = System.Drawing.Color.White;
-            this.btnSupport.Location = new System.Drawing.Point(260, 0);
-            this.btnSupport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSupport.Name = "btnSupport";
-            this.btnSupport.Size = new System.Drawing.Size(87, 49);
-            this.btnSupport.TabIndex = 102;
-            this.btnSupport.Text = "Support";
-            this.btnSupport.UseVisualStyleBackColor = false;
-            // 
-            // btnAccount
-            // 
-            this.btnAccount.BackColor = System.Drawing.Color.Black;
-            this.btnAccount.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
-            this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccount.ForeColor = System.Drawing.Color.White;
-            this.btnAccount.Location = new System.Drawing.Point(173, 0);
-            this.btnAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(87, 49);
-            this.btnAccount.TabIndex = 101;
-            this.btnAccount.Text = "Account";
-            this.btnAccount.UseVisualStyleBackColor = false;
-            // 
-            // btnLanding
-            // 
-            this.btnLanding.BackColor = System.Drawing.Color.Black;
-            this.btnLanding.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
-            this.btnLanding.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLanding.ForeColor = System.Drawing.Color.White;
-            this.btnLanding.Location = new System.Drawing.Point(87, 0);
-            this.btnLanding.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLanding.Name = "btnLanding";
-            this.btnLanding.Size = new System.Drawing.Size(87, 49);
-            this.btnLanding.TabIndex = 100;
-            this.btnLanding.Text = "SCRUM Insurance";
-            this.btnLanding.UseVisualStyleBackColor = false;
-            // 
             // txtDOB
             // 
             this.txtDOB.Location = new System.Drawing.Point(560, 474);
@@ -427,10 +350,10 @@
             // 
             this.pbxSidePanel.BackColor = System.Drawing.Color.Black;
             this.pbxSidePanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbxSidePanel.Location = new System.Drawing.Point(0, 62);
+            this.pbxSidePanel.Location = new System.Drawing.Point(0, 0);
             this.pbxSidePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbxSidePanel.Name = "pbxSidePanel";
-            this.pbxSidePanel.Size = new System.Drawing.Size(133, 500);
+            this.pbxSidePanel.Size = new System.Drawing.Size(133, 562);
             this.pbxSidePanel.TabIndex = 107;
             this.pbxSidePanel.TabStop = false;
             // 
@@ -457,17 +380,6 @@
             this.btnLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnLogo.TabIndex = 105;
             this.btnLogo.TabStop = false;
-            // 
-            // pbxTopPanel
-            // 
-            this.pbxTopPanel.BackColor = System.Drawing.Color.Black;
-            this.pbxTopPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pbxTopPanel.Location = new System.Drawing.Point(0, 0);
-            this.pbxTopPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbxTopPanel.Name = "pbxTopPanel";
-            this.pbxTopPanel.Size = new System.Drawing.Size(1440, 62);
-            this.pbxTopPanel.TabIndex = 99;
-            this.pbxTopPanel.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -497,13 +409,7 @@
             this.Controls.Add(this.lblClaim1);
             this.Controls.Add(this.pbxSidePanel);
             this.Controls.Add(this.pbxBottomPanel);
-            this.Controls.Add(this.btnSettings);
-            this.Controls.Add(this.btnRequest);
-            this.Controls.Add(this.btnSupport);
-            this.Controls.Add(this.btnAccount);
-            this.Controls.Add(this.btnLanding);
             this.Controls.Add(this.btnLogo);
-            this.Controls.Add(this.pbxTopPanel);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.txtFirstName);
@@ -527,7 +433,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxSidePanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBottomPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxTopPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -561,13 +466,7 @@
         private System.Windows.Forms.Label lblClaim1;
         private System.Windows.Forms.PictureBox pbxSidePanel;
         private System.Windows.Forms.PictureBox pbxBottomPanel;
-        private System.Windows.Forms.Button btnSettings;
-        private System.Windows.Forms.Button btnRequest;
-        private System.Windows.Forms.Button btnSupport;
-        private System.Windows.Forms.Button btnAccount;
-        private System.Windows.Forms.Button btnLanding;
         private System.Windows.Forms.PictureBox btnLogo;
-        private System.Windows.Forms.PictureBox pbxTopPanel;
         private System.Windows.Forms.TextBox txtDOB;
         private System.Windows.Forms.Label lblDOB;
         private System.Windows.Forms.PictureBox pbxProfile;
