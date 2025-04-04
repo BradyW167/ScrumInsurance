@@ -101,10 +101,11 @@ namespace ScrumInsurance
                 closeConnection();
                 return null;
             }
+        }
 
         //Returns a row of specified columns from a specified table, containing all matching arguments
         //Currently only returns last matching row's information
-        public string[] DataRequest(string tableName, Dictionary<string, string> args, string[] columns)
+        public string[] DataRequest(string tableName, Dictionary<string, object> args, string[] columns)
         {
             string[] row = new string[columns.Length];
             if (selectQuery(tableName, args) && Reader.HasRows)
