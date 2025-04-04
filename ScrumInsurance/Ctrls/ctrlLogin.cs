@@ -99,5 +99,9 @@ namespace ScrumInsurance
             swapCtrlMain(new ctrlForgotPass());
         }
 
+        private void pbxTopBorder_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
