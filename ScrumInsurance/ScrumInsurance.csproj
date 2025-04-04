@@ -285,6 +285,8 @@
     <None Include="src\bluecity.jpg" />
     <Content Include="src\istockphoto-1411968933-612x612.jpg" />
     <Content Include="src\login-background3.jpg" />
+    <Content Include="src\scrum-background.jpg" />
+    <Content Include="src\scrum-background2.jpg" />
     <Content Include="src\scrum-logo.ico" />
   </ItemGroup>
   <ItemGroup>

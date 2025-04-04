@@ -55,6 +55,10 @@
             this.btnUploadDocument = new System.Windows.Forms.Button();
             this.txtFilePath = new System.Windows.Forms.TextBox();
             this.btnBrowseDoc = new System.Windows.Forms.Button();
+            this.txtFilepaths = new System.Windows.Forms.TextBox();
+            this.btnUploadDocuments = new System.Windows.Forms.Button();
+            this.btnBrowseDocument = new System.Windows.Forms.Button();
+            this.lblFileName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSidePanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBottomPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogo)).BeginInit();
@@ -350,36 +354,68 @@
             // 
             // btnUploadDocument
             // 
-            //    this.btnUploadDocument.Location = new System.Drawing.Point(480, 291);
-            //    this.btnUploadDocument.Name = "btnUploadDocument";
-            //    this.btnUploadDocument.Size = new System.Drawing.Size(86, 32);
-            //    this.btnUploadDocument.TabIndex = 100;
-            //    this.btnUploadDocument.Text = "Upload";
-            //   this.btnUploadDocument.UseVisualStyleBackColor = true;
-            //  this.btnUploadDocument.Click += new System.EventHandler(this.btnUploadDocument_Click);
+            this.btnUploadDocument.Location = new System.Drawing.Point(0, 0);
+            this.btnUploadDocument.Name = "btnUploadDocument";
+            this.btnUploadDocument.Size = new System.Drawing.Size(75, 23);
+            this.btnUploadDocument.TabIndex = 2;
             // 
             // txtFilePath
             // 
-            //    this.txtFilePath.Location = new System.Drawing.Point(462, 215);
-            //    this.txtFilePath.Name = "txtFilePath";
-            //    this.txtFilePath.Size = new System.Drawing.Size(117, 22);
-            //    this.txtFilePath.TabIndex = 101;
+            this.txtFilePath.Location = new System.Drawing.Point(0, 0);
+            this.txtFilePath.Name = "txtFilePath";
+            this.txtFilePath.Size = new System.Drawing.Size(100, 22);
+            this.txtFilePath.TabIndex = 1;
             // 
             // btnBrowseDoc
             // 
-            //     this.btnBrowseDoc.Location = new System.Drawing.Point(480, 246);
-            //     this.btnBrowseDoc.Name = "btnBrowseDoc";
-            //     this.btnBrowseDoc.Size = new System.Drawing.Size(86, 32);
-            //     this.btnBrowseDoc.TabIndex = 102;
-            //    this.btnBrowseDoc.Text = "Browse";
-            //    this.btnBrowseDoc.UseVisualStyleBackColor = true;
-            //    this.btnBrowseDoc.Click += new System.EventHandler(this.btnBrowseDoc_Click);
+            this.btnBrowseDoc.Location = new System.Drawing.Point(0, 0);
+            this.btnBrowseDoc.Name = "btnBrowseDoc";
+            this.btnBrowseDoc.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowseDoc.TabIndex = 0;
+            // 
+            // txtFilepaths
+            // 
+            this.txtFilepaths.Location = new System.Drawing.Point(443, 297);
+            this.txtFilepaths.Name = "txtFilepaths";
+            this.txtFilepaths.Size = new System.Drawing.Size(175, 22);
+            this.txtFilepaths.TabIndex = 100;
+            // 
+            // btnUploadDocuments
+            // 
+            this.btnUploadDocuments.Location = new System.Drawing.Point(445, 367);
+            this.btnUploadDocuments.Name = "btnUploadDocuments";
+            this.btnUploadDocuments.Size = new System.Drawing.Size(75, 23);
+            this.btnUploadDocuments.TabIndex = 101;
+            this.btnUploadDocuments.Text = "Upload";
+            this.btnUploadDocuments.UseVisualStyleBackColor = true;
+            // 
+            // btnBrowseDocument
+            // 
+            this.btnBrowseDocument.Location = new System.Drawing.Point(443, 260);
+            this.btnBrowseDocument.Name = "btnBrowseDocument";
+            this.btnBrowseDocument.Size = new System.Drawing.Size(125, 23);
+            this.btnBrowseDocument.TabIndex = 102;
+            this.btnBrowseDocument.Text = "Browse File";
+            this.btnBrowseDocument.UseVisualStyleBackColor = true;
+            // 
+            // lblFileName
+            // 
+            this.lblFileName.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblFileName.Location = new System.Drawing.Point(446, 322);
+            this.lblFileName.Name = "lblFileName";
+            this.lblFileName.Size = new System.Drawing.Size(97, 15);
+            this.lblFileName.TabIndex = 103;
+            this.lblFileName.Text = "File Name";
             // 
             // ClaimApply
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
+            this.Controls.Add(this.lblFileName);
+            this.Controls.Add(this.btnBrowseDocument);
+            this.Controls.Add(this.btnUploadDocuments);
+            this.Controls.Add(this.txtFilepaths);
             this.Controls.Add(this.btnBrowseDoc);
             this.Controls.Add(this.txtFilePath);
             this.Controls.Add(this.btnUploadDocument);
@@ -449,5 +485,9 @@
         private System.Windows.Forms.Button btnUploadDocument;
         private System.Windows.Forms.TextBox txtFilePath;
         private System.Windows.Forms.Button btnBrowseDoc;
+        private System.Windows.Forms.TextBox txtFilepaths;
+        private System.Windows.Forms.Button btnUploadDocuments;
+        private System.Windows.Forms.Button btnBrowseDocument;
+        private System.Windows.Forms.Label lblFileName;
     }
 }

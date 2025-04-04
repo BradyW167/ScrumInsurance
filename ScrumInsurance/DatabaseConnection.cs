@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Diagnostics;
 using System.Windows.Forms.VisualStyles;
+using System.Collections;
 
 namespace ScrumInsurance
 {
@@ -211,47 +212,44 @@ namespace ScrumInsurance
 
         }
 
-        public bool updateQuery(string tableName)
+        public bool updateQuery(string tableName, string indexColumn, string indexColumnValue, string[] changeColumns, string[] changeColumnsValues)
         {
-            string query = "UPDATE " + tableName + " SET password = 'fortnite' WHERE username = 'brady'";
-
-            Command = Connection.CreateCommand();
-
-            Command.CommandText = query;
-
-            int result = 0;
-
-            try
-            {
-                result = Command.ExecuteNonQuery();
-            }
-            catch (Exception ex) {
-                // Print error to console
-                Console.WriteLine("Update Query Error: " + ex.Message);
-
-                // Return false on failed query
-                return false;
-            }
-
-            // If any number of columns were altered...
-            if (result > 0)
-            {
-                // Return true for successful update
-                return true;
-            } else
-            {
-                // Return false on no changes
-                return false;
-            }
+            return NonQuery("UPDATE " + tableName +
+                " SET " + ConstructMatchingColumnQuery(", ", changeColumns, changeColumnsValues) +
+                " WHERE " + indexColumn + " = '" + indexColumnValue + "'");
         }
         
-        public bool deleteQuery(string tableName)
+        public bool DeleteQuery(string tableName, string[] matchingColumns, string[] matchingColumnValues)
         {
-            string query = "DELETE " + tableName + " SET password = 'fortnite' WHERE username = 'brady'";
+            return NonQuery("DELETE FROM " + tableName +
+                " WHERE " + ConstructMatchingColumnQuery(" AND ", matchingColumns, matchingColumnValues));
+        }
+
+        //Adds to query "specified column name" = "specifed column vlaue" with delimiter inbetween each set
+        private string ConstructMatchingColumnQuery(string delimiter, string[] matchingColumns, string[] matchingColumnValues)
+        {
+            string query = "";
+            for (int i = 0; i < matchingColumns.Length; i++)
+            {
+                if (i > 0)
+                {
+                    query += delimiter;
+                }
+                query += matchingColumns[i] + " = '" + matchingColumnValues[i] + "'";
+            }
+            return query;
+        }
+
+        private  bool NonQuery(string nonquery)
+        {
+            if (!openConnection())
+            {
+                // Return false when connection fails
+                return false;
+            }
 
             Command = Connection.CreateCommand();
-
-            Command.CommandText = query;
+            Command.CommandText = nonquery;
 
             int result = 0;
 
@@ -262,24 +260,18 @@ namespace ScrumInsurance
             catch (Exception ex)
             {
                 // Print error to console
-                Console.WriteLine("Update Query Error: " + ex.Message);
+                Console.WriteLine("Non Query Error: " + ex.Message);
 
                 // Return false on failed query
+                closeConnection();
                 return false;
             }
-
+            closeConnection();
             // If any number of columns were altered...
-            if (result > 0)
-            {
-                // Return true for successful update
-                return true;
-            }
-            else
-            {
-                // Return false on no changes
-                return false;
-            }
+            // Return true for successful update, return false on no changes
+            return result > 0;
         }
+
         public void printData(MySqlDataReader dr)
         {
             while (Reader.Read()) // Iterate through each row

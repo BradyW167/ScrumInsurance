@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ScrumInsurance
 {
@@ -60,6 +61,38 @@ namespace ScrumInsurance
                 return false;
             }
         }
+
+        public bool UpdateAccount(string username, string[] columnNames, string[] columnValues)
+        {
+            return myConnection_.updateQuery("login", "username", username, columnNames, columnValues);
+        }
+
+        public bool DeleteAccount(string username)
+        {
+            return myConnection_.DeleteQuery("login", new string[] { "username" }, new string[] { username });
+        }
+
+
+        //Client Upload Documents
+        
+        public bool UploadDocument(string filePath, string fileName, byte[] fileData)
+        {
+            string[] args = new string[3];
+            args[0] = filePath;
+            args[1] = fileName;
+            //args[2] = fileData;
+            //not sure how to insert with the array...
+            if (myConnection_.insertQuery("Document", args))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        
 
         private DatabaseConnection myConnection_;
         private string username_;
