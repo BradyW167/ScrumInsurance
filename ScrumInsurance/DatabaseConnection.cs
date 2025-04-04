@@ -59,49 +59,26 @@ namespace ScrumInsurance
             Connection.Close();
         }
 
-        // Queries the database for input username and password
-        // Returns string array of username, password, and role if match was found
-        // Returns null when no matching user is found
-        public string[] loginQuery(string username, string password)
+        //Returns a row of specified columns from a specified table, containing all matching arguments
+        //Currently only returns last matching row's information
+        public string[] DataRequest(string tableName, Dictionary<string, string> args, string[] columns)
         {
-            // Create parameter dictionary for login query
-            Dictionary<string, string> login_info = new Dictionary<string, string> 
+            string[] row = new string[columns.Length];
+            if (selectQuery(tableName, args) && Reader.HasRows)
             {
-                { "username", username },
-                { "password", password }
-            };
-
-            // Run select query for username and password
-            selectQuery("login", login_info);
-
-            // If reader has data (matching user and password were found)
-            if (Reader.HasRows)
-            {
-                // Loop through each entry in the reader
                 while (Reader.Read())
                 {
-                    // Store username, password, and role from reader
-                    string[] user_info = { Reader["username"].ToString(), Reader["password"].ToString(), Reader["role"].ToString(), Reader["email"].ToString() };
-
-                    // If username and password are exact matches for input username and password...
-                    if (user_info[0].Equals(username) && user_info[1].Equals(password))
+                    for (int i = 0; i < row.Length; i++)
                     {
-                        closeConnection();
-                        return user_info;
+                        row[i] = Reader[columns[i]].ToString();
                     }
                 }
-                Console.WriteLine("Case-Matching was off or some other unexpected matching occurred");
                 closeConnection();
-                return null;
+                return row;
             }
-            // Else no matching data was found (invalid username or password)
-            else
-            {
-                Console.WriteLine("No matching data");
-                closeConnection();
-                return null;
-            }
-
+            Console.WriteLine("Select found no matching rows.");
+            closeConnection();
+            return null;
         }
 
         /* 
@@ -212,30 +189,30 @@ namespace ScrumInsurance
 
         }
 
-        public bool updateQuery(string tableName, string indexColumn, string indexColumnValue, string[] changeColumns, string[] changeColumnsValues)
+        public bool updateQuery(string tableName, Dictionary<string, string> matchingArgs, Dictionary<string, string> altArgs)
         {
             return NonQuery("UPDATE " + tableName +
-                " SET " + ConstructMatchingColumnQuery(", ", changeColumns, changeColumnsValues) +
-                " WHERE " + indexColumn + " = '" + indexColumnValue + "'");
+                " SET " + ConstructMatchingColumnQuery(", ", altArgs) +
+                " WHERE " + ConstructMatchingColumnQuery(" AND ", matchingArgs));
         }
         
-        public bool DeleteQuery(string tableName, string[] matchingColumns, string[] matchingColumnValues)
+        public bool DeleteQuery(string tableName, Dictionary<string, string> args)
         {
             return NonQuery("DELETE FROM " + tableName +
-                " WHERE " + ConstructMatchingColumnQuery(" AND ", matchingColumns, matchingColumnValues));
+                " WHERE " + ConstructMatchingColumnQuery(" AND ", args));
         }
 
         //Adds to query "specified column name" = "specifed column vlaue" with delimiter inbetween each set
-        private string ConstructMatchingColumnQuery(string delimiter, string[] matchingColumns, string[] matchingColumnValues)
+        private string ConstructMatchingColumnQuery(string delimiter, Dictionary<string, string> args)
         {
             string query = "";
-            for (int i = 0; i < matchingColumns.Length; i++)
+            for (int i = 0; i < args.Count; i++)
             {
                 if (i > 0)
                 {
                     query += delimiter;
                 }
-                query += matchingColumns[i] + " = '" + matchingColumnValues[i] + "'";
+                query += args.ElementAt(i).Key + " = '" + args.ElementAt(i).Value + "'";
             }
             return query;
         }

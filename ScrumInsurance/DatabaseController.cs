@@ -34,11 +34,7 @@ namespace ScrumInsurance
             {
                 return null;
             }
-            else
-            {
-                // Change first parameter to actual table name
-                return myConnection_.loginQuery(username_, password_);
-            }
+            return myConnection_.DataRequest("login", new Dictionary<string, string> { { "username", username_ }, { "password", password_ } }, new string[] { "username", "password", "role", "email" });
         }
 
         public bool addAccount(string username, string password, string email, string question, string answer, string role)
@@ -62,19 +58,23 @@ namespace ScrumInsurance
             }
         }
 
-        public bool UpdateAccount(string username, string[] columnNames, string[] columnValues)
+        public string[] RequestInformation(Dictionary<string, string> args, string[] columns)
         {
-            return myConnection_.updateQuery("login", "username", username, columnNames, columnValues);
+            return myConnection_.DataRequest("login", args, columns);
+        }
+
+        public bool UpdateAccount(string username, Dictionary<string, string> args)
+        {
+            return myConnection_.updateQuery("login", new Dictionary<string, string> { { "username", username } }, args);
         }
 
         public bool DeleteAccount(string username)
         {
-            return myConnection_.DeleteQuery("login", new string[] { "username" }, new string[] { username });
+            return myConnection_.DeleteQuery("login", new Dictionary<string, string> { { "username", username } });
         }
 
-
         //Client Upload Documents
-        
+
         public bool UploadDocument(string filePath, string fileName, byte[] fileData)
         {
             string[] args = new string[3];
