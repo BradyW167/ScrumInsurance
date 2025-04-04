@@ -65,10 +65,10 @@ namespace ScrumInsurance
         public string[] loginQuery(string username, string password)
         {
             // Create parameter dictionary for login query
-            Dictionary<string, string> login_info = new Dictionary<string, string> 
+            Dictionary<string, object> login_info = new Dictionary<string, object> 
             {
-                { "username", username },
-                { "password", password }
+                { "username", (object)username },
+                { "password", (object)password }
             };
 
             // Run select query for username and password
@@ -109,7 +109,7 @@ namespace ScrumInsurance
          * Results are stored in the Reader attribute
          * Returns true on succesful query, false on failed connection
          */
-        public bool selectQuery(string tableName, Dictionary<string, string> args)
+        public bool selectQuery(string tableName, Dictionary<string, object> args)
         {
             // Open SQL connection for queries
             if (!openConnection())

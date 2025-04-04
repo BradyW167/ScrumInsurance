@@ -24,6 +24,7 @@ namespace ScrumInsurance
             //make an instance of OpenFileDialog
             OpenFileDialog openFileDialog = new OpenFileDialog();
             
+            // Change to filter image files only .jpg .jpeg .png
             openFileDialog.Filter = "All Files (*.*)|*.*"; //filter options
             openFileDialog.FilterIndex = 1; //filter index
             if (openFileDialog.ShowDialog() == DialogResult.OK)

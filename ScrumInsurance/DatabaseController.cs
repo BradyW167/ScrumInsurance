@@ -90,7 +90,6 @@ namespace ScrumInsurance
             {
                 return false;
             }
-
         }
         
 
