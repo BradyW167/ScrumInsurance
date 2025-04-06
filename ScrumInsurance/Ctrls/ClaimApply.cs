@@ -53,8 +53,7 @@ namespace ScrumInsurance
             byte[] fileData = ReadFile(filePath);
             string fileName = Path.GetFileName(filePath);
 
-            DatabaseController dbController = new DatabaseController();
-            if (dbController.UploadDocument(filePath, fileName, fileData))
+            if (Session.DBController.UploadDocument(filePath, fileName, fileData))
             {
                 MessageBox.Show("File uploaded successfully!");
             }
