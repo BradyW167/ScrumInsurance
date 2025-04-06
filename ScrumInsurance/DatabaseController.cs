@@ -10,31 +10,26 @@ namespace ScrumInsurance
 {
     public class DatabaseController
     {
-        public DatabaseController()
+        private DatabaseConnection Connection {  get; set; }
+
+        public DatabaseController(DatabaseConfig dbConfig)
         {
-            myConnection_ = new DatabaseConnection();
+            Connection = new DatabaseConnection();
 
-            // We can move this to a property file later to avoid unncessary clutter and hardcoding.
-            myConnection_.ServerName = "trevor.butler.edu";
-            myConnection_.DatabaseName = "scrum_gang";
-            myConnection_.DatabaseUsername = "scrumgang";
-            myConnection_.DatabasePassword = "Z9wAabwUKeZy5pxvF5GE";
-
-            username_ = "";
-            password_ = "";
-            
+            // Read database config values to class properties
+            Connection.ServerName = dbConfig.Database.ServerName;
+            Connection.DatabaseName = dbConfig.Database.Name;
+            Connection.DatabaseUsername = dbConfig.Database.Username;
+            Connection.DatabasePassword = dbConfig.Database.Password;  
         }
 
         public string[] validateLogin(string username, string password)
         {
-            username_ = username;
-            password_ = password;
-
-            if (password_.Length < 8)
+            if (password.Length < 8)
             {
                 return null;
             }
-            return RequestInformation(new Dictionary<string, object> { { "username", username_ }, { "password", password_ } }, new string[] { "username", "password", "role", "email" });
+            return Connection.loginQuery(username, password);
         }
 
         public bool addAccount(string username, string password, string email, string question, string answer, string role)
@@ -48,7 +43,7 @@ namespace ScrumInsurance
             args[5] = role;
             
             //will verify that it went through. if it doesnt go through, will return false. 
-            if (myConnection_.insertQuery("login", args))
+            if (Connection.insertQuery("login", args))
             {
                 return true;
             }
@@ -60,17 +55,17 @@ namespace ScrumInsurance
 
         public string[] RequestInformation(Dictionary<string, object> args, string[] columns)
         {
-            return myConnection_.DataRequest("login", args, columns);
+            return Connection.DataRequest("login", args, columns);
         }
 
         public bool UpdateAccount(string username, Dictionary<string, string> args)
         {
-            return myConnection_.updateQuery("login", new Dictionary<string, string> { { "username", username } }, args);
+            return Connection.updateQuery("login", new Dictionary<string, string> { { "username", username } }, args);
         }
 
         public bool DeleteAccount(string username)
         {
-            return myConnection_.DeleteQuery("login", new Dictionary<string, string> { { "username", username } });
+            return Connection.DeleteQuery("login", new Dictionary<string, string> { { "username", username } });
         }
 
         //Client Upload Documents
@@ -82,7 +77,7 @@ namespace ScrumInsurance
             args[1] = fileName;
             //args[2] = fileData;
             //not sure how to insert with the array...
-            if (myConnection_.insertQuery("Document", args))
+            if (Connection.insertQuery("Document", args))
             {
                 return true;
             }
@@ -91,10 +86,5 @@ namespace ScrumInsurance
                 return false;
             }
         }
-        
-
-        private DatabaseConnection myConnection_;
-        private string username_;
-        private string password_;
     }
 }

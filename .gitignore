@@ -3,6 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+# IGNORES THE DATABASE CONFIG FILE WITH PRIVATE DB INFO
+config.json
+
 # User-specific files
 *.rsuser
 *.suo
