@@ -9,6 +9,8 @@ using System.Security.Cryptography;
 using System.Diagnostics;
 using System.Windows.Forms.VisualStyles;
 using System.Collections;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using MySqlX.XDevAPI.Common;
 
 namespace ScrumInsurance
 {
@@ -50,6 +52,7 @@ namespace ScrumInsurance
                     return false;
                 }
             }
+
             return true;
         }
 
@@ -59,83 +62,33 @@ namespace ScrumInsurance
             Connection.Close();
         }
 
-        // Queries the database for input username and password
-        // Returns string array of username, password, and role if match was found
-        // Returns null when no matching user is found
-        public string[] loginQuery(string username, string password)
+        public bool CheckDuplicateUsername(string username)
         {
             // Create parameter dictionary for login query
-            Dictionary<string, object> login_info = new Dictionary<string, object>
+            Dictionary<string, object> user_info = new Dictionary<string, object>
             {
-                { "username", (object)username },
-                { "password", (object)password }
+                { "username", (object)username }
             };
 
-            // Run select query for username and password
-            selectQuery("login", login_info);
+            SelectQuery("User", user_info);
 
-            // If reader has data (matching user and password were found)
-            if (Reader.HasRows)
-            {
-                // Loop through each entry in the reader
-                while (Reader.Read())
-                {
-                    // Store username, password, and role from reader
-                    string[] user_info = { Reader["username"].ToString(), Reader["password"].ToString(), Reader["role"].ToString(), Reader["email"].ToString() };
-
-                    // If username and password are exact matches for input username and password...
-                    if (user_info[0].Equals(username) && user_info[1].Equals(password))
-                    {
-                        closeConnection();
-                        return user_info;
-                    }
-                }
-                Console.WriteLine("Case-Matching was off or some other unexpected matching occurred");
-                closeConnection();
-                return null;
-            }
-            // Else no matching data was found (invalid username or password)
-            else
-            {
-                Console.WriteLine("No matching data");
-                closeConnection();
-                return null;
-            }
+            // Returns true on matching username found, false if not found
+            return Reader.HasRows;
         }
 
-        //Returns a row of specified columns from a specified table, containing all matching arguments
-        //Currently only returns last matching row's information
-        public string[] DataRequest(string tableName, Dictionary<string, object> args, string[] columns)
-        {
-            string[] row = new string[columns.Length];
-            if (selectQuery(tableName, args) && Reader.HasRows)
-            {
-                while (Reader.Read())
-                {
-                    for (int i = 0; i < row.Length; i++)
-                    {
-                        row[i] = Reader[columns[i]].ToString();
-                    }
-                }
-                closeConnection();
-                return row;
-            }
-            Console.WriteLine("Select found no matching rows.");
-            closeConnection();
-            return null;
-        }
         /* 
-         * Executes a select query using the args Dicionary as WHERE conditions
+         * Executes a select query using the 'args' Dictionary as WHERE conditions
+         * 'columns' paramater indicates which column values to return if found
          * Results are stored in the Reader attribute
-         * Returns true on succesful query, false on failed connection
+         * Returns an object on succesful query, null on not found or failed connection
          */
-        public bool selectQuery(string tableName, Dictionary<string, object> args)
+        public object[] SelectQuery(string tableName, Dictionary<string, object> args, string[] columns = null)
         {
             // Open SQL connection for queries
             if (!openConnection())
             {
                 // Return false when connection fails
-                return false;
+                return null;
             }
 
             // Initialize command to query database
@@ -168,16 +121,41 @@ namespace ScrumInsurance
             }
 
             // Write command to console for debugging
-            Console.WriteLine(Command.CommandText);
+            Console.WriteLine("Select Query: " + Command.CommandText);
 
-            // Execute command and store returned data
-            Reader = Command.ExecuteReader();
+            using (Reader = Command.ExecuteReader())
+            {
+                // If matching data was not found in the database...
+                if (!Reader.HasRows)
+                {
+                    return null;
+                }
+                // Else matching data was found
+                else
+                {
+                    // If no data is to be returned, return an empty object for truthiness
+                    if ( columns == null ) { return new object[0]; }
 
-            // Return true on successful query
-            return true;
+                    // Stores return data
+                    object[] data = new object[columns.Length];
+
+                    // Read through the found database entries
+                    while (Reader.Read())
+                    {
+                        // Loop for each column of data needed
+                        for (int i = 0; i < columns.Length; i++)
+                        {
+                            // Store each requested column of data into the data array
+                            data[i] = Reader[columns[i]];
+                        }
+                    }
+
+                    return data;
+                }
+            }
         }
 
-        public bool insertQuery(string tableName, string[] args)
+        public bool InsertQuery(string tableName, Dictionary<string, object> args)
         {
             // Open SQL connection for queries
             if (!openConnection())
@@ -188,61 +166,74 @@ namespace ScrumInsurance
 
             // Initialize command to query database
             Command = Connection.CreateCommand();
-            // INSERT INTO login VALUES("admin", "admin1234");
-            // Assign query to command and insert args as parameters
-            Command.CommandText = "INSERT INTO " + tableName + " VALUES( " ;
-            for (int i = 0; i<args.Length; i++)
+
+            // Initialize string to build query
+            StringBuilder query = new StringBuilder("INSERT INTO " + tableName + " ( ");
+
+            // Handles the AND placement for first condition
+            bool firstCondition = true;
+
+            // Add each column name to the INSERT parameters
+            foreach (var kvp in args)
             {
-                //set up this way to make it as abstract as possible. 
-                Command.CommandText = Command.CommandText + "@" + i; // we have to do @i, because text can contain @'s (for emails)
-                                                                // and to pass it in as a string we need to add it via the parameter function.
-                if (i < args.Length - 1)
+                if (!firstCondition)
                 {
-                    Command.CommandText = Command.CommandText + ", " ;
+                    query.Append(", ");
                 }
-                
+                query.Append($"{kvp.Key}");
+                firstCondition = false;
             }
-            Command.CommandText = Command.CommandText + ")";
 
-            for (int i = 0; i < args.Length; i++)
+            // Append closing parenthesis, VALUES keyword and next parenthesis
+            query.Append(") VALUES (");
+
+            firstCondition = true;
+
+            // Add values to the VALUES parameters
+            foreach (var kvp in args)
             {
-                string paramNum = "@" + i;
-                Command.Parameters.AddWithValue(paramNum, args[i]);
+                if (!firstCondition)
+                {
+                    query.Append(", ");
+                }
+                query.Append($"@{kvp.Key}");
+                firstCondition = false;
             }
 
-            Console.WriteLine(Command.CommandText);
+            // Append closing parenthesis
+            query.Append(')');
 
-            // Execute command and store returned data
-            Reader = Command.ExecuteReader();
+            // Read query string into Command object
+            Command.CommandText = query.ToString();
 
-            // If reader has data (matching user and password were found)
-            if (Reader != null && Reader.HasRows)
+            // Input actual values into the query string
+            foreach (var kvp in args)
             {
-                printData(Reader);
-                closeConnection();
-                return true;
-            }
-            // Else no matching data was found (invalid username or password)
-            else
-            {
-                Console.WriteLine("No matching data");
-                closeConnection();
-                return false;
+                Command.Parameters.AddWithValue("@" + kvp.Key, kvp.Value);
             }
 
+            Console.WriteLine("Inserting: " + query.ToString());
+
+            return ExecuteNonQuery();
         }
 
-        public bool updateQuery(string tableName, Dictionary<string, string> matchingArgs, Dictionary<string, string> altArgs)
+        public bool UpdateQuery(string tableName, Dictionary<string, string> matchingArgs, Dictionary<string, string> altArgs)
         {
-            return NonQuery("UPDATE " + tableName +
+            Command = Connection.CreateCommand();
+            Command.CommandText = "UPDATE " + tableName +
                 " SET " + ConstructMatchingColumnQuery(", ", altArgs) +
-                " WHERE " + ConstructMatchingColumnQuery(" AND ", matchingArgs));
+                " WHERE " + ConstructMatchingColumnQuery(" AND ", matchingArgs);
+
+            return ExecuteNonQuery();
         }
         
         public bool DeleteQuery(string tableName, Dictionary<string, string> args)
         {
-            return NonQuery("DELETE FROM " + tableName +
-                " WHERE " + ConstructMatchingColumnQuery(" AND ", args));
+            Command = Connection.CreateCommand();
+            Command.CommandText = "DELETE FROM " + tableName +
+                " WHERE " + ConstructMatchingColumnQuery(" AND ", args);
+
+            return ExecuteNonQuery();
         }
 
         //Adds to query "specified column name" = "specifed column vlaue" with delimiter inbetween each set
@@ -260,7 +251,7 @@ namespace ScrumInsurance
             return query;
         }
 
-        private  bool NonQuery(string nonquery)
+        private bool ExecuteNonQuery()
         {
             if (!openConnection())
             {
@@ -268,9 +259,7 @@ namespace ScrumInsurance
                 return false;
             }
 
-            Command = Connection.CreateCommand();
-            Command.CommandText = nonquery;
-
+            // Stores executed command result
             int result = 0;
 
             try

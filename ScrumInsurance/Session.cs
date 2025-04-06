@@ -11,57 +11,19 @@ namespace ScrumInsurance
 {
     public class Session
     {
-        private List<Account> accounts_;
-
-        public Session()
-        {
-            accounts_ = new List<Account>();
-            //this will need to be taken out later, however it is here for now just for testing purposes. 
-            accounts_.Add(new Account("admin", "admin", "adming@scrum.com", "Background Color?", "Steel Blue"));
-            accounts_[0].isAdmin = true;
-
-            // Stores path to config.json
-            string filePath = Path.Combine(AppContext.BaseDirectory, "config.json"); ;
-
-            // Read database info from input file path
-            DatabaseConfig dbConfig = readDatabaseConfig(filePath);
-
-            // Create database controller with input database config
-            DBController = new DatabaseController(dbConfig);
+        // Default constructor
+        public Session() {
+            UserAccount = new Account();
+            CtrlMain = null;
+            CtrlDashboard = null;
         }
 
         // Eventually, session should save an account, with all the current user's info from database
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Role { get; set; }
-        public string Email { get; set; }
-        public DatabaseController DBController { get; set; }
+        public Account UserAccount;
         public ScrumUserControl CtrlMain { get; set; }
         public ScrumUserControl CtrlDashboard { get; set; }
 
-        // Reads input database config file
-        public DatabaseConfig readDatabaseConfig(string filePath)
-        {
-            DatabaseConfig config = new DatabaseConfig();
-            try
-            {
-                // Read the JSON file into a string
-                string jsonString = File.ReadAllText(filePath);
-
-                Console.WriteLine(jsonString);
-
-                // Deserialize the JSON string to the DatabaseConfig object
-                config = JsonSerializer.Deserialize<DatabaseConfig>(jsonString);
-
-                return config;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"An error occurred: {ex.Message}");
-                return config;
-            }
-        }
-
+        /*
         public void addAccount(string username, string password, string email, string securityQuestion, string securityQuestionAnswer)
         {
             accounts_.Add(new Account(username, password, email, securityQuestion, securityQuestionAnswer));
@@ -109,6 +71,6 @@ namespace ScrumInsurance
         public Account getAccount(int index)
         {
             return accounts_[index];
-        }
+        }*/
     }
 }

@@ -27,8 +27,9 @@ namespace ScrumInsurance
 
         private void btnSubmitUser_Click(object sender, EventArgs e)
         {
-            string[] row = Session.DBController.validateLogin("test", "admin12345");
-            dgUserinfo.Rows.Add(row);
+            Account admin_account = DBController.ValidateLogin("test", "admin12345");
+            string[] account_info = { admin_account.Username, admin_account.Password, admin_account.Role, admin_account.SecurityQuestion, admin_account.SecurityAnswer };
+            dgUserinfo.Rows.Add(account_info);
         }
     }
 }

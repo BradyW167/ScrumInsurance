@@ -351,7 +351,7 @@
             // 
             // pbxProfile
             // 
-            this.pbxProfile.Image = global::ScrumInsurance.Properties.Resources.default_User;
+            this.pbxProfile.Image = global::ScrumInsurance.Properties.Resources.default_user;
             this.pbxProfile.Location = new System.Drawing.Point(800, 120);
             this.pbxProfile.Margin = new System.Windows.Forms.Padding(2);
             this.pbxProfile.Name = "pbxProfile";
