@@ -63,9 +63,9 @@ namespace ScrumInsurance.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bluecity {
+        internal static System.Drawing.Bitmap default_user {
             get {
-                object obj = ResourceManager.GetObject("bluecity", resourceCulture);
+                object obj = ResourceManager.GetObject("default_user", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace ScrumInsurance.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap default_User {
+        internal static System.Drawing.Bitmap gradient_background {
             get {
-                object obj = ResourceManager.GetObject("default_User", resourceCulture);
+                object obj = ResourceManager.GetObject("gradient_background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,19 @@ namespace ScrumInsurance.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap istockphoto_1411968933_612x612 {
+        internal static System.Drawing.Bitmap password_hide_eye {
             get {
-                object obj = ResourceManager.GetObject("istockphoto-1411968933-612x612", resourceCulture);
+                object obj = ResourceManager.GetObject("password_hide_eye", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap password_show_eye {
+            get {
+                object obj = ResourceManager.GetObject("password_show_eye", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -95,7 +105,17 @@ namespace ScrumInsurance.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap scrum_logo {
             get {
-                object obj = ResourceManager.GetObject("scrum-logo", resourceCulture);
+                object obj = ResourceManager.GetObject("scrum_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shape_background {
+            get {
+                object obj = ResourceManager.GetObject("shape_background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
