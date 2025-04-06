@@ -63,12 +63,12 @@ namespace ScrumInsurance
                     swapCtrlMain(new ctrlLandingClient());
                     loadCtrlDash();
                 }
-                else if (Session.UserAccount.Role.Equals("claim-manager"))
+                else if (Session.UserAccount.Role.Equals("claim_manager"))
                 {
                     swapCtrlMain(new ctrlLandingCManager());
                     loadCtrlDash();
                 }
-                else if (Session.UserAccount.Role.Equals("finance-manager"))
+                else if (Session.UserAccount.Role.Equals("finance_manager"))
                 {
                     swapCtrlMain(new ctrlLandingFManager());
                     loadCtrlDash();
