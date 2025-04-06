@@ -1,0 +1,15 @@
+/* 
+ * Copy this file's contents into a file titled 'config.json'
+ * Input database connection values into each line 
+ * In the properties for the file set 'Copy to output directory' to 'Always True'
+ * 
+ * This exists so we don't have our database info publicly available on GitHub
+ */
+{
+  "DatabaseConfig": {
+    "ServerName": "",
+    "Name": "",
+    "Username": "",
+    "Password": ""
+  }
+}

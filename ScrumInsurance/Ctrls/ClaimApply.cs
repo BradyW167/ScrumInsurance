@@ -24,6 +24,7 @@ namespace ScrumInsurance
             //make an instance of OpenFileDialog
             OpenFileDialog openFileDialog = new OpenFileDialog();
             
+            // Change to filter image files only .jpg .jpeg .png
             openFileDialog.Filter = "All Files (*.*)|*.*"; //filter options
             openFileDialog.FilterIndex = 1; //filter index
             if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -52,8 +53,7 @@ namespace ScrumInsurance
             byte[] fileData = ReadFile(filePath);
             string fileName = Path.GetFileName(filePath);
 
-            DatabaseController dbController = new DatabaseController();
-            if (dbController.UploadDocument(filePath, fileName, fileData))
+            if (Session.DBController.UploadDocument(filePath, fileName, fileData))
             {
                 MessageBox.Show("File uploaded successfully!");
             }

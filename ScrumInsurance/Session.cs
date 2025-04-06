@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,7 +20,14 @@ namespace ScrumInsurance
             accounts_.Add(new Account("admin", "admin", "adming@scrum.com", "Background Color?", "Steel Blue"));
             accounts_[0].isAdmin = true;
 
-            DBController = new DatabaseController();
+            // Stores path to config.json
+            string filePath = Path.Combine(AppContext.BaseDirectory, "config.json"); ;
+
+            // Read database info from input file path
+            DatabaseConfig dbConfig = readDatabaseConfig(filePath);
+
+            // Create database controller with input database config
+            DBController = new DatabaseController(dbConfig);
         }
 
         // Eventually, session should save an account, with all the current user's info from database
@@ -29,6 +38,29 @@ namespace ScrumInsurance
         public DatabaseController DBController { get; set; }
         public ScrumUserControl CtrlMain { get; set; }
         public ScrumUserControl CtrlDashboard { get; set; }
+
+        // Reads input database config file
+        public DatabaseConfig readDatabaseConfig(string filePath)
+        {
+            DatabaseConfig config = new DatabaseConfig();
+            try
+            {
+                // Read the JSON file into a string
+                string jsonString = File.ReadAllText(filePath);
+
+                Console.WriteLine(jsonString);
+
+                // Deserialize the JSON string to the DatabaseConfig object
+                config = JsonSerializer.Deserialize<DatabaseConfig>(jsonString);
+
+                return config;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+                return config;
+            }
+        }
 
         public void addAccount(string username, string password, string email, string securityQuestion, string securityQuestionAnswer)
         {
