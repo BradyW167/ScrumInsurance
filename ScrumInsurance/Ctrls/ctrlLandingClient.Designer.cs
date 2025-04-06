@@ -552,8 +552,6 @@
         private System.Windows.Forms.Label lblPhone1;
         private System.Windows.Forms.Label lblPhone2;
         private System.Windows.Forms.Label lblAddress;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pbxFloatingTextBG;
         private System.Windows.Forms.PictureBox pbxSidePanel;
         private System.Windows.Forms.Label lblClaim1;
