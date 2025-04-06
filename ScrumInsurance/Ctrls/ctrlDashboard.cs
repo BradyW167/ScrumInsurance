@@ -57,7 +57,7 @@ namespace ScrumInsurance
 
         private void btnInbox_Click(object sender, EventArgs e)
         {
-            swapCtrlMain(new ctrlInbox());
+            swapCtrlMain(new ctrlInbox(Session));
         }
     }
 }

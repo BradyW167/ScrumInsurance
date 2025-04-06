@@ -124,6 +124,32 @@ namespace ScrumInsurance
             closeConnection();
             return null;
         }
+
+
+        //attempt at making a datarequest function that passes back a library
+        public Dictionary<int, object[]> DataRequestAll(string tableName, Dictionary<string, object> args, string[] columns)
+        {
+            Dictionary<int, object[]> rows = new Dictionary<int, object[]>();
+            if (selectQuery(tableName, args) && Reader.HasRows)
+            {
+                int rowNum = 0;
+                while (Reader.Read())
+                {
+                    string[] rowData = new string[columns.Length];
+                    for (int i = 0; i < rowData.Length; i++)
+                    {
+                        rowData[i] = Reader[columns[i]].ToString();
+                    }
+                    rows.Add(rowNum, rowData);
+                    rowNum++;
+                }
+                closeConnection();
+                return rows;
+            }
+            Console.WriteLine("Select found no matching rows.");
+            closeConnection();
+            return null;
+        }
         /* 
          * Executes a select query using the args Dicionary as WHERE conditions
          * Results are stored in the Reader attribute
