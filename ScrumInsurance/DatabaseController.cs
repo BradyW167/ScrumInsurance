@@ -153,12 +153,12 @@ namespace ScrumInsurance
 
         public bool UpdateAccount(string username, Dictionary<string, string> args)
         {
-            return Connection.UpdateQuery("login", new Dictionary<string, string> { { "username", username } }, args);
+            return Connection.UpdateQuery("User", new Dictionary<string, string> { { "username", username } }, args);
         }
 
         public bool DeleteAccount(string username)
         {
-            return Connection.DeleteQuery("login", new Dictionary<string, string> { { "username", username } });
+            return Connection.DeleteQuery("User", new Dictionary<string, string> { { "username", username } });
         }
 
         public bool UploadDocument(string file_name, byte[] file_data)
