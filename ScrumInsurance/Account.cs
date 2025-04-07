@@ -8,14 +8,36 @@ namespace ScrumInsurance
 {
     public class Account
     {
-        public Account(string username, string password, string email, string securityQuestion, string securityAnswer)
+        public int UserID { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Role { get; set; }
+        public string SecurityQuestion { get; set; }
+        public string SecurityAnswer { get; set; }
+
+        // Default constructor
+        public Account()
         {
+            UserID = 0;
+            Username = string.Empty;
+            Password = string.Empty;
+            Role = string.Empty;
+            SecurityQuestion = string.Empty;
+            SecurityAnswer = string.Empty;
+        }
+
+        /* 
+         * Create account from input account info parameters
+         * UserID is optional because account creation does not require an input userid
+         */
+        public Account(string username, string password, string role, string securityQuestion, string securityAnswer, int userid = 0)
+        {
+            UserID = userid;
             Username = username;
             Password = password;
-            Email = email;
+            Role = role;
             SecurityQuestion = securityQuestion;
             SecurityAnswer = securityAnswer;
-            isAdmin = false;
         }
 
         public bool validCreds(string username, string password)
@@ -23,16 +45,9 @@ namespace ScrumInsurance
             return Username.Equals(username) && Password.Equals(password);
         }
 
-        public bool validCreds(string email)
+        public bool validCreds(string username)
         {
-            return Email.Equals(email);
+            return Username.Equals(username);
         }
-
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Email { get; set; }
-        public string SecurityQuestion  {  get; set; }
-        public string SecurityAnswer { get; set; }
-        public bool isAdmin { get; set; }
     }
 }

@@ -18,8 +18,10 @@ namespace ScrumInsurance
 
             Session session = new Session();
 
+            DatabaseController controller = new DatabaseController();
+
             // Initialize controls for main panel
-            ScrumUserControl ctrlLogin = new ctrlLogin(session, pnlMain);
+            ScrumUserControl ctrlLogin = new ctrlLogin(session, controller, pnlMain);
 
             // Load login page as first control into panel
             ctrlLogin.loadControl();

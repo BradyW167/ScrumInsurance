@@ -49,11 +49,11 @@ namespace ScrumInsurance
         }
         private void btnUploadDocuments_Click(object sender, EventArgs e) //uploads to database
         {
-            string filePath = txtFilepaths.Text;
-            byte[] fileData = ReadFile(filePath);
-            string fileName = Path.GetFileName(filePath);
+            string file_path = txtFilepaths.Text;
+            byte[] file_data = ReadFile(file_path);
+            string file_name = Path.GetFileName(file_path);
 
-            if (Session.DBController.UploadDocument(filePath, fileName, fileData))
+            if (DBController.UploadDocument(file_name, file_data))
             {
                 MessageBox.Show("File uploaded successfully!");
             }

@@ -38,15 +38,16 @@ namespace ScrumInsurance
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.lblLoginError = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pbxLoginLogo = new System.Windows.Forms.PictureBox();
             this.pbxCenterPanel = new System.Windows.Forms.PictureBox();
             this.pbxTopBorder = new System.Windows.Forms.PictureBox();
-            this.cbxShowPassword = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            this.pbxShowPassword = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLoginLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCenterPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxTopBorder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxShowPassword)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_createAccount
@@ -102,7 +103,7 @@ namespace ScrumInsurance
             // welcomeLabel
             // 
             this.welcomeLabel.BackColor = System.Drawing.Color.Black;
-            this.welcomeLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.welcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.welcomeLabel.ForeColor = System.Drawing.Color.White;
             this.welcomeLabel.Location = new System.Drawing.Point(480, 147);
             this.welcomeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -124,7 +125,7 @@ namespace ScrumInsurance
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txtPassword.Location = new System.Drawing.Point(412, 363);
+            this.txtPassword.Location = new System.Drawing.Point(412, 360);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
@@ -138,25 +139,26 @@ namespace ScrumInsurance
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(405, 332);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(410, 335);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 20);
+            this.label2.Size = new System.Drawing.Size(78, 20);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Password:";
+            this.label2.Text = "Password";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // label1
+            // lblUsername
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(405, 267);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 20);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Username:";
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.BackColor = System.Drawing.Color.Black;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblUsername.ForeColor = System.Drawing.Color.White;
+            this.lblUsername.Location = new System.Drawing.Point(410, 265);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(0);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(83, 20);
+            this.lblUsername.TabIndex = 10;
+            this.lblUsername.Text = "Username";
             // 
             // lblLoginError
             // 
@@ -172,18 +174,18 @@ namespace ScrumInsurance
             this.lblLoginError.Text = "CLEAR ON INITIALIZE";
             this.lblLoginError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox9
+            // pbxLoginLogo
             // 
-            this.pictureBox9.BackColor = System.Drawing.Color.Black;
-            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox9.Image = global::ScrumInsurance.Properties.Resources.scrum_logo;
-            this.pictureBox9.Location = new System.Drawing.Point(419, 140);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(75, 77);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 61;
-            this.pictureBox9.TabStop = false;
+            this.pbxLoginLogo.BackColor = System.Drawing.Color.Black;
+            this.pbxLoginLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbxLoginLogo.Image = global::ScrumInsurance.Properties.Resources.scrum_logo;
+            this.pbxLoginLogo.Location = new System.Drawing.Point(419, 140);
+            this.pbxLoginLogo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbxLoginLogo.Name = "pbxLoginLogo";
+            this.pbxLoginLogo.Size = new System.Drawing.Size(75, 77);
+            this.pbxLoginLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxLoginLogo.TabIndex = 61;
+            this.pbxLoginLogo.TabStop = false;
             // 
             // pbxCenterPanel
             // 
@@ -203,20 +205,20 @@ namespace ScrumInsurance
             this.pbxTopBorder.TabIndex = 63;
             this.pbxTopBorder.TabStop = false;
             // 
-            // cbxShowPassword
+            // pbxShowPassword
             // 
-            this.cbxShowPassword.AutoSize = true;
-            this.cbxShowPassword.BackColor = System.Drawing.Color.Black;
-            this.cbxShowPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cbxShowPassword.ForeColor = System.Drawing.Color.White;
-            this.cbxShowPassword.Location = new System.Drawing.Point(491, 333);
-            this.cbxShowPassword.Margin = new System.Windows.Forms.Padding(2);
-            this.cbxShowPassword.Name = "cbxShowPassword";
-            this.cbxShowPassword.Size = new System.Drawing.Size(141, 24);
-            this.cbxShowPassword.TabIndex = 62;
-            this.cbxShowPassword.Text = "Show Password";
-            this.cbxShowPassword.UseVisualStyleBackColor = false;
-            this.cbxShowPassword.CheckedChanged += new System.EventHandler(this.cbxShowPassword_CheckedChanged);
+            this.pbxShowPassword.BackColor = System.Drawing.Color.White;
+            this.pbxShowPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbxShowPassword.Image = global::ScrumInsurance.Properties.Resources.password_hide_eye;
+            this.pbxShowPassword.Location = new System.Drawing.Point(648, 362);
+            this.pbxShowPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbxShowPassword.Name = "pbxShowPassword";
+            this.pbxShowPassword.Size = new System.Drawing.Size(26, 26);
+            this.pbxShowPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxShowPassword.TabIndex = 64;
+            this.pbxShowPassword.TabStop = false;
+            this.pbxShowPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbxShowPassword_MouseDown);
+            this.pbxShowPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbxShowPassword_MouseUp);
             // 
             // ctrlLogin
             // 
@@ -225,9 +227,9 @@ namespace ScrumInsurance
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.pbxShowPassword);
             this.Controls.Add(this.pbxTopBorder);
-            this.Controls.Add(this.cbxShowPassword);
-            this.Controls.Add(this.pictureBox9);
+            this.Controls.Add(this.pbxLoginLogo);
             this.Controls.Add(this.lblLoginError);
             this.Controls.Add(this.lbl_createAccount);
             this.Controls.Add(this.lbl_ForgotPass);
@@ -236,15 +238,16 @@ namespace ScrumInsurance
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.pbxCenterPanel);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ctrlLogin";
             this.Size = new System.Drawing.Size(1088, 582);
             this.Load += new System.EventHandler(this.ctrlLogin_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLoginLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCenterPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxTopBorder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxShowPassword)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,11 +262,11 @@ namespace ScrumInsurance
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblLoginError;
         private System.Windows.Forms.PictureBox pbxCenterPanel;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private CheckBox cbxShowPassword;
+        private System.Windows.Forms.PictureBox pbxLoginLogo;
         private PictureBox pbxTopBorder;
+        private PictureBox pbxShowPassword;
     }
 }

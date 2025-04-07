@@ -13,62 +13,74 @@ namespace ScrumInsurance
 {
     public partial class ctrlForgotPass : ScrumUserControl
     {
+
         public ctrlForgotPass()
         {
             InitializeComponent();
-            lblForgotPasswordEmailError.Text = "";
-            lblForgotPasswordQuestionError.Text = "";
+            lblUsernameError.Text = "";
+            lblQuestionError.Text = "";
+            lblNewPasswordError.Text = "";
         }
 
-        private void ctrlForgotPass_Load(object sender, EventArgs e)
+        // Shows security question step if email is associated with account
+        private void btnConfirmUsername_Click(object sender, EventArgs e)
         {
+            // Get security info for input username and stores it in session account info
+            string[] SecurityInfo = DBController.GetSecurityInfo(txtUsername.Text);
 
-        }
+            // If the username was found in the database...
+            if (SecurityInfo != null) {
+                // Store user security info in session
+                Session.UserAccount.Username = txtUsername.Text;
+                Session.UserAccount.SecurityQuestion = SecurityInfo[0];
+                Session.UserAccount.SecurityAnswer = SecurityInfo[1];
 
-        //Shows security question step if email is associated with account
-        private void btn_confirmEmailForgotPassword_Click(object sender, EventArgs e)
-        {
-            string question = Session.DBController.RequestInformation(new Dictionary<string, object> { { "email", txtbx_emailForgotPassword.Text } }, new string[] { "question" })[0];
-            if (question != null)
-            {
-                Session.Email = txtbx_emailForgotPassword.Text;
-                lblForgotPasswordQuestion.Text = "Question: " + question;
-                lblForgotPasswordQuestion.Visible = true;
-                txtForgotPasswordAnswer.Visible = true;
-                btnForgotPasswordSubmit.Visible = true;
-                lblForgotPasswordEmailError.Text = "";
+                // Show security question to user
+                lblSecurityQuestion.Text = "Question: " + Session.UserAccount.SecurityQuestion;
+                lblSecurityQuestion.Visible = true;
+                txtQuestionAnswer.Visible = true;
+                btnSubmitAnswer.Visible = true;
+                lblUsernameError.Text = "";
             }
             else
             {
-                lblForgotPasswordEmailError.Text = "Email not found";
+                lblUsernameError.Text = "Username not found";
             }
         }
 
-        //Shows reset password step if security question is answered correctly
-        private void btnForgotPasswordSubmit_Click(object sender, EventArgs e)
+        private void btnSubmitAnswer_Click(object sender, EventArgs e)
         {
-            if (txtForgotPasswordAnswer.Text.Equals(Session.DBController.RequestInformation(new Dictionary<string, object> { { "email", Session.Email } }, new string[] { "answer" })[0]))
+            // If input answer is equal to database answer stored in session
+            if (txtQuestionAnswer.Text.Equals(Session.UserAccount.SecurityAnswer))
             {
-                Session.Username = Session.DBController.RequestInformation(new Dictionary<string, object> { { "email", Session.Email } }, new string[] { "username" })[0];
-                lblForgotPasswordNewPassword.Visible = true;
-                txtForgotPasswordNewPassword.Visible = true;
-                btnForgotPasswordNewPassword.Visible = true;
-                lblForgotPasswordQuestionError.Text = "";
+                // Show new password input fields
+                lblNewPassword.Visible = true;
+                txtNewPassword.Visible = true;
+                btnConfirmNewPassword.Visible = true;
+                lblNewPasswordError.Text = "";
             }
             else
             {
-                lblForgotPasswordQuestionError.Text = "Inccorrect Answer";
+                lblNewPasswordError.Text = "Incorrect answer";
             }
         }
 
-        private void btnForgotPasswordNewPassword_Click(object sender, EventArgs e)
+        private void btnConfirmNewPassword_Click(object sender, EventArgs e)
         {
-            // Updates the user's password and takes the user back to the login page
-            Session.DBController.UpdateAccount(Session.Username, new Dictionary<string, string> { { "password", txtForgotPasswordNewPassword.Text } });
-            this.swapCtrlMain(new ctrlLogin());
+            string new_password = txtNewPassword.Text;
+            if (new_password.Length < 8)
+            {
+                lblNewPasswordError.Text = "Password must be atleast 8 characters long";
+            }
+            else
+            {
+                // Updates the user's password and takes the user back to the login page
+                DBController.UpdateAccount(Session.UserAccount.Username, new Dictionary<string, string> { { "password", txtNewPassword.Text } });
+                this.swapCtrlMain(new ctrlLogin());
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void lblBackLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Takes the user back to the login page
             this.swapCtrlMain(new ctrlLogin());

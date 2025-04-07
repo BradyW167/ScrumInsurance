@@ -20,9 +20,7 @@ namespace ScrumInsurance
             lblCreateAccountError.Text = "";
         }
 
-        private void ctrlCreateAccount_Load(object sender, EventArgs e)
-        {
-        }
+        private void ctrlCreateAccount_Load(object sender, EventArgs e) {}
 
         //Check if username, password and email are valid (not blank, classic password requirements)
         private void btnCreateAccount_Click(object sender, EventArgs e)
@@ -31,19 +29,28 @@ namespace ScrumInsurance
             {
                 lblCreateAccountError.Text = "Password must be atleast 8 characters";
             }
-            else if (txtCreateUsername.Text.Length < 1)
+            else if (txtCreateUsername.Text.Length < 8)
             {
-                lblCreateAccountError.Text = "You must create a unique username";
+                lblCreateAccountError.Text = "Username must be atleast 8 characters";
             }
             else
             {
-                Session.DBController.addAccount(txtCreateUsername.Text, txtCreatePassword.Text, txtCreateEmail.Text, txtCreateQuestion.Text, txtCreateAnswer.Text, "client");
+                Account new_account = new Account(txtCreateUsername.Text, txtCreatePassword.Text, "client", cmbSecurityQuestion.Text, txtCreateAnswer.Text);
 
-                this.swapCtrlMain(new ctrlLogin());
+                // If account is sucessfully added...
+                if (DBController.AddAccount(new_account)) {
+                    this.swapCtrlMain(new ctrlLogin());
+                }
+                // Else account creation failed due to duplicate info
+                else
+                {
+                    lblCreateAccountError.Text = "Username or password already exists";
+                }
+
             }
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+        private void lblBackLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Takes the user back to the login page
             this.swapCtrlMain(new ctrlLogin());
