@@ -76,34 +76,11 @@ namespace ScrumInsurance
             return Reader.HasRows;
         }
 
-        //Returns a row of specified columns from a specified table, containing all matching arguments
-        //Currently only returns last matching row's information
-        public string[] DataRequest(string tableName, Dictionary<string, object> args, string[] columns)
-        {
-            string[] row = new string[columns.Length];
-            if (selectQuery(tableName, args) && Reader.HasRows)
-            {
-                while (Reader.Read())
-                {
-                    for (int i = 0; i < row.Length; i++)
-                    {
-                        row[i] = Reader[columns[i]].ToString();
-                    }
-                }
-                closeConnection();
-                return row;
-            }
-            Console.WriteLine("Select found no matching rows.");
-            closeConnection();
-            return null;
-        }
-
-
         //attempt at making a datarequest function that passes back a library
         public Dictionary<int, object[]> DataRequestAll(string tableName, Dictionary<string, object> args, string[] columns)
         {
             Dictionary<int, object[]> rows = new Dictionary<int, object[]>();
-            if (selectQuery(tableName, args) && Reader.HasRows)
+            if (SelectQuery(tableName, args) != null && Reader.HasRows)
             {
                 int rowNum = 0;
                 while (Reader.Read())

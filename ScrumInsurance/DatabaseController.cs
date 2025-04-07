@@ -127,7 +127,10 @@ namespace ScrumInsurance
         public bool AddAccount(Account new_account)
         {
             // If the new account has a duplicated username, return false
-            if (Connection.CheckDuplicateUsername(new_account.Username)) { return false; }
+            if (Connection.SelectQuery("User", new Dictionary<string, object> { { "username", (object)new_account.Username } }, new string[] {"username"}).Length == 0)
+            {
+                return false;
+            }
 
             // Create parameter dictionary for new account
             Dictionary<string, object> account_info = new Dictionary<string, object>
