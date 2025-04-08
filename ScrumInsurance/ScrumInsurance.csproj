@@ -125,6 +125,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="Claim.cs" />
+    <Compile Include="Client.cs" />
     <Compile Include="DatabaseConfig.cs" />
     <Compile Include="Ctrls\ctrlAdminLanding.cs">
       <SubType>UserControl</SubType>
@@ -285,10 +287,10 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="config.template.json" />
     <None Include="config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="config.template.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

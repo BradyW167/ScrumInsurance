@@ -30,9 +30,9 @@ namespace ScrumInsurance
 
             string[] columns = { "Sender", "Message_Date", "Message_Subject"};
             Dictionary<String, Object> args = new Dictionary<String, Object>();
-            args.Add("Recipient", session.Username);
+            args.Add("Recipient", session.UserAccount.Username);
 
-            Dictionary<int, object[]> messageList = session.DBController.MessageInformation(args, columns);
+            Dictionary<int, object[]> messageList = DBController.MessageInformation(args, columns);
             for (int i = 0; i < messageList.Count; i++)
             {
                 object[] messageDetails = messageList[i];

@@ -12,9 +12,11 @@ namespace ScrumInsurance
 {
     public partial class ctrlLandingClient : ScrumUserControl
     {
-        public ctrlLandingClient()
+        public ctrlLandingClient(Session session)
         {
             InitializeComponent();
+            Session = session;
+            RefreshClaims();
         }
 
         private void ctrlLanding_Load(object sender, EventArgs e)
@@ -39,6 +41,35 @@ namespace ScrumInsurance
         private void lblWelcome_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void RefreshClaims()
+        {
+            Label[] lblClaims = new Label[] { lblClaim1, lblClaim2, lblClaim3, lblClaim4 };
+            if (((Client)Session.UserAccount).Claims.Count > 0)
+            {
+                lblNumClaims.Text = ((Client)Session.UserAccount).Claims.Count + " claims ";
+                for (int i = 0; i < lblClaims.Length; i++)
+                {
+                    if (((Client)Session.UserAccount).Claims.Count > i)
+                    {
+                        lblClaims[i].Text = ((Client)Session.UserAccount).Claims[i].Title + "\nStatus: " + ((Client)Session.UserAccount).Claims[i].Status;
+                        Console.WriteLine(((Client)Session.UserAccount).Claims[i].Title + " " + ((Client)Session.UserAccount).Claims[i].Status);
+                    }
+                    else
+                    {
+                        lblClaims[i].Visible = false;
+                    }
+                }
+            }
+            else
+            {
+                lblNumClaims.Text = "No claims";
+                foreach (Label label in lblClaims)
+                {
+                    label.Visible = false;
+                }
+            }
         }
     }
 }

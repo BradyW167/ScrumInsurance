@@ -60,7 +60,7 @@ namespace ScrumInsurance
                 }
                 else if (Session.UserAccount.Role.Equals("client"))
                 {
-                    swapCtrlMain(new ctrlLandingClient());
+                    swapCtrlMain(new ctrlLandingClient(Session));
                     loadCtrlDash();
                 }
                 else if (Session.UserAccount.Role.Equals("claim_manager"))
@@ -75,7 +75,7 @@ namespace ScrumInsurance
                 }
                 else
                 {
-                    swapCtrlMain(new ctrlLandingClient());
+                    swapCtrlMain(new ctrlLandingClient(Session));
                     loadCtrlDash();
                 }
             }

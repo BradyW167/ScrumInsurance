@@ -89,14 +89,29 @@ namespace ScrumInsurance
             if (account_data == null) { return null; }
 
             // Create account object from account_data object array
-            Account found_account = new Account((string)account_data[1], 
-                                                (string)account_data[2], 
-                                                (string)account_data[3], 
-                                                (string)account_data[4], 
-                                                (string)account_data[5],
-                                                (int)account_data[0]);
+            if (((string)account_data[3]).Equals("client"))
+            {
+                Client found_account = new Client((string)account_data[1],
+                                                    (string)account_data[2],
+                                                    (string)account_data[3],
+                                                    (string)account_data[4],
+                                                    (string)account_data[5],
+                                                    (int)account_data[0]);
+                object[] claim = Connection.SelectQuery("Claim", new Dictionary<string, object> { { "Client_ID", account_data[1] } }, new string[] { "username", "Claim_Content", "Claim_Images" });
+                found_account.AddClaim(claim[0] + "", claim[1] + "", claim[2] + "");
+                return found_account;
+            }
+            else
+            {
+                Account found_account = new Account((string)account_data[1],
+                                                    (string)account_data[2],
+                                                    (string)account_data[3],
+                                                    (string)account_data[4],
+                                                    (string)account_data[5],
+                                                    (int)account_data[0]);
 
-            return found_account;
+                return found_account;
+            }
         }
 
         // Attempts to find a security question and answer info from database for input username
