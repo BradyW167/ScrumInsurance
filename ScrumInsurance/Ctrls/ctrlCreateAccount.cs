@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Text.RegularExpressions;
 
 namespace ScrumInsurance
 {
@@ -25,10 +26,14 @@ namespace ScrumInsurance
         //Check if username, password and email are valid (not blank, classic password requirements)
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
+            
             if (txtCreatePassword.Text.Length < 8)
             {
                 lblCreateAccountError.Text = "Password must be atleast 8 characters";
             }
+            
+            
+
             else if (txtCreateUsername.Text.Length < 8)
             {
                 lblCreateAccountError.Text = "Username must be atleast 8 characters";
@@ -55,5 +60,49 @@ namespace ScrumInsurance
             // Takes the user back to the login page
             this.swapCtrlMain(new ctrlLogin());
         }
+
+        private void btnValidatePassword_Click(object sender, EventArgs e)
+        {
+            ValidatePassword();
+        }
+        private void ValidatePassword()
+        {
+            StringBuilder errorMessages = new StringBuilder(); //allows different + multiple error messages to be sent
+
+            if (txtCreatePassword.Text.Length < 8)
+            {
+                errorMessages.AppendLine("Password must be at least 8 characters long");
+            }
+            if (!Regex.IsMatch(txtCreatePassword.Text, @"[A-Z]"))
+            {
+                errorMessages.AppendLine("Password must contain at least one uppercase letter");
+            }
+            if (!Regex.IsMatch(txtCreatePassword.Text, @"[a-z]"))
+            {
+                errorMessages.AppendLine("Password must contain at least one lowercase letter");
+            }
+            if (!Regex.IsMatch(txtCreatePassword.Text, @"[0-9]"))
+            {
+                errorMessages.AppendLine("Password must contain at least one digit");
+            }
+            if (!Regex.IsMatch(txtCreatePassword.Text, @"[\W_]"))
+            {
+                errorMessages.AppendLine("Password must contain at least one special character");
+            }
+            if (txtCreatePassword.Text.Contains(" "))
+            {
+                errorMessages.AppendLine("Password must not contain spaces");
+            }
+
+            if (errorMessages.Length > 0) //goes through errors
+            {
+                lblCreateAccountError.Text = errorMessages.ToString();
+            }
+            else
+            {
+                lblCreateAccountError.Text = "Password is valid"; //tells user the password is good
+            }
+        }
+            
     }
 }
