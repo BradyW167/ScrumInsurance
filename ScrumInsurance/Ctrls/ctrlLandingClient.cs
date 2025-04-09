@@ -54,7 +54,6 @@ namespace ScrumInsurance
                     if (((Client)Session.UserAccount).Claims.Count > i)
                     {
                         lblClaims[i].Text = ((Client)Session.UserAccount).Claims[i].Title + "\nStatus: " + ((Client)Session.UserAccount).Claims[i].Status;
-                        Console.WriteLine(((Client)Session.UserAccount).Claims[i].Title + " " + ((Client)Session.UserAccount).Claims[i].Status);
                     }
                     else
                     {
