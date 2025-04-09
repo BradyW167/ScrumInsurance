@@ -5,9 +5,11 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Text.RegularExpressions;
 
 namespace ScrumInsurance
 {
@@ -56,13 +58,32 @@ namespace ScrumInsurance
                 return config;
             }
         }
-
+ 
         public Account ValidateLogin(string username, string password)
         {
+            
             if (password.Length < 8)
             {
                 return null;
             }
+            /* might be able to get rid of
+            if (!Regex.IsMatch(password, @"[A-Z]"))
+            {
+                return null;
+            }
+            if (!Regex.IsMatch(password, @"[a-z]"))
+            {
+                return null;
+            }
+            if (!Regex.IsMatch(password, @"[0-9]"))
+            {
+                return null;
+            }
+            if (!Regex.IsMatch(password, @"[\W_]"))
+            {
+                return null;
+            }
+            */
 
             // Create parameter dictionary for login query
             Dictionary<string, object> login_info = new Dictionary<string, object>
