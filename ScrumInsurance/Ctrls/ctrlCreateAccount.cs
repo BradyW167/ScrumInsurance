@@ -67,7 +67,7 @@ namespace ScrumInsurance
         }
         private void ValidatePassword()
         {
-            StringBuilder errorMessages = new StringBuilder(); //allows different error messages to be sent
+            StringBuilder errorMessages = new StringBuilder(); //allows different + multiple error messages to be sent
 
             if (txtCreatePassword.Text.Length < 8)
             {
