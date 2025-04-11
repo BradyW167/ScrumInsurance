@@ -119,7 +119,10 @@ namespace ScrumInsurance
                                                     (string)account_data[5],
                                                     (int)account_data[0]);
                 object[] claim = Connection.SelectQuery("Claim", new Dictionary<string, object> { { "Client_ID", account_data[1] } }, new string[] { "username", "Claim_Content", "Claim_Images" });
-                found_account.AddClaim(claim[0] + "", claim[1] + "", claim[2] + "");
+                if (claim != null)
+                {
+                    found_account.AddClaim(claim[0] + "", claim[1] + "", claim[2] + "");
+                }
                 return found_account;
             }
             else
@@ -163,7 +166,8 @@ namespace ScrumInsurance
         public bool AddAccount(Account new_account)
         {
             // If the new account has a duplicated username, return false
-            if (Connection.SelectQuery("User", new Dictionary<string, object> { { "username", (object)new_account.Username } }, new string[] {"username"}).Length == 0)
+            object[] returnArray = Connection.SelectQuery("User", new Dictionary<string, object> { { "username", (object)new_account.Username } }, new string[] { "username" });
+            if (returnArray != null && returnArray.Length > 0)
             {
                 return false;
             }
