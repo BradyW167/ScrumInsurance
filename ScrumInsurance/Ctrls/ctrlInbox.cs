@@ -14,7 +14,7 @@ namespace ScrumInsurance
     public partial class ctrlInbox : ScrumUserControl
     {
         private int messageCount_ = 0;
-        public ctrlInbox(Session session)
+        public ctrlInbox(Session session, DatabaseController DBController)
         {
             InitializeComponent();
 
@@ -23,12 +23,10 @@ namespace ScrumInsurance
 
             //these set the args. 
             Dictionary<String, Object> args = new Dictionary<String, Object>();
-            args.Add("Recipient", session.Username);
+            args.Add("Recipient", session.UserAccount.Username);
+            Console.WriteLine(session.UserAccount.Username);
 
-            //this variable takes in the list of messages given from the select query 
-            Dictionary<int, object[]> messageList = session.DBController.MessageInformation(args, columns);
-
-            //adds each message to the panel. 
+            Dictionary<int, object[]> messageList = DBController.MessageInformation(args, columns);
             for (int i = 0; i < messageList.Count; i++)
             {
                 object[] messageDetails = messageList[i];

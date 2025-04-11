@@ -125,6 +125,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="Claim.cs" />
+    <Compile Include="Client.cs" />
     <Compile Include="DatabaseConfig.cs" />
     <Compile Include="Ctrls\ctrlAdminLanding.cs">
       <SubType>UserControl</SubType>
@@ -281,14 +283,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="config.template.json" />
     <None Include="config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="config.template.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -296,6 +298,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="src\hide_password_eye.png" />
+    <Content Include="src\show_password_eye.png" />
     <None Include="src\bluecity.jpg" />
     <Content Include="src\istockphoto-1411968933-612x612.jpg" />
     <Content Include="src\login-background3.jpg" />

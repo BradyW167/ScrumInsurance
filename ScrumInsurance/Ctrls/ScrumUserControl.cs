@@ -12,7 +12,7 @@ namespace ScrumInsurance
     public class ScrumUserControl : UserControl
     {
         protected Session Session { get; set; }
-
+        protected DatabaseController DBController { get; set; }
         protected TableLayoutPanel PnlMain { get; set; }
 
         public ScrumUserControl() {
@@ -114,6 +114,7 @@ namespace ScrumInsurance
             
             // Update ScrumUserControl attributes for new control
             newCtrl.PnlMain = PnlMain;
+            newCtrl.DBController = DBController;
             newCtrl.Session = Session;
             
             // Update style attributes for new control

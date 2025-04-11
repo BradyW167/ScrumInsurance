@@ -19,7 +19,7 @@ namespace ScrumInsurance
 
         private void ctrlDashboard_Load(object sender, EventArgs e)
         {
-            lblUser.Text = Session.Username;
+            lblUser.Text = Session.UserAccount.Username;
         }
 
         private void lblLogout_Click(object sender, EventArgs e)
@@ -35,15 +35,15 @@ namespace ScrumInsurance
 
         private void btnLanding_Click(object sender, EventArgs e)
         {
-            if (Session.Role == "client")
+            if (Session.UserAccount.Role == "client")
             {
-                swapCtrlMain(new ctrlLandingClient());
+                swapCtrlMain(new ctrlLandingClient(Session));
             }
-            else if (Session.Role == "claim-manager")
+            else if (Session.UserAccount.Role == "claim_manager")
             {
                 swapCtrlMain(new ctrlLandingCManager());
             }
-            else if (Session.Role == "admin")
+            else if (Session.UserAccount.Role == "admin")
             {
                 swapCtrlMain(new ctrlLandingCManager());
             }
@@ -52,12 +52,12 @@ namespace ScrumInsurance
 
         private void btnAccount_Click(object sender, EventArgs e)
         {
-            swapCtrlMain(new ctrlEditProfile(Session));
+            swapCtrlMain(new ctrlEditProfile());
         }
 
         private void btnInbox_Click(object sender, EventArgs e)
         {
-            swapCtrlMain(new ctrlInbox(Session));
+            swapCtrlMain(new ctrlInbox(Session, DBController));
         }
     }
 }

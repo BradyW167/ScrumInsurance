@@ -19,18 +19,19 @@ namespace ScrumInsurance
             lblLoginError.Text = "";
         }
 
-        public ctrlLogin(Session session, TableLayoutPanel pnlMain)
+        public ctrlLogin(Session session, DatabaseController controller, TableLayoutPanel pnlMain)
         {
             InitializeComponent();
             lblLoginError.Text = "";
             Session = session;
+            DBController = controller;
             PnlMain = pnlMain;
             Session.CtrlMain = this;
         }
 
         private void ctrlLogin_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
@@ -43,51 +44,38 @@ namespace ScrumInsurance
             }
         }
 
-        private void cbxShowPassword_CheckedChanged(object sender, EventArgs e)
-        {
-            txtPassword.PasswordChar = '●';
-            if (cbxShowPassword.Checked)
-            {
-                txtPassword.PasswordChar = new char();
-            }
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // Console.WriteLine("User (" + txtUsername.Text + ") Pass (" + txtPassword.Text + ")");
-            // Store user info
-            // Null on invalid login
-            string[] user_info = Session.DBController.validateLogin(txtUsername.Text, txtPassword.Text);
-            if (user_info != null)
+            // Attempt to login with input username and password, store returned data in session acccount
+            Session.UserAccount = DBController.ValidateLogin(txtUsername.Text, txtPassword.Text);
+
+            // If an account was returned from above...
+            if (Session.UserAccount != null)
             {
-                Session.Username = user_info[0];
-                Session.Password = user_info[1];
-                Session.Role = user_info[2];
-                Session.Email = user_info[3];
                 // Load landing page, admins go to admin page, clients go to new client page, decided by role column in database
-                if (Session.Role.Equals("admin"))
+                if (Session.UserAccount.Role.Equals("admin"))
                 {
                     swapCtrlMain(new ctrlAdminLanding());
                     loadCtrlDash();
                 }
-                else if(Session.Role.Equals("client"))
+                else if (Session.UserAccount.Role.Equals("client"))
                 {
-                    swapCtrlMain(new ctrlLandingClient());
+                    swapCtrlMain(new ctrlLandingClient(Session));
                     loadCtrlDash();
                 }
-                else if (Session.Role.Equals("claim-manager"))
+                else if (Session.UserAccount.Role.Equals("claim_manager"))
                 {
                     swapCtrlMain(new ctrlLandingCManager());
                     loadCtrlDash();
                 }
-                else if (Session.Role.Equals("finance-manager"))
+                else if (Session.UserAccount.Role.Equals("finance_manager"))
                 {
                     swapCtrlMain(new ctrlLandingFManager());
                     loadCtrlDash();
                 }
                 else
                 {
-                    swapCtrlMain(new ctrlLandingClient());
+                    swapCtrlMain(new ctrlLandingClient(Session));
                     loadCtrlDash();
                 }
             }
@@ -106,6 +94,30 @@ namespace ScrumInsurance
         private void lbl_ForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             swapCtrlMain(new ctrlForgotPass());
+        }
+
+        private void pbxShowPassword_MouseDown(object sender, MouseEventArgs e)
+        {
+            // Disable hidden password characters
+            txtPassword.PasswordChar = new char();
+
+            // Change picture box to display password shown eye
+            pbxShowPassword.Image = Properties.Resources.password_show_eye;
+
+        }
+
+        private void pbxShowPassword_MouseUp(object sender, MouseEventArgs e)
+        {
+            // Enable hidden password characters
+            txtPassword.PasswordChar = '●';
+
+            // Change picture box to display password shown eye
+            pbxShowPassword.Image = Properties.Resources.password_hide_eye;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
