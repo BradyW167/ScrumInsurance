@@ -118,7 +118,7 @@ namespace ScrumInsurance
                                                     (string)account_data[4],
                                                     (string)account_data[5],
                                                     (int)account_data[0]);
-                object[] claim = Connection.SelectQuery("Claim", new Dictionary<string, object> { { "Client_ID", account_data[1] } }, new string[] { "username", "Claim_Content", "Claim_Images" });
+                object[] claim = Connection.SelectQuery("Claim", new Dictionary<string, object> { { "Client_ID", account_data[0] } }, new string[] { "Claim_Title", "Claim_Content", "Claim_Status" });
                 if (claim != null)
                 {
                     found_account.AddClaim(claim[0] + "", claim[1] + "", claim[2] + "");
