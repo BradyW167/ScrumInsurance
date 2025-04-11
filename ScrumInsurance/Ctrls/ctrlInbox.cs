@@ -17,22 +17,18 @@ namespace ScrumInsurance
         public ctrlInbox(Session session)
         {
             InitializeComponent();
-            
-            vscrollPanel.Value = pnlMessages.VerticalScroll.Value;
-            vscrollPanel.Minimum = pnlMessages.VerticalScroll.Minimum;
-            vscrollPanel.Maximum = pnlMessages.VerticalScroll.Maximum;
-            vscrollPanel.Scroll += vscrollPanel_Scroll;
 
-            pnlMessages.ControlAdded += pnlMessages_ControlAdded;
-            pnlMessages.ControlRemoved += pnlMessages_ControlRemoved;
-
-            vscrollPanel.Enabled = false;
-
+            //these are the columns we want to grab for the select query
             string[] columns = { "Sender", "Message_Date", "Message_Subject"};
+
+            //these set the args. 
             Dictionary<String, Object> args = new Dictionary<String, Object>();
             args.Add("Recipient", session.Username);
 
+            //this variable takes in the list of messages given from the select query 
             Dictionary<int, object[]> messageList = session.DBController.MessageInformation(args, columns);
+
+            //adds each message to the panel. 
             for (int i = 0; i < messageList.Count; i++)
             {
                 object[] messageDetails = messageList[i];
@@ -59,6 +55,7 @@ namespace ScrumInsurance
             pnlMessages.Controls.Add(btn);
 
 
+            //message textbox
             Label msg = new Label();
             msg.BackColor = Color.Azure;
             msg.TextAlign = ContentAlignment.MiddleLeft;
@@ -67,26 +64,6 @@ namespace ScrumInsurance
             msg.Width = 210;
             msg.Height = 50;
             pnlMessages.Controls.Add(msg);
-
-            if (!vscrollPanel.Enabled)
-            { 
-                vscrollPanel.Enabled=true;
-            }
-        }
-
-        void pnlMessages_ControlAdded(object sender, ControlEventArgs e)
-        {
-            vscrollPanel.Minimum = pnlMessages.VerticalScroll.Minimum;
-        }
-
-        void pnlMessages_ControlRemoved(object sender, ControlEventArgs e)
-        {
-            vscrollPanel.Minimum = pnlMessages.VerticalScroll.Minimum;
-        }
-
-        private void vscrollPanel_Scroll(object sender, EventArgs e)
-        { 
-            pnlMessages.VerticalScroll.Value = vscrollPanel.Value;
         }
     }
 }

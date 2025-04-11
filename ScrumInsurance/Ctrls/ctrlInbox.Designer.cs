@@ -46,7 +46,6 @@
             this.pbxBottomPanel = new System.Windows.Forms.PictureBox();
             this.btnLogo = new System.Windows.Forms.PictureBox();
             this.pnlMessages = new System.Windows.Forms.Panel();
-            this.vscrollPanel = new System.Windows.Forms.VScrollBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSidePanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBottomPanel)).BeginInit();
@@ -262,6 +261,7 @@
             // 
             // pnlMessages
             // 
+            this.pnlMessages.AutoScroll = true;
             this.pnlMessages.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pnlMessages.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlMessages.Location = new System.Drawing.Point(233, 140);
@@ -269,19 +269,11 @@
             this.pnlMessages.Size = new System.Drawing.Size(367, 511);
             this.pnlMessages.TabIndex = 115;
             // 
-            // vscrollPanel
-            // 
-            this.vscrollPanel.Location = new System.Drawing.Point(574, 140);
-            this.vscrollPanel.Name = "vscrollPanel";
-            this.vscrollPanel.Size = new System.Drawing.Size(26, 511);
-            this.vscrollPanel.TabIndex = 116;
-            // 
             // ctrlInbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.Controls.Add(this.vscrollPanel);
             this.Controls.Add(this.pnlMessages);
             this.Controls.Add(this.lblTrademark);
             this.Controls.Add(this.lblBottomInformation);
@@ -331,6 +323,5 @@
         private System.Windows.Forms.PictureBox pbxBottomPanel;
         private System.Windows.Forms.PictureBox btnLogo;
         private System.Windows.Forms.Panel pnlMessages;
-        private System.Windows.Forms.VScrollBar vscrollPanel;
     }
 }
