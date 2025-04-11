@@ -109,6 +109,7 @@
             this.btnMessageA.TabIndex = 5;
             this.btnMessageA.Text = "View";
             this.btnMessageA.UseVisualStyleBackColor = false;
+            this.btnMessageA.Click += new System.EventHandler(this.btnMessageA_Click);
             // 
             // btnMessageB
             // 

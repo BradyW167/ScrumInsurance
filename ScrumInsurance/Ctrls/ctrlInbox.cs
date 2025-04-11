@@ -50,7 +50,9 @@ namespace ScrumInsurance
             btn.TextAlign = ContentAlignment.MiddleCenter;
             btn.Width = 40;
             btn.Location = new Point(170, (messageCount_ * 60) -25);
+            btn.Click += new System.EventHandler(this.btnMessageA_Click);
             pnlMessages.Controls.Add(btn);
+            
 
 
             //message textbox
@@ -62,6 +64,11 @@ namespace ScrumInsurance
             msg.Width = 210;
             msg.Height = 50;
             pnlMessages.Controls.Add(msg);
+        }
+
+        private void btnMessageA_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
