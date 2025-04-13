@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using MySqlX.XDevAPI.Relational;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ScrumInsurance
 {
@@ -50,7 +51,7 @@ namespace ScrumInsurance
         {
             messageCount_++;
             //view button
-            Button btn = new Button();
+            System.Windows.Forms.Button btn = new System.Windows.Forms.Button();
             btn.BackColor = Color.Azure;
             btn.Text = "View";
             btn.FlatAppearance.BorderColor = Color.Azure;
@@ -85,7 +86,7 @@ namespace ScrumInsurance
             }
 
             //this creates a new button using sender as a button
-            Button btn = sender as Button;
+            System.Windows.Forms.Button btn = sender as System.Windows.Forms.Button;
             //because the sender is always a button created in the addMessage method, it will have the id stored in the tag which we can grab. 
             int messageId = int.Parse((btn.Tag).ToString());
 
@@ -123,9 +124,14 @@ namespace ScrumInsurance
             msg.BackColor = Color.Azure;
             msg.TextAlign = ContentAlignment.TopLeft;
             msg.Text = messageContent;
+            msg.Font = new Font("Microsoft Tai Le", 11, FontStyle.Regular);
             msg.Location = new Point(22,10);
-            msg.Width = 250;
-            msg.Height = 900;
+            msg.Width = 550;
+
+            //to handle heights dynamically, each line is roughly 90 characters
+            int numLines = 1 + (messageContent.Length / 90);
+
+            msg.Height = numLines * 22;
             pnlMessageContents.Controls.Add(msg);
 
         }

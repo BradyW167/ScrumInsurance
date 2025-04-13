@@ -58,7 +58,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(616, 140);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(507, 511);
+            this.pictureBox1.Size = new System.Drawing.Size(986, 511);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -231,7 +231,7 @@
             this.lblDate.AutoSize = true;
             this.lblDate.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(996, 156);
+            this.lblDate.Location = new System.Drawing.Point(1476, 156);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(116, 25);
             this.lblDate.TabIndex = 119;
@@ -256,7 +256,7 @@
             this.pnlMessageContents.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlMessageContents.Location = new System.Drawing.Point(645, 265);
             this.pnlMessageContents.Name = "pnlMessageContents";
-            this.pnlMessageContents.Size = new System.Drawing.Size(447, 358);
+            this.pnlMessageContents.Size = new System.Drawing.Size(927, 358);
             this.pnlMessageContents.TabIndex = 121;
             // 
             // ctrlInbox
