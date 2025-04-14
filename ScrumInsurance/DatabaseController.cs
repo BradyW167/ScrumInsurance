@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Text.RegularExpressions;
+using System.Management;
 
 namespace ScrumInsurance
 {
@@ -104,35 +105,29 @@ namespace ScrumInsurance
             };
 
             // Store query results
-            object[] account_data = Connection.SelectQuery("User", login_info, account_columns);
+            List<Row> accounts = Connection.SelectQuery("User", login_info, account_columns);
+            Row account_data = new Row();
 
             // Return null if a matching account was not found
-            if (account_data == null) { return null; }
+            if (accounts.Count > 0) { account_data = accounts[0]; } else {  return null; }
 
             // Create account object from account_data object array
-            if (((string)account_data[3]).Equals("client"))
+            if (((string)account_data.Columns["role"]).Equals("client"))
             {
-                Client found_account = new Client((string)account_data[1],
-                                                    (string)account_data[2],
-                                                    (string)account_data[3],
-                                                    (string)account_data[4],
-                                                    (string)account_data[5],
-                                                    (int)account_data[0]);
-                object[] claim = Connection.SelectQuery("Claim", new Dictionary<string, object> { { "Client_ID", account_data[0] } }, new string[] { "Claim_Title", "Claim_Content", "Claim_Status", "Claim_Amount" });
-                if (claim != null)
+                Client found_account = new Client((string)account_data.Columns["username"], (string)account_data.Columns["password"], (string)account_data.Columns["role"], (string)account_data.Columns["security_question"], (string)account_data.Columns["security_answer"], (int)account_data.Columns["user_id"]);
+                List<Row> claims = Connection.SelectQuery("Claim", new Dictionary<string, object> { { "Client_ID", account_data.Columns["user_id"] } }, new string[] { "Claim_Title", "Claim_Content", "Claim_Status", "Claim_Amount" });
+                if (claims != null)
                 {
-                    found_account.AddClaim(claim[0] + "", claim[1] + "", claim[2] + "", (int)claim[3]);
+                    foreach (Row claim in claims)
+                    {
+                        found_account.AddClaim(claim.Columns["Claim_Title"] + "", claim.Columns["Claim_Content"] + "", claim.Columns["Claim_Status"] + "", (int)claim.Columns["Claim_Amount"]);
+                    }
                 }
                 return found_account;
             }
             else
             {
-                Account found_account = new Account((string)account_data[1],
-                                                    (string)account_data[2],
-                                                    (string)account_data[3],
-                                                    (string)account_data[4],
-                                                    (string)account_data[5],
-                                                    (int)account_data[0]);
+                Account found_account = new Account((string)account_data.Columns["username"], (string)account_data.Columns["password"], (string)account_data.Columns["role"], (string)account_data.Columns["security_question"], (string)account_data.Columns["security_answer"], (int)account_data.Columns["user_id"]);
 
                 return found_account;
             }
@@ -151,14 +146,14 @@ namespace ScrumInsurance
             string[] question_column = { "security_question", "security_answer" };
 
             // Store query results
-            object[] question_data = Connection.SelectQuery("User", user_info, question_column);
+            Row question_data = Connection.SelectQuery("User", user_info, question_column)[0];
 
             // Return null if a matching username was not found
             if (question_data == null) { return null; }
 
 
 
-            string[] security_info = { (string)question_data[0], (string)question_data[1] };
+            string[] security_info = { (string)question_data.Columns["security_question"], (string)question_data.Columns["security_answer"] };
 
             return security_info;
         }
@@ -166,8 +161,8 @@ namespace ScrumInsurance
         public bool AddAccount(Account new_account)
         {
             // If the new account has a duplicated username, return false
-            object[] returnArray = Connection.SelectQuery("User", new Dictionary<string, object> { { "username", (object)new_account.Username } }, new string[] { "username" });
-            if (returnArray != null && returnArray.Length > 0)
+            List<Row> rows = Connection.SelectQuery("User", new Dictionary<string, object> { { "username", (object)new_account.Username } }, new string[] { "username" });
+            if (rows != null && rows.Count > 0)
             {
                 return false;
             }
@@ -199,6 +194,11 @@ namespace ScrumInsurance
         public bool DeleteAccount(string username)
         {
             return Connection.DeleteQuery("User", new Dictionary<string, string> { { "username", username } });
+        }
+
+        public bool SubmitClaim(int userID, string title, string content, int amount)
+        {
+            return Connection.InsertQuery("Claim", new Dictionary<string, object>() { { "Client_ID", userID }, { "Claim_Title", title }, { "Claim_Content", content }, { "Claim_Amount", amount }, { "Claim_Date", DateTime.Now }, { "Claim_Status", "Under Review" } });
         }
 
         public bool UploadDocument(string file_name, byte[] file_data)

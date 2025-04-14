@@ -106,9 +106,9 @@ namespace ScrumInsurance
          * Executes a select query using the 'args' Dictionary as WHERE conditions
          * 'columns' paramater indicates which column values to return if found
          * Results are stored in the Reader attribute
-         * Returns an object on succesful query, null on not found or failed connection
+         * Returns a list of valid rows on succesful query, null on not found or failed connection
          */
-        public object[] SelectQuery(string tableName, Dictionary<string, object> args, string[] columns = null)
+        public List<Row> SelectQuery(string tableName, Dictionary<string, object> args, string[] columns = null)
         {
             // Open SQL connection for queries
             if (!openConnection())
@@ -160,23 +160,25 @@ namespace ScrumInsurance
                 else
                 {
                     // If no data is to be returned, return an empty object for truthiness
-                    if ( columns == null ) { return new object[0]; }
+                    if ( columns == null ) { return new List<Row>(); }
 
                     // Stores return data
-                    object[] data = new object[columns.Length];
+                    List<Row> rows = new List<Row>();
 
                     // Read through the found database entries
                     while (Reader.Read())
                     {
+                        Row row = new Row();
                         // Loop for each column of data needed
                         for (int i = 0; i < columns.Length; i++)
                         {
-                            // Store each requested column of data into the data array
-                            data[i] = Reader[columns[i]];
+                            // Store each requested column of data
+                            row.AddColumn(columns[i], Reader[columns[i]]);
                         }
+                        rows.Add(row);
                     }
 
-                    return data;
+                    return rows;
                 }
             }
         }

@@ -251,6 +251,7 @@
             this.btnNewClaim.TabIndex = 50;
             this.btnNewClaim.Text = "Make a New Claim";
             this.btnNewClaim.UseVisualStyleBackColor = true;
+            this.btnNewClaim.Click += new System.EventHandler(this.btnNewClaim_Click);
             // 
             // lblInformation
             // 

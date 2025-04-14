@@ -70,5 +70,10 @@ namespace ScrumInsurance
                 }
             }
         }
+
+        private void btnNewClaim_Click(object sender, EventArgs e)
+        {
+            this.swapCtrlMain(new ClaimApply());
+        }
     }
 }
