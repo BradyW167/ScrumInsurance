@@ -21,9 +21,9 @@ namespace ScrumInsurance
             Claims = new List<Claim>();
         }
 
-        public void AddClaim(string title, string text, string status)
+        public void AddClaim(string title, string text, string status, int amount)
         {
-            Claims.Add(new Claim(title, text, status));
+            Claims.Add(new Claim(title, text, status, amount));
         }
 
         public void RemoveClaim(int index)

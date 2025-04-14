@@ -10,13 +10,16 @@ namespace ScrumInsurance
     {
         public string Title { get; set; }
         public string Text { get; set; }
+
+        public int Amount { get; set; }
         public string Status { get; set; }
 
-        public Claim(string title, string text, string status)
+        public Claim(string title, string text, string status, int amount)
         {
             Title = title;
             Text = text;
             Status = status;
+            Amount = amount;
         }
     }
 }
