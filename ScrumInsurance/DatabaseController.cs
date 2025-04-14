@@ -186,6 +186,11 @@ namespace ScrumInsurance
             return Connection.DataRequestAll("Message", args, columns);
         }
 
+        public Dictionary<int, object[]> ClaimInformation(Dictionary<string, object> args, string[] columns)
+        {
+            return Connection.DataRequestAll("Claim", args, columns);
+        }
+
         public bool UpdateAccount(string username, Dictionary<string, string> args)
         {
             return Connection.UpdateQuery("User", new Dictionary<string, string> { { "username", username } }, args);
