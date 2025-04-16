@@ -17,6 +17,7 @@ namespace ScrumInsurance
          * Financing (awaiting finance manager approval)
          * Approved (waiting for client to accept funds)
          * Closed (Hidden/Deleted)
+         * Rejected (same as not submitted)
          */
 
         public Claim(string title, string text, string status, int amount)

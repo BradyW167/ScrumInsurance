@@ -245,27 +245,27 @@ namespace ScrumInsurance
             return ExecuteNonQuery();
         }
 
-        public bool UpdateQuery(string tableName, Dictionary<string, string> matchingArgs, Dictionary<string, string> altArgs)
+        public bool UpdateQuery(string tableName, Dictionary<string, object> matchingArgs, Dictionary<string, object> altArgs)
         {
             Command = Connection.CreateCommand();
-            Command.CommandText = "UPDATE " + tableName +
+            string cmd = "UPDATE " + tableName +
                 " SET " + ConstructMatchingColumnQuery(", ", altArgs) +
                 " WHERE " + ConstructMatchingColumnQuery(" AND ", matchingArgs);
-
+            Console.WriteLine(Command.CommandText = cmd);
             return ExecuteNonQuery();
         }
 
-        public bool DeleteQuery(string tableName, Dictionary<string, string> args)
+        public bool DeleteQuery(string tableName, Dictionary<string, object> args)
         {
             Command = Connection.CreateCommand();
-            Command.CommandText = "DELETE FROM " + tableName +
+            string cmd = "DELETE FROM " + tableName +
                 " WHERE " + ConstructMatchingColumnQuery(" AND ", args);
-
+            Console.WriteLine(Command.CommandText = cmd);
             return ExecuteNonQuery();
         }
 
         //Adds to query "specified column name" = "specifed column vlaue" with delimiter inbetween each set
-        private string ConstructMatchingColumnQuery(string delimiter, Dictionary<string, string> args)
+        private string ConstructMatchingColumnQuery(string delimiter, Dictionary<string, object> args)
         {
             string query = "";
             for (int i = 0; i < args.Count; i++)

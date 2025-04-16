@@ -14,9 +14,11 @@ namespace ScrumInsurance
     public partial class ctrlClaimsList : ScrumUserControl
     {
         private int claimCount_ = 0;
+        private Session session_;
         public ctrlClaimsList(Session session, DatabaseController DBController)
         {
             InitializeComponent();
+            session_ = session;
             //these are the columns we want to grab for the select query
             string[] columns = { "Claim_Title", "Claim_Date", "Claim_Status", "Claim_ID" };
 
@@ -78,7 +80,7 @@ namespace ScrumInsurance
         {
             System.Windows.Forms.Button btn = sender as System.Windows.Forms.Button;
             int claimId = int.Parse((btn.Tag).ToString());
-            swapCtrlMain(new ctrlClaimViewer(DBController, claimId));
+            swapCtrlMain(new ctrlClaimViewer(DBController, claimId, session_));
         }
     }
 }

@@ -74,7 +74,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pictureBox1.Location = new System.Drawing.Point(417, 91);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(338, 332);
             this.pictureBox1.TabIndex = 1;
@@ -84,23 +84,25 @@
             // 
             this.btnReject.BackColor = System.Drawing.Color.Azure;
             this.btnReject.Location = new System.Drawing.Point(687, 378);
-            this.btnReject.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReject.Margin = new System.Windows.Forms.Padding(2);
             this.btnReject.Name = "btnReject";
             this.btnReject.Size = new System.Drawing.Size(60, 23);
             this.btnReject.TabIndex = 2;
             this.btnReject.Text = "Reject";
             this.btnReject.UseVisualStyleBackColor = false;
+            this.btnReject.Click += new System.EventHandler(this.btnReject_Click);
             // 
             // btnApprove
             // 
             this.btnApprove.BackColor = System.Drawing.Color.Azure;
             this.btnApprove.Location = new System.Drawing.Point(623, 378);
-            this.btnApprove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnApprove.Margin = new System.Windows.Forms.Padding(2);
             this.btnApprove.Name = "btnApprove";
             this.btnApprove.Size = new System.Drawing.Size(60, 23);
             this.btnApprove.TabIndex = 3;
             this.btnApprove.Text = "Approve";
             this.btnApprove.UseVisualStyleBackColor = false;
+            this.btnApprove.Click += new System.EventHandler(this.btnApprove_Click);
             // 
             // btnViewDocs
             // 
@@ -109,7 +111,7 @@
             this.btnViewDocs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewDocs.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewDocs.Location = new System.Drawing.Point(432, 105);
-            this.btnViewDocs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnViewDocs.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewDocs.Name = "btnViewDocs";
             this.btnViewDocs.Size = new System.Drawing.Size(67, 52);
             this.btnViewDocs.TabIndex = 5;
@@ -123,7 +125,7 @@
             this.btnCProfile.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCProfile.Font = new System.Drawing.Font("Microsoft Tai Le", 7F);
             this.btnCProfile.Location = new System.Drawing.Point(432, 310);
-            this.btnCProfile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCProfile.Margin = new System.Windows.Forms.Padding(2);
             this.btnCProfile.Name = "btnCProfile";
             this.btnCProfile.Size = new System.Drawing.Size(67, 25);
             this.btnCProfile.TabIndex = 6;
@@ -137,7 +139,7 @@
             this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReport.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReport.Location = new System.Drawing.Point(432, 161);
-            this.btnReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(2);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(67, 52);
             this.btnReport.TabIndex = 7;
@@ -187,7 +189,7 @@
             this.btnTransfer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTransfer.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTransfer.Location = new System.Drawing.Point(432, 218);
-            this.btnTransfer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTransfer.Margin = new System.Windows.Forms.Padding(2);
             this.btnTransfer.Name = "btnTransfer";
             this.btnTransfer.Size = new System.Drawing.Size(67, 52);
             this.btnTransfer.TabIndex = 11;
@@ -253,7 +255,7 @@
             this.rtxtDetails.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtxtDetails.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtDetails.Location = new System.Drawing.Point(513, 172);
-            this.rtxtDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rtxtDetails.Margin = new System.Windows.Forms.Padding(2);
             this.rtxtDetails.Name = "rtxtDetails";
             this.rtxtDetails.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.rtxtDetails.Size = new System.Drawing.Size(235, 129);
@@ -365,7 +367,7 @@
             this.pbxSidePanel.BackColor = System.Drawing.Color.Black;
             this.pbxSidePanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.pbxSidePanel.Location = new System.Drawing.Point(0, 0);
-            this.pbxSidePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxSidePanel.Margin = new System.Windows.Forms.Padding(2);
             this.pbxSidePanel.Name = "pbxSidePanel";
             this.pbxSidePanel.Size = new System.Drawing.Size(100, 457);
             this.pbxSidePanel.TabIndex = 107;
@@ -376,7 +378,7 @@
             this.pbxBottomPanel.BackColor = System.Drawing.Color.Black;
             this.pbxBottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pbxBottomPanel.Location = new System.Drawing.Point(0, 457);
-            this.pbxBottomPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxBottomPanel.Margin = new System.Windows.Forms.Padding(2);
             this.pbxBottomPanel.Name = "pbxBottomPanel";
             this.pbxBottomPanel.Size = new System.Drawing.Size(1080, 150);
             this.pbxBottomPanel.TabIndex = 106;
@@ -412,7 +414,7 @@
             this.Controls.Add(this.btnReject);
             this.Controls.Add(this.lblClaimViewer);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ctrlClaimViewer";
             this.Size = new System.Drawing.Size(1080, 607);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
