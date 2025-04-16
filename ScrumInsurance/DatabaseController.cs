@@ -67,7 +67,7 @@ namespace ScrumInsurance
             {
                 return null;
             }
-            /* might be able to get rid of
+            // might be able to get rid of
             if (!Regex.IsMatch(password, @"[A-Z]"))
             {
                 return null;
@@ -84,7 +84,7 @@ namespace ScrumInsurance
             {
                 return null;
             }
-            */
+            
 
             // Create parameter dictionary for login query
             Dictionary<string, object> login_info = new Dictionary<string, object>
