@@ -10,9 +10,12 @@ namespace ScrumInsurance
     {
         public string Title { get; set; }
         public string Text { get; set; }
-
         public int Amount { get; set; }
         public string Status { get; set; }
+        /* Incomplete (Not submitted)
+         * Awaiting approval from claim manager
+         * Awaiting approval from finance manager
+         */
 
         public Claim(string title, string text, string status, int amount)
         {
