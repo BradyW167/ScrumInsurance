@@ -247,6 +247,11 @@ namespace ScrumInsurance
 
         public bool UpdateQuery(string tableName, Dictionary<string, object> matchingArgs, Dictionary<string, object> altArgs)
         {
+            if (!openConnection())
+            {
+                // Return false when connection fails
+                return false;
+            }
             Command = Connection.CreateCommand();
             string cmd = "UPDATE " + tableName +
                 " SET " + ConstructMatchingColumnQuery(", ", altArgs) +
@@ -257,6 +262,11 @@ namespace ScrumInsurance
 
         public bool DeleteQuery(string tableName, Dictionary<string, object> args)
         {
+            if (!openConnection())
+            {
+                // Return false when connection fails
+                return false;
+            }
             Command = Connection.CreateCommand();
             string cmd = "DELETE FROM " + tableName +
                 " WHERE " + ConstructMatchingColumnQuery(" AND ", args);
