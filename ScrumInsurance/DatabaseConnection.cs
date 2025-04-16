@@ -291,12 +291,6 @@ namespace ScrumInsurance
 
         private bool ExecuteNonQuery()
         {
-            if (!openConnection())
-            {
-                // Return false when connection fails
-                return false;
-            }
-
             // Stores executed command result
             int result = 0;
 
