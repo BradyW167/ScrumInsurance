@@ -81,6 +81,20 @@ namespace ScrumInsurance
             }
             lblError.Visible = true;
         }
+
+        private void btnSaveClaim_Click(object sender, EventArgs e)
+        {
+            if (DBController.SubmitClaim(Session.UserAccount.UserID, txtTitle.Text, txtDetails.Text, Convert.ToInt32(txtAmount.Text)))
+            {
+                ((Client)Session.UserAccount).AddClaim(txtTitle.Text, txtDetails.Text, "Incomplete", Convert.ToInt32(txtAmount.Text));
+                lblError.Text = "Claim saved succcesfully";
+            }
+            else
+            {
+                lblError.Text = "Unable to save claim";
+            }
+            lblError.Visible = true;
+        }
     }
 }
   
