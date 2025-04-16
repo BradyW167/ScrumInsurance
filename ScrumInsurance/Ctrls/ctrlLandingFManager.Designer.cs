@@ -473,6 +473,7 @@
             this.btnClaimsList.TabIndex = 50;
             this.btnClaimsList.Text = "View All Claims";
             this.btnClaimsList.UseVisualStyleBackColor = true;
+            this.btnClaimsList.Click += new System.EventHandler(this.btnClaimsList_Click);
             // 
             // pbxPillar2
             // 

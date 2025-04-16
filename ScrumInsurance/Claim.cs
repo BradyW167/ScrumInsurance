@@ -13,8 +13,10 @@ namespace ScrumInsurance
         public int Amount { get; set; }
         public string Status { get; set; }
         /* Incomplete (Not submitted)
-         * Awaiting approval from claim manager
-         * Awaiting approval from finance manager
+         * Validating (awaiting claim manager approval)
+         * Financing (awaiting finance manager approval)
+         * Approved (waiting for client to accept funds)
+         * Closed (Hidden/Deleted)
          */
 
         public Claim(string title, string text, string status, int amount)

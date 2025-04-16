@@ -203,7 +203,7 @@ namespace ScrumInsurance
 
         public bool SubmitClaim(int userID, string title, string content, int amount)
         {
-            return Connection.InsertQuery("Claim", new Dictionary<string, object>() { { "Client_ID", userID }, { "Claim_Title", title }, { "Claim_Content", content }, { "Claim_Amount", amount }, { "Claim_Date", DateTime.Now }, { "Claim_Status", "Under Review" } });
+            return Connection.InsertQuery("Claim", new Dictionary<string, object>() { { "Client_ID", userID }, { "Claim_Title", title }, { "Claim_Content", content }, { "Claim_Amount", amount }, { "Claim_Date", DateTime.Now }, { "Claim_Status", "Validating" } });
         }
 
         public bool UploadDocument(string file_name, byte[] file_data)

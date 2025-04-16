@@ -23,7 +23,14 @@ namespace ScrumInsurance
             //these set the args. 
             
             Dictionary<String, Object> args = new Dictionary<String, Object>();
-            args.Add("Claim_Status", "Incomplete");
+            if (session.UserAccount.Role.Equals("claim_manager"))
+            {
+                args.Add("Claim_Status", "Validating");
+            }
+            else if (session.UserAccount.Role.Equals("finance_manager"))
+            {
+                args.Add("Claim_Status", "Financing");
+            }
 
 
             Dictionary<int, object[]> claimList = DBController.ClaimInformation(args, columns);

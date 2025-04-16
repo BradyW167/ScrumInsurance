@@ -69,7 +69,7 @@ namespace ScrumInsurance
         {
             if (DBController.SubmitClaim(Session.UserAccount.UserID, txtTitle.Text, txtDetails.Text, Convert.ToInt32(txtAmount.Text)))
             {
-                ((Client)Session.UserAccount).AddClaim(txtTitle.Text, txtDetails.Text, "Under Review", Convert.ToInt32(txtAmount.Text));
+                ((Client)Session.UserAccount).AddClaim(txtTitle.Text, txtDetails.Text, "Validating", Convert.ToInt32(txtAmount.Text));
                 lblError.Text = "Claim submitted succcesfully";
                 txtTitle.Text = "";
                 txtDetails.Text = "";
