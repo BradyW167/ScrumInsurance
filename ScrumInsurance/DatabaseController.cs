@@ -108,29 +108,65 @@ namespace ScrumInsurance
             List<Row> accounts = Connection.SelectQuery("User", login_info, account_columns);
             Row account_data = new Row();
 
-            // Return null if a matching account was not found
-            if (accounts.Count > 0) { account_data = accounts[0]; } else {  return null; }
+            // If a matching account was found...
+            if (accounts != null) {
+                // Store first matching row in account_data Row object
+                account_data = accounts[0];
+            }
+            // Else no matching account was found, return null
+            else { return null; }
 
             // Create account object from account_data object array
             if (((string)account_data.Columns["role"]).Equals("client"))
             {
-                Client found_account = new Client((string)account_data.Columns["username"], (string)account_data.Columns["password"], (string)account_data.Columns["role"], (string)account_data.Columns["security_question"], (string)account_data.Columns["security_answer"], (int)account_data.Columns["user_id"]);
-                List<Row> claims = Connection.SelectQuery("Claim", new Dictionary<string, object> { { "Client_ID", account_data.Columns["user_id"] } }, new string[] { "Claim_Title", "Claim_Content", "Claim_Status", "Claim_Amount" });
-                if (claims != null)
-                {
-                    foreach (Row claim in claims)
-                    {
-                        found_account.AddClaim(claim.Columns["Claim_Title"] + "", claim.Columns["Claim_Content"] + "", claim.Columns["Claim_Status"] + "", (int)claim.Columns["Claim_Amount"]);
-                    }
-                }
+                Client found_account = new Client((string)account_data.Columns["username"],
+                                                  (string)account_data.Columns["password"],
+                                                  (string)account_data.Columns["role"],
+                                                  (string)account_data.Columns["security_question"],
+                                                  (string)account_data.Columns["security_answer"],
+                                                  (int)account_data.Columns["user_id"]);
+
+                GetClaims(found_account, account_data);
+
                 return found_account;
             }
             else
             {
-                Account found_account = new Account((string)account_data.Columns["username"], (string)account_data.Columns["password"], (string)account_data.Columns["role"], (string)account_data.Columns["security_question"], (string)account_data.Columns["security_answer"], (int)account_data.Columns["user_id"]);
+                Account found_account = new Account((string)account_data.Columns["username"],
+                                                    (string)account_data.Columns["password"],
+                                                    (string)account_data.Columns["role"],
+                                                    (string)account_data.Columns["security_question"],
+                                                    (string)account_data.Columns["security_answer"],
+                                                    (int)account_data.Columns["user_id"]);
 
                 return found_account;
             }
+        }
+
+        // Stores claims into input Client object using data from account_data Row
+        public void GetClaims(Client client_account, Row account_data)
+        {
+            Dictionary<string, object> client_id = new Dictionary<string, object> {
+                { "Client_ID", account_data.Columns["user_id"] } 
+            };
+
+            string[] claim_info =
+            {
+                "Claim_Title",
+                "Claim_Content",
+                "Claim_Status",
+                "Claim_Amount"
+            };
+
+            List<Row> claims = Connection.SelectQuery("Claim", client_id, claim_info);
+            if (claims != null)
+            {
+                foreach (Row claim in claims)
+                {
+                    client_account.AddClaim(claim.Columns["Claim_Title"] + "", claim.Columns["Claim_Content"] + "", claim.Columns["Claim_Status"] + "", (int)claim.Columns["Claim_Amount"]);
+                }
+            }
+
         }
 
         // Attempts to find a security question and answer info from database for input username

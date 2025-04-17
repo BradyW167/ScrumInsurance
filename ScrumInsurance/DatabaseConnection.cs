@@ -113,6 +113,7 @@ namespace ScrumInsurance
             // Open SQL connection for queries
             if (!openConnection())
             {
+                Console.WriteLine("Select Query: Connection failed, returning null");
                 // Return false when connection fails
                 return null;
             }
@@ -146,21 +147,22 @@ namespace ScrumInsurance
                 Command.Parameters.AddWithValue("@" + kvp.Key, kvp.Value);
             }
 
-            // Write command to console for debugging
-            Console.WriteLine("Select Query: " + Command.CommandText);
-
+            // Execute command and input results into reader
             using (Reader = Command.ExecuteReader())
             {
                 // If matching data was not found in the database...
                 if (!Reader.HasRows)
                 {
+                    Console.WriteLine("Select Query: Reader has no rows, returning null");
                     return null;
                 }
                 // Else matching data was found
                 else
                 {
                     // If no data is to be returned, return an empty object for truthiness
-                    if ( columns == null ) { return new List<Row>(); }
+                    if ( columns == null ) {
+                        Console.WriteLine("Select Query: Matching data found, but no rows to return");
+                        return new List<Row>(); }
 
                     // Stores return data
                     List<Row> rows = new List<Row>();
