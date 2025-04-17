@@ -41,7 +41,6 @@
             this.lblCreateAccountError = new System.Windows.Forms.Label();
             this.cmbSecurityQuestion = new System.Windows.Forms.ComboBox();
             this.lblBackLogin = new System.Windows.Forms.LinkLabel();
-            this.btnValidatePassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCenterPanel)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,6 +96,7 @@
             this.txtCreatePassword.Name = "txtCreatePassword";
             this.txtCreatePassword.Size = new System.Drawing.Size(485, 36);
             this.txtCreatePassword.TabIndex = 2;
+            this.txtCreatePassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtCreatePassword_Validating);
             // 
             // lblCreatePassword
             // 
@@ -199,16 +199,6 @@
             this.lblBackLogin.VisitedLinkColor = System.Drawing.Color.Thistle;
             this.lblBackLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblBackLogin_LinkClicked);
             // 
-            // btnValidatePassword
-            // 
-            this.btnValidatePassword.Location = new System.Drawing.Point(784, 289);
-            this.btnValidatePassword.Name = "btnValidatePassword";
-            this.btnValidatePassword.Size = new System.Drawing.Size(137, 36);
-            this.btnValidatePassword.TabIndex = 23;
-            this.btnValidatePassword.Text = "Validate Password";
-            this.btnValidatePassword.UseVisualStyleBackColor = true;
-            this.btnValidatePassword.Click += new System.EventHandler(this.btnValidatePassword_Click);
-            // 
             // ctrlCreateAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -216,7 +206,6 @@
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.BackgroundImage = global::ScrumInsurance.Properties.Resources.shape_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.btnValidatePassword);
             this.Controls.Add(this.lblBackLogin);
             this.Controls.Add(this.cmbSecurityQuestion);
             this.Controls.Add(this.lblCreateAccountError);
@@ -255,6 +244,5 @@
         private System.Windows.Forms.Label lblCreateAccountError;
         private System.Windows.Forms.ComboBox cmbSecurityQuestion;
         private System.Windows.Forms.LinkLabel lblBackLogin;
-        private System.Windows.Forms.Button btnValidatePassword;
     }
 }
