@@ -53,7 +53,7 @@
             // 
             this.btnConfirmUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnConfirmUsername.Location = new System.Drawing.Point(483, 133);
-            this.btnConfirmUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConfirmUsername.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirmUsername.Name = "btnConfirmUsername";
             this.btnConfirmUsername.Size = new System.Drawing.Size(487, 37);
             this.btnConfirmUsername.TabIndex = 5;
@@ -118,7 +118,7 @@
             this.pbxCenterPanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pbxCenterPanel.BackColor = System.Drawing.Color.Black;
             this.pbxCenterPanel.Location = new System.Drawing.Point(459, 19);
-            this.pbxCenterPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbxCenterPanel.Margin = new System.Windows.Forms.Padding(4);
             this.pbxCenterPanel.Name = "pbxCenterPanel";
             this.pbxCenterPanel.Size = new System.Drawing.Size(533, 679);
             this.pbxCenterPanel.TabIndex = 22;
@@ -140,7 +140,7 @@
             // 
             this.btnSubmitAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnSubmitAnswer.Location = new System.Drawing.Point(483, 269);
-            this.btnSubmitAnswer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSubmitAnswer.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmitAnswer.Name = "btnSubmitAnswer";
             this.btnSubmitAnswer.Size = new System.Drawing.Size(487, 37);
             this.btnSubmitAnswer.TabIndex = 24;
@@ -166,7 +166,7 @@
             this.lblNewPasswordError.ForeColor = System.Drawing.Color.LightCoral;
             this.lblNewPasswordError.Location = new System.Drawing.Point(527, 529);
             this.lblNewPasswordError.Name = "lblNewPasswordError";
-            this.lblNewPasswordError.Size = new System.Drawing.Size(400, 127);
+            this.lblNewPasswordError.Size = new System.Drawing.Size(400, 30);
             this.lblNewPasswordError.TabIndex = 10;
             this.lblNewPasswordError.Text = "CLEAR ON INITIALIZE";
             this.lblNewPasswordError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -198,7 +198,7 @@
             // 
             this.btnConfirmNewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnConfirmNewPassword.Location = new System.Drawing.Point(483, 488);
-            this.btnConfirmNewPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConfirmNewPassword.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirmNewPassword.Name = "btnConfirmNewPassword";
             this.btnConfirmNewPassword.Size = new System.Drawing.Size(487, 37);
             this.btnConfirmNewPassword.TabIndex = 28;
@@ -213,7 +213,7 @@
             this.lblBackLogin.BackColor = System.Drawing.Color.Black;
             this.lblBackLogin.ForeColor = System.Drawing.Color.White;
             this.lblBackLogin.LinkColor = System.Drawing.Color.LightSteelBlue;
-            this.lblBackLogin.Location = new System.Drawing.Point(480, 656);
+            this.lblBackLogin.Location = new System.Drawing.Point(480, 560);
             this.lblBackLogin.Name = "lblBackLogin";
             this.lblBackLogin.Size = new System.Drawing.Size(88, 16);
             this.lblBackLogin.TabIndex = 29;
