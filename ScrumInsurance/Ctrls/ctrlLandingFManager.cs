@@ -40,5 +40,10 @@ namespace ScrumInsurance
         {
 
         }
+
+        private void btnClaimsList_Click(object sender, EventArgs e)
+        {
+            swapCtrlMain(new ctrlClaimsList(Session, DBController));
+        }
     }
 }

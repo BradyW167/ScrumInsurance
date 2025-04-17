@@ -121,7 +121,7 @@ namespace ScrumInsurance
             else
             {
                 // Updates the user's password and takes the user back to the login page
-                DBController.UpdateAccount(Session.UserAccount.Username, new Dictionary<string, string> { { "password", txtNewPassword.Text } });
+                DBController.UpdateAccount(Session.UserAccount.Username, new Dictionary<string, object> { { "password", txtNewPassword.Text } });
                 this.swapCtrlMain(new ctrlLogin());
             }
         }

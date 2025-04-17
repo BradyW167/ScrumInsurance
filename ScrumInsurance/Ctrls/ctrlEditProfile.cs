@@ -13,11 +13,11 @@ namespace ScrumInsurance
 {
     public partial class ctrlEditProfile : ScrumUserControl
     {
-        public ctrlEditProfile()
+        public ctrlEditProfile(Session session)
         {
             InitializeComponent();
-            txtNewUser.Text = Session.UserAccount.Username;
-            txtNewPass.Text = Session.UserAccount.Password;
+            txtNewUser.Text = session.UserAccount.Username;
+            txtNewPass.Text = session.UserAccount.Password;
 
         //needs to be added
             //pbxProfile.Image = session.Profile
@@ -50,7 +50,7 @@ namespace ScrumInsurance
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             //Add check for if new password and email are valid
-            if (DBController.UpdateAccount(Session.UserAccount.Username, new Dictionary<string, string> { { "password", txtNewPass.Text }, { "email", txtNewEmail.Text } }))
+            if (DBController.UpdateAccount(Session.UserAccount.Username, new Dictionary<string, object> { { "password", txtNewPass.Text }/*, { "email", txtNewEmail.Text }*/ }))
             {
                 lblError.Text = "Profile successfully updated";
             }

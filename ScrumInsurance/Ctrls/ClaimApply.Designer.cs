@@ -52,6 +52,7 @@
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
+            this.btnSaveClaim = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSidePanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBottomPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPillar2)).BeginInit();
@@ -83,12 +84,12 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(557, 339);
+            this.btnSubmit.Location = new System.Drawing.Point(609, 339);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(110, 26);
             this.btnSubmit.TabIndex = 2;
-            this.btnSubmit.Text = "Apply";
+            this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
@@ -337,11 +338,23 @@
             this.lblError.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblError.Visible = false;
             // 
+            // btnSaveClaim
+            // 
+            this.btnSaveClaim.Location = new System.Drawing.Point(495, 339);
+            this.btnSaveClaim.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSaveClaim.Name = "btnSaveClaim";
+            this.btnSaveClaim.Size = new System.Drawing.Size(110, 26);
+            this.btnSaveClaim.TabIndex = 107;
+            this.btnSaveClaim.Text = "Save";
+            this.btnSaveClaim.UseVisualStyleBackColor = true;
+            this.btnSaveClaim.Click += new System.EventHandler(this.btnSaveClaim_Click);
+            // 
             // ClaimApply
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
+            this.Controls.Add(this.btnSaveClaim);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.lblTitle);
@@ -403,5 +416,6 @@
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Button btnSaveClaim;
     }
 }

@@ -14,16 +14,25 @@ namespace ScrumInsurance
     public partial class ctrlClaimsList : ScrumUserControl
     {
         private int claimCount_ = 0;
+        private Session session_;
         public ctrlClaimsList(Session session, DatabaseController DBController)
         {
             InitializeComponent();
+            session_ = session;
             //these are the columns we want to grab for the select query
             string[] columns = { "Claim_Title", "Claim_Date", "Claim_Status", "Claim_ID" };
 
             //these set the args. 
             
             Dictionary<String, Object> args = new Dictionary<String, Object>();
-            args.Add("Claim_Status", "Incomplete");
+            if (session.UserAccount.Role.Equals("claim_manager"))
+            {
+                args.Add("Claim_Status", "Validating");
+            }
+            else if (session.UserAccount.Role.Equals("finance_manager"))
+            {
+                args.Add("Claim_Status", "Financing");
+            }
 
 
             Dictionary<int, object[]> claimList = DBController.ClaimInformation(args, columns);
@@ -71,7 +80,7 @@ namespace ScrumInsurance
         {
             System.Windows.Forms.Button btn = sender as System.Windows.Forms.Button;
             int claimId = int.Parse((btn.Tag).ToString());
-            swapCtrlMain(new ctrlClaimViewer(DBController, claimId));
+            swapCtrlMain(new ctrlClaimViewer(DBController, claimId, session_));
         }
     }
 }
