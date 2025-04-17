@@ -9,7 +9,6 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-using System.Text.RegularExpressions;
 using System.Management;
 
 namespace ScrumInsurance
@@ -28,9 +27,7 @@ namespace ScrumInsurance
             // Read database info from input file path
             DatabaseConfig dbConfig = readDatabaseConfig(filePath);
 
-            // Create database controller with input database config
-
-            // Read database config values to class properties
+            // Read database config values to Connection properties
             Connection.ServerName = dbConfig.Database.ServerName;
             Connection.DatabaseName = dbConfig.Database.Name;
             Connection.DatabaseUsername = dbConfig.Database.Username;
@@ -45,8 +42,6 @@ namespace ScrumInsurance
             {
                 // Read the JSON file into a string
                 string jsonString = File.ReadAllText(filePath);
-
-                Console.WriteLine(jsonString);
 
                 // Deserialize the JSON string to the DatabaseConfig object
                 config = JsonSerializer.Deserialize<DatabaseConfig>(jsonString);
@@ -187,13 +182,12 @@ namespace ScrumInsurance
             // Return null if a matching username was not found
             if (question_data == null) { return null; }
 
-
-
             string[] security_info = { (string)question_data.Columns["security_question"], (string)question_data.Columns["security_answer"] };
 
             return security_info;
         }
 
+        // Adds input account object data to database using insert query
         public bool AddAccount(Account new_account)
         {
             // If the new account has a duplicated username, return false
