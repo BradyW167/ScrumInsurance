@@ -234,7 +234,14 @@ namespace ScrumInsurance
 
         public bool SubmitClaim(int userID, string title, string content, int amount)
         {
-            return Connection.InsertQuery("Claim", new Dictionary<string, object> { { "Client_ID", userID }, { "Claim_Title", title }, { "Claim_Content", content }, { "Claim_Amount", amount }, { "Claim_Date", DateTime.Now }, { "Claim_Status", "Validating" } });
+            return Connection.InsertQuery("Claim", new Dictionary<string, object> {
+                { "Client_ID", userID },
+                { "Claim_Title", title },
+                { "Claim_Content", content },
+                { "Claim_Amount", amount },
+                { "Claim_Date", DateTime.Now },
+                { "Claim_Status", "Validating" }
+            });
         }
 
         public bool UpdateClaim(object claimID, string status)
