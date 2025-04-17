@@ -61,7 +61,7 @@ namespace ScrumInsurance
             this.swapCtrlMain(new ctrlLogin());
         }
 
-        private void ValidatePassword()
+        private void txtCreatePassword_Validating(object sender, CancelEventArgs e)
         {
             StringBuilder errorMessages = new StringBuilder(); //allows different + multiple error messages to be sent
 
@@ -92,17 +92,8 @@ namespace ScrumInsurance
 
             if (errorMessages.Length > 0) //goes through errors
             {
-                lblCreateAccountError.Text = errorMessages.ToString();
+                errCreateAccount.SetError(this, errorMessages.ToString());
             }
-            else
-            {
-                lblCreateAccountError.Text = "Password is valid"; //tells user the password is good
-            }
-        }
-
-        private void txtCreatePassword_Validating(object sender, CancelEventArgs e)
-        {
-            ValidatePassword();
         }
     }
 }
