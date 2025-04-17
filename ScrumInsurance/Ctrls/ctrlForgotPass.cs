@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
@@ -72,10 +73,55 @@ namespace ScrumInsurance
             {
                 lblNewPasswordError.Text = "Password must be atleast 8 characters long";
             }
+            StringBuilder errorMessages = new StringBuilder(); //allows different + multiple error messages to be sent
+
+            if (txtNewPassword.Text.Length < 8)
+            {
+                errorMessages.AppendLine("Password must be at least 8 characters long");
+            }
+            if (!Regex.IsMatch(txtNewPassword.Text, @"[A-Z]"))
+            {
+                errorMessages.AppendLine("Password must contain at least one uppercase letter");
+            }
+            if (!Regex.IsMatch(txtNewPassword.Text, @"[a-z]"))
+            {
+                errorMessages.AppendLine("Password must contain at least one lowercase letter");
+            }
+            if (!Regex.IsMatch(txtNewPassword.Text, @"[0-9]"))
+            {
+                errorMessages.AppendLine("Password must contain at least one digit");
+            }
+            if (!Regex.IsMatch(txtNewPassword.Text, @"[\W_]"))
+            {
+                errorMessages.AppendLine("Password must contain at least one special character");
+            }
+            if (txtNewPassword.Text.Contains(" "))
+            {
+                errorMessages.AppendLine("Password must not contain spaces");
+            }
+
+            
+            else if (!new_password.Equals(txtConfirmNewPassword.Text))
+            {
+                errorMessages.AppendLine("Passwords do not match");
+            }
+            else if (txtNewPassword.Text.Equals(Session.UserAccount.Password))
+            {
+                errorMessages.AppendLine("New password cannot be the same as the old password");
+            }
+            else if (txtNewPassword.Text.Equals(Session.UserAccount.Username))
+            {
+                errorMessages.AppendLine("New password cannot be the same as the username");
+            }
+
+            if (errorMessages.Length > 0) //goes through errors
+            {
+                lblNewPasswordError.Text = errorMessages.ToString();
+            }
             else
             {
                 // Updates the user's password and takes the user back to the login page
-                DBController.UpdateAccount(Session.UserAccount.Username, new Dictionary<string, string> { { "password", txtNewPassword.Text } });
+                DBController.UpdateAccount(Session.UserAccount.Username, new Dictionary<string, object> { { "password", txtNewPassword.Text } });
                 this.swapCtrlMain(new ctrlLogin());
             }
         }

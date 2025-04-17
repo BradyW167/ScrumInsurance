@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Management;
+using Org.BouncyCastle.Asn1.Mozilla;
 
 namespace ScrumInsurance
 {
@@ -62,7 +63,7 @@ namespace ScrumInsurance
             {
                 return null;
             }
-            /* might be able to get rid of
+            // might be able to get rid of
             if (!Regex.IsMatch(password, @"[A-Z]"))
             {
                 return null;
@@ -79,7 +80,7 @@ namespace ScrumInsurance
             {
                 return null;
             }
-            */
+            
 
             // Create parameter dictionary for login query
             Dictionary<string, object> login_info = new Dictionary<string, object>
@@ -221,19 +222,24 @@ namespace ScrumInsurance
             return Connection.DataRequestAll("Claim", args, columns);
         }
 
-        public bool UpdateAccount(string username, Dictionary<string, string> args)
+        public bool UpdateAccount(string username, Dictionary<string, object> args)
         {
-            return Connection.UpdateQuery("User", new Dictionary<string, string> { { "username", username } }, args);
+            return Connection.UpdateQuery("User", new Dictionary<string, object> { { "username", username } }, args);
         }
 
         public bool DeleteAccount(string username)
         {
-            return Connection.DeleteQuery("User", new Dictionary<string, string> { { "username", username } });
+            return Connection.DeleteQuery("User", new Dictionary<string, object> { { "username", username } });
         }
 
         public bool SubmitClaim(int userID, string title, string content, int amount)
         {
-            return Connection.InsertQuery("Claim", new Dictionary<string, object>() { { "Client_ID", userID }, { "Claim_Title", title }, { "Claim_Content", content }, { "Claim_Amount", amount }, { "Claim_Date", DateTime.Now }, { "Claim_Status", "Under Review" } });
+            return Connection.InsertQuery("Claim", new Dictionary<string, object> { { "Client_ID", userID }, { "Claim_Title", title }, { "Claim_Content", content }, { "Claim_Amount", amount }, { "Claim_Date", DateTime.Now }, { "Claim_Status", "Validating" } });
+        }
+
+        public bool UpdateClaim(object claimID, string status)
+        {
+            return Connection.UpdateQuery("Claim", new Dictionary<string, object> { { "Claim_ID", claimID } }, new Dictionary<string, object> { { "Claim_Status", status } });
         }
 
         public bool UploadDocument(string file_name, byte[] file_data)
