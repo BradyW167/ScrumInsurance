@@ -13,13 +13,16 @@ namespace ScrumInsurance
 {
     public partial class ctrlEditProfile : ScrumUserControl
     {
-        public ctrlEditProfile(Session session)
+        public ctrlEditProfile()
         {
             InitializeComponent();
-            txtNewUser.Text = session.UserAccount.Username;
-            txtNewPass.Text = session.UserAccount.Password;
+        }
 
-        //needs to be added
+        private void ctrlEditProfile_Load(object sender, EventArgs e)
+        {
+            txtNewUser.Text = Session.UserAccount.Username;
+            txtNewPass.Text = Session.UserAccount.Password;
+            //needs to be added
             //pbxProfile.Image = session.Profile
             //txtFirstName.Text = session.FirstName;
             //txtLastName.Text = session.LastName;

@@ -37,7 +37,7 @@ namespace ScrumInsurance
         {
             if (Session.UserAccount.Role == "client")
             {
-                SwapCtrlMain(new ctrlLandingClient(Session));
+                SwapCtrlMain(new ctrlLandingClient());
             }
             else if (Session.UserAccount.Role == "claim_manager")
             {
@@ -52,12 +52,12 @@ namespace ScrumInsurance
 
         private void btnAccount_Click(object sender, EventArgs e)
         {
-            SwapCtrlMain(new ctrlEditProfile(Session));
+            SwapCtrlMain(new ctrlEditProfile());
         }
 
         private void btnInbox_Click(object sender, EventArgs e)
         {
-            SwapCtrlMain(new ctrlInbox(Session, DBController));
+            SwapCtrlMain(new ctrlInbox());
         }
     }
 }

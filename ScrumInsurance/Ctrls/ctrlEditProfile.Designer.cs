@@ -367,7 +367,7 @@
             this.pbxSidePanel.Location = new System.Drawing.Point(0, 0);
             this.pbxSidePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbxSidePanel.Name = "pbxSidePanel";
-            this.pbxSidePanel.Size = new System.Drawing.Size(133, 562);
+            this.pbxSidePanel.Size = new System.Drawing.Size(100, 457);
             this.pbxSidePanel.TabIndex = 107;
             this.pbxSidePanel.TabStop = false;
             // 
@@ -455,6 +455,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ctrlEditProfile";
             this.Size = new System.Drawing.Size(1080, 607);
+            this.Load += new System.EventHandler(this.ctrlEditProfile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxProfile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSidePanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBottomPanel)).EndInit();
