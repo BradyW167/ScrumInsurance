@@ -23,7 +23,7 @@ namespace ScrumInsurance
             Connection = new DatabaseConnection();
 
             // Stores path to config.json
-            string filePath = Path.Combine(AppContext.BaseDirectory, "config.json"); ;
+            string filePath = Path.Combine(AppContext.BaseDirectory, "Database", "config.json");
 
             // Read database info from input file path
             DatabaseConfig dbConfig = ReadDatabaseConfig(filePath);
@@ -89,9 +89,15 @@ namespace ScrumInsurance
             Row account_data = new Row();
 
             // If a matching account was found, store first matching row in account_data Row object
-            if (account != null) { account_data = account[0]; }
+            if (account != null) {
+                Console.WriteLine("User '" + username + "' found");
+                account_data = account[0];
+            }
             // Else no matching account was found, return null
             else { return null; }
+
+            // Print account data row
+            Console.WriteLine(account_data);
 
             // Create account object from found account data
             Account found_account = new Account((string)account_data.Columns["username"],

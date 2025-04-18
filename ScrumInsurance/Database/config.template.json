@@ -1,5 +1,5 @@
 /* 
- * Copy this file's contents into a file titled 'config.json'
+ * Copy this file's contents into a file titled 'config.json' in this Database directory
  * Input database connection values into each line 
  * In the properties for the file set 'Copy to output directory' to 'Always True'
  * 
