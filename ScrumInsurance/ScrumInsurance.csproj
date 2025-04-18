@@ -126,8 +126,8 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="Claim.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="Client.cs" />
-    <Compile Include="DatabaseConfig.cs" />
     <Compile Include="Ctrls\ctrlAdminLanding.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -215,8 +215,9 @@
     <Compile Include="Ctrls\ScrumUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DatabaseConnection.cs" />
-    <Compile Include="DatabaseController.cs" />
+    <Compile Include="Database\DatabaseConfig.cs" />
+    <Compile Include="Database\DatabaseConnection.cs" />
+    <Compile Include="Database\DatabaseController.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,10 +289,10 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="config.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Include="Database\config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="config.template.json" />
+    <None Include="Database\config.template.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -62,20 +62,6 @@ namespace ScrumInsurance
             Connection.Close();
         }
 
-        public bool CheckDuplicateUsername(string username)
-        {
-            // Create parameter dictionary for login query
-            Dictionary<string, object> user_info = new Dictionary<string, object>
-            {
-                { "username", (object)username }
-            };
-
-            SelectQuery("User", user_info);
-
-            // Returns true on matching username found, false if not found
-            return Reader.HasRows;
-        }
-
         //attempt at making a datarequest function that passes back a library
         public Dictionary<int, object[]> DataRequestAll(string tableName, Dictionary<string, object> args, string[] columns)
         {
@@ -314,23 +300,5 @@ namespace ScrumInsurance
             // Return true for successful update, return false on no changes
             return result > 0;
         }
-
-        public void printData(MySqlDataReader dr)
-        {
-            while (Reader.Read()) // Iterate through each row
-            {
-                object[] values = new object[Reader.FieldCount]; // Create array to hold all field values
-                Reader.GetValues(values); // Get all values
-
-                for (int i = 0; i < values.Length; i++)
-                {
-                    Console.WriteLine($"{Reader.GetName(i)}: {values[i]}");
-                }
-
-                Console.WriteLine("-------------");
-            }
-        }
-
-
     }
 }

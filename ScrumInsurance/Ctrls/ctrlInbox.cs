@@ -10,14 +10,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using MySqlX.XDevAPI.Relational;
+using Org.BouncyCastle.Asn1.Crmf;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ScrumInsurance
 {
     public partial class ctrlInbox : ScrumUserControl
     {
-        private int messageCount_ = 0;
-        public ctrlInbox(Session session, DatabaseController DBController)
+        public int MessageCount { get; set; }
+        public int LoadedMessageID { get; set; }
+
+        public ctrlInbox()
         {
             InitializeComponent();
             lblHeader.Hide();
@@ -26,31 +29,25 @@ namespace ScrumInsurance
             lblContents.Hide();
             lblClaim.Hide();
             pnlMessageContents.Hide();
-
-            //these are the columns we want to grab for the select query
-            string[] columns = { "Sender", "Message_Date", "Message_Subject", "Message_ID"};
-
-            //these set the args. 
-            Dictionary<String, Object> args = new Dictionary<String, Object>();
-            args.Add("Recipient", session.UserAccount.Username);
-            Console.WriteLine(session.UserAccount.Username);
-
-            Dictionary<int, object[]> messageList = DBController.MessageInformation(args, columns);
-            for (int i = 0; i < messageList.Count; i++)
-            {
-                object[] messageDetails = messageList[i];
-                addMessage(messageDetails[0].ToString(), messageDetails[2].ToString(), messageDetails[1].ToString(), messageDetails[3]);
-                Console.WriteLine(messageDetails[0] + ", "+ messageDetails[1] + ", " + messageDetails[2] + ", ");
-            }
-
-            
-
         }
 
-        private void addMessage(string sender, string subject, string date, object id)
+        private void ctrlInbox_Load(object sender, EventArgs e)
         {
-            messageCount_++;
-            //view button
+            // Stores messages in a list for account tied to Session username
+            List<Message> messages = DBController.GetMessages(Session.UserAccount.Username);
+
+            // Loop through each message
+            foreach (Message msg in messages)
+            {
+                AddMessage(msg);
+            }
+        }
+
+        private void AddMessage(Message msg)
+        {
+            MessageCount++;
+
+            // Create new button for this message and style it
             System.Windows.Forms.Button btn = new System.Windows.Forms.Button();
             btn.BackColor = Color.Azure;
             btn.Text = "View";
@@ -58,68 +55,74 @@ namespace ScrumInsurance
             btn.FlatStyle = FlatStyle.Popup;
             btn.TextAlign = ContentAlignment.MiddleCenter;
             btn.Width = 40;
-            btn.Location = new Point(170, (messageCount_ * 60) -25);
-            //we store the messageID in the buttons tag so that it can be called later using the sender in the click function. 
-            btn.Tag = id;
+            btn.Location = new Point(170, (MessageCount * 60) -25);
+
+            // Store message id in button btn's 'Tag' property
+            btn.Tag = msg.ID;
+
+            // Add click handler to button btn
             btn.Click += new System.EventHandler(this.btnMessageA_Click);
+
+            // Add button btn to the message panel
             pnlMessages.Controls.Add(btn);
-            
 
+            // Create new label for this message and style it
+            Label lblMessage = new Label();
+            lblMessage.BackColor = Color.Azure;
+            lblMessage.TextAlign = ContentAlignment.MiddleLeft;
+            lblMessage.Location = new Point(10, (MessageCount * 60) - 40);
+            lblMessage.Width = 210;
+            lblMessage.Height = 50;
 
-            //message textbox
-            Label msg = new Label();
-            msg.BackColor = Color.Azure;
-            msg.TextAlign = ContentAlignment.MiddleLeft;
-            msg.Text = "Sender: " + sender + "\nSubject: " + subject + "\nDate: " + date;
-            msg.Location = new Point(10, (messageCount_ * 60) - 40);
-            msg.Width = 210;
-            msg.Height = 50;
-            pnlMessages.Controls.Add(msg);
+            // Show message info as label text
+            lblMessage.Text = "Sender: " + msg.Sender + "\nSubject: " + msg.Subject + "\nDate: " + msg.Date;
+
+            // Add lblMessage to the message panel
+            pnlMessages.Controls.Add(lblMessage);
         }
 
         private void btnMessageA_Click(object sender, EventArgs e)
         {
-            //this unloads any previous control in the panel. 
+            // Create a new button using the input sender object
+            System.Windows.Forms.Button btn = sender as System.Windows.Forms.Button;
+
+            // Get the message_id for this btn's message from its tag value
+            int message_id = int.Parse(btn.Tag.ToString());
+
+            // If this message is already loaded, return
+            if (message_id == LoadedMessageID) return;
+
+            // Store this message's id as the loaded message
+            LoadedMessageID = message_id;
+
+            // Unload previous message from contents panel
             if (pnlMessageContents.Controls.Count > 0)
             {
                 pnlMessageContents.Controls.RemoveAt(0);
             }
 
-            //this creates a new button using sender as a button
-            System.Windows.Forms.Button btn = sender as System.Windows.Forms.Button;
-            //because the sender is always a button created in the addMessage method, it will have the id stored in the tag which we can grab. 
-            int messageId = int.Parse((btn.Tag).ToString());
-
-            //columns for query 
-            string[] messageColumns = { "Sender", "Message_Date", "Message_Subject",  "Message_Content", "Claim_ID"};
-
-            //these set the args. 
-            Dictionary<String, Object> args = new Dictionary<String, Object>();
-            args.Add("Message_ID", messageId);
-
-            //call the query and get the details
-            Dictionary<int, object[]> messageList = DBController.MessageInformation(args, messageColumns);
-            object[] messageDetails = messageList[0]; // because messageID is unique, we only need [0]
+            // Get the message for messageID
+            Message message = DBController.GetMessage(message_id);
 
             //assign to lables and show
-            lblSender.Text = "Sender: " + messageDetails[0].ToString();
+            lblSender.Text = "Sender: " + message.Sender;
             lblSender.Show();
 
-            lblDate.Text = messageDetails[1].ToString().Split(' ')[0];
+            Console.WriteLine(message);
+
+            lblDate.Text = message.Date.Split(' ')[0];
             lblDate.Show();
 
-            lblHeader.Text = messageDetails[2].ToString();
+            lblHeader.Text = message.Subject;
             lblHeader.Show();
 
-            String messageContent = messageDetails[3].ToString();
+            String messageContent = message.Content;
             pnlMessageContents.Show();
 
-            lblClaim.Text = "Claim ID: " + messageDetails[4].ToString();
+            lblClaim.Text = "Claim ID: " + message.ID;
             lblClaim.Show();
 
-
-            //adds the contents to the panel. 
-
+            // Create label for message and style it
             Label msg = new Label();
             msg.BackColor = Color.Azure;
             msg.TextAlign = ContentAlignment.TopLeft;

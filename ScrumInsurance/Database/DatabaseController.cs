@@ -11,6 +11,8 @@ using MySql.Data.MySqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Management;
 using Org.BouncyCastle.Asn1.Mozilla;
+using System.Windows.Forms;
+using System.Security.Claims;
 
 namespace ScrumInsurance
 {
@@ -126,6 +128,7 @@ namespace ScrumInsurance
             };
 
             List<Row> claims = Connection.SelectQuery("Claim", client_id, claim_info);
+
             if (claims != null)
             {
                 foreach (Row claim in claims)
@@ -242,8 +245,65 @@ namespace ScrumInsurance
             return rows != null && rows.Count > 0;
         }
 
-        public Dictionary<int, object[]> MessageInformation(Dictionary<string, object> args, string[] columns)
+        // Gets input user messages and returns them as a list
+        public List<Message> GetMessages(string username)
         {
+            // Create parameter dictionary for account username as recipient
+            Dictionary<String, Object> args = new Dictionary<String, Object>
+            {
+                {"Recipient", username }
+            };
+
+            string[] columns = { "Message_ID", "Message_Subject", "Sender", "Message_Date" };
+
+            List<Row> rows = Connection.SelectQuery("Message", args, columns);
+
+            // Stores messages to return in list
+            List<Message> messages = new List<Message>();
+
+            foreach (Row row in rows)
+            {
+                Message msg = new Message(row);
+
+                messages.Add(msg);
+            }
+
+            return messages;
+        }
+
+        // Get message data from input message ID
+        public Message GetMessage(int message_id)
+        {
+            // Create parameter dictionary for message ID
+            Dictionary<String, Object> args = new Dictionary<String, Object>
+            {
+                {"Message_ID", message_id }
+            };
+
+            // Columns needed for message information
+            string[] columns = { "Message_ID", "Message_Content", "Message_Subject", "Sender", "Recipient", "Message_Date" };
+
+            // Store select query results
+            List <Row> rows = Connection.SelectQuery("Message", args, columns);
+
+            // If a matching row was found, create a message object with it and return it
+            if (rows != null) { return new Message(rows[0]); }
+            // Else return null
+            else { return null; }
+        }
+
+        // Gets input user's message info
+        public Dictionary<int, object[]> MessageInformation(string username)
+        {
+            // Create parameter dictionary for account username as recipient
+            Dictionary<String, Object> args = new Dictionary<String, Object>
+            {
+                {"Recipient", username }
+            };
+
+            // Columns needed for message information
+            string[] columns = { "Sender", "Message_Date", "Message_Subject", "Message_ID" };
+
             return Connection.DataRequestAll("Message", args, columns);
         }
 
