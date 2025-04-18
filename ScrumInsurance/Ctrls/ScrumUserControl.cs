@@ -24,17 +24,17 @@ namespace ScrumInsurance
 
         // When called without an input control to load
         // Load this control into the parent panel
-        public void loadControl() { loadControl(this, 0, 0); }
+        public void LoadControl() { LoadControl(this, 0, 0); }
 
         // Creates a new row in the table and loads the dashboard
-        public void loadCtrlDash()
+        public void LoadCtrlDash()
         {
             // Initialize dashboard control if not already
             if (Session.CtrlDashboard == null) {
                 Session.CtrlDashboard = new ctrlDashboard();
 
                 // Load the dashboard control into first row
-                loadControl(Session.CtrlDashboard, 0, 0);
+                LoadControl(Session.CtrlDashboard, 0, 0);
 
                 // Set the row to a fixed size of 50 pixels
                 PnlMain.RowStyles[0] = new RowStyle(SizeType.Absolute, 50);
@@ -42,7 +42,7 @@ namespace ScrumInsurance
         }
 
         // Loads a new control into the main control row
-        public void loadCtrlMain(ScrumUserControl newCtrl)
+        public void LoadCtrlMain(ScrumUserControl newCtrl)
         {
             // Set session object for main control to newCtrl
             Session.CtrlMain = newCtrl;
@@ -51,13 +51,13 @@ namespace ScrumInsurance
             if (Session.CtrlDashboard == null)
             {
                 // Load the new main control into first row
-                loadControl(Session.CtrlDashboard, 0, 0);
+                LoadControl(Session.CtrlDashboard, 0, 0);
             }
             // Else dashboard does exist
             else
             {
                 // Load the new main control into second row
-                loadControl(Session.CtrlDashboard, 1, 0);
+                LoadControl(Session.CtrlDashboard, 1, 0);
             }
         }
 
@@ -68,7 +68,7 @@ namespace ScrumInsurance
             if (Session.CtrlDashboard != null)
             {
                 // Remove the dashboard control
-                removeControl(Session.CtrlDashboard);
+                RemoveControl(Session.CtrlDashboard);
 
                 // Set dashboard property back to null after deletion
                 Session.CtrlDashboard = null;
@@ -82,7 +82,7 @@ namespace ScrumInsurance
         }
 
         // Load input control into parent table layout panel at input column and row
-        public void loadControl(ScrumUserControl newCtrl, int columnIndex, int rowIndex)
+        public void LoadControl(ScrumUserControl newCtrl, int columnIndex, int rowIndex)
         {
 
             // Return if main panel does not exist
@@ -132,7 +132,7 @@ namespace ScrumInsurance
          * Remove control by position in table
          * Defaults to first column and row
          */
-        private void removeControl(ScrumUserControl control)
+        private void RemoveControl(ScrumUserControl control)
         {
             // If multiple rows exist...
             if (PnlMain.RowCount > 1)
@@ -168,7 +168,7 @@ namespace ScrumInsurance
         }
 
         // Deletes this user control in parent panel and loads a new input control
-        public void swapCtrlMain(ScrumUserControl newControl)
+        public void SwapCtrlMain(ScrumUserControl newControl)
         {
             // Do not swap if new control is of the same type
             if (Session.CtrlMain.GetType() == newControl.GetType()) { return; }
@@ -182,7 +182,7 @@ namespace ScrumInsurance
             Session.CtrlMain.Dispose();
 
             // Load the new control into the main control's position
-            loadControl(newControl, columnIndex, rowIndex);
+            LoadControl(newControl, columnIndex, rowIndex);
 
             Session.CtrlMain = newControl;
         }

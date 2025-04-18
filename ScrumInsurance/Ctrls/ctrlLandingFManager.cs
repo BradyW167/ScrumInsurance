@@ -23,7 +23,7 @@ namespace ScrumInsurance
 
         private void lblLogout_Click(object sender, EventArgs e)
         {
-            this.swapCtrlMain(new ctrlLogin());
+            this.SwapCtrlMain(new ctrlLogin());
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace ScrumInsurance
 
         private void btnClaimsList_Click(object sender, EventArgs e)
         {
-            swapCtrlMain(new ctrlClaimsList(Session, DBController));
+            SwapCtrlMain(new ctrlClaimsList(Session, DBController));
         }
     }
 }

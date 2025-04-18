@@ -55,28 +55,28 @@ namespace ScrumInsurance
                 // Load landing page, admins go to admin page, clients go to new client page, decided by role column in database
                 if (Session.UserAccount.Role.Equals("admin"))
                 {
-                    swapCtrlMain(new ctrlAdminLanding());
-                    loadCtrlDash();
+                    SwapCtrlMain(new ctrlAdminLanding());
+                    LoadCtrlDash();
                 }
                 else if (Session.UserAccount.Role.Equals("client"))
                 {
-                    swapCtrlMain(new ctrlLandingClient(Session));
-                    loadCtrlDash();
+                    SwapCtrlMain(new ctrlLandingClient(Session));
+                    LoadCtrlDash();
                 }
                 else if (Session.UserAccount.Role.Equals("claim_manager"))
                 {
-                    swapCtrlMain(new ctrlLandingCManager());
-                    loadCtrlDash();
+                    SwapCtrlMain(new ctrlLandingCManager());
+                    LoadCtrlDash();
                 }
                 else if (Session.UserAccount.Role.Equals("finance_manager"))
                 {
-                    swapCtrlMain(new ctrlLandingFManager());
-                    loadCtrlDash();
+                    SwapCtrlMain(new ctrlLandingFManager());
+                    LoadCtrlDash();
                 }
                 else
                 {
-                    swapCtrlMain(new ctrlLandingClient(Session));
-                    loadCtrlDash();
+                    SwapCtrlMain(new ctrlLandingClient(Session));
+                    LoadCtrlDash();
                 }
             }
             // Error if account with correct username & password isn't found
@@ -88,12 +88,12 @@ namespace ScrumInsurance
 
         private void lbl_createAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            swapCtrlMain(new ctrlCreateAccount());
+            SwapCtrlMain(new ctrlCreateAccount());
         }
 
         private void lbl_ForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            swapCtrlMain(new ctrlForgotPass());
+            SwapCtrlMain(new ctrlForgotPass());
         }
 
         private void pbxShowPassword_MouseDown(object sender, MouseEventArgs e)

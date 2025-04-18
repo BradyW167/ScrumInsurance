@@ -64,7 +64,7 @@ namespace ScrumInsurance
         {
             if (DBController.DeleteAccount(Session.UserAccount.Username))
             {
-                this.swapCtrlMain(new ctrlLogin());
+                this.SwapCtrlMain(new ctrlLogin());
             }
             else
             {

@@ -299,16 +299,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="src\hide_password_eye.png" />
-    <Content Include="src\show_password_eye.png" />
-    <None Include="src\bluecity.jpg" />
-    <Content Include="src\istockphoto-1411968933-612x612.jpg" />
-    <Content Include="src\login-background3.jpg" />
-    <Content Include="src\scrum-background.jpg" />
-    <Content Include="src\scrum-background2.jpg" />
-    <Content Include="src\scrum-logo.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup />

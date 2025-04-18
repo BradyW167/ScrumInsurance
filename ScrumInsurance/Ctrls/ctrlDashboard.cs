@@ -24,7 +24,7 @@ namespace ScrumInsurance
 
         private void lblLogout_Click(object sender, EventArgs e)
         {
-            swapCtrlMain(new ctrlLogin());
+            SwapCtrlMain(new ctrlLogin());
             removeDash();
         }
 
@@ -37,27 +37,27 @@ namespace ScrumInsurance
         {
             if (Session.UserAccount.Role == "client")
             {
-                swapCtrlMain(new ctrlLandingClient(Session));
+                SwapCtrlMain(new ctrlLandingClient(Session));
             }
             else if (Session.UserAccount.Role == "claim_manager")
             {
-                swapCtrlMain(new ctrlLandingCManager());
+                SwapCtrlMain(new ctrlLandingCManager());
             }
             else if (Session.UserAccount.Role == "admin")
             {
-                swapCtrlMain(new ctrlLandingCManager());
+                SwapCtrlMain(new ctrlLandingCManager());
             }
 
         }
 
         private void btnAccount_Click(object sender, EventArgs e)
         {
-            swapCtrlMain(new ctrlEditProfile(Session));
+            SwapCtrlMain(new ctrlEditProfile(Session));
         }
 
         private void btnInbox_Click(object sender, EventArgs e)
         {
-            swapCtrlMain(new ctrlInbox(Session, DBController));
+            SwapCtrlMain(new ctrlInbox(Session, DBController));
         }
     }
 }

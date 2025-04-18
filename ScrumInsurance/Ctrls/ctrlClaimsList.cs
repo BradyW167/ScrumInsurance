@@ -80,7 +80,7 @@ namespace ScrumInsurance
         {
             System.Windows.Forms.Button btn = sender as System.Windows.Forms.Button;
             int claimId = int.Parse((btn.Tag).ToString());
-            swapCtrlMain(new ctrlClaimViewer(DBController, claimId, session_));
+            SwapCtrlMain(new ctrlClaimViewer(DBController, claimId, session_));
         }
     }
 }

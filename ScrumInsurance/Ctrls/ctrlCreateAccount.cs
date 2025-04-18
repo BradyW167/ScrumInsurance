@@ -18,7 +18,6 @@ namespace ScrumInsurance
         public ctrlCreateAccount()
         {
             InitializeComponent();
-            lblCreateAccountError.Text = "";
         }
 
         private void ctrlCreateAccount_Load(object sender, EventArgs e) {}
@@ -26,74 +25,58 @@ namespace ScrumInsurance
         //Check if username, password and email are valid (not blank, classic password requirements)
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            
-            if (txtCreatePassword.Text.Length < 8)
-            {
-                lblCreateAccountError.Text = "Password must be atleast 8 characters";
-            }
-            
-            
-
-            else if (txtCreateUsername.Text.Length < 8)
-            {
-                lblCreateAccountError.Text = "Username must be atleast 8 characters";
-            }
+            // If input account info is invalid, return
+            if(!this.ValidateChildren()) { return; }
+            // Else input account info is valid
             else
             {
                 Account new_account = new Account(txtCreateUsername.Text, txtCreatePassword.Text, "client", cmbSecurityQuestion.Text, txtCreateAnswer.Text);
 
                 // If account is sucessfully added...
                 if (DBController.AddAccount(new_account)) {
-                    this.swapCtrlMain(new ctrlLogin());
+                    this.SwapCtrlMain(new ctrlLogin());
                 }
-                // Else account creation failed due to duplicate info
+                // Else account creation failed due to database error
                 else
                 {
-                    lblCreateAccountError.Text = "Username or password already exists";
+                    errCreateAccount.SetError(btnCreateAccount, "Database Error: Cannot create account");
                 }
-
             }
         }
 
         private void lblBackLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Takes the user back to the login page
-            this.swapCtrlMain(new ctrlLogin());
+            this.SwapCtrlMain(new ctrlLogin());
+        }
+
+        private void txtCreateUsername_Validating(object sender, CancelEventArgs e)
+        {
+            // Stores errors if input password is invalid
+            string errors = DBController.ValidateUsername(txtCreateUsername.Text);
+
+            // If any errors were found, set the error message in error provider
+            if (errors.Length > 0) { e.Cancel = true; }
+
+            // Show the error text to user
+            else { errCreateAccount.SetError(txtCreateUsername, errors); }
         }
 
         private void txtCreatePassword_Validating(object sender, CancelEventArgs e)
         {
-            StringBuilder errorMessages = new StringBuilder(); //allows different + multiple error messages to be sent
+            // Stores errors if input password is invalid
+            string errors = DBController.ValidatePassword(txtCreatePassword.Text);
 
-            if (txtCreatePassword.Text.Length < 8)
-            {
-                errorMessages.AppendLine("Password must be at least 8 characters long");
-            }
-            if (!Regex.IsMatch(txtCreatePassword.Text, @"[A-Z]"))
-            {
-                errorMessages.AppendLine("Password must contain at least one uppercase letter");
-            }
-            if (!Regex.IsMatch(txtCreatePassword.Text, @"[a-z]"))
-            {
-                errorMessages.AppendLine("Password must contain at least one lowercase letter");
-            }
-            if (!Regex.IsMatch(txtCreatePassword.Text, @"[0-9]"))
-            {
-                errorMessages.AppendLine("Password must contain at least one digit");
-            }
-            if (!Regex.IsMatch(txtCreatePassword.Text, @"[\W_]"))
-            {
-                errorMessages.AppendLine("Password must contain at least one special character");
-            }
-            if (txtCreatePassword.Text.Contains(" "))
-            {
-                errorMessages.AppendLine("Password must not contain spaces");
-            }
+            // If any errors were found, set the error message in error provider
+            if (errors.Length > 0) { e.Cancel = true; }
 
-            if (errorMessages.Length > 0) //goes through errors
-            {
-                errCreateAccount.SetError(this, errorMessages.ToString());
-            }
+            // Show the error text to user
+            errCreateAccount.SetError(txtCreatePassword, errors);
+        }
+
+        private void cmbSecurityQuestion_Enter(object sender, EventArgs e)
+        {
+            BeginInvoke(new Action(() => cmbSecurityQuestion.DroppedDown = true));
         }
     }
 }
