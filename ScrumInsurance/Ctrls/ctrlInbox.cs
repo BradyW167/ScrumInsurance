@@ -33,8 +33,8 @@ namespace ScrumInsurance
 
         private void ctrlInbox_Load(object sender, EventArgs e)
         {
-            // Stores messages in a list for account tied to Session username
-            List<Message> messages = DBController.GetMessages(Session.UserAccount.Username);
+            // Stores messages in a list for account tied to Session User ID
+            List<Message> messages = DBController.GetMessageList(Session.UserAccount.ID);
 
             // Loop through each message
             foreach (Message msg in messages)
