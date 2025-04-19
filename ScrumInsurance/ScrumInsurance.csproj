@@ -126,6 +126,9 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="Claim.cs" />
+    <Compile Include="Queries\SelectQuery.cs" />
+    <Compile Include="Queries\Query.cs" />
+    <Compile Include="Query.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Ctrls\ctrlAdminLanding.cs">
