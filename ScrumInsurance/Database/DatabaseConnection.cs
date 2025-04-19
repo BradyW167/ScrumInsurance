@@ -11,6 +11,8 @@ using System.Windows.Forms.VisualStyles;
 using System.Collections;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using MySqlX.XDevAPI.Common;
+using ScrumInsurance.Queries;
+using MySqlX.XDevAPI.Relational;
 
 namespace ScrumInsurance
 {
@@ -29,6 +31,9 @@ namespace ScrumInsurance
         public MySqlConnection Connection { get; set; }
         public MySqlDataReader Reader { get; set; }
         public MySqlCommand Command { get; set; }
+
+        // Stores query objects for exectution here
+        public Queries.Query Query { get; set; }
 
         // Attempts to open a connection to a MySQL database.
         // Returns true on successful connection, false on failure
@@ -86,6 +91,84 @@ namespace ScrumInsurance
             Console.WriteLine("Select found no matching rows.");
             closeConnection();
             return rows;
+        }
+
+        // Returns a list of rows from executing a SelectQuery stored in Query
+        public List<Row> ExecuteSelect()
+        {
+            Queries.SelectQuery sq = Query as Queries.SelectQuery;
+
+            // If Query was not a SelectQuery object, then the cast failed, return null
+            if (sq == null)
+            {
+                Console.WriteLine("DatabaseConnection.Query not of type SelectQuery");
+                return null;
+            }
+
+            // Open SQL connection for queries
+            if (!openConnection())
+            {
+                Console.WriteLine("Select Query: Connection failed, returning null");
+                return null;
+            }
+
+            // Initialize command to query database
+            Command = Connection.CreateCommand();
+
+            // Store parameterized SelectQuery converted to string in Command
+            Command.CommandText = sq.ToString();
+
+            // Passes the actual values into the command
+            sq.InsertParameters(Command);
+
+            // Execute command and input results into reader
+            using (Reader = Command.ExecuteReader())
+            {
+                // If matching data was not found in the database...
+                if (!Reader.HasRows)
+                {
+                    Console.WriteLine("Select Query: Reader has no rows, returning null");
+                    return null;
+                }
+                // Else matching data was found
+                else
+                {
+                    // Stores return data
+                    List<Row> rows = new List<Row>();
+
+                    // Stores the names of the requested columns
+                    List<string> columns = sq.RequestColumns;
+
+                    // Read through the found database entries
+                    while (Reader.Read())
+                    {
+                        Row row = new Row();
+
+                        // Loop for each column of data needed
+                        for (int i = 0; i < columns.Count; i++)
+                        {
+                            // Store each requested column of data
+                            row.AddColumn(columns[i], Reader[columns[i]]);
+                        }
+                        rows.Add(row);
+                    }
+
+                    return rows;
+                }
+            }
+        }
+
+        // Returns the first row from executing a SelectQuery stored in Query
+        public Row ExecuteSingleSelect()
+        {
+            List<Row> rows = ExecuteSelect();
+
+            Row account_data = new Row();
+
+            // If the select query returned any rows, return the first one
+            if (rows != null) { return rows[0]; }
+            // Else return null
+            else { return null; }
         }
 
         /* 
