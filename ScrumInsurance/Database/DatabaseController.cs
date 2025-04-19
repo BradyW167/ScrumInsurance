@@ -13,6 +13,7 @@ using System.Management;
 using Org.BouncyCastle.Asn1.Mozilla;
 using System.Windows.Forms;
 using System.Security.Claims;
+using SelectQuery = ScrumInsurance.Queries.SelectQuery;
 
 namespace ScrumInsurance
 {
@@ -63,21 +64,15 @@ namespace ScrumInsurance
             // Get the account from input username
             Account found_account = GetAccountByUsername(username);
 
+            if (found_account == null) return null;
+
             // Return the found account if its password matches input password, null if not
             return found_account.Password.Equals(password) ? found_account : null;
         }
 
         public Account GetAccountByUsername(string username)
         {
-            // Create parameter dictionary for username
-            Dictionary<string, object> username_dictionary = new Dictionary<string, object>
-            {
-                { "username", (object)username }
-            };
-
-            // Create string array of necessary column names for account info
-            string[] account_columns =
-            {
+            List<string> account_columns = new List<string> {
                 "user_id",
                 "username",
                 "password",
@@ -86,28 +81,15 @@ namespace ScrumInsurance
                 "security_answer"
             };
 
-            // Stores account that match the input username
-            List<Row> account = Connection.SelectQuery("User", username_dictionary, account_columns);
-            Row account_data = new Row();
+            Connection.Query = new SelectQuery(account_columns).From("users").Where("username", "=", username);
 
-            // If a matching account was found, store first matching row in account_data Row object
-            if (account != null) {
-                Console.WriteLine("User '" + username + "' found");
-                account_data = account[0];
-            }
-            // Else no matching account was found, return null
-            else { return null; }
+            Row account_row = Connection.ExecuteSingleSelect();
 
-            // Print account data row
-            Console.WriteLine(account_data);
+            // Return null, if no account with input username was found
+            if (account_row == null) return null;
 
             // Create account object from found account data
-            Account found_account = new Account((string)account_data.Columns["username"],
-                                    (string)account_data.Columns["password"],
-                                    (string)account_data.Columns["role"],
-                                    (string)account_data.Columns["security_question"],
-                                    (string)account_data.Columns["security_answer"],
-                                    (int)account_data.Columns["user_id"]);
+            Account found_account = new Account(account_row);
 
             return found_account;
         }
@@ -119,15 +101,18 @@ namespace ScrumInsurance
                 { "Client_ID", account_data.Columns["user_id"] } 
             };
 
-            string[] claim_info =
-            {
-                "Claim_Title",
-                "Claim_Content",
-                "Claim_Status",
-                "Claim_Amount"
+            List<string> claim_columns = new List<string> {
+                "title",
+                "content",
+                "status",
+                "amount"
             };
 
-            List<Row> claims = Connection.SelectQuery("Claim", client_id, claim_info);
+            string user_id = account_data.Columns["user_id"].ToString();
+
+            Connection.Query = new SelectQuery(claim_columns).From("claims").Where("user_id", "=", user_id);
+
+            List<Row> claims = Connection.ExecuteSelect();
 
             if (claims != null)
             {
@@ -136,7 +121,6 @@ namespace ScrumInsurance
                     client_account.AddClaim(claim.Columns["Claim_Title"] + "", claim.Columns["Claim_Content"] + "", claim.Columns["Claim_Status"] + "", (int)claim.Columns["Claim_Amount"]);
                 }
             }
-
         }
 
         // Adds input account object data to database using insert query
@@ -153,7 +137,7 @@ namespace ScrumInsurance
             };
 
             // Insert new account into database, return bool for success or failure
-            return Connection.InsertQuery("User", account_info);
+            return Connection.InsertQuery("users", account_info);
         }
 
         /**
@@ -183,8 +167,10 @@ namespace ScrumInsurance
         // Checks if input username already exists in database
         public bool CheckDuplicateUsername(string username)
         {
+            Connection.Query = new SelectQuery("username").From("users").Where("username", "=", username);
+
             // If the new account has a duplicated username, return false
-            List<Row> rows = Connection.SelectQuery("User", new Dictionary<string, object> { { "username", (object)username } }, new string[] { "username" });
+            List<Row> rows = Connection.ExecuteSelect();
 
             // Return true when a duplicate username is found, false when not
             return rows != null && rows.Count > 0;
@@ -238,25 +224,24 @@ namespace ScrumInsurance
         // Checks if input password already exists in database
         public bool CheckDuplicatePassword(string password)
         {
+            Connection.Query = new SelectQuery("password").From("users").Where("password", "=", password);
+
             // If the new account has a duplicated username, return false
-            List<Row> rows = Connection.SelectQuery("User", new Dictionary<string, object> { { "password", (object)password } }, new string[] { "password" });
+            List<Row> rows = Connection.ExecuteSelect();
 
             // Return true when a duplicate username is found, false when not
             return rows != null && rows.Count > 0;
         }
 
-        // Gets input user messages and returns them as a list
-        public List<Message> GetMessages(string username)
+        // Returns messages for input user id as a List of Message objects
+        public List<Message> GetMessageList(int user_id)
         {
-            // Create parameter dictionary for account username as recipient
-            Dictionary<String, Object> args = new Dictionary<String, Object>
-            {
-                {"Recipient", username }
-            };
+            Connection.Query = new SelectQuery(new List<string> { "id", "subject", "sender_id", "date" }).From("messages").Where("recipient_id", "=", user_id.ToString());
 
-            string[] columns = { "Message_ID", "Message_Subject", "Sender", "Message_Date" };
+            // If the new account has a duplicated username, return false
+            List<Row> rows = Connection.ExecuteSelect();
 
-            List<Row> rows = Connection.SelectQuery("Message", args, columns);
+            if (rows == null) return null;
 
             // Stores messages to return in list
             List<Message> messages = new List<Message>();
@@ -274,17 +259,10 @@ namespace ScrumInsurance
         // Get message data from input message ID
         public Message GetMessage(int message_id)
         {
-            // Create parameter dictionary for message ID
-            Dictionary<String, Object> args = new Dictionary<String, Object>
-            {
-                {"Message_ID", message_id }
-            };
-
-            // Columns needed for message information
-            string[] columns = { "Message_ID", "Message_Content", "Message_Subject", "Sender", "Recipient", "Message_Date" };
+            Connection.Query = new SelectQuery(new List<string> { "id", "sender_id", "recipient_id", "subject", "content", "date" }).From("messages").Where("id", "=", message_id.ToString());
 
             // Store select query results
-            List <Row> rows = Connection.SelectQuery("Message", args, columns);
+            List<Row> rows = Connection.ExecuteSelect();
 
             // If a matching row was found, create a message object with it and return it
             if (rows != null) { return new Message(rows[0]); }
@@ -292,39 +270,24 @@ namespace ScrumInsurance
             else { return null; }
         }
 
-        // Gets input user's message info
-        public Dictionary<int, object[]> MessageInformation(string username)
-        {
-            // Create parameter dictionary for account username as recipient
-            Dictionary<String, Object> args = new Dictionary<String, Object>
-            {
-                {"Recipient", username }
-            };
-
-            // Columns needed for message information
-            string[] columns = { "Sender", "Message_Date", "Message_Subject", "Message_ID" };
-
-            return Connection.DataRequestAll("Message", args, columns);
-        }
-
         public Dictionary<int, object[]> ClaimInformation(Dictionary<string, object> args, string[] columns)
         {
-            return Connection.DataRequestAll("Claim", args, columns);
+            return Connection.DataRequestAll("claims", args, columns);
         }
 
         public bool UpdateAccount(string username, Dictionary<string, object> args)
         {
-            return Connection.UpdateQuery("User", new Dictionary<string, object> { { "username", username } }, args);
+            return Connection.UpdateQuery("users", new Dictionary<string, object> { { "username", username } }, args);
         }
 
         public bool DeleteAccount(string username)
         {
-            return Connection.DeleteQuery("User", new Dictionary<string, object> { { "username", username } });
+            return Connection.DeleteQuery("users", new Dictionary<string, object> { { "username", username } });
         }
 
         public bool SubmitClaim(int userID, string title, string content, int amount)
         {
-            return Connection.InsertQuery("Claim", new Dictionary<string, object> {
+            return Connection.InsertQuery("claims", new Dictionary<string, object> {
                 { "Client_ID", userID },
                 { "Claim_Title", title },
                 { "Claim_Content", content },
@@ -336,7 +299,7 @@ namespace ScrumInsurance
 
         public bool UpdateClaim(object claimID, string status)
         {
-            return Connection.UpdateQuery("Claim", new Dictionary<string, object> { { "Claim_ID", claimID } }, new Dictionary<string, object> { { "Claim_Status", status } });
+            return Connection.UpdateQuery("claims", new Dictionary<string, object> { { "Claim_ID", claimID } }, new Dictionary<string, object> { { "Claim_Status", status } });
         }
 
         public bool UploadDocument(string file_name, byte[] file_data)
@@ -349,7 +312,7 @@ namespace ScrumInsurance
             };
 
             // Upload document
-            return Connection.InsertQuery("Document", document_info);
+            return Connection.InsertQuery("documents", document_info);
         }
     }
 }
