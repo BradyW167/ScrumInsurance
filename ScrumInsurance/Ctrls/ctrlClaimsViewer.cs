@@ -15,6 +15,8 @@ namespace ScrumInsurance
     {
         private object[] claimDetails;
         private string role;
+        private int id;
+        private string status;
 
         public ctrlClaimViewer(DatabaseController dbController, int claim_id, Session session)
         {
@@ -24,27 +26,56 @@ namespace ScrumInsurance
 
             // Queries the database for input claim
             Claim claim = DBController.GetClaim(claim_id);
+            status = claim.Status.ToString();
+            lblStatusType.Text = status;
+            if (status == "Pending")
+            {
+                lblStatusType.ForeColor = Color.Olive;
+            }
+            else if (status == "Financing")
+            {
+                lblStatusType.ForeColor = Color.SeaGreen;
+            }
+            else if (status == "Approved")
+            {
+                lblStatusType.ForeColor = Color.Green;
+            }
+            else if (status == "Rejected")
+            {
+                lblStatusType.ForeColor = Color.Red;
+            }
 
             lblAmount.Text = claim.Amount.ToString();
-            lblStatusType.Text = claim.Status.ToString();
+            
             rtxDetails.Text = claim.Content.ToString();
+            id = claim_id;
+
         }
 
         private void btnApprove_Click(object sender, EventArgs e)
         {
             if (role.Equals("claim_manager"))
             {
-                DBController.UpdateClaim(claimDetails[4], "Financing");
+                if(DBController.UpdateClaim(id, "Financing")) 
+                {
+                    lblStatusType.Text = "Financing";
+                    lblStatusType.ForeColor = Color.SeaGreen;
+                }
+                
             }
             else if (role.Equals("finance_manager"))
             {
-                DBController.UpdateClaim(claimDetails[4], "Approved");
+                DBController.UpdateClaim(id, "Approved");
+                lblStatusType.Text = "Approved";
+                lblStatusType.ForeColor = Color.Green;
             }
         }
 
         private void btnReject_Click(object sender, EventArgs e)
         {
-            DBController.UpdateClaim(claimDetails[4], "Rejected");
+            DBController.UpdateClaim(id, "Rejected");
+            lblStatusType.Text = "Rejected";
+            lblStatusType.ForeColor = Color.Red;
         }
 
         private void btnReport_Click(object sender, EventArgs e)

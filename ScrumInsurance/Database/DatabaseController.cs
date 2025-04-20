@@ -352,7 +352,7 @@ namespace ScrumInsurance
         // Get claim data from input claim ID
         public Claim GetClaim(long claim_id)
         {
-            Connection.Query = new SelectQuery().From("messages").Where("id", "=", claim_id.ToString());
+            Connection.Query = new SelectQuery().From("claims").Where("id", "=", claim_id.ToString());
 
             // Store select query results
             List<Row> rows = Connection.ExecuteSelect();

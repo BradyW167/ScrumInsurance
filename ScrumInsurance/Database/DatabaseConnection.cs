@@ -353,8 +353,22 @@ namespace ScrumInsurance
                 " SET " + ConstructMatchingColumnQuery(", ", altArgs) +
                 " WHERE " + ConstructMatchingColumnQuery(" AND ", matchingArgs);
             Console.WriteLine(Command.CommandText = cmd);
-            return ExecuteNonQuery();
+            try
+            {
+                int numRows  = Command.ExecuteNonQuery();
+                return numRows > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Update failed: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                closeConnection();
+            }
         }
+
 
         public bool DeleteQuery(string tableName, Dictionary<string, object> args)
         {
