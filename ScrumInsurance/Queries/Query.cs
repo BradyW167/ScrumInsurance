@@ -3,31 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace ScrumInsurance.Queries
 {
-    public enum QueryType
+    public abstract class Query
     {
-        Select,
-        Insert,
-        Update,
-        Delete
-    }
-
-    public class Query
-    {
-        public QueryType Type { get; set; }
         public string TableName { get; set; }
 
-        public Query (QueryType type, string tableName)
+        public Query (string tableName)
         {
-            Type = type;
             TableName = tableName;
         }
 
-        public override string ToString()
-        {
-            return $"Query Type: {Type}\nTable: {TableName}";
-        }
+        public override abstract string ToString();
+
+        public abstract void InsertParameters(MySqlCommand cmd);
     }
 }
