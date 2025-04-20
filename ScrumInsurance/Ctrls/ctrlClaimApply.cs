@@ -21,19 +21,25 @@ namespace ScrumInsurance
         //upload documents
         private void btnBrowseDocument_Click(object sender, EventArgs e) //choose which file
         {
-            //make an instance of OpenFileDialog
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            
-            // Change to filter image files only .jpg .jpeg .png
-            openFileDialog.Filter = "All Files (*.*)|*.*"; //filter options
-            openFileDialog.FilterIndex = 1; //filter index
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "Select a Claim Document",
+                Filter = "Image Files|*.jpg;*.jpeg;*.png" +
+                         "|PDF Files|*.pdf" +
+                         "|Word Documents|*.doc;*.docx"
+                //I'm not really sure all the file types that are needed for applying for a claim, but this will limit 
+            };
+
+            // Show dialog + check a file was selected
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                
                 string filePath = openFileDialog.FileName; //get the path of specified file
                 txtFilepaths.Text = filePath; // displays into the txtbox
                 lblFileName.Text = Path.GetFileName(filePath); //shows the file name
+                // Load the image - pbx to display document (?)
+                //pbxDocumentPreview.ImageLocation = openFileDialog.FileName;
             }
+
         }
         private byte[] ReadFile(string filePath)  //reads the uploaded document into an array
         {
@@ -47,12 +53,13 @@ namespace ScrumInsurance
                 return fileData;
             }
         }
-        private void btnUploadDocuments_Click(object sender, EventArgs e) //uploads to database
+        private void btnUploadDocuments_Click(object sender, EventArgs e) //uploads the ARRAY to the database
         {
+            //need insert method for upload document, needs to go into the documents table
             string file_path = txtFilepaths.Text;
             byte[] file_data = ReadFile(file_path);
             string file_name = Path.GetFileName(file_path);
-
+           
             if (DBController.UploadDocument(file_name, file_data))
             {
                 MessageBox.Show("File uploaded successfully!");
