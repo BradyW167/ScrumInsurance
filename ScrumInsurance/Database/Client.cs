@@ -16,7 +16,7 @@ namespace ScrumInsurance
         {
             Claims = new List<Claim>();
         }
-
+        //Can this be combined with the base constructor? (the one that is based off the account class)
         public Client(string username, string password, string role, string securityQuestion, string securityAnswer, long id = 0) : base(username, password, role, securityQuestion, securityAnswer, id)
         {
             Claims = new List<Claim>();
