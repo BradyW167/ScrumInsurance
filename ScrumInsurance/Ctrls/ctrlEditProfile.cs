@@ -24,8 +24,8 @@ namespace ScrumInsurance
             txtNewPass.Text = Session.UserAccount.Password;
             //needs to be added
             //pbxProfile.Image = session.Profile
-            //txtFirstName.Text = session.FirstName;
-            //txtLastName.Text = session.LastName;
+            //txtFirstName.Text = Session.UserAccount.FirstName;
+            //txtLastName.Text = Session.UserAccount.LastName;
             //txtDOB.Text = session.DOB
         }
 
