@@ -1,6 +1,6 @@
 ﻿namespace ScrumInsurance
 {
-    partial class ClaimApply
+    partial class ctrlClaimApply
     {
         /// <summary> 
         /// Required designer variable.

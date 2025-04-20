@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace ScrumInsurance
 {
-    public partial class ClaimApply : ScrumUserControl
+    public partial class ctrlClaimApply : ScrumUserControl
     {
-        public ClaimApply()
+        public ctrlClaimApply()
         {
             InitializeComponent();
         }

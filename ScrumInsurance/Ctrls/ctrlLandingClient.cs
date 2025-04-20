@@ -87,7 +87,7 @@ namespace ScrumInsurance
 
         private void btnNewClaim_Click(object sender, EventArgs e)
         {
-            this.SwapCtrlMain(new ClaimApply());
+            this.SwapCtrlMain(new ctrlClaimApply());
         }
     }
 }
