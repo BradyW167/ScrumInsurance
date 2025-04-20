@@ -35,17 +35,26 @@ namespace ScrumInsurance
             }
 
 
-            Dictionary<int, object[]> claimList = DBController.ClaimInformation(args, columns);
+            List<Claim> claimList = DBController.GetClaimList(int.Parse(session.UserAccount.ID));
+
+            // Loop through each message
+            foreach (Claim clm in claimList)
+            {
+                addClaim(clm);
+            }
+
+
+            /*Dictionary<int, object[]> claimList = DBController.ClaimInformation(args, columns);
             for (int i = 0; i < claimList.Count; i++)
             {
                 object[] claimDetails = claimList[i];
                 addClaim(claimDetails[0].ToString(), claimDetails[2].ToString(), claimDetails[1].ToString(), claimDetails[3]);
                 Console.WriteLine(claimDetails[0] + ", " + claimDetails[1] + ", " + claimDetails[2] + ", ");
-            }
+            }*/
 
         }
 
-        private void addClaim(string sender, string subject, string date, object id)
+        private void addClaim(Claim clm)
         {
             claimCount_++;
             //view button
@@ -58,7 +67,7 @@ namespace ScrumInsurance
             btn.Width = 40;
             btn.Location = new Point(170, (claimCount_ * 60) - 25);
             //we store the messageID in the buttons tag so that it can be called later using the sender in the click function. 
-            btn.Tag = id;
+            btn.Tag = clm.ID;
             btn.Click += new System.EventHandler(this.btnMessageA_Click);
             pnlList.Controls.Add(btn);
 
@@ -68,7 +77,7 @@ namespace ScrumInsurance
             Label msg = new Label();
             msg.BackColor = Color.Azure;
             msg.TextAlign = ContentAlignment.MiddleLeft;
-            msg.Text = "Claim Title: " + sender + "\nStatus: " + subject + "\nDate: " + date;
+            msg.Text = "Claim Title: " + clm.Title + "\nStatus: " + clm.Status + "\nDate: " + clm.Date;
             msg.Location = new Point(10, (claimCount_ * 60) - 40);
             msg.Width = 210;
             msg.Height = 50;

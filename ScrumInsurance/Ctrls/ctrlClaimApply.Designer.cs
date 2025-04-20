@@ -49,6 +49,10 @@
             this.lblFileName = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
             this.btnSaveClaim = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTitle = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSidePanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBottomPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPillar2)).BeginInit();
@@ -59,9 +63,9 @@
             this.lblHeader.AutoSize = true;
             this.lblHeader.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblHeader.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(708, 129);
+            this.lblHeader.Location = new System.Drawing.Point(796, 161);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(196, 33);
+            this.lblHeader.Size = new System.Drawing.Size(234, 39);
             this.lblHeader.TabIndex = 0;
             this.lblHeader.Text = "Apply for claim";
             // 
@@ -69,20 +73,20 @@
             // 
             this.btnDocs.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnDocs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDocs.Location = new System.Drawing.Point(563, 197);
+            this.btnDocs.Location = new System.Drawing.Point(509, 246);
             this.btnDocs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDocs.Name = "btnDocs";
-            this.btnDocs.Size = new System.Drawing.Size(150, 50);
+            this.btnDocs.Size = new System.Drawing.Size(169, 62);
             this.btnDocs.TabIndex = 1;
             this.btnDocs.Text = "Upload Documents";
             this.btnDocs.UseVisualStyleBackColor = false;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(812, 417);
+            this.btnSubmit.Location = new System.Drawing.Point(914, 521);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(147, 32);
+            this.btnSubmit.Size = new System.Drawing.Size(165, 40);
             this.btnSubmit.TabIndex = 2;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -93,20 +97,20 @@
             this.lblClaimDetails.AutoSize = true;
             this.lblClaimDetails.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblClaimDetails.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClaimDetails.Location = new System.Drawing.Point(853, 197);
+            this.lblClaimDetails.Location = new System.Drawing.Point(960, 246);
             this.lblClaimDetails.Name = "lblClaimDetails";
-            this.lblClaimDetails.Size = new System.Drawing.Size(163, 22);
+            this.lblClaimDetails.Size = new System.Drawing.Size(193, 26);
             this.lblClaimDetails.TabIndex = 4;
             this.lblClaimDetails.Text = "Enter Claim Details";
             // 
             // txtDetails
             // 
             this.txtDetails.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDetails.Location = new System.Drawing.Point(858, 221);
+            this.txtDetails.Location = new System.Drawing.Point(965, 276);
             this.txtDetails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDetails.Name = "txtDetails";
             this.txtDetails.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtDetails.Size = new System.Drawing.Size(244, 165);
+            this.txtDetails.Size = new System.Drawing.Size(379, 207);
             this.txtDetails.TabIndex = 6;
             this.txtDetails.Text = "";
             // 
@@ -116,9 +120,9 @@
             this.lblTrademark.BackColor = System.Drawing.Color.Black;
             this.lblTrademark.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTrademark.ForeColor = System.Drawing.Color.White;
-            this.lblTrademark.Location = new System.Drawing.Point(656, 677);
+            this.lblTrademark.Location = new System.Drawing.Point(738, 846);
             this.lblTrademark.Name = "lblTrademark";
-            this.lblTrademark.Size = new System.Drawing.Size(124, 17);
+            this.lblTrademark.Size = new System.Drawing.Size(148, 20);
             this.lblTrademark.TabIndex = 98;
             this.lblTrademark.Text = "Scrum Insurance®";
             // 
@@ -128,9 +132,9 @@
             this.lblBottomInformation.BackColor = System.Drawing.Color.Black;
             this.lblBottomInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBottomInformation.ForeColor = System.Drawing.Color.White;
-            this.lblBottomInformation.Location = new System.Drawing.Point(147, 634);
+            this.lblBottomInformation.Location = new System.Drawing.Point(165, 792);
             this.lblBottomInformation.Name = "lblBottomInformation";
-            this.lblBottomInformation.Size = new System.Drawing.Size(1161, 17);
+            this.lblBottomInformation.Size = new System.Drawing.Size(1375, 20);
             this.lblBottomInformation.TabIndex = 97;
             this.lblBottomInformation.Text = "Here is where you put all the random links and information that is at the bottom " +
     "of the web page like privacy, terms, about, sponsors, maybe also a disclaimer or" +
@@ -142,9 +146,9 @@
             this.lblClaim4.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblClaim4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.lblClaim4.ForeColor = System.Drawing.Color.Black;
-            this.lblClaim4.Location = new System.Drawing.Point(4, 246);
+            this.lblClaim4.Location = new System.Drawing.Point(4, 308);
             this.lblClaim4.Name = "lblClaim4";
-            this.lblClaim4.Size = new System.Drawing.Size(127, 37);
+            this.lblClaim4.Size = new System.Drawing.Size(143, 46);
             this.lblClaim4.TabIndex = 96;
             this.lblClaim4.Text = "Unnamed Claim\r\nStatus: Incomplete";
             this.lblClaim4.Visible = false;
@@ -155,9 +159,9 @@
             this.lblClaim3.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblClaim3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.lblClaim3.ForeColor = System.Drawing.Color.Black;
-            this.lblClaim3.Location = new System.Drawing.Point(4, 197);
+            this.lblClaim3.Location = new System.Drawing.Point(4, 246);
             this.lblClaim3.Name = "lblClaim3";
-            this.lblClaim3.Size = new System.Drawing.Size(127, 37);
+            this.lblClaim3.Size = new System.Drawing.Size(143, 46);
             this.lblClaim3.TabIndex = 95;
             this.lblClaim3.Text = "Unnamed Claim\r\nStatus: Incomplete";
             this.lblClaim3.Visible = false;
@@ -168,9 +172,9 @@
             this.lblClaim2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblClaim2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.lblClaim2.ForeColor = System.Drawing.Color.Black;
-            this.lblClaim2.Location = new System.Drawing.Point(4, 148);
+            this.lblClaim2.Location = new System.Drawing.Point(4, 185);
             this.lblClaim2.Name = "lblClaim2";
-            this.lblClaim2.Size = new System.Drawing.Size(127, 37);
+            this.lblClaim2.Size = new System.Drawing.Size(143, 46);
             this.lblClaim2.TabIndex = 94;
             this.lblClaim2.Text = "Unnamed Claim\r\nStatus: Incomplete";
             this.lblClaim2.Visible = false;
@@ -181,9 +185,9 @@
             this.lblMyClaims.BackColor = System.Drawing.Color.Black;
             this.lblMyClaims.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lblMyClaims.ForeColor = System.Drawing.Color.White;
-            this.lblMyClaims.Location = new System.Drawing.Point(3, 64);
+            this.lblMyClaims.Location = new System.Drawing.Point(3, 80);
             this.lblMyClaims.Name = "lblMyClaims";
-            this.lblMyClaims.Size = new System.Drawing.Size(113, 25);
+            this.lblMyClaims.Size = new System.Drawing.Size(133, 29);
             this.lblMyClaims.TabIndex = 93;
             this.lblMyClaims.Text = "My Claims";
             this.lblMyClaims.Visible = false;
@@ -194,9 +198,9 @@
             this.lblClaim1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblClaim1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.lblClaim1.ForeColor = System.Drawing.Color.Black;
-            this.lblClaim1.Location = new System.Drawing.Point(4, 98);
+            this.lblClaim1.Location = new System.Drawing.Point(4, 122);
             this.lblClaim1.Name = "lblClaim1";
-            this.lblClaim1.Size = new System.Drawing.Size(127, 37);
+            this.lblClaim1.Size = new System.Drawing.Size(143, 46);
             this.lblClaim1.TabIndex = 92;
             this.lblClaim1.Text = "Unnamed Claim\r\nStatus: Incomplete";
             this.lblClaim1.Visible = false;
@@ -208,7 +212,7 @@
             this.pbxSidePanel.Location = new System.Drawing.Point(0, 0);
             this.pbxSidePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbxSidePanel.Name = "pbxSidePanel";
-            this.pbxSidePanel.Size = new System.Drawing.Size(133, 562);
+            this.pbxSidePanel.Size = new System.Drawing.Size(150, 703);
             this.pbxSidePanel.TabIndex = 91;
             this.pbxSidePanel.TabStop = false;
             // 
@@ -216,47 +220,47 @@
             // 
             this.pbxBottomPanel.BackColor = System.Drawing.Color.Black;
             this.pbxBottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pbxBottomPanel.Location = new System.Drawing.Point(0, 562);
+            this.pbxBottomPanel.Location = new System.Drawing.Point(0, 703);
             this.pbxBottomPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbxBottomPanel.Name = "pbxBottomPanel";
-            this.pbxBottomPanel.Size = new System.Drawing.Size(1440, 185);
+            this.pbxBottomPanel.Size = new System.Drawing.Size(1620, 231);
             this.pbxBottomPanel.TabIndex = 90;
             this.pbxBottomPanel.TabStop = false;
             // 
             // pbxPillar2
             // 
             this.pbxPillar2.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pbxPillar2.Location = new System.Drawing.Point(396, 111);
+            this.pbxPillar2.Location = new System.Drawing.Point(446, 139);
             this.pbxPillar2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbxPillar2.Name = "pbxPillar2";
-            this.pbxPillar2.Size = new System.Drawing.Size(820, 366);
+            this.pbxPillar2.Size = new System.Drawing.Size(922, 458);
             this.pbxPillar2.TabIndex = 99;
             this.pbxPillar2.TabStop = false;
             // 
             // txtFilepaths
             // 
-            this.txtFilepaths.Location = new System.Drawing.Point(563, 296);
+            this.txtFilepaths.Location = new System.Drawing.Point(509, 370);
             this.txtFilepaths.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtFilepaths.Name = "txtFilepaths";
-            this.txtFilepaths.Size = new System.Drawing.Size(175, 22);
+            this.txtFilepaths.Size = new System.Drawing.Size(196, 26);
             this.txtFilepaths.TabIndex = 100;
             // 
             // btnUploadDocuments
             // 
-            this.btnUploadDocuments.Location = new System.Drawing.Point(563, 363);
+            this.btnUploadDocuments.Location = new System.Drawing.Point(509, 454);
             this.btnUploadDocuments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUploadDocuments.Name = "btnUploadDocuments";
-            this.btnUploadDocuments.Size = new System.Drawing.Size(75, 23);
+            this.btnUploadDocuments.Size = new System.Drawing.Size(84, 29);
             this.btnUploadDocuments.TabIndex = 101;
             this.btnUploadDocuments.Text = "Upload";
             this.btnUploadDocuments.UseVisualStyleBackColor = true;
             // 
             // btnBrowseDocument
             // 
-            this.btnBrowseDocument.Location = new System.Drawing.Point(563, 260);
+            this.btnBrowseDocument.Location = new System.Drawing.Point(509, 325);
             this.btnBrowseDocument.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBrowseDocument.Name = "btnBrowseDocument";
-            this.btnBrowseDocument.Size = new System.Drawing.Size(125, 23);
+            this.btnBrowseDocument.Size = new System.Drawing.Size(141, 29);
             this.btnBrowseDocument.TabIndex = 102;
             this.btnBrowseDocument.Text = "Browse File";
             this.btnBrowseDocument.UseVisualStyleBackColor = true;
@@ -264,9 +268,9 @@
             // lblFileName
             // 
             this.lblFileName.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblFileName.Location = new System.Drawing.Point(565, 332);
+            this.lblFileName.Location = new System.Drawing.Point(512, 415);
             this.lblFileName.Name = "lblFileName";
-            this.lblFileName.Size = new System.Drawing.Size(97, 15);
+            this.lblFileName.Size = new System.Drawing.Size(109, 19);
             this.lblFileName.TabIndex = 103;
             this.lblFileName.Text = "File Name";
             // 
@@ -275,9 +279,9 @@
             this.lblError.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblError.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblError.ForeColor = System.Drawing.Color.Crimson;
-            this.lblError.Location = new System.Drawing.Point(720, 452);
+            this.lblError.Location = new System.Drawing.Point(810, 565);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(188, 16);
+            this.lblError.Size = new System.Drawing.Size(212, 20);
             this.lblError.TabIndex = 106;
             this.lblError.Text = "Cleared on Initialize";
             this.lblError.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -285,20 +289,62 @@
             // 
             // btnSaveClaim
             // 
-            this.btnSaveClaim.Location = new System.Drawing.Point(660, 417);
+            this.btnSaveClaim.Location = new System.Drawing.Point(742, 521);
             this.btnSaveClaim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSaveClaim.Name = "btnSaveClaim";
-            this.btnSaveClaim.Size = new System.Drawing.Size(147, 32);
+            this.btnSaveClaim.Size = new System.Drawing.Size(165, 40);
             this.btnSaveClaim.TabIndex = 107;
             this.btnSaveClaim.Text = "Save";
             this.btnSaveClaim.UseVisualStyleBackColor = true;
             this.btnSaveClaim.Click += new System.EventHandler(this.btnSaveClaim_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(737, 246);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(203, 26);
+            this.label1.TabIndex = 108;
+            this.label1.Text = "Enter Claim Amount";
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.Location = new System.Drawing.Point(742, 276);
+            this.txtAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(196, 26);
+            this.txtAmount.TabIndex = 109;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(737, 308);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(170, 26);
+            this.label2.TabIndex = 110;
+            this.label2.Text = "Enter Claim Title";
+            // 
+            // txtTitle
+            // 
+            this.txtTitle.Location = new System.Drawing.Point(744, 336);
+            this.txtTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(196, 26);
+            this.txtTitle.TabIndex = 111;
+            // 
             // ctrlClaimApply
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
+            this.Controls.Add(this.txtTitle);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtAmount);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSaveClaim);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblFileName);
@@ -322,7 +368,7 @@
             this.Controls.Add(this.pbxPillar2);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ctrlClaimApply";
-            this.Size = new System.Drawing.Size(1440, 747);
+            this.Size = new System.Drawing.Size(1620, 934);
             ((System.ComponentModel.ISupportInitialize)(this.pbxSidePanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBottomPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPillar2)).EndInit();
@@ -354,5 +400,9 @@
         private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Button btnSaveClaim;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtTitle;
     }
 }

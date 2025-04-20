@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Google.Protobuf.WellKnownTypes;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ScrumInsurance
@@ -25,6 +27,8 @@ namespace ScrumInsurance
         public Status Status { get; set; }
         public long Amount { get; set; }
         public string Content { get; set; }
+
+        public string Title { get; set; }
         public DateTime Date {  get; set; }
         /* Incomplete (Not submitted)
          * Validating (awaiting claim manager approval)
@@ -51,6 +55,16 @@ namespace ScrumInsurance
             if (row.Columns.TryGetValue("amount", out var amount)) Amount = Convert.ToInt64(amount);
             if (row.Columns.TryGetValue("content", out var content)) Content = content.ToString();
             if (row.Columns.TryGetValue("date", out var date)) Date = Convert.ToDateTime(date);
+        }
+
+        public Claim(string title, string text, string status, long amount)
+        {
+            Status.TryParse("Active", out Status tempStatus);
+            Title = title;
+            Content = text;
+            Status = tempStatus;
+            Amount = amount; 
+            
         }
     }
 }

@@ -256,6 +256,30 @@ namespace ScrumInsurance
             return messages;
         }
 
+        public List<Claim> GetClaimList(int user_id)
+        {
+            Connection.Query = new SelectQuery(new List<string> { "id", "title", "status", "date" }).From("claims").Where("claim_manager_id", "=", user_id.ToString());
+
+            List<Row> rows = Connection.ExecuteSelect();
+
+            List<Claim> empty = new List<Claim>();
+
+            if (rows == null) return empty;
+
+            // Stores messages to return in list
+            List<Claim> claims = new List<Claim>();
+
+            foreach (Row row in rows)
+            {
+                Claim clm = new Claim(row);
+
+                claims.Add(clm);
+            }
+
+            return claims;
+        }
+
+
         // Get message data from input message ID
         public Message GetMessage(int message_id)
         {
@@ -300,6 +324,17 @@ namespace ScrumInsurance
                 { "client_id", userID },
                 { "status", "Pending" },
                 { "amount", DBNull.Value },
+                { "content", content },
+                { "date", DateTime.Now },
+            });
+        }
+
+        public bool SubmitClaim(long userID, string title, string content, double amount)
+        {
+            return Connection.InsertQuery("claims", new Dictionary<string, object> {
+                { "client_id", userID },
+                { "status", "Pending" },
+                { "amount", amount },
                 { "content", content },
                 { "date", DateTime.Now },
             });
