@@ -1,17 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Google.Protobuf.WellKnownTypes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ScrumInsurance
 {
+    public enum Status
+    {
+        Pending,
+        Financing,
+        Approved,
+        Rejected
+    }
     public class Claim
     {
-        public string Title { get; set; }
-        public string Text { get; set; }
-        public int Amount { get; set; }
-        public string Status { get; set; }
+        public long ID { get; set; }
+        public long ClientID { get; set; }
+        public long ClaimManagerID { get; set; }
+        public long FinanceManagerID { get; set; }
+        public Status Status { get; set; }
+        public long Amount { get; set; }
+        public string Content { get; set; }
+        public DateTime Date {  get; set; }
         /* Incomplete (Not submitted)
          * Validating (awaiting claim manager approval)
          * Financing (awaiting finance manager approval)
@@ -20,12 +34,23 @@ namespace ScrumInsurance
          * Rejected (same as not submitted)
          */
 
-        public Claim(string title, string text, string status, int amount)
+        // Constructs claim object from row object
+        public Claim(Row row)
         {
-            Title = title;
-            Text = text;
-            Status = status;
-            Amount = amount;
+            if (row.Columns.TryGetValue("id", out var id)) ID = Convert.ToInt64(id);
+            if (row.Columns.TryGetValue("client_id", out var client_id)) ClientID = Convert.ToInt64(client_id);
+            if (row.Columns.TryGetValue("claim_manager_id", out var claim_manager_id)) ClaimManagerID = Convert.ToInt64(claim_manager_id);
+            if (row.Columns.TryGetValue("finance_manager_id", out var finance_manager_id)) FinanceManagerID = Convert.ToInt64(finance_manager_id);
+            if (row.Columns.TryGetValue("status", out var status))
+            {
+                if (Status.TryParse<Status>(status.ToString(), out var stat))
+                {
+                    Status = stat;
+                }
+            }
+            if (row.Columns.TryGetValue("amount", out var amount)) Amount = Convert.ToInt64(amount);
+            if (row.Columns.TryGetValue("content", out var content)) Content = content.ToString();
+            if (row.Columns.TryGetValue("date", out var date)) Date = Convert.ToDateTime(date);
         }
     }
 }

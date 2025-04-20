@@ -270,9 +270,18 @@ namespace ScrumInsurance
             else { return null; }
         }
 
-        public Dictionary<int, object[]> ClaimInformation(Dictionary<string, object> args, string[] columns)
+        // Get claim data from input claim ID
+        public Claim GetClaim(long claim_id)
         {
-            return Connection.DataRequestAll("claims", args, columns);
+            Connection.Query = new SelectQuery().From("messages").Where("id", "=", claim_id.ToString());
+
+            // Store select query results
+            List<Row> rows = Connection.ExecuteSelect();
+
+            // If a matching row was found, create a message object with it and return it
+            if (rows != null) { return new Claim(rows[0]); }
+            // Else return null
+            else { return null; }
         }
 
         public bool UpdateAccount(string username, Dictionary<string, object> args)
@@ -285,21 +294,20 @@ namespace ScrumInsurance
             return Connection.DeleteQuery("users", new Dictionary<string, object> { { "username", username } });
         }
 
-        public bool SubmitClaim(string userID, string title, string content, int amount)
+        public bool SubmitClaim(long userID, string content)
         {
             return Connection.InsertQuery("claims", new Dictionary<string, object> {
-                { "id", userID },
-                { "title", title },
+                { "client_id", userID },
+                { "status", "Pending" },
+                { "amount", DBNull.Value },
                 { "content", content },
-                { "amount", amount },
                 { "date", DateTime.Now },
-                { "status", "Validating" }
             });
         }
 
         public bool UpdateClaim(object claimID, string status)
         {
-            return Connection.UpdateQuery("claims", new Dictionary<string, object> { { "Claim_ID", claimID } }, new Dictionary<string, object> { { "Claim_Status", status } });
+            return Connection.UpdateQuery("claims", new Dictionary<string, object> { { "id", claimID } }, new Dictionary<string, object> { { "status", status } });
         }
 
         public bool UploadDocument(string file_name, byte[] file_data)

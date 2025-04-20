@@ -13,48 +13,43 @@ namespace ScrumInsurance
 {
     public partial class ctrlClaimViewer : ScrumUserControl
     {
-        private DatabaseController DBController_;
         private object[] claimDetails;
         private string role;
 
-        public ctrlClaimViewer(DatabaseController DBController, int claimId, Session session)
+        public ctrlClaimViewer(DatabaseController dbController, int claim_id, Session session)
         {
             InitializeComponent();
-            DBController_ = DBController;
+            DBController = dbController;
             role = session.UserAccount.Role;
 
-            //columns for query 
-            string[] claimColumns = { "Claim_Amount", "Claim_Status", "Claim_Date", "Claim_Content", "Claim_ID" };
+            // Queries the database for input claim
+            Claim claim = DBController.GetClaim(claim_id);
 
-            //these set the args. 
-            Dictionary<String, Object> args = new Dictionary<String, Object>();
-            args.Add("Claim_ID", claimId);
-
-            //call the query and get the details
-            Dictionary<int, object[]> claimList = DBController.ClaimInformation(args, claimColumns);
-            claimDetails = claimList[0]; // because claimID is unique, we only need [0]
-
-            lblAmount.Text = claimDetails[0].ToString();
-            lblStatusType.Text = claimDetails[1].ToString();
-            rtxtDetails.Text = claimDetails[3].ToString();
-
+            lblAmount.Text = claim.Amount.ToString();
+            lblStatusType.Text = claim.Status.ToString();
+            rtxDetails.Text = claim.Content.ToString();
         }
 
         private void btnApprove_Click(object sender, EventArgs e)
         {
             if (role.Equals("claim_manager"))
             {
-                DBController_.UpdateClaim(claimDetails[4], "Financing");
+                DBController.UpdateClaim(claimDetails[4], "Financing");
             }
             else if (role.Equals("finance_manager"))
             {
-                DBController_.UpdateClaim(claimDetails[4], "Approved");
+                DBController.UpdateClaim(claimDetails[4], "Approved");
             }
         }
 
         private void btnReject_Click(object sender, EventArgs e)
         {
-            DBController_.UpdateClaim(claimDetails[4], "Rejected");
+            DBController.UpdateClaim(claimDetails[4], "Rejected");
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
