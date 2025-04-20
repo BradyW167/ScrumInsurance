@@ -60,9 +60,6 @@ namespace ScrumInsurance
                 {
                     lblStatusType.Text = "Financing";
                     lblStatusType.ForeColor = Color.SeaGreen;
-                    int financerId = Convert.ToInt32(DBController.getFinanceManager().ID);
-                    DBController.UpdateClaim(id, "finance_manager_id", financerId.ToString());
-
                 }
                 
             }
@@ -84,6 +81,12 @@ namespace ScrumInsurance
         private void btnReport_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnTransfer_Click(object sender, EventArgs e)
+        {
+            int financerId = Convert.ToInt32(DBController.getFinanceManager().ID);
+            DBController.UpdateClaim(id, "finance_manager_id", financerId.ToString());
         }
     }
 }

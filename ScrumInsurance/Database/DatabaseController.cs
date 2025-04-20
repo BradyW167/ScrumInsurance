@@ -95,6 +95,30 @@ namespace ScrumInsurance
             return found_account;
         }
 
+        public Account GetAccountByID(string id)
+        {
+            List<string> account_columns = new List<string> {
+                "id",
+                "username",
+                "password",
+                "role",
+                "security_question",
+                "security_answer"
+            };
+
+            Connection.Query = new SelectQuery(account_columns).From("users").Where("id", "=", id);
+
+            Row account_row = Connection.ExecuteSingleSelect();
+
+            // Return null, if no account with input username was found
+            if (account_row == null) return null;
+
+            // Create account object from found account data
+            Account found_account = new Account(account_row);
+
+            return found_account;
+        }
+
         // Stores claims into input Client object using data from account_data Row
         public void GetClaims(Client client_account, Row account_data)
         {
@@ -247,7 +271,7 @@ namespace ScrumInsurance
         // Returns messages for input user id as a List of Message objects
         public List<Message> GetMessageList(long user_id)
         {
-            Connection.Query = new SelectQuery(new List<string> { "id", "subject", "sender_id", "date" }).From("messages").Where("recipient_id", "=", user_id.ToString());
+            Connection.Query = new SelectQuery(new List<string> { "id", "subject", "sender_id", "date" }).From("messages JOIN message_recipients ON messages.id = message_recipients.message_id").Where("message_recipients.recipient_id", "=", user_id.ToString());
 
             // If the new account has a duplicated username, return false
             List<Row> rows = Connection.ExecuteSelect();
@@ -298,7 +322,7 @@ namespace ScrumInsurance
         // Get message data from input message ID
         public Message GetMessage(long message_id)
         {
-            Connection.Query = new SelectQuery(new List<string> { "id", "sender_id", "recipient_id", "subject", "content", "date" }).From("messages").Where("id", "=", message_id.ToString());
+            Connection.Query = new SelectQuery(new List<string> { "id", "sender_id", "subject", "content", "date" }).From("messages").Where("id", "=", message_id.ToString());
 
             // Store select query results
             List<Row> rows = Connection.ExecuteSelect();

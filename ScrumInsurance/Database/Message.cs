@@ -33,5 +33,10 @@ namespace ScrumInsurance
         {
             return $"ID: {ID}, Subject: {Subject}, Sender: {Sender}, Recipient: {Recipient}, Date: {Date}, Content: {Content}";
         }
+
+        public void initializeSender(DatabaseController dbcontroller)
+        {
+            Sender = dbcontroller.GetAccountByID(ID).Username;
+        }
     }
 }

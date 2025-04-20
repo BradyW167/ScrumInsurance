@@ -37,9 +37,17 @@ namespace ScrumInsurance
             List<Message> messages = DBController.GetMessageList(int.Parse(Session.UserAccount.ID.ToString()));
 
             // Loop through each message
-            foreach (Message msg in messages)
+            if (messages != null)
             {
-                AddMessage(msg);
+                foreach (Message msg in messages)
+                {
+                    msg.initializeSender(DBController);
+                    AddMessage(msg);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No messages found.");
             }
         }
 
@@ -103,6 +111,7 @@ namespace ScrumInsurance
 
             // Get the message for messageID
             Message message = DBController.GetMessage(message_id);
+            message.initializeSender(DBController);
 
             //assign to lables and show
             lblSender.Text = "Sender: " + message.Sender;
