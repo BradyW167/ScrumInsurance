@@ -67,43 +67,17 @@ namespace ScrumInsurance
             Connection.Close();
         }
 
-        //attempt at making a datarequest function that passes back a library
-        public Dictionary<int, object[]> DataRequestAll(string tableName, Dictionary<string, object> args, string[] columns)
-        {
-            Dictionary<int, object[]> rows = new Dictionary<int, object[]>();
-            if (SelectQuery(tableName, args) != null)
-            {
-                Reader = Command.ExecuteReader();
-                int rowNum = 0;
-                while (Reader.Read())
-                {
-                    string[] rowData = new string[columns.Length];
-                    for (int i = 0; i < rowData.Length; i++)
-                    {
-                        rowData[i] = Reader[columns[i]].ToString();
-                    }
-                    rows.Add(rowNum, rowData);
-                    rowNum++;
-                }
-                closeConnection();
-                return rows;
-            }
-            Console.WriteLine("Select found no matching rows.");
-            closeConnection();
-            return rows;
-        }
-
         // Returns a list of rows from executing a SelectQuery stored in Query
         public List<Row> ExecuteSelect()
         {
-            Queries.SelectQuery sq = Query as Queries.SelectQuery;
-
-            // If Query was not a SelectQuery object, then the cast failed, return null
-            if (sq == null)
+            // If Query was not a SelectQuery object, return null
+            if (!(Query is SelectQuery))
             {
                 Console.WriteLine("DatabaseConnection.Query not of type SelectQuery");
                 return null;
             }
+
+            SelectQuery sq = (SelectQuery)Query;
 
             // Open SQL connection for queries
             if (!openConnection())
@@ -116,10 +90,10 @@ namespace ScrumInsurance
             Command = Connection.CreateCommand();
 
             // Store parameterized SelectQuery converted to string in Command
-            Command.CommandText = sq.ToString();
+            Command.CommandText = Query.ToString();
 
             // Passes the actual values into the command
-            sq.InsertParameters(Command);
+            Query.InsertParameters(Command);
 
             // Execute command and input results into reader
             using (Reader = Command.ExecuteReader())
@@ -169,6 +143,47 @@ namespace ScrumInsurance
             if (rows != null) { return rows[0]; }
             // Else return null
             else { return null; }
+        }
+
+        // Returns a boolean for success of executing a NonQuery (Insert,Update,Delete) stored in Query
+        public bool ExecuteNonQuery()
+        {
+            if (Query is SelectQuery)
+            {
+                Console.WriteLine("DatabaseConnection.Query is not a NonQuery");
+                return false;
+            }
+
+            // Stores executed command result
+            int result = 0;
+
+            // Initialize command to query database
+            Command = Connection.CreateCommand();
+
+            // Store parameterized SelectQuery converted to string in Command
+            Command.CommandText = Query.ToString();
+
+            // Passes the actual values into the command
+            Query.InsertParameters(Command);
+
+            try
+            {
+                result = Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                // Print error to console
+                Console.WriteLine("Non Query Error: " + ex.Message);
+
+                // Return false on failed query
+                closeConnection();
+                return false;
+            }
+
+            closeConnection();
+            
+            // Returns true if any columns were altered
+            return result > 0;
         }
 
         /* 
@@ -358,30 +373,6 @@ namespace ScrumInsurance
                 query += args.ElementAt(i).Key + " = '" + args.ElementAt(i).Value + "'";
             }
             return query;
-        }
-
-        private bool ExecuteNonQuery()
-        {
-            // Stores executed command result
-            int result = 0;
-
-            try
-            {
-                result = Command.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                // Print error to console
-                Console.WriteLine("Non Query Error: " + ex.Message);
-
-                // Return false on failed query
-                closeConnection();
-                return false;
-            }
-            closeConnection();
-            // If any number of columns were altered...
-            // Return true for successful update, return false on no changes
-            return result > 0;
         }
     }
 }

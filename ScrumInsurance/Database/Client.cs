@@ -16,14 +16,14 @@ namespace ScrumInsurance
             Claims = new List<Claim>();
         }
 
-        public Client(string username, string password, string role, string securityQuestion, string securityAnswer, string id = "") : base(username, password, role, securityQuestion, securityAnswer, id)
+        public Client(string username, string password, string role, string securityQuestion, string securityAnswer, long id = 0) : base(username, password, role, securityQuestion, securityAnswer, id)
         {
             Claims = new List<Claim>();
         }
 
-        public void AddClaim(string title, string text, string status, int amount)
+        public void AddClaim(Claim claim)
         {
-            Claims.Add(new Claim(title, text, status, amount));
+            Claims.Add(claim);
         }
 
         public void RemoveClaim(int index)

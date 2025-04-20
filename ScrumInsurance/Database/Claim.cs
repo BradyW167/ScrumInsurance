@@ -34,6 +34,13 @@ namespace ScrumInsurance
          * Rejected (same as not submitted)
          */
 
+        public Claim(long client_id, DateTime date)
+        {
+            ClientID = client_id;
+            Status = Status.Pending;
+            Date = date;
+        }
+
         // Constructs claim object from row object
         public Claim(Row row)
         {
