@@ -68,7 +68,7 @@ namespace ScrumInsurance
                     };
 
                     // Set claim label i's text to claim i's info
-                    lblClaims[i].Text = client.Claims[i].Title + "\nStatus: " + client.Claims[i].Status;
+                    lblClaims[i].Text = "\nStatus: " + client.Claims[i].Status;
                     
                     // Make claim i visible
                     lblClaims[i].Visible = true;

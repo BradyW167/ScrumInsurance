@@ -69,11 +69,8 @@ namespace ScrumInsurance
         {
             if (DBController.SubmitClaim(Convert.ToInt64(Session.UserAccount.ID), txtTitle.Text, txtDetails.Text, Convert.ToInt32(txtAmount.Text)))
             {
-                ((Client)Session.UserAccount).AddClaim(txtTitle.Text, txtDetails.Text, "Validating", Convert.ToInt32(txtAmount.Text));
                 lblError.Text = "Claim submitted succcesfully";
-                txtTitle.Text = "";
                 txtDetails.Text = "";
-                txtAmount.Text = "";
             }
             else
             {
@@ -86,7 +83,6 @@ namespace ScrumInsurance
         {
             if (DBController.SubmitClaim(Convert.ToInt64(Session.UserAccount.ID), txtTitle.Text, txtDetails.Text, Convert.ToInt32(txtAmount.Text)))
             {
-                ((Client)Session.UserAccount).AddClaim(txtTitle.Text, txtDetails.Text, "Incomplete", Convert.ToInt32(txtAmount.Text));
                 lblError.Text = "Claim saved succcesfully";
             }
             else

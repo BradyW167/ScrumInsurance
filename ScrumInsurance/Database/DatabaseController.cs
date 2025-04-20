@@ -14,6 +14,7 @@ using Org.BouncyCastle.Asn1.Mozilla;
 using System.Windows.Forms;
 using System.Security.Claims;
 using SelectQuery = ScrumInsurance.Queries.SelectQuery;
+using ScrumInsurance.Queries;
 
 namespace ScrumInsurance
 {
@@ -114,16 +115,25 @@ namespace ScrumInsurance
 
             List<Row> claims = Connection.ExecuteSelect();
 
+            // If the input client had any claims
             if (claims != null)
             {
-                foreach (Row claim in claims)
+                // Loop through each claim row
+                foreach (Row row in claims)
                 {
-                    client_account.AddClaim(claim.Columns["Claim_Title"] + "", claim.Columns["Claim_Content"] + "", claim.Columns["Claim_Status"] + "", (int)claim.Columns["Claim_Amount"]);
+                    // Create a claim object from the row of data
+                    Claim claim = new Claim(row);
+                    
+                    // Add claim to client accounts Claim Property
+                    client_account.AddClaim(claim);
                 }
             }
         }
 
-        // Adds input account object data to database using insert query
+        /**
+         * Inserts input account into users table in database
+         * Returns boolean from success of insertion
+         */
         public bool AddAccount(Account new_account)
         {
             // Create parameter dictionary for new account
@@ -136,8 +146,9 @@ namespace ScrumInsurance
                 { "security_answer", (object)new_account.SecurityAnswer }
             };
 
-            // Insert new account into database, return bool for success or failure
-            return Connection.InsertQuery("users", account_info);
+            Connection.Query = new InsertQuery(account_info).Into("users");
+
+            return Connection.ExecuteNonQuery();
         }
 
         /**
@@ -234,7 +245,7 @@ namespace ScrumInsurance
         }
 
         // Returns messages for input user id as a List of Message objects
-        public List<Message> GetMessageList(int user_id)
+        public List<Message> GetMessageList(long user_id)
         {
             Connection.Query = new SelectQuery(new List<string> { "id", "subject", "sender_id", "date" }).From("messages").Where("recipient_id", "=", user_id.ToString());
 
@@ -264,8 +275,11 @@ namespace ScrumInsurance
 
             List<Claim> empty = new List<Claim>();
 
-            if (rows == null) return empty;
-
+            if (rows == null)
+            {
+                Console.WriteLine("emptylist");
+                return empty;
+            }
             // Stores messages to return in list
             List<Claim> claims = new List<Claim>();
 
@@ -281,7 +295,7 @@ namespace ScrumInsurance
 
 
         // Get message data from input message ID
-        public Message GetMessage(int message_id)
+        public Message GetMessage(long message_id)
         {
             Connection.Query = new SelectQuery(new List<string> { "id", "sender_id", "recipient_id", "subject", "content", "date" }).From("messages").Where("id", "=", message_id.ToString());
 
@@ -292,6 +306,29 @@ namespace ScrumInsurance
             if (rows != null) { return new Message(rows[0]); }
             // Else return null
             else { return null; }
+        }
+
+        // Returns claims for input user id as a List of Claim objects
+        public List<Claim> GetClaimList(long user_id)
+        {
+            Connection.Query = new SelectQuery().From("claims").Where("client_id", "=", user_id.ToString());
+
+            // If the new account has a duplicated username, return false
+            List<Row> rows = Connection.ExecuteSelect();
+
+            if (rows == null) return null;
+
+            // Stores claims to return in list
+            List<Claim> claims = new List<Claim>();
+
+            foreach (Row row in rows)
+            {
+                Claim claim = new Claim(row);
+
+                claims.Add(claim);
+            }
+
+            return claims;
         }
 
         // Get claim data from input claim ID
@@ -320,13 +357,17 @@ namespace ScrumInsurance
 
         public bool SubmitClaim(long userID, string content)
         {
-            return Connection.InsertQuery("claims", new Dictionary<string, object> {
+            Dictionary<string, object> claim_columns = new Dictionary<string, object> {
                 { "client_id", userID },
                 { "status", "Pending" },
                 { "amount", DBNull.Value },
                 { "content", content },
                 { "date", DateTime.Now },
-            });
+            };
+
+            Connection.Query = new InsertQuery(claim_columns).Into("claims");
+
+            return Connection.ExecuteNonQuery();
         }
 
         public bool SubmitClaim(long userID, string title, string content, double amount)
@@ -354,8 +395,11 @@ namespace ScrumInsurance
                 { "file_data", (object)file_data }
             };
 
+            // Create insertion query and store it in Connection.Query property
+            Connection.Query = new InsertQuery(document_info).Into("documents");
+
             // Upload document
-            return Connection.InsertQuery("documents", document_info);
+            return Connection.ExecuteNonQuery();
         }
     }
 }

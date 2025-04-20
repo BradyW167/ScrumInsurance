@@ -25,7 +25,7 @@ namespace ScrumInsurance.Queries
         public OrderType OrderType { get; set; }
         public int RowLimit { get; set; }
 
-        public SelectQuery(string column = null) : base(QueryType.Select, string.Empty)
+        public SelectQuery(string column = null) : base(string.Empty)
         {
             RequestColumns = new List<string> { column == null ? "*" : column };
             WhereConditions = new List<(string, string, string)>();
@@ -36,7 +36,7 @@ namespace ScrumInsurance.Queries
             RowLimit = 0;
         }
 
-        public SelectQuery(List<string> requestColumns) : base(QueryType.Select, string.Empty) {
+        public SelectQuery(List<string> requestColumns) : base(string.Empty) {
             RequestColumns = requestColumns;
             WhereConditions = new List<(string, string, string)>();
             JoinTable = string.Empty;
@@ -133,7 +133,7 @@ namespace ScrumInsurance.Queries
         }
 
         // Insert actual values into parameterized select query stored in input 'cmd'
-        public void InsertParameters(MySqlCommand cmd)
+        public override void InsertParameters(MySqlCommand cmd)
         {
             if (WhereConditions.Count > 0)
             {
