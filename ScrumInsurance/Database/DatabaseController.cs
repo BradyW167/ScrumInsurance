@@ -310,9 +310,20 @@ namespace ScrumInsurance
         }
 
         // Returns claims for input user id as a List of Claim objects
-        public List<Claim> GetClaimList(long user_id)
+        public List<Claim> GetClaimList(Account userAccount)
         {
-            Connection.Query = new SelectQuery().From("claims").Where("client_id", "=", user_id.ToString());
+            string cType = "client_id";
+
+            if (userAccount.Role == "claim_manager")
+            {
+                cType = "claim_manager_id";
+            }
+            else if (userAccount.Role == "finance_manager")
+            {
+                cType = "finance_manager_id";
+            }
+
+            Connection.Query = new SelectQuery().From("claims").Where(cType, "=", userAccount.ID.ToString());
 
             // If the new account has a duplicated username, return false
             List<Row> rows = Connection.ExecuteSelect();

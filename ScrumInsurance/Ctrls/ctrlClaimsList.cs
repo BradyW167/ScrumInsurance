@@ -35,7 +35,7 @@ namespace ScrumInsurance
             }
 
 
-            List<Claim> claimList = DBController.GetClaimList(session.UserAccount.ID);
+            List<Claim> claimList = DBController.GetClaimList(session.UserAccount);
 
             foreach (Claim claim in claimList)
             {

@@ -49,19 +49,19 @@ namespace ScrumInsurance
         public Claim(Row row)
         {
             if (row.Columns.TryGetValue("id", out var id)) ID = Convert.ToInt64(id);
-            if (row.Columns.TryGetValue("client_id", out var client_id)) ClientID = Convert.ToInt64(client_id);
-            if (row.Columns.TryGetValue("claim_manager_id", out var claim_manager_id)) ClaimManagerID = Convert.ToInt64(claim_manager_id);
-            if (row.Columns.TryGetValue("finance_manager_id", out var finance_manager_id)) FinanceManagerID = Convert.ToInt64(finance_manager_id);
-            if (row.Columns.TryGetValue("status", out var status))
+            if (row.Columns.TryGetValue("client_id", out var client_id) && client_id != DBNull.Value) ClientID = Convert.ToInt64(client_id);
+            if (row.Columns.TryGetValue("claim_manager_id", out var claim_manager_id) && claim_manager_id != DBNull.Value) ClaimManagerID = Convert.ToInt64(claim_manager_id);
+            if (row.Columns.TryGetValue("finance_manager_id", out var finance_manager_id) && finance_manager_id != DBNull.Value) FinanceManagerID = Convert.ToInt64(finance_manager_id);
+            if (row.Columns.TryGetValue("status", out var status) && status != DBNull.Value)
             {
                 if (Status.TryParse<Status>(status.ToString(), out var stat))
                 {
                     Status = stat;
                 }
             }
-            if (row.Columns.TryGetValue("amount", out var amount)) Amount = Convert.ToInt64(amount);
-            if (row.Columns.TryGetValue("content", out var content)) Content = content.ToString();
-            if (row.Columns.TryGetValue("date", out var date)) Date = Convert.ToDateTime(date);
+            if (row.Columns.TryGetValue("amount", out var amount) && amount != DBNull.Value) Amount = Convert.ToInt64(amount);
+            if (row.Columns.TryGetValue("content", out var content) && content != DBNull.Value) Content = content.ToString();
+            if (row.Columns.TryGetValue("date", out var date) && date != DBNull.Value) Date = Convert.ToDateTime(date);
         }
 
         public Claim(string title, string text, string status, long amount)

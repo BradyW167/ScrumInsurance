@@ -119,6 +119,16 @@ namespace ScrumInsurance
                         Row row = new Row();
 
                         // Loop for each column of data needed
+
+                        if (columns[0] == "*")
+                        {
+                            columns = new List<string>();
+                            for (int i = 0; i < Reader.FieldCount; i++)
+                            {
+                                columns.Add(Reader.GetName(i));
+                            }
+                        }
+
                         for (int i = 0; i < columns.Count; i++)
                         {
                             // Store each requested column of data
