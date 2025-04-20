@@ -269,8 +269,9 @@ namespace ScrumInsurance
 
         public List<Claim> GetClaimList(int user_id)
         {
+            Console.WriteLine("2222");
             Connection.Query = new SelectQuery(new List<string> { "id", "title", "status", "date" }).From("claims").Where("claim_manager_id", "=", user_id.ToString());
-
+            Console.WriteLine("1111");
             List<Row> rows = Connection.ExecuteSelect();
 
             List<Claim> empty = new List<Claim>();
@@ -289,7 +290,7 @@ namespace ScrumInsurance
 
                 claims.Add(clm);
             }
-
+            Console.WriteLine("notemptylist");
             return claims;
         }
 
@@ -316,7 +317,13 @@ namespace ScrumInsurance
             // If the new account has a duplicated username, return false
             List<Row> rows = Connection.ExecuteSelect();
 
-            if (rows == null) return null;
+            List<Claim> empty = new List<Claim>();
+
+            if (rows == null)
+            {
+                Console.WriteLine("emptylist");
+                return empty;
+            }
 
             // Stores claims to return in list
             List<Claim> claims = new List<Claim>();
