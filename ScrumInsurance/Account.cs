@@ -10,7 +10,7 @@ namespace ScrumInsurance
 {
     public class Account
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
@@ -20,7 +20,7 @@ namespace ScrumInsurance
         // Default constructor
         public Account()
         {
-            ID = 0;
+            ID = string.Empty;
             Username = string.Empty;
             Password = string.Empty;
             Role = string.Empty;
@@ -30,7 +30,7 @@ namespace ScrumInsurance
 
         public Account(Row row)
         {
-            if (row.Columns.TryGetValue("id", out var id)) ID = (int)id;
+            if (row.Columns.TryGetValue("id", out var id)) ID = id.ToString();
             if (row.Columns.TryGetValue("username", out var username)) Username = username.ToString();
             if (row.Columns.TryGetValue("password", out var password)) Password = password.ToString();
             if (row.Columns.TryGetValue("role", out var role)) Role = role.ToString();
@@ -42,7 +42,7 @@ namespace ScrumInsurance
          * Create account from input account info parameters
          * ID is optional because account creation does not require an input userid
          */
-        public Account(string username, string password, string role, string securityQuestion, string securityAnswer, int userid = 0)
+        public Account(string username, string password, string role, string securityQuestion, string securityAnswer, string userid = "")
         {
             ID = userid;
             Username = username;

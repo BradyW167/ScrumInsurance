@@ -73,7 +73,7 @@ namespace ScrumInsurance
         public Account GetAccountByUsername(string username)
         {
             List<string> account_columns = new List<string> {
-                "user_id",
+                "id",
                 "username",
                 "password",
                 "role",
@@ -285,15 +285,15 @@ namespace ScrumInsurance
             return Connection.DeleteQuery("users", new Dictionary<string, object> { { "username", username } });
         }
 
-        public bool SubmitClaim(int userID, string title, string content, int amount)
+        public bool SubmitClaim(string userID, string title, string content, int amount)
         {
             return Connection.InsertQuery("claims", new Dictionary<string, object> {
-                { "Client_ID", userID },
-                { "Claim_Title", title },
-                { "Claim_Content", content },
-                { "Claim_Amount", amount },
-                { "Claim_Date", DateTime.Now },
-                { "Claim_Status", "Validating" }
+                { "id", userID },
+                { "title", title },
+                { "content", content },
+                { "amount", amount },
+                { "date", DateTime.Now },
+                { "status", "Validating" }
             });
         }
 

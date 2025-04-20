@@ -16,7 +16,7 @@ namespace ScrumInsurance
             Claims = new List<Claim>();
         }
 
-        public Client(string username, string password, string role, string securityQuestion, string securityAnswer, int userid = 0) : base(username, password, role, securityQuestion, securityAnswer, userid)
+        public Client(string username, string password, string role, string securityQuestion, string securityAnswer, string id = "") : base(username, password, role, securityQuestion, securityAnswer, id)
         {
             Claims = new List<Claim>();
         }
