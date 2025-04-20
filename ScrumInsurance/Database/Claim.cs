@@ -62,6 +62,7 @@ namespace ScrumInsurance
             if (row.Columns.TryGetValue("amount", out var amount) && amount != DBNull.Value) Amount = Convert.ToInt64(amount);
             if (row.Columns.TryGetValue("content", out var content) && content != DBNull.Value) Content = content.ToString();
             if (row.Columns.TryGetValue("date", out var date) && date != DBNull.Value) Date = Convert.ToDateTime(date);
+            if (row.Columns.TryGetValue("title", out var title) && title != DBNull.Value) Title = title.ToString();
         }
 
         public Claim(string title, string text, string status, long amount)

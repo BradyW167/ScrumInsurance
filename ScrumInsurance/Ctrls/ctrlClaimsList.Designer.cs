@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.lblClaimsList = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlList = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblClaimsList
@@ -45,22 +43,14 @@
             this.lblClaimsList.TabIndex = 0;
             this.lblClaimsList.Text = "Claims List";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pictureBox1.Location = new System.Drawing.Point(645, 154);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(507, 511);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // pnlList
             // 
+            this.pnlList.AutoScroll = true;
             this.pnlList.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pnlList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlList.Location = new System.Drawing.Point(64, 154);
+            this.pnlList.Location = new System.Drawing.Point(77, 101);
             this.pnlList.Name = "pnlList";
-            this.pnlList.Size = new System.Drawing.Size(433, 606);
+            this.pnlList.Size = new System.Drawing.Size(1463, 682);
             this.pnlList.TabIndex = 2;
             // 
             // ctrlClaimsList
@@ -70,10 +60,8 @@
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.Controls.Add(this.pnlList);
             this.Controls.Add(this.lblClaimsList);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "ctrlClaimsList";
             this.Size = new System.Drawing.Size(1620, 934);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -82,7 +70,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblClaimsList;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlList;
     }
 }

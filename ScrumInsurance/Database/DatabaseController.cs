@@ -341,6 +341,8 @@ namespace ScrumInsurance
 
             foreach (Row row in rows)
             {
+                Console.WriteLine("Row columns: " + string.Join(", ", row.Columns.Keys));
+
                 Claim claim = new Claim(row);
 
                 claims.Add(claim);

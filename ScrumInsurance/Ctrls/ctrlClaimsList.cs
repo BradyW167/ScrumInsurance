@@ -54,8 +54,9 @@ namespace ScrumInsurance
             btn.FlatAppearance.BorderColor = Color.Azure;
             btn.FlatStyle = FlatStyle.Popup;
             btn.TextAlign = ContentAlignment.MiddleCenter;
-            btn.Width = 40;
-            btn.Location = new Point(170, (claimCount_ * 60) - 25);
+            btn.Width = 80;
+            btn.Height = 50;
+            btn.Location = new Point(340, (claimCount_ * 120) - 50);
             //we store the messageID in the buttons tag so that it can be called later using the sender in the click function. 
             btn.Tag = claim.ID;
             btn.Click += new System.EventHandler(this.btnMessageA_Click);
@@ -66,10 +67,11 @@ namespace ScrumInsurance
             Label msg = new Label();
             msg.BackColor = Color.Azure;
             msg.TextAlign = ContentAlignment.MiddleLeft;
-            msg.Text = $"Status: {claim.Status.ToString()} Date: {claim.Date.ToString()}";
-            msg.Location = new Point(10, (claimCount_ * 60) - 40);
-            msg.Width = 210;
-            msg.Height = 50;
+            msg.Font = new Font("Microsoft Tai Le", 11, FontStyle.Regular);
+            msg.Text = $"Title: {claim.Title} \nStatus: {claim.Status.ToString()} \nDate: {claim.Date.ToString()}";
+            msg.Location = new Point(10, (claimCount_ * 120) - 80);
+            msg.Width = 420;
+            msg.Height = 100;
             pnlList.Controls.Add(msg);
         }
 
