@@ -56,16 +56,19 @@ namespace ScrumInsurance
         {
             if (role.Equals("claim_manager"))
             {
-                if(DBController.UpdateClaim(id, "Financing")) 
+                if(DBController.UpdateClaim(id, "Status", "Financing")) 
                 {
                     lblStatusType.Text = "Financing";
                     lblStatusType.ForeColor = Color.SeaGreen;
+                    int financerId = Convert.ToInt32(DBController.getFinanceManager().ID);
+                    DBController.UpdateClaim(id, "finance_manager_id", financerId.ToString());
+
                 }
                 
             }
             else if (role.Equals("finance_manager"))
             {
-                DBController.UpdateClaim(id, "Approved");
+                DBController.UpdateClaim(id, "Status", "Approved");
                 lblStatusType.Text = "Approved";
                 lblStatusType.ForeColor = Color.Green;
             }
@@ -73,7 +76,7 @@ namespace ScrumInsurance
 
         private void btnReject_Click(object sender, EventArgs e)
         {
-            DBController.UpdateClaim(id, "Rejected");
+            DBController.UpdateClaim(id, "Status", "Rejected");
             lblStatusType.Text = "Rejected";
             lblStatusType.ForeColor = Color.Red;
         }

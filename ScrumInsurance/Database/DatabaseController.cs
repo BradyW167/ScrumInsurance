@@ -365,6 +365,17 @@ namespace ScrumInsurance
             else { return null; }
         }
 
+        public Account getFinanceManager()
+        {
+            Connection.Query = new SelectQuery().From("users").Where("role", "=", "finance_manager");
+            List<Row> rows = Connection.ExecuteSelect();
+
+            // If a matching row was found, create an object with it and return it
+            if (rows != null) { return new Account(rows[0]); }
+            // Else return null
+            else { return null; }
+        }
+
         public bool UpdateAccount(string username, Dictionary<string, object> args)
         {
             return Connection.UpdateQuery("users", new Dictionary<string, object> { { "username", username } }, args);
@@ -401,9 +412,9 @@ namespace ScrumInsurance
             });
         }
 
-        public bool UpdateClaim(object claimID, string status)
+        public bool UpdateClaim(object claimID, string column, string value)
         {
-            return Connection.UpdateQuery("claims", new Dictionary<string, object> { { "id", claimID } }, new Dictionary<string, object> { { "status", status } });
+            return Connection.UpdateQuery("claims", new Dictionary<string, object> { { "id", claimID } }, new Dictionary<string, object> { { column, value } });
         }
 
         public bool UploadDocument(string file_name, byte[] file_data)
@@ -421,5 +432,7 @@ namespace ScrumInsurance
             // Upload document
             return Connection.ExecuteNonQuery();
         }
+
     }
+
 }
