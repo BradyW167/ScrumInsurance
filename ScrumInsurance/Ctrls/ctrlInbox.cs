@@ -148,9 +148,9 @@ namespace ScrumInsurance
 
         }
 
-        private void btnMessageC_Click(object sender, EventArgs e)
-        {
+     //   private void btnMessageC_Click(object sender, EventArgs e)
+     //   {
 
-        }
+     //   }
     }
 }

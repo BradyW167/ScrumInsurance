@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.lblHeader = new System.Windows.Forms.Label();
+            this.btnDocs = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.lblClaimDetails = new System.Windows.Forms.Label();
             this.txtDetails = new System.Windows.Forms.RichTextBox();
@@ -63,6 +64,18 @@
             this.lblHeader.Size = new System.Drawing.Size(158, 26);
             this.lblHeader.TabIndex = 0;
             this.lblHeader.Text = "Apply for claim";
+            // 
+            // btnDocs
+            // 
+            this.btnDocs.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnDocs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDocs.Location = new System.Drawing.Point(509, 246);
+            this.btnDocs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDocs.Name = "btnDocs";
+            this.btnDocs.Size = new System.Drawing.Size(169, 62);
+            this.btnDocs.TabIndex = 1;
+            this.btnDocs.Text = "Upload Documents";
+            this.btnDocs.UseVisualStyleBackColor = false;
             // 
             // btnSubmit
             // 
@@ -295,6 +308,7 @@
             this.Controls.Add(this.txtDetails);
             this.Controls.Add(this.lblClaimDetails);
             this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.btnDocs);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.pbxPillar2);
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
@@ -312,6 +326,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblHeader;
+        private System.Windows.Forms.Button btnDocs;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label lblClaimDetails;
         private System.Windows.Forms.RichTextBox txtDetails;
