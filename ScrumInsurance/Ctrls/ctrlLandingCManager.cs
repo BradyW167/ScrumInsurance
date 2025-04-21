@@ -12,7 +12,7 @@ namespace ScrumInsurance
 {
     public partial class ctrlLandingCManager : ScrumUserControl
     {
-        public ctrlLandingCManager()
+        public ctrlLandingCManager(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
             InitializeComponent();
         }
@@ -23,7 +23,7 @@ namespace ScrumInsurance
 
         private void lblLogout_Click(object sender, EventArgs e)
         {
-            this.SwapCtrlMain(new ctrlLogin());
+            SwapCtrlMain(new ctrlLogin(this));
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace ScrumInsurance
 
         private void btnClaimsList_Click(object sender, EventArgs e)
         {
-            SwapCtrlMain(new ctrlClaimsList(Session, DBController));
+            SwapCtrlMain(new ctrlClaimsList(this));
         }
     }
 }
