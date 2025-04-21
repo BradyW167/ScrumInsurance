@@ -13,9 +13,8 @@ namespace ScrumInsurance
 {
     public partial class ctrlClaimViewer : ScrumUserControl
     {
-        private object[] claimDetails;
         private string role;
-        private int id;
+        private long id;
         private string status;
 
         public ctrlClaimViewer(DatabaseController dbController, int claim_id, Session session)
@@ -85,7 +84,7 @@ namespace ScrumInsurance
 
         private void btnTransfer_Click(object sender, EventArgs e)
         {
-            int financerId = Convert.ToInt32(DBController.getFinanceManager().ID);
+            long financerId = Convert.ToInt64(DBController.getFinanceManager().ID);
             DBController.UpdateClaim(id, "finance_manager_id", financerId.ToString());
         }
     }
