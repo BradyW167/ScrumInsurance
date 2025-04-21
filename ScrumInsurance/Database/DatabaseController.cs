@@ -318,7 +318,6 @@ namespace ScrumInsurance
             return claims;
         }
 
-
         // Get message data from input message ID
         public Message GetMessage(long message_id)
         {
@@ -375,6 +374,28 @@ namespace ScrumInsurance
             return claims;
         }
 
+        public bool SubmitClaim(long userID, string content)
+        {
+            Dictionary<string, object> claim_columns = new Dictionary<string, object> {
+                { "client_id", userID },
+                { "claim_manager_id", DBNull.Value },
+                { "finance_manager_id", DBNull.Value },
+                { "status", "Pending" },
+                { "amount", DBNull.Value },
+                { "content", content },
+                { "date", DateTime.Now },
+            };
+
+            Connection.Query = new InsertQuery(claim_columns).Into("claims");
+
+            return Connection.ExecuteNonQuery();
+        }
+
+        public bool UpdateClaim(object claimID, string column, string value)
+        {
+            return Connection.UpdateQuery("claims", new Dictionary<string, object> { { "id", claimID } }, new Dictionary<string, object> { { column, value } });
+        }
+
         // Get claim data from input claim ID
         public Claim GetClaim(long claim_id)
         {
@@ -410,51 +431,22 @@ namespace ScrumInsurance
             return Connection.DeleteQuery("users", new Dictionary<string, object> { { "username", username } });
         }
 
-        public bool SubmitClaim(long userID, string content)
-        {
-            Dictionary<string, object> claim_columns = new Dictionary<string, object> {
-                { "client_id", userID },
-                { "status", "Pending" },
-                { "amount", DBNull.Value },
-                { "content", content },
-                { "date", DateTime.Now },
-            };
-
-            Connection.Query = new InsertQuery(claim_columns).Into("claims");
-
-            return Connection.ExecuteNonQuery();
-        }
-
-        public bool SubmitClaim(long userID, string title, string content, double amount)
-        {
-            return Connection.InsertQuery("claims", new Dictionary<string, object> {
-                { "client_id", userID },
-                { "status", "Pending" },
-                { "amount", amount },
-                { "content", content },
-                { "date", DateTime.Now },
-            });
-        }
-
-        public bool UpdateClaim(object claimID, string column, string value)
-        {
-            return Connection.UpdateQuery("claims", new Dictionary<string, object> { { "id", claimID } }, new Dictionary<string, object> { { column, value } });
-        }
-
-        public bool UploadDocument(string file_name, byte[] file_data)
+        public void UploadDocument(long claim_id, string file_name, byte[] file_data)
         {
             // Create parameter dictionary for document upload
             Dictionary<string, object> document_info = new Dictionary<string, object>
             {
-                { "file_name", (object)file_name },
-                { "file_data", (object)file_data }
+                { "claim_id", claim_id },
+                { "file_name", file_name },
+                { "file_data", file_data },
+                { "upload_date", DateTime.Now }
             };
 
             // Create insertion query and store it in Connection.Query property
             Connection.Query = new InsertQuery(document_info).Into("documents");
 
             // Upload document
-            return Connection.ExecuteNonQuery();
+            if (!Connection.ExecuteNonQuery()) throw new InvalidOperationException("File upload failed.");
         }
 
     }
