@@ -19,6 +19,7 @@ namespace ScrumInsurance
             InitializeComponent();
         }
         //upload documents
+        /*
         private void btnBrowseDocument_Click(object sender, EventArgs e) //choose which file
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
@@ -41,6 +42,7 @@ namespace ScrumInsurance
             }
 
         }
+        */
         private byte[] ReadFile(string filePath)  //reads the uploaded document into an array
         {
             byte[] fileData = null;
@@ -97,6 +99,33 @@ namespace ScrumInsurance
                 lblError.Text = "Unable to save claim";
             }
             lblError.Visible = true;
+        }
+
+        private void btnBrowseDocument_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "Select a Claim Document",
+                Filter = "Image Files|*.jpg;*.jpeg;*.png" +
+                        "|PDF Files|*.pdf" +
+                        "|Word Documents|*.doc;*.docx"
+                //I'm not really sure all the file types that are needed for applying for a claim, but this will limit 
+            };
+
+            // Show dialog + check a file was selected
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName; //get the path of specified file
+                txtFilepaths.Text = filePath; // displays into the txtbox
+                lblFileName.Text = Path.GetFileName(filePath); //shows the file name
+                pbxDocumentPreview.ImageLocation = openFileDialog.FileName;
+            }
+
+        }
+
+        private void lblFileName_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
