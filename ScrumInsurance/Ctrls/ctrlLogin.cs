@@ -13,20 +13,23 @@ namespace ScrumInsurance
 {
     public partial class ctrlLogin : ScrumUserControl
     {
-        public ctrlLogin()
-        {
-            InitializeComponent();
-            lblLoginError.Text = "";
-        }
-
-        public ctrlLogin(Session session, DatabaseController controller, TableLayoutPanel pnlMain)
+        // Constructor for first control loaded in (Login control is always loaded first)
+        public ctrlLogin(Session session, DatabaseController controller, TableLayoutPanel pnlMain, Form frmMain)
         {
             InitializeComponent();
             lblLoginError.Text = "";
             Session = session;
             DBController = controller;
             PnlMain = pnlMain;
+            FrmMain = frmMain;
             Session.CtrlMain = this;
+        }
+
+        // Constructer for swapping controls
+        public ctrlLogin(ScrumUserControl oldCtrl) : base(oldCtrl)
+        {
+            InitializeComponent();
+            lblLoginError.Text = "";
         }
 
         private void ctrlLogin_Load(object sender, EventArgs e)
@@ -55,17 +58,17 @@ namespace ScrumInsurance
                 // Load landing page, admins go to admin page, clients go to new client page, decided by role column in database
                 if (Session.UserAccount.Role.Equals("admin"))
                 {
-                    SwapCtrlMain(new ctrlAdminLanding());
+                    SwapCtrlMain(new ctrlAdminLanding(this));
                     LoadCtrlDash();
                 }
                 else if (Session.UserAccount.Role.Equals("client"))
                 {
-                    SwapCtrlMain(new ctrlLandingClient());
+                    SwapCtrlMain(new ctrlLandingClient(this));
                     LoadCtrlDash();
                 }
                 else if (Session.UserAccount.Role.Equals("claim_manager"))
                 {
-                    SwapCtrlMain(new ctrlLandingCManager());
+                    SwapCtrlMain(new ctrlLandingCManager(this));
                     LoadCtrlDash();
                 }
                 else if (Session.UserAccount.Role.Equals("finance_manager"))
@@ -75,7 +78,7 @@ namespace ScrumInsurance
                 }
                 else
                 {
-                    SwapCtrlMain(new ctrlLandingClient());
+                    SwapCtrlMain(new ctrlLandingClient(this));
                     LoadCtrlDash();
                 }
             }
@@ -88,12 +91,12 @@ namespace ScrumInsurance
 
         private void lbl_createAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            SwapCtrlMain(new ctrlCreateAccount());
+            SwapCtrlMain(new ctrlCreateAccount(this));
         }
 
         private void lbl_ForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            SwapCtrlMain(new ctrlForgotPass());
+            SwapCtrlMain(new ctrlForgotPass(this));
         }
 
         private void pbxShowPassword_MouseDown(object sender, MouseEventArgs e)

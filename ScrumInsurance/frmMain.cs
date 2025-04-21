@@ -21,7 +21,7 @@ namespace ScrumInsurance
             DatabaseController controller = new DatabaseController();
 
             // Initialize controls for main panel
-            ScrumUserControl ctrlLogin = new ctrlLogin(session, controller, pnlMain);
+            ScrumUserControl ctrlLogin = new ctrlLogin(session, controller, pnlMain, this);
 
             // Load login page as first control into panel
             ctrlLogin.LoadControl();

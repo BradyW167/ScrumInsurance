@@ -20,7 +20,7 @@ namespace ScrumInsurance
         public int MessageCount { get; set; }
         public int LoadedMessageID { get; set; }
 
-        public ctrlInbox()
+        public ctrlInbox(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
             InitializeComponent();
             lblHeader.Hide();
@@ -29,10 +29,7 @@ namespace ScrumInsurance
             lblContents.Hide();
             lblClaim.Hide();
             pnlMessageContents.Hide();
-        }
 
-        private void ctrlInbox_Load(object sender, EventArgs e)
-        {
             // Stores messages in a list for account tied to Session User ID
             List<Message> messages = DBController.GetMessageList(int.Parse(Session.UserAccount.ID.ToString()));
 
@@ -49,6 +46,10 @@ namespace ScrumInsurance
             {
                 Console.WriteLine("No messages found.");
             }
+        }
+
+        private void ctrlInbox_Load(object sender, EventArgs e)
+        {
         }
 
         private void AddMessage(Message msg)

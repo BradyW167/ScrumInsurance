@@ -13,7 +13,7 @@ namespace ScrumInsurance
 {
     public partial class ctrlEditProfile : ScrumUserControl
     {
-        public ctrlEditProfile()
+        public ctrlEditProfile(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
             InitializeComponent();
         }
@@ -67,7 +67,7 @@ namespace ScrumInsurance
         {
             if (DBController.DeleteAccount(Session.UserAccount.Username))
             {
-                this.SwapCtrlMain(new ctrlLogin());
+                SwapCtrlMain(new ctrlLogin(this));
             }
             else
             {

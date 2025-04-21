@@ -12,7 +12,7 @@ namespace ScrumInsurance
 {
     public partial class ctrlDashboard : ScrumUserControl
     {
-        public ctrlDashboard()
+        public ctrlDashboard(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
             InitializeComponent();
         }
@@ -24,7 +24,7 @@ namespace ScrumInsurance
 
         private void lblLogout_Click(object sender, EventArgs e)
         {
-            SwapCtrlMain(new ctrlLogin());
+            SwapCtrlMain(new ctrlLogin(this));
             removeDash();
         }
 
@@ -37,27 +37,27 @@ namespace ScrumInsurance
         {
             if (Session.UserAccount.Role == "client")
             {
-                SwapCtrlMain(new ctrlLandingClient());
+                SwapCtrlMain(new ctrlLandingClient(this));
             }
             else if (Session.UserAccount.Role == "claim_manager")
             {
-                SwapCtrlMain(new ctrlLandingCManager());
+                SwapCtrlMain(new ctrlLandingCManager(this));
             }
             else if (Session.UserAccount.Role == "admin")
             {
-                SwapCtrlMain(new ctrlLandingCManager());
+                SwapCtrlMain(new ctrlLandingCManager(this));
             }
 
         }
 
         private void btnAccount_Click(object sender, EventArgs e)
         {
-            SwapCtrlMain(new ctrlEditProfile());
+            SwapCtrlMain(new ctrlEditProfile(this));
         }
 
         private void btnInbox_Click(object sender, EventArgs e)
         {
-            SwapCtrlMain(new ctrlInbox());
+            SwapCtrlMain(new ctrlInbox(this));
         }
     }
 }

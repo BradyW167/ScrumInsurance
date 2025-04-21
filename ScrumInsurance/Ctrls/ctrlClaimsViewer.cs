@@ -17,7 +17,7 @@ namespace ScrumInsurance
         private long id;
         private string status;
 
-        public ctrlClaimViewer(DatabaseController dbController, int claim_id, Session session)
+        public ctrlClaimViewer(ScrumUserControl oldCtrl, long claim_id) : base(oldCtrl)
         {
             InitializeComponent();
             DBController = dbController;

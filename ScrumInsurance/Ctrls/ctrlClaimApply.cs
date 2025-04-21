@@ -18,7 +18,7 @@ namespace ScrumInsurance
     {
         private List<string> DocumentPaths { get; set; }
 
-        public ctrlClaimApply()
+        public ctrlClaimApply(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
             InitializeComponent();
 

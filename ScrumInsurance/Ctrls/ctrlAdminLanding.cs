@@ -14,10 +14,9 @@ namespace ScrumInsurance
     {
         // private string[] args_ = null;
 
-        public ctrlAdminLanding()
+        public ctrlAdminLanding(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
             InitializeComponent();
-            
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)

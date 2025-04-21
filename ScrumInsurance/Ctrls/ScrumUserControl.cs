@@ -14,12 +14,15 @@ namespace ScrumInsurance
         protected Session Session { get; set; }
         protected DatabaseController DBController { get; set; }
         protected TableLayoutPanel PnlMain { get; set; }
+        protected Form FrmMain { get; set; }
 
-        public ScrumUserControl() {
-            if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
-            {
-                return; // Prevent instantiation during design time
-            }
+        public ScrumUserControl() {}
+
+        public ScrumUserControl(ScrumUserControl ctrl) {
+            Session = ctrl.Session;
+            DBController = ctrl.DBController;
+            PnlMain = ctrl.PnlMain;
+            FrmMain = ctrl.FrmMain;
         }
 
         // When called without an input control to load
@@ -31,7 +34,7 @@ namespace ScrumInsurance
         {
             // Initialize dashboard control if not already
             if (Session.CtrlDashboard == null) {
-                Session.CtrlDashboard = new ctrlDashboard();
+                Session.CtrlDashboard = new ctrlDashboard(this);
 
                 // Load the dashboard control into first row
                 LoadControl(Session.CtrlDashboard, 0, 0);
@@ -111,11 +114,6 @@ namespace ScrumInsurance
                     }
                 }
             }
-            
-            // Update ScrumUserControl attributes for new control
-            newCtrl.PnlMain = PnlMain;
-            newCtrl.DBController = DBController;
-            newCtrl.Session = Session;
             
             // Update style attributes for new control
             newCtrl.Dock = DockStyle.Fill;

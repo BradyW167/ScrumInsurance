@@ -15,7 +15,7 @@ namespace ScrumInsurance
     {
         private int claimCount_ = 0;
         private Session session_;
-        public ctrlClaimsList(Session session, DatabaseController DBController)
+        public ctrlClaimsList(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
             InitializeComponent();
             session_ = session;
@@ -80,7 +80,8 @@ namespace ScrumInsurance
         {
             System.Windows.Forms.Button btn = sender as System.Windows.Forms.Button;
             int claimId = int.Parse((btn.Tag).ToString());
-            SwapCtrlMain(new ctrlClaimViewer(DBController, claimId, session_));
+
+            SwapCtrlMain(new ctrlClaimViewer(this, claim_id));
         }
     }
 }
