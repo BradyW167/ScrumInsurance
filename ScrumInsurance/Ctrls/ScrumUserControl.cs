@@ -37,7 +37,7 @@ namespace ScrumInsurance
                 LoadControl(Session.CtrlDashboard, 0, 0);
 
                 // Set the row to a fixed size of 50 pixels
-                PnlMain.RowStyles[0] = new RowStyle(SizeType.Absolute, 50);
+                PnlMain.RowStyles[0] = new RowStyle(SizeType.Absolute, 40);
             }
         }
 
