@@ -164,6 +164,13 @@ namespace ScrumInsurance
                 return false;
             }
 
+            // Open SQL connection for queries
+            if (!openConnection())
+            {
+                Console.WriteLine("Select Query: Connection failed, returning null");
+                return false;
+            }
+
             // Stores executed command result
             int result = 0;
 
