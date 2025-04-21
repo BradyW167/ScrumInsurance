@@ -32,10 +32,8 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
             this.txtNewUser = new System.Windows.Forms.TextBox();
             this.txtNewPass = new System.Windows.Forms.TextBox();
-            this.txtNewEmail = new System.Windows.Forms.TextBox();
             this.passCheckbox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
@@ -83,7 +81,7 @@
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(83, 31);
-            this.btnSubmit.TabIndex = 1;
+            this.btnSubmit.TabIndex = 7;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
@@ -96,9 +94,10 @@
             this.lblUsername.Location = new System.Drawing.Point(417, 121);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(120, 17);
+            this.lblUsername.Size = new System.Drawing.Size(91, 17);
             this.lblUsername.TabIndex = 2;
-            this.lblUsername.Text = "Set Username: ";
+            this.lblUsername.Text = "Username: ";
+            this.lblUsername.Click += new System.EventHandler(this.lblUsername_Click);
             // 
             // lblPassword
             // 
@@ -108,21 +107,9 @@
             this.lblPassword.Location = new System.Drawing.Point(417, 168);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(116, 17);
+            this.lblPassword.Size = new System.Drawing.Size(87, 17);
             this.lblPassword.TabIndex = 3;
-            this.lblPassword.Text = "Set Password: ";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(417, 212);
-            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(86, 17);
-            this.lblEmail.TabIndex = 4;
-            this.lblEmail.Text = "Set Email: ";
+            this.lblPassword.Text = "Password: ";
             // 
             // txtNewUser
             // 
@@ -130,7 +117,7 @@
             this.txtNewUser.Margin = new System.Windows.Forms.Padding(2);
             this.txtNewUser.Name = "txtNewUser";
             this.txtNewUser.Size = new System.Drawing.Size(171, 20);
-            this.txtNewUser.TabIndex = 5;
+            this.txtNewUser.TabIndex = 1;
             // 
             // txtNewPass
             // 
@@ -138,16 +125,8 @@
             this.txtNewPass.Margin = new System.Windows.Forms.Padding(2);
             this.txtNewPass.Name = "txtNewPass";
             this.txtNewPass.Size = new System.Drawing.Size(171, 20);
-            this.txtNewPass.TabIndex = 6;
+            this.txtNewPass.TabIndex = 2;
             this.txtNewPass.UseSystemPasswordChar = true;
-            // 
-            // txtNewEmail
-            // 
-            this.txtNewEmail.Location = new System.Drawing.Point(420, 234);
-            this.txtNewEmail.Margin = new System.Windows.Forms.Padding(2);
-            this.txtNewEmail.Name = "txtNewEmail";
-            this.txtNewEmail.Size = new System.Drawing.Size(171, 20);
-            this.txtNewEmail.TabIndex = 7;
             // 
             // passCheckbox
             // 
@@ -187,26 +166,26 @@
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(420, 338);
+            this.txtLastName.Location = new System.Drawing.Point(420, 289);
             this.txtLastName.Margin = new System.Windows.Forms.Padding(2);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(171, 20);
-            this.txtLastName.TabIndex = 12;
+            this.txtLastName.TabIndex = 4;
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(420, 289);
+            this.txtFirstName.Location = new System.Drawing.Point(420, 240);
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(171, 20);
-            this.txtFirstName.TabIndex = 13;
+            this.txtFirstName.TabIndex = 3;
             // 
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
             this.lblFirstName.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirstName.Location = new System.Drawing.Point(417, 264);
+            this.lblFirstName.Location = new System.Drawing.Point(417, 215);
             this.lblFirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(91, 17);
@@ -218,7 +197,7 @@
             this.lblLastName.AutoSize = true;
             this.lblLastName.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastName.Location = new System.Drawing.Point(417, 316);
+            this.lblLastName.Location = new System.Drawing.Point(417, 267);
             this.lblLastName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(90, 17);
@@ -320,18 +299,18 @@
             // 
             // txtDOB
             // 
-            this.txtDOB.Location = new System.Drawing.Point(420, 385);
+            this.txtDOB.Location = new System.Drawing.Point(420, 336);
             this.txtDOB.Margin = new System.Windows.Forms.Padding(2);
             this.txtDOB.Name = "txtDOB";
             this.txtDOB.Size = new System.Drawing.Size(171, 20);
-            this.txtDOB.TabIndex = 115;
+            this.txtDOB.TabIndex = 5;
             // 
             // lblDOB
             // 
             this.lblDOB.AutoSize = true;
             this.lblDOB.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblDOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDOB.Location = new System.Drawing.Point(417, 367);
+            this.lblDOB.Location = new System.Drawing.Point(417, 318);
             this.lblDOB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDOB.Name = "lblDOB";
             this.lblDOB.Size = new System.Drawing.Size(105, 17);
@@ -344,7 +323,7 @@
             this.btnChangeProfilePicture.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangeProfilePicture.Name = "btnChangeProfilePicture";
             this.btnChangeProfilePicture.Size = new System.Drawing.Size(55, 41);
-            this.btnChangeProfilePicture.TabIndex = 118;
+            this.btnChangeProfilePicture.TabIndex = 6;
             this.btnChangeProfilePicture.Text = "Change Picture";
             this.btnChangeProfilePicture.UseVisualStyleBackColor = true;
             this.btnChangeProfilePicture.Click += new System.EventHandler(this.btnChangeProfilePicture_Click);
@@ -398,7 +377,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pictureBox1.Location = new System.Drawing.Point(410, 97);
+            this.pictureBox1.Location = new System.Drawing.Point(410, 98);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(482, 344);
@@ -411,7 +390,7 @@
             this.btnDeleteAccount.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteAccount.Name = "btnDeleteAccount";
             this.btnDeleteAccount.Size = new System.Drawing.Size(103, 31);
-            this.btnDeleteAccount.TabIndex = 119;
+            this.btnDeleteAccount.TabIndex = 8;
             this.btnDeleteAccount.Text = "Delete Account";
             this.btnDeleteAccount.UseVisualStyleBackColor = true;
             this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
@@ -443,10 +422,8 @@
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.passCheckbox);
-            this.Controls.Add(this.txtNewEmail);
             this.Controls.Add(this.txtNewPass);
             this.Controls.Add(this.txtNewUser);
-            this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.btnSubmit);
@@ -472,10 +449,8 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtNewUser;
         private System.Windows.Forms.TextBox txtNewPass;
-        private System.Windows.Forms.TextBox txtNewEmail;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox passCheckbox;
         private System.Windows.Forms.Label label1;
