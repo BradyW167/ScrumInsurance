@@ -200,5 +200,15 @@ namespace ScrumInsurance
             control.Left = (columnWidth - control.Width) / 2;
             control.Top = (rowHeight - control.Height) / 2;
         }
+
+        // Resizes the main form to input width and height
+        public void ResizeMainForm(int w, int h)
+        {
+            // These numbers account for the border that forms have by default
+            FrmMain.Width = w + 16;
+            FrmMain.Height = h + 39;
+
+            Console.WriteLine($"Changing form {FrmMain.Text} to Width: {w} Height {h}");
+        }
     }
 }
