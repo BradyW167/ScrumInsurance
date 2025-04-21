@@ -13,20 +13,23 @@ namespace ScrumInsurance
 {
     public partial class ctrlClaimViewer : ScrumUserControl
     {
-        private string role;
-        private long id;
-        private string status;
+        Claim Claim { get; set; }
 
         public ctrlClaimViewer(ScrumUserControl oldCtrl, long claim_id) : base(oldCtrl)
         {
             InitializeComponent();
-            DBController = dbController;
-            role = session.UserAccount.Role;
+            string role = Session.UserAccount.Role;
 
-            // Queries the database for input claim
-            Claim claim = DBController.GetClaim(claim_id);
-            status = claim.Status.ToString();
+            // Stores queried claim matching input claim_id in class property
+            Claim = DBController.GetClaim(claim_id);
+
+            // Stores status of the input claim
+            string status = Claim.Status.ToString();
+
+            // Set the status label text
             lblStatusType.Text = status;
+
+            // Set the label's color based on the status
             if (status == "Pending")
             {
                 lblStatusType.ForeColor = Color.Olive;
@@ -44,27 +47,28 @@ namespace ScrumInsurance
                 lblStatusType.ForeColor = Color.Red;
             }
 
-            lblAmount.Text = claim.Amount.ToString();
+            // Set the claim amount label
+            lblAmount.Text = Claim.Amount.ToString();
             
-            rtxDetails.Text = claim.Content.ToString();
-            id = claim_id;
+            // Set the claim content text
+            rtxDetails.Text = Claim.Content.ToString();
 
         }
 
         private void btnApprove_Click(object sender, EventArgs e)
         {
-            if (role.Equals("claim_manager"))
+            if (Session.UserAccount.Role.Equals("claim_manager"))
             {
-                if(DBController.UpdateClaim(id, "Status", "Financing")) 
+                if(DBController.UpdateClaim(Claim.ID, "Status", "Financing")) 
                 {
                     lblStatusType.Text = "Financing";
                     lblStatusType.ForeColor = Color.SeaGreen;
                 }
                 
             }
-            else if (role.Equals("finance_manager"))
+            else if (Session.UserAccount.Role.Equals("finance_manager"))
             {
-                DBController.UpdateClaim(id, "Status", "Approved");
+                DBController.UpdateClaim(Claim.ID, "Status", "Approved");
                 lblStatusType.Text = "Approved";
                 lblStatusType.ForeColor = Color.Green;
             }
@@ -72,7 +76,7 @@ namespace ScrumInsurance
 
         private void btnReject_Click(object sender, EventArgs e)
         {
-            DBController.UpdateClaim(id, "Status", "Rejected");
+            DBController.UpdateClaim(Claim.ID, "Status", "Rejected");
             lblStatusType.Text = "Rejected";
             lblStatusType.ForeColor = Color.Red;
         }
@@ -85,7 +89,7 @@ namespace ScrumInsurance
         private void btnTransfer_Click(object sender, EventArgs e)
         {
             long financerId = Convert.ToInt64(DBController.getFinanceManager().ID);
-            DBController.UpdateClaim(id, "finance_manager_id", financerId.ToString());
+            DBController.UpdateClaim(Claim.ID, "finance_manager_id", financerId.ToString());
         }
     }
 }
