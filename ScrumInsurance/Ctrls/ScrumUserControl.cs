@@ -27,7 +27,7 @@ namespace ScrumInsurance.Ctrls
 
         // When called without an input control to load
         // Load this control into the parent panel
-        public void LoadControl() { LoadCtrl(this, 0, 0); }
+        public void LoadCtrl() { LoadCtrl(this, 0, 0); }
 
         // Creates a new row in the table and loads the dashboard
         public void LoadCtrlDash()
@@ -36,11 +36,14 @@ namespace ScrumInsurance.Ctrls
             if (Session.CtrlDashboard == null) {
                 Session.CtrlDashboard = new ctrlDashboard(this);
 
+                Session.CtrlDashboard.Dock = DockStyle.Fill;
+
                 // Load the dashboard control into first row
                 LoadCtrl(Session.CtrlDashboard, 0, 0);
 
-                // Set the row to a fixed size of 50 pixels
-                PnlMain.RowStyles[0] = new RowStyle(SizeType.Absolute, 40);
+                // Set the row to a fixed size of 40 pixels
+                PnlMain.RowStyles[0].SizeType = SizeType.Absolute;
+                PnlMain.RowStyles[0].Height = 40;
 
                 FrmMain.Height += 40;
             }
@@ -53,11 +56,15 @@ namespace ScrumInsurance.Ctrls
             {
                 Session.CtrlFooter = new ctrlFooter(this);
 
+                Session.CtrlFooter.Dock = DockStyle.Fill;
+
+
                 // Load the dashboard control into third row
                 LoadCtrl(Session.CtrlFooter, 0, 2);
 
-                // Set the row to a fixed size of 50 pixels
-                PnlMain.RowStyles[0] = new RowStyle(SizeType.Absolute, 40);
+                // Set the row to a fixed size of 40 pixels
+                PnlMain.RowStyles[2].SizeType = SizeType.Absolute;
+                PnlMain.RowStyles[2].Height = 40;
 
                 FrmMain.Height += 40;
             }
@@ -69,17 +76,24 @@ namespace ScrumInsurance.Ctrls
             // Set session object for main control to newCtrl
             Session.CtrlMain = newCtrl;
 
+            // Set the row to a fixed size of 40 pixels
+            PnlMain.RowStyles[1].SizeType = SizeType.Percent;
+            PnlMain.RowStyles[1].Height = 100;
+
+            // Set main control to float in center
+            newCtrl.Anchor = AnchorStyles.None;
+
             // If the dashboard does not exist...
             if (Session.CtrlDashboard == null)
             {
                 // Load the new main control into first row
-                LoadCtrl(Session.CtrlDashboard, 0, 0);
+                LoadCtrl(Session.CtrlMain, 0, 0);
             }
             // Else dashboard does exist
             else
             {
                 // Load the new main control into second row
-                LoadCtrl(Session.CtrlDashboard, 1, 0);
+                LoadCtrl(Session.CtrlMain, 1, 0);
             }
         }
 
@@ -95,7 +109,8 @@ namespace ScrumInsurance.Ctrls
                 // Set dashboard property back to null after deletion
                 Session.CtrlDashboard = null;
 
-                PnlMain.RowStyles[0] = new RowStyle(SizeType.AutoSize);
+                PnlMain.RowStyles[0].SizeType = SizeType.Percent;
+                PnlMain.RowStyles[0].Height = 100;
 
                 FrmMain.Height -= 40;
             }
@@ -116,8 +131,6 @@ namespace ScrumInsurance.Ctrls
 
                 // Set dashboard property back to null after deletion
                 Session.CtrlFooter = null;
-
-                PnlMain.RowStyles[0] = new RowStyle(SizeType.AutoSize);
 
                 FrmMain.Height -= 40;
             }
@@ -140,33 +153,28 @@ namespace ScrumInsurance.Ctrls
                 PnlMain.RowCount++;
 
                 // Stores the control for each loop
-                Control loopCtrl = null;
+                Control loop_ctrl = null;
 
                 // Loop through all the row indices starting at last non-empty row
                 // Must be done backwards to not copy the same row all the way down
                 for (int row = PnlMain.RowCount - 2; row >= rowIndex; row--)
                 {
                     // Store the control 
-                    loopCtrl = PnlMain.GetControlFromPosition(0, row);
+                    loop_ctrl = PnlMain.GetControlFromPosition(0, row);
 
                     // If there is a control in this row
-                    if (loopCtrl != null)
+                    if (loop_ctrl != null)
                     {
                         // Shift the loopCtrl down one row
-                        PnlMain.SetRow(loopCtrl, row + 1);
+                        PnlMain.SetRow(loop_ctrl, row + 1);
                     }
                 }
             }
             
-            // Update style attributes for new control
-            newCtrl.Dock = DockStyle.Fill;
-            newCtrl.AutoSize = false;
-            newCtrl.Anchor = AnchorStyles.None;
-            
             PnlMain.Controls.Add(newCtrl, columnIndex, rowIndex);
 
             // Center the control within its row
-            CenterCtrl(newCtrl);
+            // CenterCtrl(newCtrl);
         }
 
         /* 
@@ -223,13 +231,11 @@ namespace ScrumInsurance.Ctrls
             Session.CtrlMain.Dispose();
 
             // Load the new control into the main control's position
-            LoadCtrl(newControl, columnIndex, rowIndex);
-
-            Session.CtrlMain = newControl;
+            LoadCtrlMain(newControl);
         }
 
         // Function to center the UserControl inside the column
-        public void CenterCtrl(ScrumUserControl ctrl)
+        public void CenterCtrl()
         {
             // Get the position of input control in the panel
             int columnIndex = PnlMain.GetColumn(this);
