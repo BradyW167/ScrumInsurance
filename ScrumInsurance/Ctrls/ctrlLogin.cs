@@ -23,6 +23,11 @@ namespace ScrumInsurance.Ctrls
             PnlMain = pnlMain;
             FrmMain = frmMain;
             Session.CtrlMain = this;
+
+            this.Anchor = AnchorStyles.None;
+            this.Dock = DockStyle.None;
+
+            this.Margin = new Padding((PnlMain.ClientSize.Width - this.Width) / 2, 0, 0, 0);
         }
 
         // Constructer for swapping controls
@@ -55,6 +60,8 @@ namespace ScrumInsurance.Ctrls
             // If an account was returned from above...
             if (Session.UserAccount != null)
             {
+                PnlMain.BackColor = Color.SteelBlue;
+
                 // Load landing page, admins go to admin page, clients go to new client page, decided by role column in database
                 if (Session.UserAccount.Role.Equals("admin"))
                 {

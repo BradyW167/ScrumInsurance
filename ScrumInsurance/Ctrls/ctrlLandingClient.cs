@@ -17,13 +17,10 @@ namespace ScrumInsurance.Ctrls
             InitializeComponent();
         }
 
-        private void ctrlLanding_Load(object sender, EventArgs e)
-        {
-        }
-
         private void lblLogout_Click(object sender, EventArgs e)
         {
             this.SwapCtrlMain(new ctrlLogin(this));
+            Session.UserAccount = null;
         }
 
         private void button1_Click(object sender, EventArgs e)

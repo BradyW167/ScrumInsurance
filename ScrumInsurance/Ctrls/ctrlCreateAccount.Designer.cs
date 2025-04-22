@@ -191,7 +191,7 @@
             this.lblBackLogin.BackColor = System.Drawing.Color.Black;
             this.lblBackLogin.ForeColor = System.Drawing.Color.White;
             this.lblBackLogin.LinkColor = System.Drawing.Color.LightSteelBlue;
-            this.lblBackLogin.Location = new System.Drawing.Point(406, 503);
+            this.lblBackLogin.Location = new System.Drawing.Point(400, 505);
             this.lblBackLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBackLogin.Name = "lblBackLogin";
             this.lblBackLogin.Size = new System.Drawing.Size(73, 13);
@@ -220,7 +220,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.BackgroundImage = global::ScrumInsurance.Properties.Resources.shape_background;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Controls.Add(this.pbxTopBorder);
             this.Controls.Add(this.lblBackLogin);
             this.Controls.Add(this.cmbSecurityQuestion);

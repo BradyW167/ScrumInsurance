@@ -30,7 +30,6 @@ namespace ScrumInsurance.Ctrls
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlLogin));
             this.llbCreateAccount = new System.Windows.Forms.LinkLabel();
             this.llbForgotPass = new System.Windows.Forms.LinkLabel();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -224,9 +223,9 @@ namespace ScrumInsurance.Ctrls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(16)))), ((int)(((byte)(66)))));
+            this.BackgroundImage = global::ScrumInsurance.Properties.Resources.shape_background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Controls.Add(this.pbxShowPassword);
             this.Controls.Add(this.pbxTopBorder);
             this.Controls.Add(this.pbxLoginLogo);
