@@ -65,7 +65,7 @@
             this.lblWelcome.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.lblWelcome.ForeColor = System.Drawing.Color.Black;
-            this.lblWelcome.Location = new System.Drawing.Point(108, 101);
+            this.lblWelcome.Location = new System.Drawing.Point(108, 121);
             this.lblWelcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(187, 26);
@@ -79,7 +79,7 @@
             this.lblWelcomeInformation.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblWelcomeInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelcomeInformation.ForeColor = System.Drawing.Color.Black;
-            this.lblWelcomeInformation.Location = new System.Drawing.Point(108, 136);
+            this.lblWelcomeInformation.Location = new System.Drawing.Point(108, 156);
             this.lblWelcomeInformation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWelcomeInformation.Name = "lblWelcomeInformation";
             this.lblWelcomeInformation.Size = new System.Drawing.Size(561, 39);
@@ -89,7 +89,7 @@
             // btnClaimOneSubmit
             // 
             this.btnClaimOneSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnClaimOneSubmit.Location = new System.Drawing.Point(140, 375);
+            this.btnClaimOneSubmit.Location = new System.Drawing.Point(140, 395);
             this.btnClaimOneSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnClaimOneSubmit.Name = "btnClaimOneSubmit";
             this.btnClaimOneSubmit.Size = new System.Drawing.Size(109, 27);
@@ -101,7 +101,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button3.Location = new System.Drawing.Point(111, 405);
+            this.button3.Location = new System.Drawing.Point(111, 425);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(167, 27);
@@ -112,7 +112,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button4.Location = new System.Drawing.Point(111, 435);
+            this.button4.Location = new System.Drawing.Point(111, 455);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(167, 27);
@@ -125,7 +125,7 @@
             this.lblNumClaims.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblNumClaims.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.lblNumClaims.ForeColor = System.Drawing.Color.Black;
-            this.lblNumClaims.Location = new System.Drawing.Point(441, 220);
+            this.lblNumClaims.Location = new System.Drawing.Point(441, 240);
             this.lblNumClaims.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNumClaims.Name = "lblNumClaims";
             this.lblNumClaims.Size = new System.Drawing.Size(197, 24);
@@ -136,7 +136,7 @@
             // btnNewClaim
             // 
             this.btnNewClaim.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.btnNewClaim.Location = new System.Drawing.Point(479, 323);
+            this.btnNewClaim.Location = new System.Drawing.Point(479, 343);
             this.btnNewClaim.Margin = new System.Windows.Forms.Padding(2);
             this.btnNewClaim.Name = "btnNewClaim";
             this.btnNewClaim.Size = new System.Drawing.Size(120, 40);
@@ -150,7 +150,7 @@
             this.lblInformation.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.lblInformation.ForeColor = System.Drawing.Color.Black;
-            this.lblInformation.Location = new System.Drawing.Point(788, 220);
+            this.lblInformation.Location = new System.Drawing.Point(788, 240);
             this.lblInformation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInformation.Name = "lblInformation";
             this.lblInformation.Size = new System.Drawing.Size(197, 24);
@@ -163,7 +163,7 @@
             this.lblInfoName.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblInfoName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblInfoName.ForeColor = System.Drawing.Color.Black;
-            this.lblInfoName.Location = new System.Drawing.Point(788, 265);
+            this.lblInfoName.Location = new System.Drawing.Point(788, 285);
             this.lblInfoName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInfoName.Name = "lblInfoName";
             this.lblInfoName.Size = new System.Drawing.Size(197, 16);
@@ -175,7 +175,7 @@
             // 
             this.lblEmail1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblEmail1.ForeColor = System.Drawing.Color.Black;
-            this.lblEmail1.Location = new System.Drawing.Point(788, 315);
+            this.lblEmail1.Location = new System.Drawing.Point(788, 335);
             this.lblEmail1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmail1.Name = "lblEmail1";
             this.lblEmail1.Size = new System.Drawing.Size(197, 11);
@@ -187,7 +187,7 @@
             // 
             this.lblEmail2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblEmail2.ForeColor = System.Drawing.Color.Black;
-            this.lblEmail2.Location = new System.Drawing.Point(788, 345);
+            this.lblEmail2.Location = new System.Drawing.Point(788, 365);
             this.lblEmail2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmail2.Name = "lblEmail2";
             this.lblEmail2.Size = new System.Drawing.Size(197, 11);
@@ -199,7 +199,7 @@
             // 
             this.lblPhone1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblPhone1.ForeColor = System.Drawing.Color.Black;
-            this.lblPhone1.Location = new System.Drawing.Point(788, 374);
+            this.lblPhone1.Location = new System.Drawing.Point(788, 394);
             this.lblPhone1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPhone1.Name = "lblPhone1";
             this.lblPhone1.Size = new System.Drawing.Size(197, 11);
@@ -211,7 +211,7 @@
             // 
             this.lblPhone2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblPhone2.ForeColor = System.Drawing.Color.Black;
-            this.lblPhone2.Location = new System.Drawing.Point(788, 405);
+            this.lblPhone2.Location = new System.Drawing.Point(788, 425);
             this.lblPhone2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPhone2.Name = "lblPhone2";
             this.lblPhone2.Size = new System.Drawing.Size(197, 13);
@@ -223,7 +223,7 @@
             // 
             this.lblAddress.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblAddress.ForeColor = System.Drawing.Color.Black;
-            this.lblAddress.Location = new System.Drawing.Point(788, 435);
+            this.lblAddress.Location = new System.Drawing.Point(788, 455);
             this.lblAddress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(197, 11);
@@ -234,7 +234,7 @@
             // pbxPillar3
             // 
             this.pbxPillar3.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pbxPillar3.Location = new System.Drawing.Point(788, 215);
+            this.pbxPillar3.Location = new System.Drawing.Point(788, 235);
             this.pbxPillar3.Margin = new System.Windows.Forms.Padding(2);
             this.pbxPillar3.Name = "pbxPillar3";
             this.pbxPillar3.Size = new System.Drawing.Size(197, 257);
@@ -244,7 +244,7 @@
             // pbxPillar2
             // 
             this.pbxPillar2.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pbxPillar2.Location = new System.Drawing.Point(441, 215);
+            this.pbxPillar2.Location = new System.Drawing.Point(441, 235);
             this.pbxPillar2.Margin = new System.Windows.Forms.Padding(2);
             this.pbxPillar2.Name = "pbxPillar2";
             this.pbxPillar2.Size = new System.Drawing.Size(197, 257);
@@ -254,7 +254,7 @@
             // pbxPillar1
             // 
             this.pbxPillar1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pbxPillar1.Location = new System.Drawing.Point(96, 215);
+            this.pbxPillar1.Location = new System.Drawing.Point(96, 235);
             this.pbxPillar1.Margin = new System.Windows.Forms.Padding(2);
             this.pbxPillar1.Name = "pbxPillar1";
             this.pbxPillar1.Size = new System.Drawing.Size(197, 257);
@@ -264,7 +264,7 @@
             // pbxFloatingTextBG
             // 
             this.pbxFloatingTextBG.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pbxFloatingTextBG.Location = new System.Drawing.Point(95, 95);
+            this.pbxFloatingTextBG.Location = new System.Drawing.Point(95, 115);
             this.pbxFloatingTextBG.Margin = new System.Windows.Forms.Padding(2);
             this.pbxFloatingTextBG.Name = "pbxFloatingTextBG";
             this.pbxFloatingTextBG.Size = new System.Drawing.Size(890, 100);
@@ -285,7 +285,7 @@
             this.lblClaimID.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblClaimID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.lblClaimID.ForeColor = System.Drawing.Color.Black;
-            this.lblClaimID.Location = new System.Drawing.Point(96, 252);
+            this.lblClaimID.Location = new System.Drawing.Point(96, 272);
             this.lblClaimID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblClaimID.Name = "lblClaimID";
             this.lblClaimID.Size = new System.Drawing.Size(197, 26);
@@ -298,7 +298,7 @@
             this.lblClaimStatus.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblClaimStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblClaimStatus.ForeColor = System.Drawing.Color.Black;
-            this.lblClaimStatus.Location = new System.Drawing.Point(96, 325);
+            this.lblClaimStatus.Location = new System.Drawing.Point(96, 345);
             this.lblClaimStatus.Margin = new System.Windows.Forms.Padding(0);
             this.lblClaimStatus.Name = "lblClaimStatus";
             this.lblClaimStatus.Size = new System.Drawing.Size(197, 20);
@@ -311,7 +311,7 @@
             this.lblClaimDate.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblClaimDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblClaimDate.ForeColor = System.Drawing.Color.Black;
-            this.lblClaimDate.Location = new System.Drawing.Point(96, 295);
+            this.lblClaimDate.Location = new System.Drawing.Point(96, 315);
             this.lblClaimDate.Margin = new System.Windows.Forms.Padding(0);
             this.lblClaimDate.Name = "lblClaimDate";
             this.lblClaimDate.Size = new System.Drawing.Size(197, 20);
@@ -324,7 +324,7 @@
             this.lblCurrentClaim.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblCurrentClaim.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.lblCurrentClaim.ForeColor = System.Drawing.Color.Black;
-            this.lblCurrentClaim.Location = new System.Drawing.Point(96, 220);
+            this.lblCurrentClaim.Location = new System.Drawing.Point(96, 240);
             this.lblCurrentClaim.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCurrentClaim.Name = "lblCurrentClaim";
             this.lblCurrentClaim.Size = new System.Drawing.Size(197, 26);

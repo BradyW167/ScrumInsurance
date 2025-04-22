@@ -180,7 +180,7 @@
             this.Controls.Add(this.txtInputUser);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.pbxPillar2);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ctrlLandingAdmin";
             this.Size = new System.Drawing.Size(1080, 607);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserinfo)).EndInit();
