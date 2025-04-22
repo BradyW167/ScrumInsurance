@@ -281,7 +281,12 @@ namespace ScrumInsurance
         // Returns messages for input user id as a List of Message objects
         public List<Message> GetMessageList(long user_id)
         {
-            Connection.Query = new SelectQuery(new List<string> { "id", "subject", "sender_id", "date" }).From("messages JOIN message_recipients ON messages.id = message_recipients.message_id").Where("message_recipients.recipient_id", "=", user_id.ToString());
+            List<string> message_columns = new List<string>()
+            {
+                "id", "subject", "sender_id", "date"
+            };
+
+            Connection.Query = new SelectQuery(message_columns).From("messages").Join("message_recipients" , "id", "message_id").Where("message_recipients.recipient_id", "=", user_id.ToString());
 
             // If the new account has a duplicated username, return false
             List<Row> rows = Connection.ExecuteSelect();
