@@ -71,18 +71,37 @@ namespace ScrumInsurance
             return found_account.Password.Equals(password) ? found_account : null;
         }
 
+        // Returns list of all accounts matching the input role
+        public List<Account> GetAccountsByRole(string role)
+        {
+            Console.WriteLine(role);
+
+            Connection.Query = new SelectQuery().From("users").Where("role", "=", role);
+
+            List<Row> account_rows = Connection.ExecuteSelect();
+
+            foreach (Row row in account_rows)
+            {
+                Console.WriteLine(row.ToString());
+            }
+
+            // Return null, if no account with input username was found
+            if (account_rows == null) return null;
+
+            // Stores list of accounts created from row objects
+            List<Account> account_list = account_rows.Select(a => new Account(a)).ToList();
+
+            foreach (Account account in account_list)
+            {
+                Console.WriteLine(account.ToString());
+            }
+
+            return account_list;
+        }
+
         public Account GetAccountByUsername(string username)
         {
-            List<string> account_columns = new List<string> {
-                "id",
-                "username",
-                "password",
-                "role",
-                "security_question",
-                "security_answer"
-            };
-
-            Connection.Query = new SelectQuery(account_columns).From("users").Where("username", "=", username);
+            Connection.Query = new SelectQuery().From("users").Where("username", "=", username);
 
             Row account_row = Connection.ExecuteSingleSelect();
 
@@ -97,16 +116,7 @@ namespace ScrumInsurance
 
         public Account GetAccountByID(string id)
         {
-            List<string> account_columns = new List<string> {
-                "id",
-                "username",
-                "password",
-                "role",
-                "security_question",
-                "security_answer"
-            };
-
-            Connection.Query = new SelectQuery(account_columns).From("users").Where("id", "=", id);
+            Connection.Query = new SelectQuery().From("users").Where("id", "=", id);
 
             Row account_row = Connection.ExecuteSingleSelect();
 
