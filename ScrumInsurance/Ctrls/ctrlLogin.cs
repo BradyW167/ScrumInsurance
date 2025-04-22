@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ScrumInsurance
+namespace ScrumInsurance.Ctrls
 {
     public partial class ctrlLogin : ScrumUserControl
     {
@@ -65,6 +65,7 @@ namespace ScrumInsurance
                 {
                     SwapCtrlMain(new ctrlLandingClient(this));
                     LoadCtrlDash();
+                    LoadCtrlFooter();
                 }
                 else if (Session.UserAccount.Role.Equals("claim_manager"))
                 {

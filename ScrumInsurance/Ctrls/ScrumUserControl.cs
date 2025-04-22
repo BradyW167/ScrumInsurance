@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Org.BouncyCastle.Crmf;
 
-namespace ScrumInsurance
+namespace ScrumInsurance.Ctrls
 {
     public class ScrumUserControl : UserControl
     {
@@ -27,7 +27,7 @@ namespace ScrumInsurance
 
         // When called without an input control to load
         // Load this control into the parent panel
-        public void LoadControl() { LoadControl(this, 0, 0); }
+        public void LoadControl() { LoadCtrl(this, 0, 0); }
 
         // Creates a new row in the table and loads the dashboard
         public void LoadCtrlDash()
@@ -37,10 +37,29 @@ namespace ScrumInsurance
                 Session.CtrlDashboard = new ctrlDashboard(this);
 
                 // Load the dashboard control into first row
-                LoadControl(Session.CtrlDashboard, 0, 0);
+                LoadCtrl(Session.CtrlDashboard, 0, 0);
 
                 // Set the row to a fixed size of 50 pixels
                 PnlMain.RowStyles[0] = new RowStyle(SizeType.Absolute, 40);
+
+                FrmMain.Height += 40;
+            }
+        }
+
+        public void LoadCtrlFooter()
+        {
+            // Initialize dashboard control if not already
+            if (Session.CtrlFooter == null)
+            {
+                Session.CtrlFooter = new ctrlFooter(this);
+
+                // Load the dashboard control into third row
+                LoadCtrl(Session.CtrlFooter, 0, 2);
+
+                // Set the row to a fixed size of 50 pixels
+                PnlMain.RowStyles[0] = new RowStyle(SizeType.Absolute, 40);
+
+                FrmMain.Height += 40;
             }
         }
 
@@ -54,18 +73,18 @@ namespace ScrumInsurance
             if (Session.CtrlDashboard == null)
             {
                 // Load the new main control into first row
-                LoadControl(Session.CtrlDashboard, 0, 0);
+                LoadCtrl(Session.CtrlDashboard, 0, 0);
             }
             // Else dashboard does exist
             else
             {
                 // Load the new main control into second row
-                LoadControl(Session.CtrlDashboard, 1, 0);
+                LoadCtrl(Session.CtrlDashboard, 1, 0);
             }
         }
 
-        // Removes the dashboard control and decreases row count
-        public void removeDash()
+        // Removes the dashboard control
+        public void RemoveCtrlDash()
         {
             // If the dashboard control exists...
             if (Session.CtrlDashboard != null)
@@ -77,6 +96,30 @@ namespace ScrumInsurance
                 Session.CtrlDashboard = null;
 
                 PnlMain.RowStyles[0] = new RowStyle(SizeType.AutoSize);
+
+                FrmMain.Height -= 40;
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        // Removes the footer control
+        public void RemoveCtrlFooter()
+        {
+            // If the dashboard control exists...
+            if (Session.CtrlFooter != null)
+            {
+                // Remove the dashboard control
+                RemoveControl(Session.CtrlFooter);
+
+                // Set dashboard property back to null after deletion
+                Session.CtrlFooter = null;
+
+                PnlMain.RowStyles[0] = new RowStyle(SizeType.AutoSize);
+
+                FrmMain.Height -= 40;
             }
             else
             {
@@ -85,7 +128,7 @@ namespace ScrumInsurance
         }
 
         // Load input control into parent table layout panel at input column and row
-        public void LoadControl(ScrumUserControl newCtrl, int columnIndex, int rowIndex)
+        public void LoadCtrl(ScrumUserControl newCtrl, int columnIndex, int rowIndex)
         {
 
             // Return if main panel does not exist
@@ -123,7 +166,7 @@ namespace ScrumInsurance
             PnlMain.Controls.Add(newCtrl, columnIndex, rowIndex);
 
             // Center the control within its row
-            CenterUserControl(newCtrl);
+            CenterCtrl(newCtrl);
         }
 
         /* 
@@ -166,7 +209,7 @@ namespace ScrumInsurance
         }
 
         // Deletes this user control in parent panel and loads a new input control
-        public void SwapCtrlMain(ScrumUserControl newControl)
+        public void SwapCtrlMain(ScrumUserControl newControl)   
         {
             // Do not swap if new control is of the same type
             if (Session.CtrlMain.GetType() == newControl.GetType()) { return; }
@@ -180,25 +223,25 @@ namespace ScrumInsurance
             Session.CtrlMain.Dispose();
 
             // Load the new control into the main control's position
-            LoadControl(newControl, columnIndex, rowIndex);
+            LoadCtrl(newControl, columnIndex, rowIndex);
 
             Session.CtrlMain = newControl;
         }
 
         // Function to center the UserControl inside the column
-        public void CenterUserControl(ScrumUserControl control)
+        public void CenterCtrl(ScrumUserControl ctrl)
         {
             // Get the position of input control in the panel
-            int columnIndex = PnlMain.GetColumn(control);
-            int rowIndex = PnlMain.GetRow(control);
+            int columnIndex = PnlMain.GetColumn(this);
+            int rowIndex = PnlMain.GetRow(this);
 
             // Get the column width and row height
             int columnWidth = PnlMain.GetColumnWidths()[columnIndex];
             int rowHeight = PnlMain.GetRowHeights()[rowIndex];
 
             // Set the position dynamically
-            control.Left = (columnWidth - control.Width) / 2;
-            control.Top = (rowHeight - control.Height) / 2;
+            this.Left = (columnWidth - this.Width) / 2;
+            this.Top = (rowHeight - this.Height) / 2;
         }
 
         // Resizes the main form to input width and height
@@ -207,8 +250,6 @@ namespace ScrumInsurance
             // These numbers account for the border that forms have by default
             FrmMain.Width = w + 16;
             FrmMain.Height = h + 39;
-
-            Console.WriteLine($"Changing form {FrmMain.Text} to Width: {w} Height {h}");
         }
     }
 }

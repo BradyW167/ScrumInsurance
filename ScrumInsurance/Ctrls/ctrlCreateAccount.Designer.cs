@@ -1,4 +1,4 @@
-﻿namespace ScrumInsurance
+﻿namespace ScrumInsurance.Ctrls
 {
     partial class ctrlCreateAccount
     {
@@ -53,7 +53,7 @@
             this.lblCreateAccount.BackColor = System.Drawing.Color.Black;
             this.lblCreateAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCreateAccount.ForeColor = System.Drawing.Color.White;
-            this.lblCreateAccount.Location = new System.Drawing.Point(394, 94);
+            this.lblCreateAccount.Location = new System.Drawing.Point(390, 107);
             this.lblCreateAccount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCreateAccount.Name = "lblCreateAccount";
             this.lblCreateAccount.Size = new System.Drawing.Size(300, 30);
@@ -65,7 +65,7 @@
             // 
             this.btnCreateAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(180)))), ((int)(((byte)(247)))));
             this.btnCreateAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnCreateAccount.Location = new System.Drawing.Point(484, 452);
+            this.btnCreateAccount.Location = new System.Drawing.Point(480, 465);
             this.btnCreateAccount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCreateAccount.Name = "btnCreateAccount";
             this.btnCreateAccount.Size = new System.Drawing.Size(120, 30);
@@ -77,7 +77,7 @@
             // txtCreateUsername
             // 
             this.txtCreateUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txtCreateUsername.Location = new System.Drawing.Point(410, 170);
+            this.txtCreateUsername.Location = new System.Drawing.Point(406, 183);
             this.txtCreateUsername.Margin = new System.Windows.Forms.Padding(2);
             this.txtCreateUsername.Name = "txtCreateUsername";
             this.txtCreateUsername.Size = new System.Drawing.Size(265, 30);
@@ -89,7 +89,7 @@
             this.lblCretaeUsername.BackColor = System.Drawing.Color.Black;
             this.lblCretaeUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCretaeUsername.ForeColor = System.Drawing.Color.White;
-            this.lblCretaeUsername.Location = new System.Drawing.Point(407, 148);
+            this.lblCretaeUsername.Location = new System.Drawing.Point(403, 161);
             this.lblCretaeUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCretaeUsername.Name = "lblCretaeUsername";
             this.lblCretaeUsername.Size = new System.Drawing.Size(268, 20);
@@ -99,7 +99,7 @@
             // txtCreatePassword
             // 
             this.txtCreatePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txtCreatePassword.Location = new System.Drawing.Point(410, 245);
+            this.txtCreatePassword.Location = new System.Drawing.Point(406, 258);
             this.txtCreatePassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtCreatePassword.Name = "txtCreatePassword";
             this.txtCreatePassword.Size = new System.Drawing.Size(265, 30);
@@ -111,7 +111,7 @@
             this.lblCreatePassword.BackColor = System.Drawing.Color.Black;
             this.lblCreatePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCreatePassword.ForeColor = System.Drawing.Color.White;
-            this.lblCreatePassword.Location = new System.Drawing.Point(407, 223);
+            this.lblCreatePassword.Location = new System.Drawing.Point(403, 236);
             this.lblCreatePassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCreatePassword.Name = "lblCreatePassword";
             this.lblCreatePassword.Size = new System.Drawing.Size(268, 20);
@@ -123,7 +123,7 @@
             this.lblSecurityQuestion.BackColor = System.Drawing.Color.Black;
             this.lblSecurityQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblSecurityQuestion.ForeColor = System.Drawing.Color.White;
-            this.lblSecurityQuestion.Location = new System.Drawing.Point(407, 298);
+            this.lblSecurityQuestion.Location = new System.Drawing.Point(403, 311);
             this.lblSecurityQuestion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSecurityQuestion.Name = "lblSecurityQuestion";
             this.lblSecurityQuestion.Size = new System.Drawing.Size(268, 20);
@@ -133,7 +133,7 @@
             // txtCreateAnswer
             // 
             this.txtCreateAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txtCreateAnswer.Location = new System.Drawing.Point(410, 395);
+            this.txtCreateAnswer.Location = new System.Drawing.Point(406, 408);
             this.txtCreateAnswer.Margin = new System.Windows.Forms.Padding(2);
             this.txtCreateAnswer.Name = "txtCreateAnswer";
             this.txtCreateAnswer.Size = new System.Drawing.Size(265, 30);
@@ -144,7 +144,7 @@
             this.lblAnswer.BackColor = System.Drawing.Color.Black;
             this.lblAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblAnswer.ForeColor = System.Drawing.Color.White;
-            this.lblAnswer.Location = new System.Drawing.Point(409, 373);
+            this.lblAnswer.Location = new System.Drawing.Point(405, 386);
             this.lblAnswer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAnswer.Name = "lblAnswer";
             this.lblAnswer.Size = new System.Drawing.Size(266, 20);
@@ -154,7 +154,7 @@
             // pbxCenterPanel
             // 
             this.pbxCenterPanel.BackColor = System.Drawing.Color.Black;
-            this.pbxCenterPanel.Location = new System.Drawing.Point(394, 76);
+            this.pbxCenterPanel.Location = new System.Drawing.Point(390, 89);
             this.pbxCenterPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pbxCenterPanel.Name = "pbxCenterPanel";
             this.pbxCenterPanel.Size = new System.Drawing.Size(300, 440);
@@ -178,7 +178,7 @@
             "What was your favorite food as a child?​",
             "What is your favorite movie?​",
             "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA"});
-            this.cmbSecurityQuestion.Location = new System.Drawing.Point(410, 320);
+            this.cmbSecurityQuestion.Location = new System.Drawing.Point(406, 333);
             this.cmbSecurityQuestion.Margin = new System.Windows.Forms.Padding(0);
             this.cmbSecurityQuestion.Name = "cmbSecurityQuestion";
             this.cmbSecurityQuestion.Size = new System.Drawing.Size(265, 33);
@@ -191,7 +191,7 @@
             this.lblBackLogin.BackColor = System.Drawing.Color.Black;
             this.lblBackLogin.ForeColor = System.Drawing.Color.White;
             this.lblBackLogin.LinkColor = System.Drawing.Color.LightSteelBlue;
-            this.lblBackLogin.Location = new System.Drawing.Point(410, 490);
+            this.lblBackLogin.Location = new System.Drawing.Point(406, 503);
             this.lblBackLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBackLogin.Name = "lblBackLogin";
             this.lblBackLogin.Size = new System.Drawing.Size(73, 13);
@@ -208,7 +208,7 @@
             // pbxTopBorder
             // 
             this.pbxTopBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.pbxTopBorder.Location = new System.Drawing.Point(394, 66);
+            this.pbxTopBorder.Location = new System.Drawing.Point(390, 79);
             this.pbxTopBorder.Name = "pbxTopBorder";
             this.pbxTopBorder.Size = new System.Drawing.Size(300, 10);
             this.pbxTopBorder.TabIndex = 64;
@@ -236,7 +236,7 @@
             this.Controls.Add(this.pbxCenterPanel);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ctrlCreateAccount";
-            this.Size = new System.Drawing.Size(1088, 582);
+            this.Size = new System.Drawing.Size(1080, 607);
             this.Load += new System.EventHandler(this.ctrlCreateAccount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxCenterPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errCreateAccount)).EndInit();

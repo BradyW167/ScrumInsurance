@@ -8,15 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ScrumInsurance
+namespace ScrumInsurance.Ctrls
 {
     public partial class ctrlLandingClient : ScrumUserControl
     {
         public ctrlLandingClient(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
             InitializeComponent();
-
-            this.ResizeMainForm(this.Width, this.Height + 500);
         }
 
         private void ctrlLanding_Load(object sender, EventArgs e)

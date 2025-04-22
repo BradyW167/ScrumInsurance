@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ScrumInsurance
+namespace ScrumInsurance.Ctrls
 {
     public partial class ctrlDashboard : ScrumUserControl
     {
@@ -25,7 +25,8 @@ namespace ScrumInsurance
         private void lblLogout_Click(object sender, EventArgs e)
         {
             SwapCtrlMain(new ctrlLogin(this));
-            removeDash();
+            RemoveCtrlFooter();
+            RemoveCtrlDash();
         }
 
         private void button1_Click(object sender, EventArgs e)

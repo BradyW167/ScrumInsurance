@@ -1,4 +1,4 @@
-﻿namespace ScrumInsurance
+﻿namespace ScrumInsurance.Ctrls
 {
     partial class ctrlDashboard
     {
@@ -76,7 +76,7 @@
             this.btnLanding.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLanding.ForeColor = System.Drawing.Color.White;
             this.btnLanding.Location = new System.Drawing.Point(74, 2);
-            this.btnLanding.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLanding.Margin = new System.Windows.Forms.Padding(2);
             this.btnLanding.Name = "btnLanding";
             this.btnLanding.Size = new System.Drawing.Size(67, 36);
             this.btnLanding.TabIndex = 8;
@@ -91,7 +91,7 @@
             this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccount.ForeColor = System.Drawing.Color.White;
             this.btnAccount.Location = new System.Drawing.Point(144, 2);
-            this.btnAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAccount.Margin = new System.Windows.Forms.Padding(2);
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Size = new System.Drawing.Size(67, 36);
             this.btnAccount.TabIndex = 9;
@@ -106,7 +106,7 @@
             this.btnSupport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSupport.ForeColor = System.Drawing.Color.White;
             this.btnSupport.Location = new System.Drawing.Point(214, 2);
-            this.btnSupport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSupport.Margin = new System.Windows.Forms.Padding(2);
             this.btnSupport.Name = "btnSupport";
             this.btnSupport.Size = new System.Drawing.Size(67, 36);
             this.btnSupport.TabIndex = 10;
@@ -120,7 +120,7 @@
             this.btnInbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInbox.ForeColor = System.Drawing.Color.White;
             this.btnInbox.Location = new System.Drawing.Point(284, 2);
-            this.btnInbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnInbox.Margin = new System.Windows.Forms.Padding(2);
             this.btnInbox.Name = "btnInbox";
             this.btnInbox.Size = new System.Drawing.Size(67, 36);
             this.btnInbox.TabIndex = 11;
@@ -135,7 +135,7 @@
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.ForeColor = System.Drawing.Color.White;
             this.btnSettings.Location = new System.Drawing.Point(354, 2);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(2);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(67, 36);
             this.btnSettings.TabIndex = 12;
@@ -158,6 +158,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnInbox);
@@ -169,7 +170,7 @@
             this.Controls.Add(this.pbxLogo);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ctrlDashboard";
-            this.Size = new System.Drawing.Size(1088, 40);
+            this.Size = new System.Drawing.Size(1080, 40);
             this.Load += new System.EventHandler(this.ctrlDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             this.ResumeLayout(false);

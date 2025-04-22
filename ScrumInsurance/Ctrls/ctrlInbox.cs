@@ -13,7 +13,7 @@ using MySqlX.XDevAPI.Relational;
 using Org.BouncyCastle.Asn1.Crmf;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace ScrumInsurance
+namespace ScrumInsurance.Ctrls
 {
     public partial class ctrlInbox : ScrumUserControl
     {

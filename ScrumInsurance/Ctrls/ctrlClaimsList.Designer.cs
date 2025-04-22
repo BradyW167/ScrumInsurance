@@ -1,4 +1,4 @@
-﻿namespace ScrumInsurance
+﻿namespace ScrumInsurance.Ctrls
 {
     partial class ctrlClaimsList
     {
