@@ -34,7 +34,8 @@
             // 
             // pnlMain
             // 
-            this.pnlMain.BackColor = System.Drawing.Color.SteelBlue;
+            this.pnlMain.AutoSize = true;
+            this.pnlMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(16)))), ((int)(((byte)(66)))));
             this.pnlMain.ColumnCount = 1;
             this.pnlMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -55,11 +56,11 @@
             this.Controls.Add(this.pnlMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.MinimumSize = new System.Drawing.Size(1096, 621);
+            this.MinimumSize = new System.Drawing.Size(1096, 646);
             this.Name = "frmMain";
             this.Text = "Scrum Insurance Ltd.";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

@@ -27,7 +27,10 @@ namespace ScrumInsurance
             ScrumUserControl ctrlLogin = new ctrlLogin(session, controller, pnlMain, this);
 
             // Load login page as first control into panel
-            ctrlLogin.LoadControl();
+            ctrlLogin.LoadCtrl();
+
+            pnlMain.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            pnlMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 40));
         }
 
         private void SetMaxSizeToMonitor()
