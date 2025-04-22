@@ -65,7 +65,7 @@ namespace ScrumInsurance.Ctrls
                 // Load landing page, admins go to admin page, clients go to new client page, decided by role column in database
                 if (Session.UserAccount.Role.Equals("admin"))
                 {
-                    SwapCtrlMain(new ctrlAdminLanding(this));
+                    SwapCtrlMain(new ctrlLandingAdmin(this));
                     LoadCtrlDash();
                 }
                 else if (Session.UserAccount.Role.Equals("client"))

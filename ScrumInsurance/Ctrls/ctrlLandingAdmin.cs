@@ -12,11 +12,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ScrumInsurance.Ctrls
 {
-    public partial class ctrlAdminLanding : ScrumUserControl
+    public partial class ctrlLandingAdmin : ScrumUserControl
     {
         private List<Account> Accounts {  get; set; }
 
-        public ctrlAdminLanding(ScrumUserControl oldCtrl) : base(oldCtrl)
+        public ctrlLandingAdmin(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
 
             InitializeComponent();

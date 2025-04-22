@@ -1,6 +1,6 @@
 ﻿namespace ScrumInsurance.Ctrls
 {
-    partial class ctrlAdminLanding
+    partial class ctrlLandingAdmin
     {
         /// <summary> 
         /// Required designer variable.
@@ -37,8 +37,9 @@
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Question = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pbxPillar2 = new System.Windows.Forms.PictureBox();
             this.cmbSelectRole = new System.Windows.Forms.ComboBox();
+            this.lblSelectRole = new System.Windows.Forms.Label();
+            this.pbxPillar2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserinfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPillar2)).BeginInit();
             this.SuspendLayout();
@@ -58,10 +59,10 @@
             // txtInputUser
             // 
             this.txtInputUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInputUser.Location = new System.Drawing.Point(360, 116);
+            this.txtInputUser.Location = new System.Drawing.Point(283, 118);
             this.txtInputUser.Margin = new System.Windows.Forms.Padding(2);
             this.txtInputUser.Name = "txtInputUser";
-            this.txtInputUser.Size = new System.Drawing.Size(123, 30);
+            this.txtInputUser.Size = new System.Drawing.Size(200, 30);
             this.txtInputUser.TabIndex = 1;
             this.txtInputUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtInputUser_KeyDown);
             // 
@@ -70,7 +71,7 @@
             this.lblUser.AutoSize = true;
             this.lblUser.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblUser.Location = new System.Drawing.Point(358, 97);
+            this.lblUser.Location = new System.Drawing.Point(281, 97);
             this.lblUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(111, 17);
@@ -129,6 +130,34 @@
             this.Answer.Name = "Answer";
             this.Answer.Width = 150;
             // 
+            // cmbSelectRole
+            // 
+            this.cmbSelectRole.DropDownHeight = 80;
+            this.cmbSelectRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSelectRole.DropDownWidth = 200;
+            this.cmbSelectRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSelectRole.FormattingEnabled = true;
+            this.cmbSelectRole.IntegralHeight = false;
+            this.cmbSelectRole.ItemHeight = 25;
+            this.cmbSelectRole.Location = new System.Drawing.Point(586, 116);
+            this.cmbSelectRole.Margin = new System.Windows.Forms.Padding(0);
+            this.cmbSelectRole.Name = "cmbSelectRole";
+            this.cmbSelectRole.Size = new System.Drawing.Size(200, 33);
+            this.cmbSelectRole.TabIndex = 83;
+            this.cmbSelectRole.SelectionChangeCommitted += new System.EventHandler(this.cmbSelectRole_SelectionChangeCommitted);
+            // 
+            // lblSelectRole
+            // 
+            this.lblSelectRole.AutoSize = true;
+            this.lblSelectRole.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblSelectRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblSelectRole.Location = new System.Drawing.Point(583, 97);
+            this.lblSelectRole.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSelectRole.Name = "lblSelectRole";
+            this.lblSelectRole.Size = new System.Drawing.Size(80, 17);
+            this.lblSelectRole.TabIndex = 84;
+            this.lblSelectRole.Text = "Select Role";
+            // 
             // pbxPillar2
             // 
             this.pbxPillar2.BackColor = System.Drawing.Color.LightSteelBlue;
@@ -139,27 +168,12 @@
             this.pbxPillar2.TabIndex = 82;
             this.pbxPillar2.TabStop = false;
             // 
-            // cmbSelectRole
-            // 
-            this.cmbSelectRole.DropDownHeight = 80;
-            this.cmbSelectRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSelectRole.DropDownWidth = 365;
-            this.cmbSelectRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSelectRole.FormattingEnabled = true;
-            this.cmbSelectRole.IntegralHeight = false;
-            this.cmbSelectRole.ItemHeight = 25;
-            this.cmbSelectRole.Location = new System.Drawing.Point(533, 113);
-            this.cmbSelectRole.Margin = new System.Windows.Forms.Padding(0);
-            this.cmbSelectRole.Name = "cmbSelectRole";
-            this.cmbSelectRole.Size = new System.Drawing.Size(265, 33);
-            this.cmbSelectRole.TabIndex = 83;
-            this.cmbSelectRole.SelectionChangeCommitted += new System.EventHandler(this.cmbSelectRole_SelectionChangeCommitted);
-            // 
-            // ctrlAdminLanding
+            // ctrlLandingAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
+            this.Controls.Add(this.lblSelectRole);
             this.Controls.Add(this.cmbSelectRole);
             this.Controls.Add(this.dgvUserinfo);
             this.Controls.Add(this.lblUser);
@@ -167,7 +181,7 @@
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.pbxPillar2);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "ctrlAdminLanding";
+            this.Name = "ctrlLandingAdmin";
             this.Size = new System.Drawing.Size(1080, 607);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserinfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPillar2)).EndInit();
@@ -189,5 +203,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Answer;
         private System.Windows.Forms.PictureBox pbxPillar2;
         private System.Windows.Forms.ComboBox cmbSelectRole;
+        private System.Windows.Forms.Label lblSelectRole;
     }
 }

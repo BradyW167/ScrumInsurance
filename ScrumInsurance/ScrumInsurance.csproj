@@ -137,11 +137,11 @@
     <Compile Include="Queries\Query.cs" />
     <Compile Include="Database\Message.cs" />
     <Compile Include="Database\Client.cs" />
-    <Compile Include="Ctrls\ctrlAdminLanding.cs">
+    <Compile Include="Ctrls\ctrlLandingAdmin.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Ctrls\ctrlAdminLanding.Designer.cs">
-      <DependentUpon>ctrlAdminLanding.cs</DependentUpon>
+    <Compile Include="Ctrls\ctrlLandingAdmin.Designer.cs">
+      <DependentUpon>ctrlLandingAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Ctrls\ctrlClaimApply.cs">
       <SubType>UserControl</SubType>
@@ -209,12 +209,6 @@
     <Compile Include="Ctrls\ctrlLandingClient.Designer.cs">
       <DependentUpon>ctrlLandingClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ctrls\ctrlLanding.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ctrls\ctrlLanding.Designer.cs">
-      <DependentUpon>ctrlLanding.cs</DependentUpon>
-    </Compile>
     <Compile Include="Ctrls\ctrlLogin.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -247,9 +241,6 @@
     <Compile Include="Session.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Ctrls\ctrlAdminLanding.resx">
-      <DependentUpon>ctrlAdminLanding.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlClaimApply.resx">
       <DependentUpon>ctrlClaimApply.cs</DependentUpon>
     </EmbeddedResource>
@@ -277,6 +268,9 @@
     <EmbeddedResource Include="Ctrls\ctrlInbox.resx">
       <DependentUpon>ctrlInbox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ctrls\ctrlLandingAdmin.resx">
+      <DependentUpon>ctrlLandingAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlLandingFManager.resx">
       <DependentUpon>ctrlLandingFManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,9 +279,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlLandingClient.resx">
       <DependentUpon>ctrlLandingClient.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ctrls\ctrlLanding.resx">
-      <DependentUpon>ctrlLanding.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlLogin.resx">
       <DependentUpon>ctrlLogin.cs</DependentUpon>
