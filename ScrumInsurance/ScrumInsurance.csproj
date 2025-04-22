@@ -124,6 +124,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ctrls\ctrlFooter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctrls\ctrlFooter.Designer.cs">
+      <DependentUpon>ctrlFooter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database\Account.cs" />
     <Compile Include="Database\Claim.cs" />
     <Compile Include="Queries\InsertQuery.cs" />
@@ -255,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlEditProfile.resx">
       <DependentUpon>ctrlEditProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctrls\ctrlFooter.resx">
+      <DependentUpon>ctrlFooter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlForgotPass.resx">
       <DependentUpon>ctrlForgotPass.cs</DependentUpon>
