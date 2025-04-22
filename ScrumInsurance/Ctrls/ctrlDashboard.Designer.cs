@@ -42,6 +42,7 @@
             // 
             // lblLogout
             // 
+            this.lblLogout.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblLogout.AutoSize = true;
             this.lblLogout.BackColor = System.Drawing.Color.Black;
             this.lblLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -55,6 +56,7 @@
             // 
             // lblUser
             // 
+            this.lblUser.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblUser.BackColor = System.Drawing.Color.Black;
             this.lblUser.ForeColor = System.Drawing.Color.White;
             this.lblUser.ImageAlign = System.Drawing.ContentAlignment.TopRight;
@@ -71,6 +73,7 @@
             // 
             // btnLanding
             // 
+            this.btnLanding.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnLanding.BackColor = System.Drawing.Color.Black;
             this.btnLanding.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnLanding.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -86,6 +89,7 @@
             // 
             // btnAccount
             // 
+            this.btnAccount.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnAccount.BackColor = System.Drawing.Color.Black;
             this.btnAccount.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -101,6 +105,7 @@
             // 
             // btnSupport
             // 
+            this.btnSupport.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnSupport.BackColor = System.Drawing.Color.Black;
             this.btnSupport.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnSupport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -115,6 +120,7 @@
             // 
             // btnInbox
             // 
+            this.btnInbox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnInbox.BackColor = System.Drawing.Color.Black;
             this.btnInbox.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnInbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -130,6 +136,7 @@
             // 
             // btnSettings
             // 
+            this.btnSettings.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnSettings.BackColor = System.Drawing.Color.Black;
             this.btnSettings.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -144,6 +151,7 @@
             // 
             // pbxLogo
             // 
+            this.pbxLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pbxLogo.BackColor = System.Drawing.Color.Black;
             this.pbxLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxLogo.BackgroundImage")));
             this.pbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;

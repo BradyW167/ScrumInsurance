@@ -16,5 +16,9 @@ namespace ScrumInsurance.Ctrls
         {
             InitializeComponent();
         }
+
+        private void ctrlFooter_Load(object sender, EventArgs e)
+        {
+        }
     }
 }

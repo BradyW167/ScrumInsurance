@@ -15,6 +15,9 @@ namespace ScrumInsurance.Ctrls
         public ctrlDashboard(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
             InitializeComponent();
+
+            // Anchor this to the top of the screen
+            this.Anchor = AnchorStyles.None;
         }
 
         private void ctrlDashboard_Load(object sender, EventArgs e)
@@ -24,9 +27,11 @@ namespace ScrumInsurance.Ctrls
 
         private void lblLogout_Click(object sender, EventArgs e)
         {
-            SwapCtrlMain(new ctrlLogin(this));
+            PnlMain.BackColor = ColorTranslator.FromHtml("#131042");
+
             RemoveCtrlFooter();
             RemoveCtrlDash();
+            SwapCtrlMain(new ctrlLogin(this));
         }
 
         private void button1_Click(object sender, EventArgs e)
