@@ -25,9 +25,10 @@ namespace ScrumInsurance.Queries
         public OrderType OrderType { get; set; }
         public int RowLimit { get; set; }
 
-        public SelectQuery(string column = null) : base(string.Empty)
+        // Default constructor, selects all columns or one input column
+        public SelectQuery(string column = "*") : base(string.Empty)
         {
-            RequestColumns = new List<string> { column == null ? "*" : column };
+            RequestColumns = new List<string> { column };
             WhereConditions = new List<(string, string, string)>();
             JoinTable = string.Empty;
             JoinColumn = string.Empty;
@@ -36,6 +37,7 @@ namespace ScrumInsurance.Queries
             RowLimit = 0;
         }
 
+        // Selects a list of input request columns
         public SelectQuery(List<string> requestColumns) : base(string.Empty) {
             RequestColumns = requestColumns;
             WhereConditions = new List<(string, string, string)>();
