@@ -113,27 +113,38 @@ namespace ScrumInsurance
                     // Stores the names of the requested columns
                     List<string> columns = sq.RequestColumns;
 
+                    // If requesting all columns...
+                    if (columns.Count == 1 && columns[0] == "*")
+                    {
+                        columns = new List<string>();
+
+                        // Add column names from Reader
+                        for (int i = 0; i < Reader.FieldCount; i++)
+                        {
+                            columns.Add(Reader.GetName(i));
+                        }
+                    }
+
                     // Read through the found database entries
                     while (Reader.Read())
                     {
                         Row row = new Row();
 
-                        // Loop for each column of data needed
-
-                        if (columns[0] == "*")
+                        for (int i = 0; i < columns.Count; i++)
                         {
-                            columns = new List<string>();
-                            for (int i = 0; i < Reader.FieldCount; i++)
+                            // If column i is null
+                            if (Reader.IsDBNull(Reader.GetOrdinal(columns[i])))
                             {
-                                columns.Add(Reader.GetName(i));
+                                // Set it to DBNull
+                                row.AddColumn(columns[i], DBNull.Value);
+                            }
+                            else
+                            {
+                                // Store each requested column of data
+                                row.AddColumn(columns[i], Reader[columns[i]]);
                             }
                         }
 
-                        for (int i = 0; i < columns.Count; i++)
-                        {
-                            // Store each requested column of data
-                            row.AddColumn(columns[i], Reader[columns[i]]);
-                        }
                         rows.Add(row);
                     }
 
@@ -161,6 +172,13 @@ namespace ScrumInsurance
             if (Query is SelectQuery)
             {
                 Console.WriteLine("DatabaseConnection.Query is not a NonQuery");
+                return false;
+            }
+
+            // Open SQL connection for queries
+            if (!openConnection())
+            {
+                Console.WriteLine("Select Query: Connection failed, returning null");
                 return false;
             }
 

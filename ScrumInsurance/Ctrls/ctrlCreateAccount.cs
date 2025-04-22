@@ -11,11 +11,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Text.RegularExpressions;
 
-namespace ScrumInsurance
+namespace ScrumInsurance.Ctrls
 {
     public partial class ctrlCreateAccount : ScrumUserControl
     {
-        public ctrlCreateAccount()
+        public ctrlCreateAccount(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
             InitializeComponent();
         }
@@ -26,7 +26,7 @@ namespace ScrumInsurance
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
             // If input account info is invalid, return
-            if(!this.ValidateChildren()) { return; }
+            if(!ValidateChildren()) { return; }
             // Else input account info is valid
             else
             {
@@ -34,7 +34,7 @@ namespace ScrumInsurance
 
                 // If account is sucessfully added...
                 if (DBController.AddAccount(new_account)) {
-                    this.SwapCtrlMain(new ctrlLogin());
+                    SwapCtrlMain(new ctrlLogin(this));
                 }
                 // Else account creation failed due to database error
                 else
@@ -47,7 +47,7 @@ namespace ScrumInsurance
         private void lblBackLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Takes the user back to the login page
-            this.SwapCtrlMain(new ctrlLogin());
+            SwapCtrlMain(new ctrlLogin(this));
         }
 
         private void txtCreateUsername_Validating(object sender, CancelEventArgs e)

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ScrumInsurance
+namespace ScrumInsurance.Ctrls
 {
     public partial class ctrlLandingFManager : ScrumUserControl
     {
@@ -23,7 +23,7 @@ namespace ScrumInsurance
 
         private void lblLogout_Click(object sender, EventArgs e)
         {
-            this.SwapCtrlMain(new ctrlLogin());
+            SwapCtrlMain(new ctrlLogin(this));
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace ScrumInsurance
 
         private void btnClaimsList_Click(object sender, EventArgs e)
         {
-            SwapCtrlMain(new ctrlClaimsList(Session, DBController));
+            SwapCtrlMain(new ctrlClaimsList(this));
         }
     }
 }

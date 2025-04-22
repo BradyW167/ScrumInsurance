@@ -6,75 +6,67 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Org.BouncyCastle.Crypto.Paddings;
 
-namespace ScrumInsurance
+namespace ScrumInsurance.Ctrls
 {
     public partial class ctrlClaimApply : ScrumUserControl
     {
-        public ctrlClaimApply()
+        private List<string> DocumentPaths { get; set; }
+
+        public ctrlClaimApply(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
             InitializeComponent();
-        }
-        //upload documents
-        private void btnBrowseDocument_Click(object sender, EventArgs e) //choose which file
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                Title = "Select a Claim Document",
-                Filter = "Image Files|*.jpg;*.jpeg;*.png" +
-                         "|PDF Files|*.pdf" +
-                         "|Word Documents|*.doc;*.docx"
-                //I'm not really sure all the file types that are needed for applying for a claim, but this will limit 
-            };
 
-            // Show dialog + check a file was selected
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                string filePath = openFileDialog.FileName; //get the path of specified file
-                txtFilepaths.Text = filePath; // displays into the txtbox
-                lblFileName.Text = Path.GetFileName(filePath); //shows the file name
-                // Load the image - pbx to display document (?)
-                //pbxDocumentPreview.ImageLocation = openFileDialog.FileName;
-            }
-
+            DocumentPaths = new List<string>();
         }
-        private byte[] ReadFile(string filePath)  //reads the uploaded document into an array
-        {
-            byte[] fileData = null;
-            using (FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
-            {
-                using (BinaryReader br = new BinaryReader(fs))
-                {
-                    fileData = br.ReadBytes((int)fs.Length);
-                }
-                return fileData;
-            }
-        }
-        private void btnUploadDocuments_Click(object sender, EventArgs e) //uploads the ARRAY to the database
-        {
-            //need insert method for upload document, needs to go into the documents table
-            string file_path = txtFilepaths.Text;
-            byte[] file_data = ReadFile(file_path);
-            string file_name = Path.GetFileName(file_path);
-           
-            if (DBController.UploadDocument(file_name, file_data))
-            {
-                MessageBox.Show("File uploaded successfully!");
-            }
-            else
-            {
-                MessageBox.Show("File upload failed.");
-            }
 
+        private void ctrlClaimApply_Load(object sender, EventArgs e)
+        {
+            // Set filter options (PDF, Word)
+            this.ofdClaimDocument.Filter = "PDF files (*.pdf)|*.pdf|Word documents (*.docx)|*.docx";
+
+            // Sets initial directory to user's documents directory
+            this.ofdClaimDocument.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             
+            // Enables selection of multiple files
+            this.ofdClaimDocument.Multiselect = true;
+
+            // Set title of dialog
+            this.ofdClaimDocument.Title = "Select a Claim Document";
+        }
+
+        /**
+         * Opens file dialog for selection of documents
+         * Stores their paths in DocumentPaths
+         */
+        private void btnBrowseDocument_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = this.ofdClaimDocument.ShowDialog();
+
+            // If file selection was successful...
+            if (dr == DialogResult.OK)
+            {
+                // Loop through each file selected in the dialog
+                foreach (string file_path in ofdClaimDocument.FileNames)
+                {
+                    // Add this file's file path to the list of document paths
+                    DocumentPaths.Add(file_path);
+
+                    // Displays file names, seperated by ';'
+                    lblFileName.Text = Path.GetFileName(file_path) + ";";
+                }
+            }
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (DBController.SubmitClaim(Convert.ToInt64(Session.UserAccount.ID), txtTitle.Text, txtDetails.Text, Convert.ToInt32(txtAmount.Text)))
+
+            if (DBController.SubmitClaim(Session.UserAccount.ID, txtDetails.Text))
             {
                 lblError.Text = "Claim submitted succcesfully";
                 txtDetails.Text = "";
@@ -83,20 +75,43 @@ namespace ScrumInsurance
             {
                 lblError.Text = "Unable to submit claim";
             }
-            lblError.Visible = true;
+            /*
+            try
+            {
+                // Loop through each document in the List
+                foreach (string document_path in DocumentPaths)
+                {
+                    // Stores file name from path
+                    string file_name = Path.GetFileName(document_path);
+
+                    // Stores file data as byte array
+                    byte[] file_data = File.ReadAllBytes(document_path);
+
+                    // Upload document info to database
+                    DBController.UploadDocument(7, file_name, file_data);
+                }
+            }
+            // Catch document upload errors
+            catch (Exception ex)
+            {
+                Console.Write(ex.ToString());
+            }*/
         }
 
-        private void btnSaveClaim_Click(object sender, EventArgs e)
+        private void btnTestUpload_Click(object sender, EventArgs e)
         {
-            if (DBController.SubmitClaim(Convert.ToInt64(Session.UserAccount.ID), txtTitle.Text, txtDetails.Text, Convert.ToInt32(txtAmount.Text)))
+            // Loop through each document in the List
+            foreach (string document_path in DocumentPaths)
             {
-                lblError.Text = "Claim saved succcesfully";
+                // Stores file name from path
+                string file_name = Path.GetFileName(document_path);
+
+                // Stores file data as byte array
+                byte[] file_data = File.ReadAllBytes(document_path);
+
+                // Upload document info to database
+                DBController.UploadDocument(7, file_name, file_data);
             }
-            else
-            {
-                lblError.Text = "Unable to save claim";
-            }
-            lblError.Visible = true;
         }
     }
 }

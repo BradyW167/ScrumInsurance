@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
-namespace ScrumInsurance
+namespace ScrumInsurance.Ctrls
 {
     public partial class ctrlForgotPass : ScrumUserControl
     {
 
-        public ctrlForgotPass()
+        public ctrlForgotPass(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
             InitializeComponent();
         }
@@ -26,7 +26,7 @@ namespace ScrumInsurance
             if (e.KeyCode == Keys.Enter)
             {
                 // Call validation method for this control
-                this.Validate();
+                Validate();
                 e.SuppressKeyPress = true; // Prevent ding sound
             }
         }
@@ -64,7 +64,7 @@ namespace ScrumInsurance
             if (e.KeyCode == Keys.Enter)
             {
                 // Call validation method for this control
-                this.Validate();
+                Validate();
                 e.SuppressKeyPress = true; // Prevent ding sound
             }
         }
@@ -112,7 +112,7 @@ namespace ScrumInsurance
             if (e.KeyCode == Keys.Enter)
             {
                 // Call validation method for txtNewPassword
-                this.Validate();
+                Validate();
                 e.SuppressKeyPress = true; // Prevent ding sound
             }
         }
@@ -139,7 +139,7 @@ namespace ScrumInsurance
             if (e.KeyCode == Keys.Enter)
             {
                 // Call validation method for this control
-                this.Validate();
+                Validate();
                 e.SuppressKeyPress = true; // Prevent ding sound
             }
         }
@@ -170,19 +170,19 @@ namespace ScrumInsurance
          */
         private void btnConfirmNewPassword_Click(object sender, EventArgs e)
         {
-            if (!this.ValidateChildren()) { return; }
+            if (!ValidateChildren()) { return; }
             else
             {
                 // Updates the user's password and takes the user back to the login page
                 DBController.UpdateAccount(Session.UserAccount.Username, new Dictionary<string, object> { { "password", txtNewPassword.Text } });
-                this.SwapCtrlMain(new ctrlLogin());
+                SwapCtrlMain(new ctrlLogin(this));
             }
         }
 
         // Returns user to login page
         private void lblBackLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.SwapCtrlMain(new ctrlLogin());
+            SwapCtrlMain(new ctrlLogin(this));
         }
     }
 }

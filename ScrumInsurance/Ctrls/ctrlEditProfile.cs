@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace ScrumInsurance
+namespace ScrumInsurance.Ctrls
 {
     public partial class ctrlEditProfile : ScrumUserControl
     {
-        public ctrlEditProfile()
+        public ctrlEditProfile(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
             InitializeComponent();
         }
@@ -67,7 +67,7 @@ namespace ScrumInsurance
         {
             if (DBController.DeleteAccount(Session.UserAccount.Username))
             {
-                this.SwapCtrlMain(new ctrlLogin());
+                SwapCtrlMain(new ctrlLogin(this));
             }
             else
             {

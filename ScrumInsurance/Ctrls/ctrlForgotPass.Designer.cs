@@ -1,4 +1,4 @@
-﻿namespace ScrumInsurance
+﻿namespace ScrumInsurance.Ctrls
 {
     partial class ctrlForgotPass
     {
@@ -52,7 +52,7 @@
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txtUsername.Location = new System.Drawing.Point(414, 180);
+            this.txtUsername.Location = new System.Drawing.Point(410, 193);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(0);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(265, 30);
@@ -63,7 +63,7 @@
             // txtQuestionAnswer
             // 
             this.txtQuestionAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txtQuestionAnswer.Location = new System.Drawing.Point(414, 255);
+            this.txtQuestionAnswer.Location = new System.Drawing.Point(410, 268);
             this.txtQuestionAnswer.Margin = new System.Windows.Forms.Padding(0);
             this.txtQuestionAnswer.Multiline = true;
             this.txtQuestionAnswer.Name = "txtQuestionAnswer";
@@ -87,7 +87,7 @@
             this.lblSecurityQuestion.BackColor = System.Drawing.Color.Black;
             this.lblSecurityQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblSecurityQuestion.ForeColor = System.Drawing.Color.White;
-            this.lblSecurityQuestion.Location = new System.Drawing.Point(411, 235);
+            this.lblSecurityQuestion.Location = new System.Drawing.Point(407, 248);
             this.lblSecurityQuestion.Margin = new System.Windows.Forms.Padding(0);
             this.lblSecurityQuestion.Name = "lblSecurityQuestion";
             this.lblSecurityQuestion.Size = new System.Drawing.Size(268, 20);
@@ -97,9 +97,8 @@
             // 
             // pbxCenterBackground
             // 
-            this.pbxCenterBackground.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pbxCenterBackground.BackColor = System.Drawing.Color.Black;
-            this.pbxCenterBackground.Location = new System.Drawing.Point(394, 76);
+            this.pbxCenterBackground.Location = new System.Drawing.Point(390, 89);
             this.pbxCenterBackground.Name = "pbxCenterBackground";
             this.pbxCenterBackground.Size = new System.Drawing.Size(300, 440);
             this.pbxCenterBackground.TabIndex = 22;
@@ -110,7 +109,7 @@
             this.lblUsername.BackColor = System.Drawing.Color.Black;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblUsername.ForeColor = System.Drawing.Color.White;
-            this.lblUsername.Location = new System.Drawing.Point(411, 160);
+            this.lblUsername.Location = new System.Drawing.Point(407, 173);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(0);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(268, 20);
@@ -122,7 +121,7 @@
             this.lblNewPassword.BackColor = System.Drawing.Color.Black;
             this.lblNewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblNewPassword.ForeColor = System.Drawing.Color.White;
-            this.lblNewPassword.Location = new System.Drawing.Point(411, 310);
+            this.lblNewPassword.Location = new System.Drawing.Point(407, 323);
             this.lblNewPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNewPassword.Name = "lblNewPassword";
             this.lblNewPassword.Size = new System.Drawing.Size(268, 20);
@@ -133,7 +132,7 @@
             // txtNewPassword
             // 
             this.txtNewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txtNewPassword.Location = new System.Drawing.Point(414, 330);
+            this.txtNewPassword.Location = new System.Drawing.Point(410, 343);
             this.txtNewPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtNewPassword.Multiline = true;
             this.txtNewPassword.Name = "txtNewPassword";
@@ -147,7 +146,7 @@
             // 
             this.btnConfirmNewPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(180)))), ((int)(((byte)(247)))));
             this.btnConfirmNewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnConfirmNewPassword.Location = new System.Drawing.Point(484, 446);
+            this.btnConfirmNewPassword.Location = new System.Drawing.Point(480, 465);
             this.btnConfirmNewPassword.Name = "btnConfirmNewPassword";
             this.btnConfirmNewPassword.Size = new System.Drawing.Size(120, 30);
             this.btnConfirmNewPassword.TabIndex = 7;
@@ -162,7 +161,7 @@
             this.lblBackLogin.BackColor = System.Drawing.Color.Black;
             this.lblBackLogin.ForeColor = System.Drawing.Color.White;
             this.lblBackLogin.LinkColor = System.Drawing.Color.LightSteelBlue;
-            this.lblBackLogin.Location = new System.Drawing.Point(411, 490);
+            this.lblBackLogin.Location = new System.Drawing.Point(400, 505);
             this.lblBackLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBackLogin.Name = "lblBackLogin";
             this.lblBackLogin.Size = new System.Drawing.Size(73, 13);
@@ -177,7 +176,7 @@
             this.lblForgotPassword.BackColor = System.Drawing.Color.Black;
             this.lblForgotPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblForgotPassword.ForeColor = System.Drawing.Color.White;
-            this.lblForgotPassword.Location = new System.Drawing.Point(394, 94);
+            this.lblForgotPassword.Location = new System.Drawing.Point(390, 107);
             this.lblForgotPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblForgotPassword.Name = "lblForgotPassword";
             this.lblForgotPassword.Size = new System.Drawing.Size(300, 30);
@@ -188,7 +187,7 @@
             // txtConfirmNewPassword
             // 
             this.txtConfirmNewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txtConfirmNewPassword.Location = new System.Drawing.Point(414, 388);
+            this.txtConfirmNewPassword.Location = new System.Drawing.Point(410, 401);
             this.txtConfirmNewPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtConfirmNewPassword.Multiline = true;
             this.txtConfirmNewPassword.Name = "txtConfirmNewPassword";
@@ -203,7 +202,7 @@
             this.lblConfirmNewPassword.BackColor = System.Drawing.Color.Black;
             this.lblConfirmNewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblConfirmNewPassword.ForeColor = System.Drawing.Color.White;
-            this.lblConfirmNewPassword.Location = new System.Drawing.Point(411, 368);
+            this.lblConfirmNewPassword.Location = new System.Drawing.Point(407, 381);
             this.lblConfirmNewPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblConfirmNewPassword.Name = "lblConfirmNewPassword";
             this.lblConfirmNewPassword.Size = new System.Drawing.Size(268, 20);
@@ -218,7 +217,7 @@
             // pbxTopBorder
             // 
             this.pbxTopBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.pbxTopBorder.Location = new System.Drawing.Point(394, 66);
+            this.pbxTopBorder.Location = new System.Drawing.Point(390, 79);
             this.pbxTopBorder.Name = "pbxTopBorder";
             this.pbxTopBorder.Size = new System.Drawing.Size(300, 10);
             this.pbxTopBorder.TabIndex = 65;
@@ -230,7 +229,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.BackgroundImage = global::ScrumInsurance.Properties.Resources.shape_background;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Controls.Add(this.pbxTopBorder);
             this.Controls.Add(this.lblConfirmNewPassword);
             this.Controls.Add(this.txtConfirmNewPassword);
@@ -247,7 +246,7 @@
             this.Controls.Add(this.pbxCenterBackground);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ctrlForgotPass";
-            this.Size = new System.Drawing.Size(1088, 582);
+            this.Size = new System.Drawing.Size(1080, 607);
             ((System.ComponentModel.ISupportInitialize)(this.pbxCenterBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errForgotPass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxTopBorder)).EndInit();

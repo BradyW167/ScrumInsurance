@@ -20,27 +20,32 @@ namespace ScrumInsurance.Queries
         public List<string> RequestColumns { get; set; }
         public List<(string, string, string)> WhereConditions { get; set; }
         public string JoinTable {  get; set; }
-        public string JoinColumn { get; set; }
+        public string FromTableColumn { get; set; }
+        public string JoinTableColumn { get; set; }
         public string OrderColumn { get; set; }
         public OrderType OrderType { get; set; }
         public int RowLimit { get; set; }
 
-        public SelectQuery(string column = null) : base(string.Empty)
+        // Default constructor, selects all columns or one input column
+        public SelectQuery(string column = "*") : base(string.Empty)
         {
-            RequestColumns = new List<string> { column == null ? "*" : column };
+            RequestColumns = new List<string> { column };
             WhereConditions = new List<(string, string, string)>();
             JoinTable = string.Empty;
-            JoinColumn = string.Empty;
+            FromTableColumn = string.Empty;
+            JoinTableColumn = string.Empty;
             OrderColumn = string.Empty;
             OrderType = OrderType.ASC;
             RowLimit = 0;
         }
 
+        // Selects a list of input request columns
         public SelectQuery(List<string> requestColumns) : base(string.Empty) {
             RequestColumns = requestColumns;
             WhereConditions = new List<(string, string, string)>();
             JoinTable = string.Empty;
-            JoinColumn = string.Empty;
+            FromTableColumn = string.Empty;
+            JoinTableColumn = string.Empty;
             OrderColumn = string.Empty;
             OrderType = OrderType.ASC;
             RowLimit = 0;
@@ -54,11 +59,13 @@ namespace ScrumInsurance.Queries
         }
 
         // Join the FROM table with another
-        public SelectQuery Join(string joinTable, string joinColumn)
+        public SelectQuery Join(string joinTable, string fromTableColumn, string joinTableColumn)
         {
             JoinTable = joinTable;
 
-            JoinColumn = joinColumn;
+            FromTableColumn = fromTableColumn;
+
+            JoinTableColumn = joinTableColumn;
 
             return this;
         }
@@ -107,7 +114,7 @@ namespace ScrumInsurance.Queries
             // If there is a join condition
             if (JoinTable != string.Empty)
             {
-                query.Append($"\nINNER JOIN {JoinTable} ON {TableName}.{JoinColumn} = {JoinTable}.{JoinColumn}");
+                query.Append($"\nINNER JOIN {JoinTable} ON {TableName}.{FromTableColumn} = {JoinTable}.{JoinTableColumn}");
             }
 
             // If there are any where conditions...

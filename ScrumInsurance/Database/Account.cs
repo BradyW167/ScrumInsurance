@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Org.BouncyCastle.Cms;
 using System.Xml.Linq;
+using MySqlX.XDevAPI.Relational;
 
 namespace ScrumInsurance
 {
@@ -52,14 +53,20 @@ namespace ScrumInsurance
             SecurityAnswer = securityAnswer;
         }
 
-        public bool validCreds(string username, string password)
+        public override string ToString()
         {
-            return Username.Equals(username) && Password.Equals(password);
-        }
+            var properties = GetType().GetProperties(); // Get all properties of the class
+            string result = "";
 
-        public bool validCreds(string username)
-        {
-            return Username.Equals(username);
+            foreach (var prop in properties)
+            {
+                // Get the value of each property
+                var value = prop.GetValue(this);
+                result += $"{prop.Name}: {value}, ";
+            }
+
+            // Remove the trailing comma and space
+            return result.TrimEnd(',', ' ');
         }
     }
 }

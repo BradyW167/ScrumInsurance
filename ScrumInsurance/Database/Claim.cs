@@ -29,12 +29,11 @@ namespace ScrumInsurance
         public string Content { get; set; }
 
         public string Title { get; set; }
-        public DateTime Date {  get; set; }
+        public DateTime Date { get; set; }
         /* Incomplete (Not submitted)
          * Validating (awaiting claim manager approval)
          * Financing (awaiting finance manager approval)
          * Approved (waiting for client to accept funds)
-         * Closed (Hidden/Deleted)
          * Rejected (same as not submitted)
          */
 

@@ -1,4 +1,4 @@
-﻿namespace ScrumInsurance
+﻿namespace ScrumInsurance.Ctrls
 {
     partial class ctrlClaimsList
     {
@@ -37,9 +37,10 @@
             this.lblClaimsList.AutoSize = true;
             this.lblClaimsList.BackColor = System.Drawing.Color.Transparent;
             this.lblClaimsList.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.lblClaimsList.Location = new System.Drawing.Point(42, 31);
+            this.lblClaimsList.Location = new System.Drawing.Point(28, 20);
+            this.lblClaimsList.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblClaimsList.Name = "lblClaimsList";
-            this.lblClaimsList.Size = new System.Drawing.Size(167, 39);
+            this.lblClaimsList.Size = new System.Drawing.Size(113, 26);
             this.lblClaimsList.TabIndex = 0;
             this.lblClaimsList.Text = "Claims List";
             // 
@@ -48,20 +49,22 @@
             this.pnlList.AutoScroll = true;
             this.pnlList.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pnlList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlList.Location = new System.Drawing.Point(77, 101);
+            this.pnlList.Location = new System.Drawing.Point(51, 66);
+            this.pnlList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlList.Name = "pnlList";
-            this.pnlList.Size = new System.Drawing.Size(1463, 682);
+            this.pnlList.Size = new System.Drawing.Size(976, 444);
             this.pnlList.TabIndex = 2;
             // 
             // ctrlClaimsList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.Controls.Add(this.pnlList);
             this.Controls.Add(this.lblClaimsList);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ctrlClaimsList";
-            this.Size = new System.Drawing.Size(1620, 934);
+            this.Size = new System.Drawing.Size(1080, 607);
             this.ResumeLayout(false);
             this.PerformLayout();
 

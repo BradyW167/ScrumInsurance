@@ -8,13 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ScrumInsurance
+namespace ScrumInsurance.Ctrls
 {
     public partial class ctrlDashboard : ScrumUserControl
     {
-        public ctrlDashboard()
+        public ctrlDashboard(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
             InitializeComponent();
+
+            // Anchor this to the top of the screen
+            this.Anchor = AnchorStyles.None;
         }
 
         private void ctrlDashboard_Load(object sender, EventArgs e)
@@ -24,8 +27,11 @@ namespace ScrumInsurance
 
         private void lblLogout_Click(object sender, EventArgs e)
         {
-            SwapCtrlMain(new ctrlLogin());
-            removeDash();
+            PnlMain.BackColor = ColorTranslator.FromHtml("#131042");
+
+            RemoveCtrlFooter();
+            RemoveCtrlDash();
+            SwapCtrlMain(new ctrlLogin(this));
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,27 +43,27 @@ namespace ScrumInsurance
         {
             if (Session.UserAccount.Role == "client")
             {
-                SwapCtrlMain(new ctrlLandingClient());
+                SwapCtrlMain(new ctrlLandingClient(this));
             }
             else if (Session.UserAccount.Role == "claim_manager")
             {
-                SwapCtrlMain(new ctrlLandingCManager());
+                SwapCtrlMain(new ctrlLandingCManager(this));
             }
             else if (Session.UserAccount.Role == "admin")
             {
-                SwapCtrlMain(new ctrlLandingCManager());
+                SwapCtrlMain(new ctrlLandingCManager(this));
             }
 
         }
 
         private void btnAccount_Click(object sender, EventArgs e)
         {
-            SwapCtrlMain(new ctrlEditProfile());
+            SwapCtrlMain(new ctrlEditProfile(this));
         }
 
         private void btnInbox_Click(object sender, EventArgs e)
         {
-            SwapCtrlMain(new ctrlInbox());
+            SwapCtrlMain(new ctrlInbox(this));
         }
     }
 }

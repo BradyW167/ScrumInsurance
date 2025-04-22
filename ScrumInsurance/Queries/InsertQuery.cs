@@ -36,7 +36,7 @@ namespace ScrumInsurance.Queries
             var parameters = string.Join(", ", Data.Keys.Select(k => "@" + k));
 
             // Creates string of requested columns
-            query.Append($"INSET INTO {TableName} ({columns})\nVALUES ({parameters})");
+            query.Append($"INSERT INTO {TableName} ({columns})\nVALUES ({parameters})");
 
             // Print query to console
             Console.WriteLine(query.ToString());

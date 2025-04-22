@@ -71,18 +71,37 @@ namespace ScrumInsurance
             return found_account.Password.Equals(password) ? found_account : null;
         }
 
+        // Returns list of all accounts matching the input role
+        public List<Account> GetAccountsByRole(string role)
+        {
+            Console.WriteLine(role);
+
+            Connection.Query = new SelectQuery().From("users").Where("role", "=", role);
+
+            List<Row> account_rows = Connection.ExecuteSelect();
+
+            foreach (Row row in account_rows)
+            {
+                Console.WriteLine(row.ToString());
+            }
+
+            // Return null, if no account with input username was found
+            if (account_rows == null) return null;
+
+            // Stores list of accounts created from row objects
+            List<Account> account_list = account_rows.Select(a => new Account(a)).ToList();
+
+            foreach (Account account in account_list)
+            {
+                Console.WriteLine(account.ToString());
+            }
+
+            return account_list;
+        }
+
         public Account GetAccountByUsername(string username)
         {
-            List<string> account_columns = new List<string> {
-                "id",
-                "username",
-                "password",
-                "role",
-                "security_question",
-                "security_answer"
-            };
-
-            Connection.Query = new SelectQuery(account_columns).From("users").Where("username", "=", username);
+            Connection.Query = new SelectQuery().From("users").Where("username", "=", username);
 
             Row account_row = Connection.ExecuteSingleSelect();
 
@@ -97,16 +116,7 @@ namespace ScrumInsurance
 
         public Account GetAccountByID(string id)
         {
-            List<string> account_columns = new List<string> {
-                "id",
-                "username",
-                "password",
-                "role",
-                "security_question",
-                "security_answer"
-            };
-
-            Connection.Query = new SelectQuery(account_columns).From("users").Where("id", "=", id);
+            Connection.Query = new SelectQuery().From("users").Where("id", "=", id);
 
             Row account_row = Connection.ExecuteSingleSelect();
 
@@ -271,7 +281,12 @@ namespace ScrumInsurance
         // Returns messages for input user id as a List of Message objects
         public List<Message> GetMessageList(long user_id)
         {
-            Connection.Query = new SelectQuery(new List<string> { "id", "subject", "sender_id", "date" }).From("messages JOIN message_recipients ON messages.id = message_recipients.message_id").Where("message_recipients.recipient_id", "=", user_id.ToString());
+            List<string> message_columns = new List<string>()
+            {
+                "id", "subject", "sender_id", "date"
+            };
+
+            Connection.Query = new SelectQuery(message_columns).From("messages").Join("message_recipients" , "id", "message_id").Where("message_recipients.recipient_id", "=", user_id.ToString());
 
             // If the new account has a duplicated username, return false
             List<Row> rows = Connection.ExecuteSelect();
@@ -317,7 +332,6 @@ namespace ScrumInsurance
             Console.WriteLine("notemptylist");
             return claims;
         }
-
 
         // Get message data from input message ID
         public Message GetMessage(long message_id)
@@ -375,6 +389,28 @@ namespace ScrumInsurance
             return claims;
         }
 
+        public bool SubmitClaim(long userID, string content)
+        {
+            Dictionary<string, object> claim_columns = new Dictionary<string, object> {
+                { "client_id", userID },
+                { "claim_manager_id", DBNull.Value },
+                { "finance_manager_id", DBNull.Value },
+                { "status", "Pending" },
+                { "amount", DBNull.Value },
+                { "content", content },
+                { "date", DateTime.Now },
+            };
+
+            Connection.Query = new InsertQuery(claim_columns).Into("claims");
+
+            return Connection.ExecuteNonQuery();
+        }
+
+        public bool UpdateClaim(object claimID, string column, string value)
+        {
+            return Connection.UpdateQuery("claims", new Dictionary<string, object> { { "id", claimID } }, new Dictionary<string, object> { { column, value } });
+        }
+
         // Get claim data from input claim ID
         public Claim GetClaim(long claim_id)
         {
@@ -410,51 +446,22 @@ namespace ScrumInsurance
             return Connection.DeleteQuery("users", new Dictionary<string, object> { { "username", username } });
         }
 
-        public bool SubmitClaim(long userID, string content)
-        {
-            Dictionary<string, object> claim_columns = new Dictionary<string, object> {
-                { "client_id", userID },
-                { "status", "Pending" },
-                { "amount", DBNull.Value },
-                { "content", content },
-                { "date", DateTime.Now },
-            };
-
-            Connection.Query = new InsertQuery(claim_columns).Into("claims");
-
-            return Connection.ExecuteNonQuery();
-        }
-
-        public bool SubmitClaim(long userID, string title, string content, double amount)
-        {
-            return Connection.InsertQuery("claims", new Dictionary<string, object> {
-                { "client_id", userID },
-                { "status", "Pending" },
-                { "amount", amount },
-                { "content", content },
-                { "date", DateTime.Now },
-            });
-        }
-
-        public bool UpdateClaim(object claimID, string column, string value)
-        {
-            return Connection.UpdateQuery("claims", new Dictionary<string, object> { { "id", claimID } }, new Dictionary<string, object> { { column, value } });
-        }
-
-        public bool UploadDocument(string file_name, byte[] file_data)
+        public void UploadDocument(long claim_id, string file_name, byte[] file_data)
         {
             // Create parameter dictionary for document upload
             Dictionary<string, object> document_info = new Dictionary<string, object>
             {
-                { "file_name", (object)file_name },
-                { "file_data", (object)file_data }
+                { "claim_id", claim_id },
+                { "file_name", file_name },
+                { "file_data", file_data },
+                { "upload_date", DateTime.Now }
             };
 
             // Create insertion query and store it in Connection.Query property
             Connection.Query = new InsertQuery(document_info).Into("documents");
 
             // Upload document
-            return Connection.ExecuteNonQuery();
+            if (!Connection.ExecuteNonQuery()) throw new InvalidOperationException("File upload failed.");
         }
 
     }

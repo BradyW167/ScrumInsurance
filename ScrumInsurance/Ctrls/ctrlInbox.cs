@@ -13,14 +13,14 @@ using MySqlX.XDevAPI.Relational;
 using Org.BouncyCastle.Asn1.Crmf;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace ScrumInsurance
+namespace ScrumInsurance.Ctrls
 {
     public partial class ctrlInbox : ScrumUserControl
     {
         public int MessageCount { get; set; }
         public int LoadedMessageID { get; set; }
 
-        public ctrlInbox()
+        public ctrlInbox(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
             InitializeComponent();
             lblHeader.Hide();
@@ -29,10 +29,7 @@ namespace ScrumInsurance
             lblContents.Hide();
             lblClaim.Hide();
             pnlMessageContents.Hide();
-        }
 
-        private void ctrlInbox_Load(object sender, EventArgs e)
-        {
             // Stores messages in a list for account tied to Session User ID
             List<Message> messages = DBController.GetMessageList(int.Parse(Session.UserAccount.ID.ToString()));
 
@@ -51,6 +48,10 @@ namespace ScrumInsurance
             }
         }
 
+        private void ctrlInbox_Load(object sender, EventArgs e)
+        {
+        }
+
         private void AddMessage(Message msg)
         {
             MessageCount++;
@@ -63,7 +64,7 @@ namespace ScrumInsurance
             btn.FlatStyle = FlatStyle.Popup;
             btn.TextAlign = ContentAlignment.MiddleCenter;
             btn.Width = 40;
-            btn.Location = new Point(170, (MessageCount * 60) -25);
+            btn.Location = new Point(190, (MessageCount * 70) - 25);
 
             // Store message id in button btn's 'Tag' property
             btn.Tag = msg.ID;
@@ -78,9 +79,9 @@ namespace ScrumInsurance
             Label lblMessage = new Label();
             lblMessage.BackColor = Color.Azure;
             lblMessage.TextAlign = ContentAlignment.MiddleLeft;
-            lblMessage.Location = new Point(10, (MessageCount * 60) - 40);
-            lblMessage.Width = 210;
-            lblMessage.Height = 50;
+            lblMessage.Location = new Point(25, (MessageCount * 70) - 45);
+            lblMessage.Width = 230;
+            lblMessage.Height = 60;
 
             // Show message info as label text
             lblMessage.Text = "Sender: " + msg.Sender + "\nSubject: " + msg.Subject + "\nDate: " + msg.Date;
@@ -91,7 +92,7 @@ namespace ScrumInsurance
 
         private void btnMessageA_Click(object sender, EventArgs e)
         {
-            // Create a new button using the input sender object
+            // Cast the sender object as a button
             System.Windows.Forms.Button btn = sender as System.Windows.Forms.Button;
 
             // Get the message_id for this btn's message from its tag value
@@ -125,32 +126,34 @@ namespace ScrumInsurance
             lblHeader.Text = message.Subject;
             lblHeader.Show();
 
-            String messageContent = message.Content;
+            string message_content = message.Content;
             pnlMessageContents.Show();
 
             lblClaim.Text = "Claim ID: " + message.ID;
             lblClaim.Show();
 
+            lblContents.Show();
+
             // Create label for message and style it
             Label msg = new Label();
             msg.BackColor = Color.Azure;
             msg.TextAlign = ContentAlignment.TopLeft;
-            msg.Text = messageContent;
-            msg.Font = new Font("Microsoft Tai Le", 11, FontStyle.Regular);
-            msg.Location = new Point(22,10);
+            msg.Text = message_content;
+            msg.Font = new Font("Microsoft Tai Le", 12, FontStyle.Regular);
+            msg.Location = new Point(25,25);
             msg.Width = 550;
 
             //to handle heights dynamically, each line is roughly 90 characters
-            int numLines = 1 + (messageContent.Length / 90);
+            int numLines = 1 + (message_content.Length / 90);
 
             msg.Height = numLines * 22;
             pnlMessageContents.Controls.Add(msg);
 
         }
 
-        private void btnMessageC_Click(object sender, EventArgs e)
-        {
+     //   private void btnMessageC_Click(object sender, EventArgs e)
+     //   {
 
-        }
+     //   }
     }
 }
