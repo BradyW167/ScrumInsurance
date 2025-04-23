@@ -15,6 +15,8 @@ using System.Windows.Forms;
 using System.Security.Claims;
 using SelectQuery = ScrumInsurance.Queries.SelectQuery;
 using ScrumInsurance.Queries;
+using System.Data;
+using Google.Protobuf.WellKnownTypes;
 
 namespace ScrumInsurance
 {
@@ -69,6 +71,26 @@ namespace ScrumInsurance
 
             // Return the found account if its password matches input password, null if not
             return found_account.Password.Equals(password) ? found_account : null;
+        }
+
+        public DataSet GetAccounts(string columnName, string value)
+        {
+            if (value.Equals("*"))
+            {
+                return Connection.GetTable(new SelectQuery().From("users"));
+            }
+            Console.WriteLine(columnName + " = " + value);
+            return Connection.GetTable(new SelectQuery().From("users").Where(columnName, "=", value));
+        }
+
+        public bool UpdateAccounts(string columnName, string value, DataSet dataSet)
+        {
+            if (dataSet == null) return false;
+            if (value.Equals("*"))
+            {
+                return Connection.UpdateTable(new SelectQuery().From("users"), dataSet);
+            }
+            return Connection.UpdateTable(new SelectQuery().From("users").Where(columnName, "=", value), dataSet);
         }
 
         // Returns list of all accounts matching the input role

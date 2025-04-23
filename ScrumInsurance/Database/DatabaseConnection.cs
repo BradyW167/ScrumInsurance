@@ -13,6 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using MySqlX.XDevAPI.Common;
 using ScrumInsurance.Queries;
 using MySqlX.XDevAPI.Relational;
+using System.Data;
 
 namespace ScrumInsurance
 {
@@ -31,6 +32,7 @@ namespace ScrumInsurance
         public MySqlConnection Connection { get; set; }
         public MySqlDataReader Reader { get; set; }
         public MySqlCommand Command { get; set; }
+        public MySqlDataAdapter Adapter { get; set; }
 
         // Stores query objects for exectution here
         public Queries.Query Query { get; set; }
@@ -211,6 +213,79 @@ namespace ScrumInsurance
             closeConnection();
             
             // Returns true if any columns were altered
+            return result > 0;
+        }
+
+        //Returns an entire table as a data set for a data grid view
+        //Failure returns an empty data set
+        public DataSet GetTable(SelectQuery query)
+        {
+            if (!openConnection())
+            {
+                Console.WriteLine("Can't connect to database");
+                return new DataSet();
+            }
+            
+            //Creates a data adapter with a select query
+            Adapter = new MySqlDataAdapter(new MySqlCommand(query.ToString()));
+            query.InsertParameters(Adapter.SelectCommand);
+            Adapter.SelectCommand.Connection = Connection;
+
+            //Adds auto generated parameterized commands to data adapter
+            Adapter.UpdateCommand = new MySqlCommandBuilder(Adapter).GetUpdateCommand();
+            Adapter.InsertCommand = new MySqlCommandBuilder(Adapter).GetInsertCommand();
+            Adapter.DeleteCommand = new MySqlCommandBuilder(Adapter).GetDeleteCommand();
+
+            //Creates and fills a data set with the table (all rows and columns) from the select query
+            DataSet dataSet = new DataSet();
+            try
+            {
+                Adapter.Fill(dataSet);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Adapter error: " + ex.Message);
+                closeConnection();
+                return new DataSet();
+            }
+            closeConnection();
+            return dataSet;
+        }
+
+        //Changes a table in the database to match a table of altered data
+        public bool UpdateTable(SelectQuery query, DataSet newDataSet)
+        {
+            if (!openConnection())
+            {
+                Console.WriteLine("Not connected to database");
+                return false;
+            }
+
+            //Puts unaltered data from database into a data set and changes values to match altered data
+            DataSet oldDataSet = GetTable(query);
+            for (int i = 0; i < oldDataSet.Tables[0].Columns.Count; i++)
+            {
+                for (int j = 0; j < oldDataSet.Tables[0].Rows.Count; j++)
+                {
+                    oldDataSet.Tables[0].Rows[j][oldDataSet.Tables[0].Columns[i].ColumnName] = newDataSet.Tables[0].Rows[j][newDataSet.Tables[0].Columns[i].ColumnName];
+                }
+            }
+
+            //Updates the database
+            int result = 0;
+            try
+            {
+                //In theory passing newDataSet into MySqlDataAdapter.Update() should work
+                //This would make previous step unnessesary, but it will not work for me
+                result = Adapter.Update(oldDataSet);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Adapter error: " + ex.Message);
+                closeConnection();
+                return false;
+            }
+            closeConnection();
             return result > 0;
         }
 

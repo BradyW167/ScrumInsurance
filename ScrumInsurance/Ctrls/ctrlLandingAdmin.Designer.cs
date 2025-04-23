@@ -94,6 +94,7 @@
             this.dgvUserinfo.RowTemplate.Height = 28;
             this.dgvUserinfo.Size = new System.Drawing.Size(814, 377);
             this.dgvUserinfo.TabIndex = 3;
+            this.dgvUserinfo.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserinfo_CellValueChanged);
             // 
             // Username
             // 
