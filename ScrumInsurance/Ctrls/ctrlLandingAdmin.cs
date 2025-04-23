@@ -27,7 +27,7 @@ namespace ScrumInsurance.Ctrls
 
             dgvUserinfo.Columns.Clear();
 
-            //Binds datagridview to dataset, so changes made in one save in the other
+            //Binds datagridview to dataset, so changing one changes the another
             bindingSource = new BindingSource();
             dgvUserinfo.DataSource = bindingSource;
             Accounts = DBController.GetAccounts(new Dictionary<string, string>());

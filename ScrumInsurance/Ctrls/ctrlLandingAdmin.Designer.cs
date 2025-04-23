@@ -52,9 +52,9 @@
             this.lblHeader.Location = new System.Drawing.Point(400, 59);
             this.lblHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(281, 34);
+            this.lblHeader.Size = new System.Drawing.Size(227, 34);
             this.lblHeader.TabIndex = 0;
-            this.lblHeader.Text = "Admin Landing Page";
+            this.lblHeader.Text = "Welcome Admin";
             // 
             // txtInputUser
             // 
