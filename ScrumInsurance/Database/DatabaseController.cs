@@ -73,24 +73,31 @@ namespace ScrumInsurance
             return found_account.Password.Equals(password) ? found_account : null;
         }
 
-        public DataSet GetAccounts(string columnName, string value)
+        public DataSet GetAccounts(Dictionary<string, string> args)
         {
-            if (value.Equals("*"))
+            SelectQuery query = new SelectQuery().From("users");
+            foreach (var item in args)
             {
-                return Connection.GetTable(new SelectQuery().From("users"));
+                if (!item.Value.Equals("*"))
+                {
+                    query.Where(item.Key, "=", item.Value);
+                }
             }
-            Console.WriteLine(columnName + " = " + value);
-            return Connection.GetTable(new SelectQuery().From("users").Where(columnName, "=", value));
+            return Connection.GetTable(query);
         }
 
-        public bool UpdateAccounts(string columnName, string value, DataSet dataSet)
+        public bool UpdateAccounts(Dictionary<string, string> args, DataSet dataSet)
         {
             if (dataSet == null) return false;
-            if (value.Equals("*"))
+            SelectQuery query = new SelectQuery().From("users");
+            foreach (var item in args)
             {
-                return Connection.UpdateTable(new SelectQuery().From("users"), dataSet);
+                if (!item.Value.Equals("*"))
+                {
+                    query.Where(item.Key, "=", item.Value);
+                }
             }
-            return Connection.UpdateTable(new SelectQuery().From("users").Where(columnName, "=", value), dataSet);
+            return Connection.UpdateTable(query, dataSet);
         }
 
         // Returns list of all accounts matching the input role

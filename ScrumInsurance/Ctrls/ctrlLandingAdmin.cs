@@ -29,7 +29,7 @@ namespace ScrumInsurance.Ctrls
             //Binds datagridview to dataset, so changes made in one save in the other
             bindingSource = new BindingSource();
             dgvUserinfo.DataSource = bindingSource;
-            Accounts = DBController.GetAccounts("*", "*");
+            Accounts = DBController.GetAccounts(new Dictionary<string, string>());
             bindingSource.DataSource = Accounts.Tables[0];
 
             Dictionary<string, string> role_pairs = new Dictionary<string, string>()
@@ -61,7 +61,7 @@ namespace ScrumInsurance.Ctrls
             // Store the selected role from the role pair dictionary stored in this combo box
             string selected_role = ((KeyValuePair<string, string>)cmbSelectRole.SelectedItem).Value;
 
-            Accounts = DBController.GetAccounts("role", selected_role);
+            Accounts = DBController.GetAccounts(new Dictionary<string, string> { { "role", selected_role } });
 
             bindingSource.DataSource = null;
             bindingSource.DataSource = Accounts.Tables[0];
@@ -73,11 +73,12 @@ namespace ScrumInsurance.Ctrls
         {
             if (cmbSelectRole.SelectedItem != null)
             {
-                DBController.UpdateAccounts("role", ((KeyValuePair<string, string>)cmbSelectRole.SelectedItem).Value, Accounts);
+                string selected_role = ((KeyValuePair<string, string>)cmbSelectRole.SelectedItem).Value;
+                DBController.UpdateAccounts(new Dictionary<string, string> { { "role", selected_role } }, Accounts);
             }
             else
             {
-                DBController.UpdateAccounts("*", "*", Accounts);
+                DBController.UpdateAccounts(new Dictionary<string, string>(), Accounts);
             }
         }
     }
