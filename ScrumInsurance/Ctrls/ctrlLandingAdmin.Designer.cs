@@ -64,6 +64,7 @@
             this.txtInputUser.Name = "txtInputUser";
             this.txtInputUser.Size = new System.Drawing.Size(200, 30);
             this.txtInputUser.TabIndex = 1;
+            this.txtInputUser.TextChanged += new System.EventHandler(this.txtInputUser_TextChanged);
             this.txtInputUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtInputUser_KeyDown);
             // 
             // lblUser
