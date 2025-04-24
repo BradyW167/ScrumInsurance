@@ -45,6 +45,7 @@ namespace ScrumInsurance
         public DatabaseConfig ReadDatabaseConfig(string filePath)
         {
             DatabaseConfig config = new DatabaseConfig();
+
             try
             {
                 // Read the JSON file into a string
@@ -67,6 +68,7 @@ namespace ScrumInsurance
             // Get the account from input username
             Account found_account = GetAccountByUsername(username);
 
+            // If no account was found with input username, return null
             if (found_account == null) return null;
 
             // Return the found account if its password matches input password, null if not
@@ -86,7 +88,7 @@ namespace ScrumInsurance
             return Connection.GetTable(query);
         }
 
-        public bool UpdateAccounts(Dictionary<string, string> args, DataSet dataSet)
+        public bool? UpdateAccounts(Dictionary<string, string> args, DataSet dataSet)
         {
             if (dataSet == null) return false;
             SelectQuery query = new SelectQuery().From("users");
@@ -197,7 +199,7 @@ namespace ScrumInsurance
          * Inserts input account into users table in database
          * Returns boolean from success of insertion
          */
-        public bool AddAccount(Account new_account)
+        public bool? AddAccount(Account new_account)
         {
             // Create parameter dictionary for new account
             Dictionary<string, object> account_info = new Dictionary<string, object>
@@ -435,23 +437,11 @@ namespace ScrumInsurance
             return Connection.ExecuteNonQuery();
         }
 
-        public bool UpdateClaim(object claimID, string column, string value)
+        public bool? UpdateClaim(object claimID, string column, string value)
         {
-            return Connection.UpdateQuery("claims", new Dictionary<string, object> { { "id", claimID } }, new Dictionary<string, object> { { column, value } });
-        }
+            Connection.Query = new UpdateQuery("claims").Set(column, value).Where(column, "=", value);
 
-        // Get claim data from input claim ID
-        public Claim GetClaim(long claim_id)
-        {
-            Connection.Query = new SelectQuery().From("claims").Where("id", "=", claim_id.ToString());
-
-            // Store select query results
-            List<Row> rows = Connection.ExecuteSelect();
-
-            // If a matching row was found, create a message object with it and return it
-            if (rows != null) { return new Claim(rows[0]); }
-            // Else return null
-            else { return null; }
+            return Connection.ExecuteNonQuery();
         }
 
         public Account getFinanceManager()
@@ -465,12 +455,14 @@ namespace ScrumInsurance
             else { return null; }
         }
 
-        public bool UpdateAccount(string username, Dictionary<string, object> args)
+        public bool? UpdateAccount(string username, Dictionary<string, object> args)
         {
-            return Connection.UpdateQuery("users", new Dictionary<string, object> { { "username", username } }, args);
+            Connection.Query = new UpdateQuery("users").Set(args).Where("username", "=", username);
+
+            return Connection.ExecuteNonQuery();
         }
 
-        public bool DeleteAccount(string username)
+        public bool? DeleteAccount(string username)
         {
             return Connection.DeleteQuery("users", new Dictionary<string, object> { { "username", username } });
         }
@@ -490,7 +482,7 @@ namespace ScrumInsurance
             Connection.Query = new InsertQuery(document_info).Into("documents");
 
             // Upload document
-            if (!Connection.ExecuteNonQuery()) throw new InvalidOperationException("File upload failed.");
+            if (Connection.ExecuteNonQuery() == false) throw new InvalidOperationException("File upload failed.");
         }
 
     }
