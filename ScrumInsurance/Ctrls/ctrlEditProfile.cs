@@ -16,10 +16,7 @@ namespace ScrumInsurance.Ctrls
         public ctrlEditProfile(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
             InitializeComponent();
-        }
 
-        private void ctrlEditProfile_Load(object sender, EventArgs e)
-        {
             txtUsername.Text = Session.UserAccount.Username;
             txtPassword.Text = Session.UserAccount.Password;
         }

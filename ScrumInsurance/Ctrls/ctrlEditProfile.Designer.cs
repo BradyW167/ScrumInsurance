@@ -35,7 +35,6 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.lblError = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.errEditProfile = new System.Windows.Forms.ErrorProvider(this.components);
             this.pbxShowPassword = new System.Windows.Forms.PictureBox();
@@ -110,21 +109,7 @@
             this.txtPassword.PasswordChar = '●';
             this.txtPassword.Size = new System.Drawing.Size(265, 30);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
-            // 
-            // lblError
-            // 
-            this.lblError.AutoSize = true;
-            this.lblError.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblError.ForeColor = System.Drawing.Color.Crimson;
-            this.lblError.Location = new System.Drawing.Point(491, 383);
-            this.lblError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(98, 13);
-            this.lblError.TabIndex = 11;
-            this.lblError.Text = "Cleared on Initialize";
-            this.lblError.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pictureBox1
             // 
@@ -153,6 +138,8 @@
             this.pbxShowPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxShowPassword.TabIndex = 65;
             this.pbxShowPassword.TabStop = false;
+            this.pbxShowPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbxShowPassword_MouseDown);
+            this.pbxShowPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbxShowPassword_MouseUp);
             // 
             // ctrlEditProfile
             // 
@@ -160,7 +147,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.Controls.Add(this.pbxShowPassword);
-            this.Controls.Add(this.lblError);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.lblPassword);
@@ -171,7 +157,6 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ctrlEditProfile";
             this.Size = new System.Drawing.Size(1080, 607);
-            this.Load += new System.EventHandler(this.ctrlEditProfile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errEditProfile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxShowPassword)).EndInit();
@@ -189,7 +174,6 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.ErrorProvider errEditProfile;
         private System.Windows.Forms.PictureBox pbxShowPassword;
     }
