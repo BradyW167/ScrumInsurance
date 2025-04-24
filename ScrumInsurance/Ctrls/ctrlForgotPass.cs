@@ -173,8 +173,10 @@ namespace ScrumInsurance.Ctrls
             if (!ValidateChildren()) { return; }
             else
             {
-                // Updates the user's password and takes the user back to the login page
-                DBController.UpdateAccount(Session.UserAccount.Username, new Dictionary<string, object> { { "password", txtNewPassword.Text } });
+                // Updates this user's database info with the new password
+                DBController.UpdateAccount(Session.UserAccount.ID, Session.UserAccount.Username, txtNewPassword.Text);
+
+                // Swaps user back to login screen
                 SwapCtrlMain(new ctrlLogin(this));
             }
         }

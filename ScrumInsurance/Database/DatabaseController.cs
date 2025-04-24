@@ -189,9 +189,16 @@ namespace ScrumInsurance
             return Connection.ExecuteNonQuery();
         }
 
-        public bool? UpdateAccount(string username, Dictionary<string, object> args)
+        // Updates user of 'user_id' with new input username and password
+        public bool? UpdateAccount(long user_id, string new_username, string new_password)
         {
-            Connection.Query = new UpdateQuery("users").Set(args).Where("username", "=", username);
+            Dictionary<string, object> credential_columns = new Dictionary<string, object>
+            {
+                { "username", new_username },
+                { "password", new_password }
+            };
+
+            Connection.Query = new UpdateQuery("users").Set(credential_columns).Where("id", "=", user_id.ToString());
 
             return Connection.ExecuteNonQuery();
         }

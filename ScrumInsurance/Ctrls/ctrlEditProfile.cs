@@ -78,15 +78,8 @@ namespace ScrumInsurance.Ctrls
             // Else input account info is valid
             else
             {
-                //Add check for if new password and email are valid
-                if (DBController.UpdateAccount(Session.UserAccount.Username, new Dictionary<string, object> { { "password", txtPassword.Text } }) == true)
-                {
-                    lblError.Text = "Profile successfully updated";
-                }
-                else
-                {
-                    lblError.Text = "Failed to update profile";
-                }
+                // Updates this user's database info with the new username and password
+                DBController.UpdateAccount(Session.UserAccount.ID, txtUsername.Text, txtPassword.Text);
             }
         }
     }
