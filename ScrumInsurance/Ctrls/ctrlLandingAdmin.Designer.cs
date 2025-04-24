@@ -52,9 +52,9 @@
             this.lblHeader.Location = new System.Drawing.Point(400, 59);
             this.lblHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(281, 34);
+            this.lblHeader.Size = new System.Drawing.Size(234, 34);
             this.lblHeader.TabIndex = 0;
-            this.lblHeader.Text = "Admin Landing Page";
+            this.lblHeader.Text = "Welcome, Admin";
             // 
             // txtInputUser
             // 
@@ -64,6 +64,7 @@
             this.txtInputUser.Name = "txtInputUser";
             this.txtInputUser.Size = new System.Drawing.Size(200, 30);
             this.txtInputUser.TabIndex = 1;
+            this.txtInputUser.TextChanged += new System.EventHandler(this.txtInputUser_TextChanged);
             this.txtInputUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtInputUser_KeyDown);
             // 
             // lblUser
@@ -94,6 +95,7 @@
             this.dgvUserinfo.RowTemplate.Height = 28;
             this.dgvUserinfo.Size = new System.Drawing.Size(814, 377);
             this.dgvUserinfo.TabIndex = 3;
+            this.dgvUserinfo.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserinfo_CellValueChanged);
             // 
             // Username
             // 

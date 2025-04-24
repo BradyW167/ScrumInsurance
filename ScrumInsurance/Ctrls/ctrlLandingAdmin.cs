@@ -8,28 +8,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Org.BouncyCastle.Utilities;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ScrumInsurance.Ctrls
 {
     public partial class ctrlLandingAdmin : ScrumUserControl
     {
-        private List<Account> Accounts {  get; set; }
+        //private List<Account> Accounts {  get; set; }
+        public DataSet Accounts { get; set; }
+        public BindingSource bindingSource {get; set;}
+        private Dictionary<string, string> args;
 
         public ctrlLandingAdmin(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
 
             InitializeComponent();
 
-            Accounts = new List<Account>();
-
             dgvUserinfo.Columns.Clear();
 
-            dgvUserinfo.DataSource = null;
-            dgvUserinfo.DataSource = Accounts;
+            //Binds datagridview to dataset, so changing one changes the other
+            bindingSource = new BindingSource();
+            dgvUserinfo.DataSource = bindingSource;
+            Accounts = DBController.GetAccounts(new Dictionary<string, string>());
+            bindingSource.DataSource = Accounts.Tables[0];
 
             Dictionary<string, string> role_pairs = new Dictionary<string, string>()
             {
+                {"All", "*" },
                 {"Admins", "admin" },
                 {"Claim Managers", "claim_manager" },
                 {"Finance Managers", "finance_manager" },
@@ -51,17 +57,38 @@ namespace ScrumInsurance.Ctrls
 
         }
 
-        private void cmbSelectRole_SelectionChangeCommitted(object sender, EventArgs e)
+        private void CheckDatabase()
         {
             // Store the selected role from the role pair dictionary stored in this combo box
-            string selected_role = ((KeyValuePair<string, string>)cmbSelectRole.SelectedItem).Value;
+            args = new Dictionary<string, string> { { "role", ((KeyValuePair<string, string>)cmbSelectRole.SelectedItem).Value } };
 
-            Accounts = DBController.GetAccountsByRole(selected_role);
+            //If username is filled in, add it as argument
+            if (!txtInputUser.Text.Equals(""))
+            {
+                args.Add("username", txtInputUser.Text);
+            }
 
-            dgvUserinfo.DataSource = null;
-            dgvUserinfo.DataSource = Accounts;
+            Accounts = DBController.GetAccounts(args);
+
+            bindingSource.DataSource = null;
+            bindingSource.DataSource = Accounts.Tables[0];
 
             dgvUserinfo.Refresh();
+        }
+
+        private void cmbSelectRole_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            CheckDatabase();
+        }
+
+        private void txtInputUser_TextChanged(object sender, EventArgs e)
+        {
+            CheckDatabase();
+        }
+
+        private void dgvUserinfo_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            DBController.UpdateAccounts(args, Accounts);
         }
     }
 }

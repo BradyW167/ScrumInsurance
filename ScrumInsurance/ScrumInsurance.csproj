@@ -293,7 +293,7 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Database\config.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Database\config.template.json" />
     <None Include="packages.config" />
