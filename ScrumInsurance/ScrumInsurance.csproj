@@ -132,6 +132,7 @@
     </Compile>
     <Compile Include="Database\Account.cs" />
     <Compile Include="Database\Claim.cs" />
+    <Compile Include="Queries\DeleteQuery.cs" />
     <Compile Include="Queries\UpdateQuery.cs" />
     <Compile Include="Queries\InsertQuery.cs" />
     <Compile Include="Queries\SelectQuery.cs" />
