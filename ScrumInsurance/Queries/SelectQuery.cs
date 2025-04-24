@@ -143,11 +143,14 @@ namespace ScrumInsurance.Queries
         // Insert actual values into parameterized select query stored in input 'cmd'
         public override void InsertParameters(MySqlCommand cmd)
         {
+            // If there are any where conditions...
             if (WhereConditions.Count > 0)
             {
                 for (int i = 0; i < WhereConditions.Count; i++)
                 {
+                    // Store each condition as its three parts
                     var (column, op, value) = WhereConditions[i];
+                    // Add the actual value into the paramaterized query string
                     cmd.Parameters.AddWithValue($"@param{i}", value);
                 }
             }
