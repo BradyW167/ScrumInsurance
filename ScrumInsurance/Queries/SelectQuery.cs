@@ -19,10 +19,10 @@ namespace ScrumInsurance.Queries
     public class SelectQuery : Query
     {
         public List<string> RequestColumns { get; set; }
-        public List<(string, string, string)> WhereConditions { get; set; }
-        public string JoinTable {  get; set; }
-        public string FromTableColumn { get; set; }
-        public string JoinTableColumn { get; set; }
+        public List<(string, string, object)> WhereConditions { get; set; }
+        public List<(string, string, string, object)> JoinConditions { get; set; }
+        public string JoinType { get; set; }
+        public string GroupColumn { get; set; }
         public string OrderColumn { get; set; }
         public OrderType OrderType { get; set; }
         public int RowLimit { get; set; }
@@ -31,10 +31,10 @@ namespace ScrumInsurance.Queries
         public SelectQuery(string column = "*") : base(string.Empty)
         {
             RequestColumns = new List<string> { column };
-            WhereConditions = new List<(string, string, string)>();
-            JoinTable = string.Empty;
-            FromTableColumn = string.Empty;
-            JoinTableColumn = string.Empty;
+            WhereConditions = new List<(string, string, object)>();
+            JoinConditions = new List<(string, string, string, object)>();
+            JoinType = string.Empty;
+            GroupColumn = string.Empty;
             OrderColumn = string.Empty;
             OrderType = OrderType.ASC;
             RowLimit = 0;
@@ -43,10 +43,10 @@ namespace ScrumInsurance.Queries
         // Selects a list of input request columns
         public SelectQuery(List<string> requestColumns) : base(string.Empty) {
             RequestColumns = requestColumns;
-            WhereConditions = new List<(string, string, string)>();
-            JoinTable = string.Empty;
-            FromTableColumn = string.Empty;
-            JoinTableColumn = string.Empty;
+            WhereConditions = new List<(string, string, object)>();
+            JoinConditions = new List<(string, string, string, object)>();
+            JoinType = string.Empty;
+            GroupColumn = string.Empty;
             OrderColumn = string.Empty;
             OrderType = OrderType.ASC;
             RowLimit = 0;
@@ -60,26 +60,29 @@ namespace ScrumInsurance.Queries
         }
 
         // Join the FROM table with another
-        public SelectQuery Join(string joinTable, string fromTableColumn, string joinTableColumn)
+        // Join type defaults to INNER
+        public SelectQuery Join(string joinTable, string fromTableColumn, string joinTableColumn, string joinType = "INNER")
         {
-            JoinTable = joinTable;
-
-            FromTableColumn = fromTableColumn;
-
-            JoinTableColumn = joinTableColumn;
+            JoinConditions.Add((joinType, joinTable, fromTableColumn, joinTableColumn));
 
             return this;
         }
 
         // Add one where condition
-        public SelectQuery Where(string arg1, string operatr, string arg2) {
-            WhereConditions.Add((arg1, operatr, arg2));
+        public SelectQuery Where(string column, string operatr, object value) {
+            WhereConditions.Add((column, operatr, value));
             return this;    
         }
 
         // Add a list of where conditions
-        public SelectQuery Where(List<(string, string, string)> conditions) {
+        public SelectQuery Where(List<(string, string, object)> conditions) {
             WhereConditions = conditions;
+            return this;
+        }
+
+        public SelectQuery GroupBy(string groupColumn)
+        {
+            GroupColumn = groupColumn;
             return this;
         }
 
@@ -101,7 +104,9 @@ namespace ScrumInsurance.Queries
             StringBuilder query = new StringBuilder("SELECT ");
 
             // Converts list to Enumerable
-            var columns = RequestColumns.Select(rc => rc);
+            var columns = RequestColumns.Select(rc =>
+                rc.Contains(".") ? $"{rc} AS `{rc}`" : rc
+            );
 
             // Creates string of requested columns
             string requestColumns = string.Join(", ", columns);
@@ -112,10 +117,15 @@ namespace ScrumInsurance.Queries
             // Append FROM 'TableName'
             query.Append($"\nFROM {TableName}");
 
-            // If there is a join condition
-            if (JoinTable != string.Empty)
+            // If there are any join conditions...
+            if (JoinConditions.Count > 0)
             {
-                query.Append($"\nINNER JOIN {JoinTable} ON {TableName}.{FromTableColumn} = {JoinTable}.{JoinTableColumn}");
+                var conditions = JoinConditions.Select((jc, index) => $"{jc.Item1} JOIN {jc.Item2} ON {TableName}.{jc.Item3} = {jc.Item2}.{jc.Item4}");
+
+                string joinConditions = string.Join("\n", conditions);
+
+                query.Append("\n" + joinConditions);
+
             }
 
             // If there are any where conditions...
@@ -129,11 +139,16 @@ namespace ScrumInsurance.Queries
 
             }
 
+            // If there is a group by condition, append it
+            if (GroupColumn != string.Empty) { query.Append($"\nGROUP BY {GroupColumn}"); }
+
             // If there is an order condition, append it
             if (OrderColumn != string.Empty) { query.Append($"\nORDER BY {OrderColumn} {OrderType.ToString()}"); }
 
             // If there is a limit condition, append it
             if (RowLimit > 0) { query.Append($"\nLimit = {RowLimit.ToString()}"); }
+
+            // Console.WriteLine(query.ToString());
 
             return query.ToString();
         }
