@@ -135,8 +135,6 @@ namespace ScrumInsurance.Queries
             // If there is a limit condition, append it
             if (RowLimit > 0) { query.Append($"\nLimit = {RowLimit.ToString()}"); }
 
-            Console.WriteLine(query.ToString());
-
             return query.ToString();
         }
 
