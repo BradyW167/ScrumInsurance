@@ -73,36 +73,38 @@ namespace ScrumInsurance.Ctrls
             // Else input username and password access a valid account
             else
             {
-                PnlMain.BackColor = Color.SteelBlue;
-
-                // Load landing page, admins go to admin page, clients go to new client page, decided by role column in database
-                if (Session.UserAccount.Role.Equals("admin"))
-                {
-                    SwapCtrlMain(new ctrlLandingAdmin(this));
-                    LoadCtrlDash();
-                }
-                else if (Session.UserAccount.Role.Equals("client"))
-                {
-                    SwapCtrlMain(new ctrlLandingClient(this));
-                    LoadCtrlDash();
-                    LoadCtrlFooter();
-                }
-                else if (Session.UserAccount.Role.Equals("claim_manager"))
-                {
-                    SwapCtrlMain(new ctrlLandingCManager(this));
-                    LoadCtrlDash();
-                }
-                else if (Session.UserAccount.Role.Equals("finance_manager"))
-                {
-                    SwapCtrlMain(new ctrlLandingFManager(this));
-                    LoadCtrlDash();
-                }
-                else
-                {
-                    SwapCtrlMain(new ctrlLandingClient(this));
-                    LoadCtrlDash();
-                }
+                LoginRedirect(Session.UserAccount.Role);
             }
+        }
+
+        private void LoginRedirect(string role)
+        {
+            PnlMain.BackColor = Color.SteelBlue;
+
+            // Load 
+            if (role.Equals("admin"))
+            {
+                LoadLandingPage(new ctrlLandingAdmin(this));
+            }
+            else if (role.Equals("claim_manager"))
+            {
+                LoadLandingPage(new ctrlLandingCManager(this));
+            }
+            else if (role.Equals("finance_manager"))
+            {
+                LoadLandingPage(new ctrlLandingFManager(this));
+            }
+            else
+            {
+                LoadLandingPage(new ctrlLandingClient(this));
+            }
+        }
+
+        private void LoadLandingPage(ScrumUserControl landingPage)
+        {
+            SwapCtrlMain(landingPage);
+            LoadCtrlDash();
+            LoadCtrlFooter();
         }
 
         private void lbl_createAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
