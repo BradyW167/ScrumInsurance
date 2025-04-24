@@ -16,13 +16,11 @@ namespace ScrumInsurance.Ctrls
         {
             InitializeComponent();
 
+            // Set the username label
+            lblUser.Text = Session.UserAccount.Username;
+
             // Anchor this to the top of the screen
             this.Anchor = AnchorStyles.None;
-        }
-
-        private void ctrlDashboard_Load(object sender, EventArgs e)
-        {
-            lblUser.Text = Session.UserAccount.Username;
         }
 
         private void lblLogout_Click(object sender, EventArgs e)
@@ -49,9 +47,13 @@ namespace ScrumInsurance.Ctrls
             {
                 SwapCtrlMain(new ctrlLandingCManager(this));
             }
+            else if (Session.UserAccount.Role == "finance_manager")
+            {
+                SwapCtrlMain(new ctrlLandingFManager(this));
+            }
             else if (Session.UserAccount.Role == "admin")
             {
-                SwapCtrlMain(new ctrlLandingCManager(this));
+                SwapCtrlMain(new ctrlLandingAdmin(this));
             }
 
         }

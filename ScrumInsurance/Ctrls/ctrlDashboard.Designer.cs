@@ -179,7 +179,6 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ctrlDashboard";
             this.Size = new System.Drawing.Size(1080, 40);
-            this.Load += new System.EventHandler(this.ctrlDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
