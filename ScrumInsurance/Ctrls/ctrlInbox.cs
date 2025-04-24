@@ -5,19 +5,20 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Management;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using MySqlX.XDevAPI.Relational;
 using Org.BouncyCastle.Asn1.Crmf;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ScrumInsurance.Ctrls
 {
     public partial class ctrlInbox : ScrumUserControl
     {
         public int MessageCount { get; set; }
+        public int MessageRowHeight { get; set; }
         public int LoadedMessageID { get; set; }
 
         public ctrlInbox(ScrumUserControl oldCtrl) : base(oldCtrl)
@@ -29,6 +30,9 @@ namespace ScrumInsurance.Ctrls
             lblContents.Hide();
             lblClaim.Hide();
             pnlMessageContents.Hide();
+
+            MessageCount = 0;
+            MessageRowHeight = 60;
 
             // Stores messages in a list for account tied to Session User ID
             List<Message> messages = DBController.GetMessageList(int.Parse(Session.UserAccount.ID.ToString()));
@@ -52,42 +56,49 @@ namespace ScrumInsurance.Ctrls
         {
         }
 
-        private void AddMessage(Message msg)
+        private void AddMessage(Message message)
         {
-            MessageCount++;
+            MessageCount += 1;
 
-            // Create new button for this message and style it
-            System.Windows.Forms.Button btn = new System.Windows.Forms.Button();
+            // Stores the horizontal padding size of the claim list panel
+            int padding = flpMessageList.Padding.Left;
+
+            // Create a container panel for this claim row
+            Panel container = new Panel();
+            container.Width = flpMessageList.Width - padding * 2;
+            container.Height = MessageRowHeight;
+            container.BackColor = Color.Azure;
+            container.BorderStyle = BorderStyle.FixedSingle;
+            container.Location = new Point(0, (MessageCount - 1) * MessageRowHeight);
+            container.Margin = new Padding(0, 0, 0, MessageRowHeight / 4);
+
+            // Create and style label for this claim
+            Label msg = new Label();
+            msg.BackColor = Color.Azure;
+            msg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            msg.Text = $"Sender: {message.Sender}\nSubject: {message.Subject}\nDate: {message.Date}";
+            msg.Width = flpMessageList.Width / 2;
+            msg.Height = MessageRowHeight;
+            msg.Location = new Point(5, 0);
+
+            // Create and style button for this claim
+            Button btn = new Button();
             btn.BackColor = Color.Azure;
             btn.Text = "View";
             btn.FlatAppearance.BorderColor = Color.Azure;
             btn.FlatStyle = FlatStyle.Popup;
-            btn.TextAlign = ContentAlignment.MiddleCenter;
-            btn.Width = 40;
-            btn.Location = new Point(190, (MessageCount * 70) - 25);
-
-            // Store message id in button btn's 'Tag' property
-            btn.Tag = msg.ID;
-
-            // Add click handler to button btn
+            btn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            btn.Width = 50;
+            btn.Location = new Point(container.Width - btn.Width - 20, 20);
+            btn.Tag = message.ID; // Store message id in this message's button tag
             btn.Click += new System.EventHandler(this.btnMessageA_Click);
 
-            // Add button btn to the message panel
-            pnlMessages.Controls.Add(btn);
+            // Add controls to the container panel
+            container.Controls.Add(msg);
+            container.Controls.Add(btn);
 
-            // Create new label for this message and style it
-            Label lblMessage = new Label();
-            lblMessage.BackColor = Color.Azure;
-            lblMessage.TextAlign = ContentAlignment.MiddleLeft;
-            lblMessage.Location = new Point(25, (MessageCount * 70) - 45);
-            lblMessage.Width = 230;
-            lblMessage.Height = 60;
-
-            // Show message info as label text
-            lblMessage.Text = "Sender: " + msg.Sender + "\nSubject: " + msg.Subject + "\nDate: " + msg.Date;
-
-            // Add lblMessage to the message panel
-            pnlMessages.Controls.Add(lblMessage);
+            // Add the container to the claim list panel
+            flpMessageList.Controls.Add(container);
         }
 
         private void btnMessageA_Click(object sender, EventArgs e)

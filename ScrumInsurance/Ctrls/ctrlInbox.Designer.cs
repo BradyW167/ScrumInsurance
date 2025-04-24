@@ -29,36 +29,26 @@
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pnlMessages = new System.Windows.Forms.Panel();
             this.lblHeader = new System.Windows.Forms.Label();
             this.lblSender = new System.Windows.Forms.Label();
             this.lblClaim = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblContents = new System.Windows.Forms.Label();
             this.pnlMessageContents = new System.Windows.Forms.Panel();
+            this.flpMessageList = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(330, 25);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(725, 557);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            // 
-            // pnlMessages
-            // 
-            this.pnlMessages.AutoScroll = true;
-            this.pnlMessages.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pnlMessages.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMessages.Location = new System.Drawing.Point(25, 25);
-            this.pnlMessages.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlMessages.Name = "pnlMessages";
-            this.pnlMessages.Size = new System.Drawing.Size(280, 557);
-            this.pnlMessages.TabIndex = 115;
             // 
             // lblHeader
             // 
@@ -132,18 +122,32 @@
             this.pnlMessageContents.Size = new System.Drawing.Size(675, 375);
             this.pnlMessageContents.TabIndex = 121;
             // 
+            // flpMessageList
+            // 
+            this.flpMessageList.AutoScroll = true;
+            this.flpMessageList.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.flpMessageList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpMessageList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpMessageList.Location = new System.Drawing.Point(25, 25);
+            this.flpMessageList.Margin = new System.Windows.Forms.Padding(0);
+            this.flpMessageList.Name = "flpMessageList";
+            this.flpMessageList.Padding = new System.Windows.Forms.Padding(25);
+            this.flpMessageList.Size = new System.Drawing.Size(280, 557);
+            this.flpMessageList.TabIndex = 0;
+            this.flpMessageList.WrapContents = false;
+            // 
             // ctrlInbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
+            this.Controls.Add(this.flpMessageList);
             this.Controls.Add(this.pnlMessageContents);
             this.Controls.Add(this.lblContents);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblClaim);
             this.Controls.Add(this.lblSender);
             this.Controls.Add(this.lblHeader);
-            this.Controls.Add(this.pnlMessages);
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ctrlInbox";
@@ -157,12 +161,12 @@
 
         #endregion
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel pnlMessages;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Label lblSender;
         private System.Windows.Forms.Label lblClaim;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblContents;
         private System.Windows.Forms.Panel pnlMessageContents;
+        private System.Windows.Forms.FlowLayoutPanel flpMessageList;
     }
 }
