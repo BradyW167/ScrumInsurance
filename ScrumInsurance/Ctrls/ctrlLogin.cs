@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace ScrumInsurance.Ctrls
 {
@@ -26,8 +27,6 @@ namespace ScrumInsurance.Ctrls
 
             this.Anchor = AnchorStyles.None;
             this.Dock = DockStyle.None;
-
-            this.Margin = new Padding((PnlMain.ClientSize.Width - this.Width) / 2, 0, 0, 0);
         }
 
         // Constructer for swapping controls
@@ -54,11 +53,25 @@ namespace ScrumInsurance.Ctrls
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // Attempt to login with input username and password, store returned data in session acccount
-            Session.UserAccount = DBController.ValidateLogin(txtUsername.Text, txtPassword.Text);
+            lblLoginError.Text = "";
 
-            // If an account was returned from above...
-            if (Session.UserAccount != null)
+            try
+            {
+                // Attempt to login with input username and password, store returned data in session acccount
+                Session.UserAccount = DBController.ValidateLogin(txtUsername.Text, txtPassword.Text);
+            }
+            catch
+            {
+                lblLoginError.Text = "Database connection failed";
+            }
+
+            // If no valid, matching account was found...
+            if (Session.UserAccount == null)
+            {
+                lblLoginError.Text = "Incorrect username or password";
+            }
+            // Else input username and password access a valid account
+            else
             {
                 PnlMain.BackColor = Color.SteelBlue;
 
@@ -89,11 +102,6 @@ namespace ScrumInsurance.Ctrls
                     SwapCtrlMain(new ctrlLandingClient(this));
                     LoadCtrlDash();
                 }
-            }
-            // Error if account with correct username & password isn't found
-            else
-            {
-                lblLoginError.Text = "Incorrect username or password";
             }
         }
 
