@@ -15,10 +15,14 @@ namespace ScrumInsurance.Ctrls
         public ctrlLandingFManager(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
             InitializeComponent();
-        }
 
-        private void ctrlLanding_Load(object sender, EventArgs e)
-        {
+            lblWelcome.Text = $"Welcome, Financial Manager {Session.UserAccount.Username}";
+
+            lblClaimID.Text = "";
+            lblClaimDate.Text = "";
+            lblClaimStatus.Text = "";
+
+            lblNumClaims.Text = "";
         }
 
         private void lblLogout_Click(object sender, EventArgs e)
@@ -26,24 +30,24 @@ namespace ScrumInsurance.Ctrls
             SwapCtrlMain(new ctrlLogin(this));
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnLanding_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblWelcome_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnClaimsList_Click(object sender, EventArgs e)
         {
             SwapCtrlMain(new ctrlClaimsList(this));
+        }
+
+        private void btnViewClaim_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMessageClient_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMessageCM_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
