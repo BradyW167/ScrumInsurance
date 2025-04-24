@@ -138,16 +138,18 @@ namespace ScrumInsurance
 
                         for (int i = 0; i < columns.Count; i++)
                         {
+                            string column = columns[i];
+
                             // If column i is null
-                            if (Reader.IsDBNull(Reader.GetOrdinal(columns[i])))
+                            if (Reader.IsDBNull(Reader.GetOrdinal(column)))
                             {
                                 // Set it to DBNull
-                                row.AddColumn(columns[i], DBNull.Value);
+                                row.AddColumn(column, DBNull.Value);
                             }
                             else
                             {
                                 // Store each requested column of data
-                                row.AddColumn(columns[i], Reader[columns[i]]);
+                                row.AddColumn(column, Reader[column]);
                             }
                         }
 
