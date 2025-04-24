@@ -10,12 +10,12 @@ namespace ScrumInsurance.Queries
     public class UpdateQuery : Query
     {
         public Dictionary<string, object> SetColumns { get; set; }
-        public List<(string, string, string)> WhereConditions { get; set; }
+        public List<(string, string, object)> WhereConditions { get; set; }
 
 
         public UpdateQuery(string tableName) : base(tableName)
         {
-            WhereConditions = new List<(string, string, string)>();
+            WhereConditions = new List<(string, string, object)>();
         }
 
         // Add one column and value to update
@@ -33,14 +33,14 @@ namespace ScrumInsurance.Queries
         }
 
         // Add one where condition
-        public UpdateQuery Where(string arg1, string operatr, string arg2)
+        public UpdateQuery Where(string column, string operatr, object value)
         {
-            WhereConditions.Add((arg1, operatr, arg2));
+            WhereConditions.Add((column, operatr, value));
             return this;
         }
 
         // Add a list of where conditions
-        public UpdateQuery Where(List<(string, string, string)> conditions)
+        public UpdateQuery Where(List<(string, string, object)> conditions)
         {
             WhereConditions = conditions;
             return this;
