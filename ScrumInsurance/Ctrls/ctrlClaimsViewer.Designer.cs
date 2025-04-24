@@ -45,6 +45,7 @@
             this.rtxDetails = new System.Windows.Forms.RichTextBox();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblClaimDate = new System.Windows.Forms.Label();
+            this.btnReturn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -269,11 +270,24 @@
             this.lblClaimDate.TabIndex = 115;
             this.lblClaimDate.Text = "Claim Date:";
             // 
+            // btnReturn
+            // 
+            this.btnReturn.BackColor = System.Drawing.Color.Azure;
+            this.btnReturn.Location = new System.Drawing.Point(432, 393);
+            this.btnReturn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(60, 23);
+            this.btnReturn.TabIndex = 117;
+            this.btnReturn.Text = "Return";
+            this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
             // ctrlClaimViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
+            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblClaimDate);
             this.Controls.Add(this.rtxDetails);
@@ -319,5 +333,6 @@
         private System.Windows.Forms.RichTextBox rtxDetails;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblClaimDate;
+        private System.Windows.Forms.Button btnReturn;
     }
 }
