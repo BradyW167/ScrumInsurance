@@ -20,58 +20,73 @@ namespace ScrumInsurance.Ctrls
 
         private void ctrlEditProfile_Load(object sender, EventArgs e)
         {
-            txtNewUser.Text = Session.UserAccount.Username;
-            txtNewPass.Text = Session.UserAccount.Password;
-            //needs to be added
-            //pbxProfile.Image = session.Profile
-            //txtFirstName.Text = Session.UserAccount.FirstName;
-            //txtLastName.Text = Session.UserAccount.LastName;
-            //txtDOB.Text = session.DOB
+            txtUsername.Text = Session.UserAccount.Username;
+            txtPassword.Text = Session.UserAccount.Password;
         }
 
         private void passCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            txtNewPass.UseSystemPasswordChar = !txtNewPass.UseSystemPasswordChar;
+            txtPassword.UseSystemPasswordChar = !txtPassword.UseSystemPasswordChar;
         }
 
-        private void btnChangeProfilePicture_Click(object sender, EventArgs e)
+        private void pbxShowPassword_MouseDown(object sender, MouseEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                Title = "Select a Profile Picture",
-                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
-            };
+            // Disable hidden password characters
+            txtPassword.PasswordChar = new char();
 
-            // Show dialog + check a file was selected
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                // Load the image 
-                pbxProfile.ImageLocation = openFileDialog.FileName;
-            }
+            // Change picture box to display password shown eye
+            pbxShowPassword.Image = Properties.Resources.password_show_eye;
+        }
+
+        private void pbxShowPassword_MouseUp(object sender, MouseEventArgs e)
+        {
+            // Enable hidden password characters
+            txtPassword.PasswordChar = '●';
+
+            // Change picture box to display password shown eye
+            pbxShowPassword.Image = Properties.Resources.password_hide_eye;
+        }
+
+        private void txtUsername_Validating(object sender, CancelEventArgs e)
+        {
+            // Stores errors if input password is invalid
+            string errors = DBController.ValidateUsername(txtUsername.Text);
+
+            // If any errors were found, set the error message in error provider
+            if (errors.Length > 0) { e.Cancel = true; }
+
+            // Show the error text to user
+            else { errEditProfile.SetError(txtUsername, errors); }
+        }
+
+        private void txtPassword_Validating(object sender, CancelEventArgs e)
+        {
+            // Stores errors if input password is invalid
+            string errors = DBController.ValidatePassword(txtPassword.Text);
+
+            // If any errors were found, set the error message in error provider
+            if (errors.Length > 0) { e.Cancel = true; }
+
+            // Show the error text to user
+            errEditProfile.SetError(txtPassword, errors);
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            //Add check for if new password and email are valid
-            if (DBController.UpdateAccount(Session.UserAccount.Username, new Dictionary<string, object> { { "password", txtNewPass.Text } }) == true)
-            {
-                lblError.Text = "Profile successfully updated";
-            }
+            // If input account info is invalid, return
+            if (!ValidateChildren()) { return; }
+            // Else input account info is valid
             else
             {
-                lblError.Text = "Failed to update profile";
-            }
-        }
-
-        private void btnDeleteAccount_Click(object sender, EventArgs e)
-        {
-            if (DBController.DeleteAccount(Session.UserAccount.Username) == true)
-            {
-                SwapCtrlMain(new ctrlLogin(this));
-            }
-            else
-            {
-                lblError.Text = "Failed to delete account";
+                //Add check for if new password and email are valid
+                if (DBController.UpdateAccount(Session.UserAccount.Username, new Dictionary<string, object> { { "password", txtPassword.Text } }) == true)
+                {
+                    lblError.Text = "Profile successfully updated";
+                }
+                else
+                {
+                    lblError.Text = "Failed to update profile";
+                }
             }
         }
     }
