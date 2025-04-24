@@ -27,14 +27,12 @@ namespace ScrumInsurance.Ctrls
         {
             PnlMain.BackColor = ColorTranslator.FromHtml("#131042");
 
+            // Clear user session
+            Session.UserAccount = null;
+
             RemoveCtrlFooter();
             RemoveCtrlDash();
             SwapCtrlMain(new ctrlLogin(this));
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnLanding_Click(object sender, EventArgs e)
@@ -55,12 +53,16 @@ namespace ScrumInsurance.Ctrls
             {
                 SwapCtrlMain(new ctrlLandingAdmin(this));
             }
-
         }
 
         private void btnAccount_Click(object sender, EventArgs e)
         {
             SwapCtrlMain(new ctrlEditProfile(this));
+        }
+
+        private void btnSupport_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnInbox_Click(object sender, EventArgs e)
