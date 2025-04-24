@@ -37,6 +37,7 @@ namespace ScrumInsurance
         public MySqlDataReader Reader { get; set; }
         public MySqlCommand Command { get; set; }
         public MySqlDataAdapter Adapter { get; set; }
+        public MySqlCommandBuilder CommandBuilder { get; set; }
 
         // Stores query objects for exectution here
         public Query Query { get; set; }
@@ -214,8 +215,10 @@ namespace ScrumInsurance
             return result > 0;
         }
 
-        //Returns an entire table as a data set for a data grid view
-        //Failure returns an empty data set
+        /**
+         * Returns a DataSet filled by an Adapter with the results of the input Select Query
+         * Returns empty DataSet on error
+         */
         public DataSet GetTable(SelectQuery query)
         {
             if (!OpenConnection())
@@ -224,21 +227,26 @@ namespace ScrumInsurance
                 return new DataSet();
             }
             
-            //Creates a data adapter with a select query
+            // Creates a data adapter with a select query
             Adapter = new MySqlDataAdapter(new MySqlCommand(query.ToString()));
+
             query.InsertParameters(Adapter.SelectCommand);
+
             Adapter.SelectCommand.Connection = Connection;
 
-            //Adds auto generated parameterized commands to data adapter
-            Adapter.UpdateCommand = new MySqlCommandBuilder(Adapter).GetUpdateCommand();
-            Adapter.InsertCommand = new MySqlCommandBuilder(Adapter).GetInsertCommand();
-            Adapter.DeleteCommand = new MySqlCommandBuilder(Adapter).GetDeleteCommand();
+            // Creates a command builder for the data retreived in the adapter
+            CommandBuilder = new MySqlCommandBuilder(Adapter);
 
-            //Creates and fills a data set with the table (all rows and columns) from the select query
+            // Creates and fills a data set with the table (all rows and columns) from the select query
             DataSet dataSet = new DataSet();
+
+            // Add the 'Accounts' data set table if it does not already exist
+            if (!dataSet.Tables.Contains("Accounts")) { dataSet.Tables.Add("Accounts"); }
+
             try
             {
-                Adapter.Fill(dataSet);
+                // Fill the dataSet tabel 'Accounts' with the select query results 
+                Adapter.Fill(dataSet, "Accounts");
             }
             catch (Exception ex)
             {
@@ -246,42 +254,10 @@ namespace ScrumInsurance
                 CloseConnection();
                 return new DataSet();
             }
+
             CloseConnection();
+
             return dataSet;
-        }
-
-        //Changes a table in the database to match a table of altered data
-        public bool? UpdateTable(SelectQuery query, DataSet newDataSet)
-        {
-            // Return null on failed connection
-            if (!OpenConnection()) { return null; }
-
-            //Puts unaltered data from database into a data set and changes values to match altered data
-            DataSet oldDataSet = GetTable(query);
-            for (int i = 0; i < oldDataSet.Tables[0].Columns.Count; i++)
-            {
-                for (int j = 0; j < oldDataSet.Tables[0].Rows.Count; j++)
-                {
-                    oldDataSet.Tables[0].Rows[j][oldDataSet.Tables[0].Columns[i].ColumnName] = newDataSet.Tables[0].Rows[j][newDataSet.Tables[0].Columns[i].ColumnName];
-                }
-            }
-
-            //Updates the database
-            int result = 0;
-            try
-            {
-                //In theory passing newDataSet into MySqlDataAdapter.Update() should work
-                //This would make previous step unnessesary, but it will not work for me
-                result = Adapter.Update(oldDataSet);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Adapter error: " + ex.Message);
-                CloseConnection();
-                return false;
-            }
-            CloseConnection();
-            return result > 0;
         }
 
         public bool? UpdateQuery(string tableName, Dictionary<string, object> matchingArgs, Dictionary<string, object> altArgs)

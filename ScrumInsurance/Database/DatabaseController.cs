@@ -25,6 +25,9 @@ namespace ScrumInsurance
     {
         private DatabaseConnection Connection {  get; set; }
 
+        // Stores data for loading into front-end tables
+        public DataSet AccountDataSet { get; set; }
+
         public DatabaseController(uint timeoutWait = 5)
         {
             Connection = new DatabaseConnection();
@@ -79,31 +82,32 @@ namespace ScrumInsurance
             return found_account.Password.Equals(password) ? found_account : null;
         }
 
-        public DataSet GetAccounts(Dictionary<string, string> args)
+        // Gets an account Data Set using input where conditions
+        public DataSet GetAccountDataSet(Dictionary<string, string> whereConditions = null)
         {
+            // Select all users
             SelectQuery query = new SelectQuery().From("users");
-            foreach (var item in args)
+
+            if (whereConditions != null)
             {
-                if (!item.Value.Equals("*"))
+                foreach (var item in whereConditions)
                 {
                     query.Where(item.Key, "=", item.Value);
                 }
             }
-            return Connection.GetTable(query);
+
+            // Stores data set in this layer for communication
+            AccountDataSet = Connection.GetTable(query);
+
+            // Sends data set to front end
+            return AccountDataSet;
         }
 
-        public bool? UpdateAccounts(Dictionary<string, string> args, DataSet dataSet)
+        // Updates the database using the altered DataSet
+        public void CommitAccountChanges()
         {
-            if (dataSet == null) return false;
-            SelectQuery query = new SelectQuery().From("users");
-            foreach (var item in args)
-            {
-                if (!item.Value.Equals("*"))
-                {
-                    query.Where(item.Key, "=", item.Value);
-                }
-            }
-            return Connection.UpdateTable(query, dataSet);
+            // Update the 'Accounts' table in the AccountsDataSet
+            Connection.Adapter.Update(AccountDataSet, "Accounts");
         }
 
         // Returns list of all accounts matching the input role
@@ -183,6 +187,18 @@ namespace ScrumInsurance
             Connection.Query = new InsertQuery(account_info).Into("users");
 
             return Connection.ExecuteNonQuery();
+        }
+
+        public bool? UpdateAccount(string username, Dictionary<string, object> args)
+        {
+            Connection.Query = new UpdateQuery("users").Set(args).Where("username", "=", username);
+
+            return Connection.ExecuteNonQuery();
+        }
+
+        public bool? DeleteAccount(string username)
+        {
+            return Connection.DeleteQuery("users", new Dictionary<string, object> { { "username", username } });
         }
 
         /**
@@ -450,18 +466,6 @@ namespace ScrumInsurance
             if (rows != null) { return new Account(rows[0]); }
             // Else return null
             else { return null; }
-        }
-
-        public bool? UpdateAccount(string username, Dictionary<string, object> args)
-        {
-            Connection.Query = new UpdateQuery("users").Set(args).Where("username", "=", username);
-
-            return Connection.ExecuteNonQuery();
-        }
-
-        public bool? DeleteAccount(string username)
-        {
-            return Connection.DeleteQuery("users", new Dictionary<string, object> { { "username", username } });
         }
 
         public void UploadDocument(long claim_id, string file_name, byte[] file_data)
