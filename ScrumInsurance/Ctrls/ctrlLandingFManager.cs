@@ -12,7 +12,7 @@ namespace ScrumInsurance.Ctrls
 {
     public partial class ctrlLandingFManager : ScrumUserControl
     {
-        public ctrlLandingFManager()
+        public ctrlLandingFManager(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
             InitializeComponent();
         }

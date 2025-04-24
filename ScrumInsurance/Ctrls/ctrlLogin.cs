@@ -94,7 +94,7 @@ namespace ScrumInsurance.Ctrls
                 }
                 else if (Session.UserAccount.Role.Equals("finance_manager"))
                 {
-                    SwapCtrlMain(new ctrlLandingFManager());
+                    SwapCtrlMain(new ctrlLandingFManager(this));
                     LoadCtrlDash();
                 }
                 else
