@@ -98,7 +98,7 @@ namespace ScrumInsurance.Ctrls
             }*/
         }
 
-        private void btnTestUpload_Click(object sender, EventArgs e)
+        private void UploadDocuments()
         {
             // Loop through each document in the List
             foreach (string document_path in DocumentPaths)

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.lblHeader = new System.Windows.Forms.Label();
-            this.btnDocs = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.lblClaimDetails = new System.Windows.Forms.Label();
             this.txtDetails = new System.Windows.Forms.RichTextBox();
@@ -38,7 +37,6 @@
             this.lblFileName = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
             this.ofdClaimDocument = new System.Windows.Forms.OpenFileDialog();
-            this.btnTestUpload = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPillar2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,18 +51,6 @@
             this.lblHeader.Size = new System.Drawing.Size(158, 26);
             this.lblHeader.TabIndex = 0;
             this.lblHeader.Text = "Apply for claim";
-            // 
-            // btnDocs
-            // 
-            this.btnDocs.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnDocs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDocs.Location = new System.Drawing.Point(267, 353);
-            this.btnDocs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDocs.Name = "btnDocs";
-            this.btnDocs.Size = new System.Drawing.Size(169, 62);
-            this.btnDocs.TabIndex = 1;
-            this.btnDocs.Text = "Upload Documents";
-            this.btnDocs.UseVisualStyleBackColor = false;
             // 
             // btnSubmit
             // 
@@ -144,30 +130,17 @@
             this.lblError.Text = "Cleared on Initialize";
             this.lblError.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // btnTestUpload
-            // 
-            this.btnTestUpload.Location = new System.Drawing.Point(267, 294);
-            this.btnTestUpload.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnTestUpload.Name = "btnTestUpload";
-            this.btnTestUpload.Size = new System.Drawing.Size(104, 26);
-            this.btnTestUpload.TabIndex = 107;
-            this.btnTestUpload.Text = "Test Upload";
-            this.btnTestUpload.UseVisualStyleBackColor = true;
-            this.btnTestUpload.Click += new System.EventHandler(this.btnTestUpload_Click);
-            // 
             // ctrlClaimApply
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.Controls.Add(this.btnTestUpload);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblFileName);
             this.Controls.Add(this.btnBrowseDocument);
             this.Controls.Add(this.txtDetails);
             this.Controls.Add(this.lblClaimDetails);
             this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.btnDocs);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.pbxPillar2);
             this.Margin = new System.Windows.Forms.Padding(0);
@@ -183,7 +156,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblHeader;
-        private System.Windows.Forms.Button btnDocs;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label lblClaimDetails;
         private System.Windows.Forms.RichTextBox txtDetails;
@@ -192,6 +164,5 @@
         private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.OpenFileDialog ofdClaimDocument;
-        private System.Windows.Forms.Button btnTestUpload;
     }
 }
