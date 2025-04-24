@@ -314,10 +314,13 @@ namespace ScrumInsurance
         {
             List<string> message_columns = new List<string>()
             {
-                "id", "subject", "sender_id", "date"
+                "messages.id", "sender_id", "recipient_id", "username", "subject", "date"
             };
 
-            Connection.Query = new SelectQuery(message_columns).From("messages").Join("message_recipients" , "id", "message_id").Where("message_recipients.recipient_id", "=", user_id.ToString());
+            Connection.Query = new SelectQuery(message_columns).From("messages")
+                .Join("message_recipients" , "id", "message_id")
+                .Join("users", "id", "id")
+                .Where("recipient_id", "=", user_id);
 
             // If the new account has a duplicated username, return false
             List<Row> rows = Connection.ExecuteSelect();
@@ -340,13 +343,26 @@ namespace ScrumInsurance
         // Get message data from input message ID
         public Message GetMessage(long message_id)
         {
-            Connection.Query = new SelectQuery(new List<string> { "id", "sender_id", "subject", "content", "date" }).From("messages").Where("id", "=", message_id.ToString());
+            Connection.Query = new SelectQuery(new List<string> { "message.id", "sender_id", "subject", "content", "date" }).From("messages").Where("id", "=", message_id.ToString());
 
             // Store select query results
             List<Row> rows = Connection.ExecuteSelect();
 
             // If a matching row was found, create a message object with it and return it
             if (rows != null) { return new Message(rows[0]); }
+            // Else return null
+            else { return null; }
+        }
+
+        public string GetMessageContent(long message_id)
+        {
+            Connection.Query = new SelectQuery("content").From("messages").Where("id", "=", message_id);
+
+            // Store select query results
+            Row row = Connection.ExecuteSingleSelect();
+
+            // If a matching row was found, return its content column
+            if (row != null) { return (string)row.GetValue("content"); }
             // Else return null
             else { return null; }
         }
@@ -472,15 +488,26 @@ namespace ScrumInsurance
             return Connection.ExecuteNonQuery();
         }
 
-        public Account GetFinanceManager()
+        public long GetFinanceManagerID()
         {
-            Connection.Query = new SelectQuery().From("users").Where("role", "=", "finance_manager");
+            // Gets the IDs of Finance Managers ordered by number of claims assigned
+            Connection.Query = new SelectQuery().From("finance_managers")
+                .Join("claims", "user_id", "finance_manager_id", "LEFT")
+                .GroupBy("user_id").OrderBy("COUNT(claims.id)");
+
             List<Row> rows = Connection.ExecuteSelect();
 
             // If a matching row was found, create an object with it and return it
-            if (rows != null) { return new Account(rows[0]); }
-            // Else return null
-            else { return null; }
+            if (rows != null) {
+                // If a user_id is found in the first row
+                if (rows[0].Columns.TryGetValue("user_id", out var id))
+                {
+                    return Convert.ToInt64(id);
+                }
+                else { return 0; }
+            }
+            // Else return 0
+            else { return 0; }
         }
 
         public void UploadDocument(long claim_id, string file_name, byte[] file_data)

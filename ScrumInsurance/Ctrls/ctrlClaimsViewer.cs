@@ -88,7 +88,7 @@ namespace ScrumInsurance.Ctrls
 
         private void btnTransfer_Click(object sender, EventArgs e)
         {
-            long financerId = Convert.ToInt64(DBController.GetFinanceManager().ID);
+            long financerId = DBController.GetFinanceManagerID();
             DBController.UpdateClaim(Claim.ID, "finance_manager_id", financerId.ToString());
         }
 

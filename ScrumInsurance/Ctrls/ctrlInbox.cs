@@ -19,7 +19,7 @@ namespace ScrumInsurance.Ctrls
     {
         public int MessageCount { get; set; }
         public int MessageRowHeight { get; set; }
-        public int LoadedMessageID { get; set; }
+        public long LoadedMessageID { get; set; }
 
         public ctrlInbox(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
@@ -33,16 +33,16 @@ namespace ScrumInsurance.Ctrls
 
             MessageCount = 0;
             MessageRowHeight = 60;
+            LoadedMessageID = 0;
 
             // Stores messages in a list for account tied to Session User ID
-            List<Message> messages = DBController.GetMessageList(int.Parse(Session.UserAccount.ID.ToString()));
+            List<Message> messages = DBController.GetMessageList(Session.UserAccount.ID);
 
             // Loop through each message
             if (messages != null)
             {
                 foreach (Message msg in messages)
                 {
-                    msg.initializeSender(DBController);
                     AddMessage(msg);
                 }
             }
@@ -50,10 +50,6 @@ namespace ScrumInsurance.Ctrls
             {
                 Console.WriteLine("No messages found.");
             }
-        }
-
-        private void ctrlInbox_Load(object sender, EventArgs e)
-        {
         }
 
         private void AddMessage(Message message)
@@ -76,7 +72,7 @@ namespace ScrumInsurance.Ctrls
             Label msg = new Label();
             msg.BackColor = Color.Azure;
             msg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            msg.Text = $"Sender: {message.Sender}\nSubject: {message.Subject}\nDate: {message.Date}";
+            msg.Text = $"Sender: {message.SenderUsername}\nSubject: {message.Subject}\nDate: {message.Date}";
             msg.Width = flpMessageList.Width / 2;
             msg.Height = MessageRowHeight;
             msg.Location = new Point(5, 0);
@@ -90,7 +86,7 @@ namespace ScrumInsurance.Ctrls
             btn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             btn.Width = 50;
             btn.Location = new Point(container.Width - btn.Width - 20, 20);
-            btn.Tag = message.ID; // Store message id in this message's button tag
+            btn.Tag = message; // Store message object in this button's tag
             btn.Click += new System.EventHandler(this.btnMessageA_Click);
 
             // Add controls to the container panel
@@ -103,17 +99,20 @@ namespace ScrumInsurance.Ctrls
 
         private void btnMessageA_Click(object sender, EventArgs e)
         {
+            Console.WriteLine($"Button clicked");
             // Cast the sender object as a button
-            System.Windows.Forms.Button btn = sender as System.Windows.Forms.Button;
+            Button btn = sender as Button;
 
-            // Get the message_id for this btn's message from its tag value
-            int message_id = int.Parse(btn.Tag.ToString());
+            // Get the message object stored in this button's tag
+            Message message = btn.Tag as Message;
+
+            Console.WriteLine("Message" + message);
 
             // If this message is already loaded, return
-            if (message_id == LoadedMessageID) return;
+            if (message.ID == LoadedMessageID) return;
 
             // Store this message's id as the loaded message
-            LoadedMessageID = message_id;
+            LoadedMessageID = message.ID;
 
             // Unload previous message from contents panel
             if (pnlMessageContents.Controls.Count > 0)
@@ -121,15 +120,9 @@ namespace ScrumInsurance.Ctrls
                 pnlMessageContents.Controls.RemoveAt(0);
             }
 
-            // Get the message for messageID
-            Message message = DBController.GetMessage(message_id);
-            message.initializeSender(DBController);
-
-            //assign to lables and show
-            lblSender.Text = "Sender: " + message.Sender;
+            // Show message properties on labels
+            lblSender.Text = "Sender: " + message.SenderUsername;
             lblSender.Show();
-
-            Console.WriteLine(message);
 
             lblDate.Text = message.Date.Split(' ')[0];
             lblDate.Show();
@@ -137,7 +130,7 @@ namespace ScrumInsurance.Ctrls
             lblHeader.Text = message.Subject;
             lblHeader.Show();
 
-            string message_content = message.Content;
+            string message_content = DBController.GetMessageContent(message.ID);
             pnlMessageContents.Show();
 
             lblClaim.Text = "Claim ID: " + message.ID;

@@ -152,7 +152,6 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ctrlInbox";
             this.Size = new System.Drawing.Size(1080, 607);
-            this.Load += new System.EventHandler(this.ctrlInbox_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
