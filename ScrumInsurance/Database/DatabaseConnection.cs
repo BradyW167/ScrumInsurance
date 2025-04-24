@@ -14,6 +14,7 @@ using MySqlX.XDevAPI.Common;
 using ScrumInsurance.Queries;
 using MySqlX.XDevAPI.Relational;
 using System.Data;
+using Org.BouncyCastle.Asn1.Mozilla;
 
 namespace ScrumInsurance
 {
@@ -38,37 +39,39 @@ namespace ScrumInsurance
         public MySqlDataAdapter Adapter { get; set; }
 
         // Stores query objects for exectution here
-        public Queries.Query Query { get; set; }
+        public Query Query { get; set; }
 
         // Attempts to open a connection to a MySQL database.
         // Returns true on successful connection, false on failure
-        public bool openConnection()
+        public bool OpenConnection()
         {
             // If connection is not instantiated or connection has been closed
-            if (Connection == null || Connection.State == System.Data.ConnectionState.Closed)
+            if (Connection == null || Connection.State == ConnectionState.Closed)
             {
                 // Format connection string
                 string connString = string.Format("Server={0};Database={1};Uid={2};Pwd={3};Connection Timeout={4}", 
                                                   ServerName, DatabaseName, DatabaseUsername, DatabasePassword, TimeoutWait);
                 Connection = new MySqlConnection(connString);
 
-                // Try-Catch to catch exceptions...
                 try
                 {
                     Connection.Open();
                 }
-                catch (MySqlException ex)
+                catch (Exception ex)
                 {
-                    Console.WriteLine($"MySQL Connection Error {ex.Message}");
+                    Console.WriteLine(ex.ToString());
+
+                    // Returns false on connection error
                     return false;
                 }
             }
 
+            // Returns true on already open connection or successful connection
             return true;
         }
 
         // Closes a MySQL database connection.
-        public void closeConnection()
+        public void CloseConnection()
         {
             Connection.Close();
         }
@@ -83,14 +86,10 @@ namespace ScrumInsurance
                 return null;
             }
 
+            // Cast query as a SelectQuery for class-specific methods
             SelectQuery sq = (SelectQuery)Query;
 
-            // Open SQL connection for queries
-            if (!openConnection())
-            {
-                Console.WriteLine("Select Query: Connection failed, returning null");
-                return null;
-            }
+            if (!OpenConnection()) { return null; }
 
             // Initialize command to query database
             Command = Connection.CreateCommand();
@@ -104,11 +103,11 @@ namespace ScrumInsurance
             // Execute command and input results into reader
             using (Reader = Command.ExecuteReader())
             {
-                // If matching data was not found in the database...
+                // If matching data was not found in the database..+.
                 if (!Reader.HasRows)
                 {
-                    Console.WriteLine("Select Query: Reader has no rows, returning null");
-                    return null;
+                    Console.WriteLine("Select Query: Reader has no rows, returning empty list");
+                    return new List<Row>();
                 }
                 // Else matching data was found
                 else
@@ -168,25 +167,23 @@ namespace ScrumInsurance
 
             // If the select query returned any rows, return the first one
             if (rows != null) { return rows[0]; }
+            // If the list of rows is empty, return an empty row
+            else if (rows.Count == 0) { return new Row(); }
             // Else return null
             else { return null; }
         }
 
         // Returns a boolean for success of executing a NonQuery (Insert,Update,Delete) stored in Query
-        public bool ExecuteNonQuery()
+        public bool? ExecuteNonQuery()
         {
             if (Query is SelectQuery)
             {
-                Console.WriteLine("DatabaseConnection.Query is not a NonQuery");
+                Console.WriteLine("DatabaseConnection.Query is not a NonQuery, check function calls");
                 return false;
             }
 
-            // Open SQL connection for queries
-            if (!openConnection())
-            {
-                Console.WriteLine("Select Query: Connection failed, returning null");
-                return false;
-            }
+            // Return null on failed connection
+            if (!OpenConnection()) { return null; }
 
             // Stores executed command result
             int result = 0;
@@ -210,11 +207,8 @@ namespace ScrumInsurance
                 Console.WriteLine("Non Query Error: " + ex.Message);
 
                 // Return false on failed query
-                closeConnection();
-                return false;
+                return null;
             }
-
-            closeConnection();
             
             // Returns true if any columns were altered
             return result > 0;
@@ -224,7 +218,7 @@ namespace ScrumInsurance
         //Failure returns an empty data set
         public DataSet GetTable(SelectQuery query)
         {
-            if (!openConnection())
+            if (!OpenConnection())
             {
                 Console.WriteLine("Can't connect to database");
                 return new DataSet();
@@ -249,21 +243,18 @@ namespace ScrumInsurance
             catch (Exception ex)
             {
                 Console.WriteLine("Adapter error: " + ex.Message);
-                closeConnection();
+                CloseConnection();
                 return new DataSet();
             }
-            closeConnection();
+            CloseConnection();
             return dataSet;
         }
 
         //Changes a table in the database to match a table of altered data
-        public bool UpdateTable(SelectQuery query, DataSet newDataSet)
+        public bool? UpdateTable(SelectQuery query, DataSet newDataSet)
         {
-            if (!openConnection())
-            {
-                Console.WriteLine("Not connected to database");
-                return false;
-            }
+            // Return null on failed connection
+            if (!OpenConnection()) { return null; }
 
             //Puts unaltered data from database into a data set and changes values to match altered data
             DataSet oldDataSet = GetTable(query);
@@ -286,165 +277,17 @@ namespace ScrumInsurance
             catch (Exception ex)
             {
                 Console.WriteLine("Adapter error: " + ex.Message);
-                closeConnection();
+                CloseConnection();
                 return false;
             }
-            closeConnection();
+            CloseConnection();
             return result > 0;
         }
 
-        /* 
-         * Executes a select query using the 'args' Dictionary as WHERE conditions
-         * 'columns' paramater indicates which column values to return if found
-         * Results are stored in the Reader attribute
-         * Returns a list of valid rows on succesful query, null on not found or failed connection
-         */
-        public List<Row> SelectQuery(string tableName, Dictionary<string, object> args, string[] columns = null)
+        public bool? UpdateQuery(string tableName, Dictionary<string, object> matchingArgs, Dictionary<string, object> altArgs)
         {
-            // Open SQL connection for queries
-            if (!openConnection())
-            {
-                Console.WriteLine("Select Query: Connection failed, returning null");
-                // Return false when connection fails
-                return null;
-            }
+            OpenConnection();
 
-            // Initialize command to query database
-            Command = Connection.CreateCommand();
-
-            // Initialize string to build query
-            StringBuilder query = new StringBuilder("SELECT * FROM " + tableName + " WHERE ");
-
-            // Handles the AND placement for first condition
-            bool firstCondition = true;
-
-            // Add each condition to the WHERE clause
-            foreach (var kvp in args)
-            {
-                if (!firstCondition)
-                {
-                    query.Append(" AND ");
-                }
-                query.Append($"{kvp.Key} = @{kvp.Key}");
-                firstCondition = false;
-            }
-
-            // Read query string into Command object
-            Command.CommandText = query.ToString();
-
-            // Input actual values into the query string
-            foreach (var kvp in args)
-            {
-                Command.Parameters.AddWithValue("@" + kvp.Key, kvp.Value);
-            }
-
-            // Execute command and input results into reader
-            using (Reader = Command.ExecuteReader())
-            {
-                // If matching data was not found in the database...
-                if (!Reader.HasRows)
-                {
-                    Console.WriteLine("Select Query: Reader has no rows, returning null");
-                    return null;
-                }
-                // Else matching data was found
-                else
-                {
-                    // If no data is to be returned, return an empty object for truthiness
-                    if ( columns == null ) {
-                        Console.WriteLine("Select Query: Matching data found, but no rows to return");
-                        return new List<Row>(); }
-
-                    // Stores return data
-                    List<Row> rows = new List<Row>();
-
-                    // Read through the found database entries
-                    while (Reader.Read())
-                    {
-                        Row row = new Row();
-                        // Loop for each column of data needed
-                        for (int i = 0; i < columns.Length; i++)
-                        {
-                            // Store each requested column of data
-                            row.AddColumn(columns[i], Reader[columns[i]]);
-                        }
-                        rows.Add(row);
-                    }
-
-                    return rows;
-                }
-            }
-        }
-
-        public bool InsertQuery(string tableName, Dictionary<string, object> args)
-        {
-            // Open SQL connection for queries
-            if (!openConnection())
-            {
-                // Return false when connection fails
-                return false;
-            }
-
-            // Initialize command to query database
-            Command = Connection.CreateCommand();
-
-            // Initialize string to build query
-            StringBuilder query = new StringBuilder("INSERT INTO " + tableName + " ( ");
-
-            // Handles the AND placement for first condition
-            bool firstCondition = true;
-
-            // Add each column name to the INSERT parameters
-            foreach (var kvp in args)
-            {
-                if (!firstCondition)
-                {
-                    query.Append(", ");
-                }
-                query.Append($"{kvp.Key}");
-                firstCondition = false;
-            }
-
-            // Append closing parenthesis, VALUES keyword and next parenthesis
-            query.Append(") VALUES (");
-
-            firstCondition = true;
-
-            // Add values to the VALUES parameters
-            foreach (var kvp in args)
-            {
-                if (!firstCondition)
-                {
-                    query.Append(", ");
-                }
-                query.Append($"@{kvp.Key}");
-                firstCondition = false;
-            }
-
-            // Append closing parenthesis
-            query.Append(')');
-
-            // Read query string into Command object
-            Command.CommandText = query.ToString();
-
-            // Input actual values into the query string
-            foreach (var kvp in args)
-            {
-                Command.Parameters.AddWithValue("@" + kvp.Key, kvp.Value);
-            }
-
-            Console.WriteLine("Inserting: " + query.ToString());
-
-            return ExecuteNonQuery();
-        }
-
-        public bool UpdateQuery(string tableName, Dictionary<string, object> matchingArgs, Dictionary<string, object> altArgs)
-        {
-            if (!openConnection())
-            {
-                // Return false when connection fails
-                return false;
-            }
             Command = Connection.CreateCommand();
             string cmd = "UPDATE " + tableName +
                 " SET " + ConstructMatchingColumnQuery(", ", altArgs) +
@@ -462,14 +305,13 @@ namespace ScrumInsurance
             }
             finally
             {
-                closeConnection();
+                CloseConnection();
             }
         }
 
-
-        public bool DeleteQuery(string tableName, Dictionary<string, object> args)
+        public bool? DeleteQuery(string tableName, Dictionary<string, object> args)
         {
-            if (!openConnection())
+            if (!OpenConnection())
             {
                 // Return false when connection fails
                 return false;
