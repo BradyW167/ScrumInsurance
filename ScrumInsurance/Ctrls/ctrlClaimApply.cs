@@ -66,7 +66,7 @@ namespace ScrumInsurance.Ctrls
         private void btnSubmit_Click(object sender, EventArgs e)
         {
 
-            if (DBController.SubmitClaim(Session.UserAccount.ID, txtDetails.Text))
+            if (DBController.SubmitClaim(Session.UserAccount.ID, txtDetails.Text) == true)
             {
                 lblError.Text = "Claim submitted succcesfully";
                 txtDetails.Text = "";

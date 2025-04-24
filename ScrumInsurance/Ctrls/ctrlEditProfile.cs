@@ -53,7 +53,7 @@ namespace ScrumInsurance.Ctrls
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             //Add check for if new password and email are valid
-            if (DBController.UpdateAccount(Session.UserAccount.Username, new Dictionary<string, object> { { "password", txtNewPass.Text }/*, { "email", txtNewEmail.Text }*/ }))
+            if (DBController.UpdateAccount(Session.UserAccount.Username, new Dictionary<string, object> { { "password", txtNewPass.Text } }) == true)
             {
                 lblError.Text = "Profile successfully updated";
             }
@@ -65,7 +65,7 @@ namespace ScrumInsurance.Ctrls
 
         private void btnDeleteAccount_Click(object sender, EventArgs e)
         {
-            if (DBController.DeleteAccount(Session.UserAccount.Username))
+            if (DBController.DeleteAccount(Session.UserAccount.Username) == true)
             {
                 SwapCtrlMain(new ctrlLogin(this));
             }

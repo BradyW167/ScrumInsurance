@@ -33,7 +33,7 @@ namespace ScrumInsurance.Ctrls
                 Account new_account = new Account(txtCreateUsername.Text, txtCreatePassword.Text, "client", cmbSecurityQuestion.Text, txtCreateAnswer.Text);
 
                 // If account is sucessfully added...
-                if (DBController.AddAccount(new_account)) {
+                if (DBController.AddAccount(new_account) == true) {
                     SwapCtrlMain(new ctrlLogin(this));
                 }
                 // Else account creation failed due to database error

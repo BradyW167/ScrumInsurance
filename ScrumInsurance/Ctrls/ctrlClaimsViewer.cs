@@ -59,7 +59,7 @@ namespace ScrumInsurance.Ctrls
         {
             if (Session.UserAccount.Role.Equals("claim_manager"))
             {
-                if(DBController.UpdateClaim(Claim.ID, "Status", "Financing")) 
+                if(DBController.UpdateClaim(Claim.ID, "Status", "Financing") == true) 
                 {
                     lblStatusType.Text = "Financing";
                     lblStatusType.ForeColor = Color.SeaGreen;
