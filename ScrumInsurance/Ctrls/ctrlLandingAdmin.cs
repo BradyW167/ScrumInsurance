@@ -131,5 +131,11 @@ namespace ScrumInsurance.Ctrls
 
             DBController.CommitAccountChanges();
         }
+
+        // Refreshes the data grid view, undoing changes without committing them to database
+        private void btnUndo_Click(object sender, EventArgs e)
+        {
+            ReloadDataGrid();
+        }
     }
 }

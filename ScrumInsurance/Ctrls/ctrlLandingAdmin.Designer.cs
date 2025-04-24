@@ -35,6 +35,7 @@
             this.lblSelectRole = new System.Windows.Forms.Label();
             this.pbxPillar2 = new System.Windows.Forms.PictureBox();
             this.btnCommit = new System.Windows.Forms.Button();
+            this.btnUndo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserinfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPillar2)).BeginInit();
             this.SuspendLayout();
@@ -118,19 +119,32 @@
             // 
             this.btnCommit.AutoSize = true;
             this.btnCommit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.btnCommit.Location = new System.Drawing.Point(453, 527);
+            this.btnCommit.Location = new System.Drawing.Point(590, 525);
             this.btnCommit.Name = "btnCommit";
-            this.btnCommit.Size = new System.Drawing.Size(174, 35);
+            this.btnCommit.Size = new System.Drawing.Size(140, 35);
             this.btnCommit.TabIndex = 85;
-            this.btnCommit.Text = "Commit Changes";
+            this.btnCommit.Text = "Commit";
             this.btnCommit.UseVisualStyleBackColor = true;
             this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
+            // 
+            // btnUndo
+            // 
+            this.btnUndo.AutoSize = true;
+            this.btnUndo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.btnUndo.Location = new System.Drawing.Point(350, 525);
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.Size = new System.Drawing.Size(140, 35);
+            this.btnUndo.TabIndex = 86;
+            this.btnUndo.Text = "Undo";
+            this.btnUndo.UseVisualStyleBackColor = true;
+            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
             // 
             // ctrlLandingAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
+            this.Controls.Add(this.btnUndo);
             this.Controls.Add(this.btnCommit);
             this.Controls.Add(this.lblSelectRole);
             this.Controls.Add(this.cmbSelectRole);
@@ -156,5 +170,6 @@
         private System.Windows.Forms.ComboBox cmbSelectRole;
         private System.Windows.Forms.Label lblSelectRole;
         private System.Windows.Forms.Button btnCommit;
+        private System.Windows.Forms.Button btnUndo;
     }
 }
