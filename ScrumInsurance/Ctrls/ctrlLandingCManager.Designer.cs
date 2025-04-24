@@ -330,6 +330,7 @@
             this.btnClaimsList.TabIndex = 68;
             this.btnClaimsList.Text = "View Claims";
             this.btnClaimsList.UseVisualStyleBackColor = true;
+            this.btnClaimsList.Click += new System.EventHandler(this.btnClaimsList_Click);
             // 
             // ctrlLandingCManager
             // 
