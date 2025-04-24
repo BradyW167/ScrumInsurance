@@ -17,6 +17,7 @@ using SelectQuery = ScrumInsurance.Queries.SelectQuery;
 using ScrumInsurance.Queries;
 using System.Data;
 using Google.Protobuf.WellKnownTypes;
+using MySqlX.XDevAPI.Relational;
 
 namespace ScrumInsurance
 {
@@ -38,7 +39,7 @@ namespace ScrumInsurance
             Connection.ServerName = dbConfig.Database.ServerName;
             Connection.DatabaseName = dbConfig.Database.Name;
             Connection.DatabaseUsername = dbConfig.Database.Username;
-            Connection.DatabasePassword = dbConfig.Database.Password;  
+            Connection.DatabasePassword = dbConfig.Database.Password;
 
             // Set time to wait for connection failure
             Connection.TimeoutWait = timeoutWait;
@@ -163,41 +164,6 @@ namespace ScrumInsurance
             return found_account;
         }
 
-        // Stores claims into input Client object using data from account_data Row
-        public void GetClaims(Client client_account, Row account_data)
-        {
-            Dictionary<string, object> client_id = new Dictionary<string, object> {
-                { "Client_ID", account_data.Columns["user_id"] } 
-            };
-
-            List<string> claim_columns = new List<string> {
-                "title",
-                "content",
-                "status",
-                "amount"
-            };
-
-            string user_id = account_data.Columns["user_id"].ToString();
-
-            Connection.Query = new SelectQuery(claim_columns).From("claims").Where("user_id", "=", user_id);
-
-            List<Row> claims = Connection.ExecuteSelect();
-
-            // If the input client had any claims
-            if (claims != null)
-            {
-                // Loop through each claim row
-                foreach (Row row in claims)
-                {
-                    // Create a claim object from the row of data
-                    Claim claim = new Claim(row);
-                    
-                    // Add claim to client accounts Claim Property
-                    client_account.AddClaim(claim);
-                }
-            }
-        }
-
         /**
          * Inserts input account into users table in database
          * Returns boolean from success of insertion
@@ -243,23 +209,11 @@ namespace ScrumInsurance
             return errorMessages.ToString();
         }
 
-        // Checks if input username already exists in database
-        public bool CheckDuplicateUsername(string username)
-        {
-            Connection.Query = new SelectQuery("username").From("users").Where("username", "=", username);
-
-            // If the new account has a duplicated username, return false
-            List<Row> rows = Connection.ExecuteSelect();
-
-            // Return true when a duplicate username is found, false when not
-            return rows != null && rows.Count > 0;
-        }
-
         /**
-        * Returns error string on invalid username with info about what is invalid
-        * Returns empty string on valid username
-        * If username is input it returns an error if password and username are equal
-        */
+         * Returns error string on invalid username with info about what is invalid
+         * Returns empty string on valid username
+         * If username is input it returns an error if password and username are equal
+         */
         public string ValidatePassword(string password, string username = "")
         {
             StringBuilder errorMessages = new StringBuilder(string.Empty);
@@ -298,6 +252,18 @@ namespace ScrumInsurance
             }
 
             return errorMessages.ToString();
+        }
+
+        // Checks if input username already exists in database
+        public bool CheckDuplicateUsername(string username)
+        {
+            Connection.Query = new SelectQuery("username").From("users").Where("username", "=", username);
+
+            // If the new account has a duplicated username, return false
+            List<Row> rows = Connection.ExecuteSelect();
+
+            // Return true when a duplicate username is found, false when not
+            return rows != null && rows.Count > 0;
         }
 
         // Checks if input password already exists in database
@@ -340,33 +306,6 @@ namespace ScrumInsurance
             return messages;
         }
 
-        public List<Claim> GetClaimList(int user_id)
-        {
-            Console.WriteLine("2222");
-            Connection.Query = new SelectQuery(new List<string> { "id", "title", "status", "date" }).From("claims").Where("claim_manager_id", "=", user_id.ToString());
-            Console.WriteLine("1111");
-            List<Row> rows = Connection.ExecuteSelect();
-
-            List<Claim> empty = new List<Claim>();
-
-            if (rows == null)
-            {
-                Console.WriteLine("emptylist");
-                return empty;
-            }
-            // Stores messages to return in list
-            List<Claim> claims = new List<Claim>();
-
-            foreach (Row row in rows)
-            {
-                Claim clm = new Claim(row);
-
-                claims.Add(clm);
-            }
-            Console.WriteLine("notemptylist");
-            return claims;
-        }
-
         // Get message data from input message ID
         public Message GetMessage(long message_id)
         {
@@ -381,49 +320,104 @@ namespace ScrumInsurance
             else { return null; }
         }
 
-        // Returns claims for input user id as a List of Claim objects
-        public List<Claim> GetClaimList(Account userAccount)
+        // Get claim data from input claim ID
+        public Claim GetClaim(long claim_id)
         {
-            string cType = "client_id";
+            Connection.Query = new SelectQuery().From("claims").Where("id", "=", claim_id.ToString());
+
+            // Store select query results
+            List<Row> rows = Connection.ExecuteSelect();
+
+            // If a matching row was found, create a message object with it and return it
+            if (rows != null) { return new Claim(rows[0]); }
+            // Else return null
+            else { return null; }
+        }
+
+        // Returns a list of Claim objects that are assigned to to the input user id
+        public List<Claim> GetClaimsByID(long user_id)
+        {
+            Connection.Query = new SelectQuery().From("claims").Where("user_id", "=", user_id.ToString());
+
+            List<Row> claim_rows = Connection.ExecuteSelect();
+
+            // Stores messages to return in list
+            List<Claim> claims = new List<Claim>();
+
+            // If there was a query error, return null
+            if (claim_rows == null)
+            {
+                return null;
+            }
+            // Else the query returned claims
+            else
+            {
+                // Loop through each claim row
+                foreach (Row row in claim_rows)
+                {
+                    // Create a claim object from the row of data
+                    Claim claim = new Claim(row);
+
+                    // Add claim to client accounts Claim Property
+                    claims.Add(claim);
+                }
+
+                // Returns the claim list
+                return claims;
+            }
+        }
+
+        // Returns a list of Claim objects that are assigned to to the input account
+        public List<Claim> GetClaimsByAccount(Account userAccount)
+        {
+            // Stores the id column for the input user's role
+            string id_column_name = string.Empty;
 
             if (userAccount.Role == "claim_manager")
             {
-                cType = "claim_manager_id";
+                id_column_name = "claim_manager_id";
             }
             else if (userAccount.Role == "finance_manager")
             {
-                cType = "finance_manager_id";
+                id_column_name = "finance_manager_id";
             }
-
-            Connection.Query = new SelectQuery().From("claims").Where(cType, "=", userAccount.ID.ToString());
-
-            // If the new account has a duplicated username, return false
-            List<Row> rows = Connection.ExecuteSelect();
-
-            List<Claim> empty = new List<Claim>();
-
-            if (rows == null)
+            else
             {
-                Console.WriteLine("emptylist");
-                return empty;
+                id_column_name = "client_id";
             }
 
-            // Stores claims to return in list
+            Connection.Query = new SelectQuery().From("claims").Where(id_column_name, "=", userAccount.ID.ToString());
+
+            // Executes and stores query results as a list of row objects
+            List<Row> claim_rows = Connection.ExecuteSelect();
+
+            // Stores messages to return in list
             List<Claim> claims = new List<Claim>();
 
-            foreach (Row row in rows)
+            // If there was a query error, return null
+            if (claim_rows == null)
             {
-                Console.WriteLine("Row columns: " + string.Join(", ", row.Columns.Keys));
-
-                Claim claim = new Claim(row);
-
-                claims.Add(claim);
+                return null;
             }
+            // Else the query returned claims
+            else
+            {
+                // Loop through each claim row
+                foreach (Row row in claim_rows)
+                {
+                    // Create a claim object from the row of data
+                    Claim claim = new Claim(row);
 
-            return claims;
+                    // Add claim to client accounts Claim Property
+                    claims.Add(claim);
+                }
+
+                // Returns the claim list
+                return claims;
+            }
         }
 
-        public bool SubmitClaim(long userID, string content)
+        public bool? SubmitClaim(long userID, string content)
         {
             Dictionary<string, object> claim_columns = new Dictionary<string, object> {
                 { "client_id", userID },
@@ -447,7 +441,7 @@ namespace ScrumInsurance
             return Connection.ExecuteNonQuery();
         }
 
-        public Account getFinanceManager()
+        public Account GetFinanceManager()
         {
             Connection.Query = new SelectQuery().From("users").Where("role", "=", "finance_manager");
             List<Row> rows = Connection.ExecuteSelect();
