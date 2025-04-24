@@ -22,6 +22,17 @@ namespace ScrumInsurance
             Columns.Add(name, value);
         }
 
+        public bool HasColumn(string name)
+        {
+            return Columns.ContainsKey(name);
+        }
+
+        // You could implement a method to retrieve the value by table.column format.
+        public object GetValue(string columnName)
+        {
+            return Columns.ContainsKey(columnName) ? Columns[columnName] : null;
+        }
+
         public override string ToString()
         {
             return string.Join(", ", Columns.Select(kvp => $"{kvp.Key}: {kvp.Value}"));
