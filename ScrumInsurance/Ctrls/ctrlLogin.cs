@@ -122,7 +122,6 @@ namespace ScrumInsurance.Ctrls
 
             // Change picture box to display password shown eye
             pbxShowPassword.Image = Properties.Resources.password_show_eye;
-
         }
 
         private void pbxShowPassword_MouseUp(object sender, MouseEventArgs e)

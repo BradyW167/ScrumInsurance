@@ -213,6 +213,10 @@ namespace ScrumInsurance
             {
                 errorMessages.AppendLine("Username must be at least 3 characters long");
             }
+            else if (username.Length > 20)
+            {
+                errorMessages.AppendLine("Username must be at most 20 characters long");
+            }
             if (!Regex.IsMatch(username, @"^[a-zA-Z0-9]+$"))
             {
                 errorMessages.AppendLine("Username must only contain letters and numbers");
@@ -237,6 +241,10 @@ namespace ScrumInsurance
             if (password.Length < 8)
             {
                 errorMessages.AppendLine("Password must be at least 8 characters long");
+            }
+            else if (password.Length > 20)
+            {
+                errorMessages.AppendLine("Password must be at most 20 characters long");
             }
             if (!Regex.IsMatch(password, @"^[a-zA-Z0-9!@#$%^&*]+$"))
             {
