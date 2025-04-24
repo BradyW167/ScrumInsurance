@@ -15,7 +15,6 @@ namespace ScrumInsurance.Ctrls
     public partial class ctrlClaimsList : ScrumUserControl
     {
         private int ClaimCount {  get; set; }
-
         private int ClaimRowHeight { get; set; }
 
         public ctrlClaimsList(ScrumUserControl oldCtrl) : base(oldCtrl)
@@ -26,7 +25,7 @@ namespace ScrumInsurance.Ctrls
 
             ClaimRowHeight = 100;
 
-            List<Claim> claimList = DBController.GetClaimsByAccount(Session.UserAccount);
+            List<Claim> claimList = DBController.GetClaimList(Session.UserAccount);
 
             foreach (Claim claim in claimList)
             {

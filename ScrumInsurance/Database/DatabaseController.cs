@@ -69,18 +69,6 @@ namespace ScrumInsurance
                 return config;
             }
         }
- 
-        public Account ValidateLogin(string username, string password)
-        {
-            // Get the account from input username
-            Account found_account = GetAccountByUsername(username);
-
-            // If no account was found with input username, return null
-            if (found_account == null) return null;
-
-            // Return the found account if its password matches input password, null if not
-            return found_account.Password.Equals(password) ? found_account : null;
-        }
 
         // Gets an account Data Set using input where conditions
         public DataSet GetAccountDataSet(Dictionary<string, string> whereConditions = null)
@@ -138,21 +126,6 @@ namespace ScrumInsurance
             return account_list;
         }
 
-        public Account GetAccountByUsername(string username)
-        {
-            Connection.Query = new SelectQuery().From("users").Where("username", "=", username);
-
-            Row account_row = Connection.ExecuteSingleSelect();
-
-            // Return null, if no account with input username was found
-            if (account_row == null) return null;
-
-            // Create account object from found account data
-            Account found_account = new Account(account_row);
-
-            return found_account;
-        }
-
         public Account GetAccountByID(string id)
         {
             Connection.Query = new SelectQuery().From("users").Where("id", "=", id);
@@ -203,9 +176,39 @@ namespace ScrumInsurance
             return Connection.ExecuteNonQuery();
         }
 
-        public bool? DeleteAccount(string username)
+        // Deletes account matching input user ID
+        public bool? DeleteAccount(long user_id)
         {
-            return Connection.DeleteQuery("users", new Dictionary<string, object> { { "username", username } });
+            Connection.Query = new DeleteQuery().From("users").Where("id", "=", user_id);
+
+            return Connection.ExecuteNonQuery();
+        }
+
+        public Account GetAccountByUsername(string username)
+        {
+            Connection.Query = new SelectQuery().From("users").Where("username", "=", username);
+
+            Row account_row = Connection.ExecuteSingleSelect();
+
+            // Return null, if no account with input username was found
+            if (account_row == null) return null;
+
+            // Create account object from found account data
+            Account found_account = new Account(account_row);
+
+            return found_account;
+        }
+
+        public Account ValidateLogin(string username, string password)
+        {
+            // Get the account from input username
+            Account found_account = GetAccountByUsername(username);
+
+            // If no account was found with input username, return null
+            if (found_account == null) return null;
+
+            // Return the found account if its password matches input password, null if not
+            return found_account.Password.Equals(password) ? found_account : null;
         }
 
         /**
@@ -288,13 +291,8 @@ namespace ScrumInsurance
         // Checks if input username already exists in database
         public bool CheckDuplicateUsername(string username)
         {
-            Connection.Query = new SelectQuery("username").From("users").Where("username", "=", username);
-
-            // If the new account has a duplicated username, return false
-            List<Row> rows = Connection.ExecuteSelect();
-
             // Return true when a duplicate username is found, false when not
-            return rows != null && rows.Count > 0;
+            return (GetAccountByUsername(username) != null);
         }
 
         // Checks if input password already exists in database
@@ -354,6 +352,7 @@ namespace ScrumInsurance
             else { return null; }
         }
 
+        // Gets a message's content from input message ID
         public string GetMessageContent(long message_id)
         {
             Connection.Query = new SelectQuery("content").From("messages").Where("id", "=", message_id);
@@ -381,41 +380,8 @@ namespace ScrumInsurance
             else { return null; }
         }
 
-        // Returns a list of Claim objects that are assigned to to the input user id
-        public List<Claim> GetClaimsByID(long user_id)
-        {
-            Connection.Query = new SelectQuery().From("claims").Where("user_id", "=", user_id.ToString());
-
-            List<Row> claim_rows = Connection.ExecuteSelect();
-
-            // Stores messages to return in list
-            List<Claim> claims = new List<Claim>();
-
-            // If there was a query error, return null
-            if (claim_rows == null)
-            {
-                return null;
-            }
-            // Else the query returned claims
-            else
-            {
-                // Loop through each claim row
-                foreach (Row row in claim_rows)
-                {
-                    // Create a claim object from the row of data
-                    Claim claim = new Claim(row);
-
-                    // Add claim to client accounts Claim Property
-                    claims.Add(claim);
-                }
-
-                // Returns the claim list
-                return claims;
-            }
-        }
-
         // Returns a list of Claim objects that are assigned to to the input account
-        public List<Claim> GetClaimsByAccount(Account userAccount)
+        public List<Claim> GetClaimList(Account userAccount)
         {
             // Stores the id column for the input user's role
             string id_column_name = string.Empty;
