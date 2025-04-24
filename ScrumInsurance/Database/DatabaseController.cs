@@ -24,7 +24,7 @@ namespace ScrumInsurance
     {
         private DatabaseConnection Connection {  get; set; }
 
-        public DatabaseController()
+        public DatabaseController(uint timeoutWait = 5)
         {
             Connection = new DatabaseConnection();
 
@@ -39,6 +39,9 @@ namespace ScrumInsurance
             Connection.DatabaseName = dbConfig.Database.Name;
             Connection.DatabaseUsername = dbConfig.Database.Username;
             Connection.DatabasePassword = dbConfig.Database.Password;  
+
+            // Set time to wait for connection failure
+            Connection.TimeoutWait = timeoutWait;
         }
 
         // Reads input database config file

@@ -28,6 +28,9 @@ namespace ScrumInsurance
         public string DatabasePassword { get; set; }
         public string DatabaseUsername { get; set; }
 
+        // Time, in seconds, to attempt connection until an error is thrown
+        public uint TimeoutWait { get; set; }
+
         // Database data accessproperties
         public MySqlConnection Connection { get; set; }
         public MySqlDataReader Reader { get; set; }
@@ -45,7 +48,8 @@ namespace ScrumInsurance
             if (Connection == null || Connection.State == System.Data.ConnectionState.Closed)
             {
                 // Format connection string
-                string connString = string.Format("Server={0};Database={1};Uid={2};Pwd={3}", ServerName, DatabaseName, DatabaseUsername, DatabasePassword);
+                string connString = string.Format("Server={0};Database={1};Uid={2};Pwd={3};Connection Timeout={4}", 
+                                                  ServerName, DatabaseName, DatabaseUsername, DatabasePassword, TimeoutWait);
                 Connection = new MySqlConnection(connString);
 
                 // Try-Catch to catch exceptions...
