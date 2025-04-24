@@ -261,59 +261,5 @@ namespace ScrumInsurance
 
             return dataSet;
         }
-
-        public bool? UpdateQuery(string tableName, Dictionary<string, object> matchingArgs, Dictionary<string, object> altArgs)
-        {
-            OpenConnection();
-
-            Command = Connection.CreateCommand();
-            string cmd = "UPDATE " + tableName +
-                " SET " + ConstructMatchingColumnQuery(", ", altArgs) +
-                " WHERE " + ConstructMatchingColumnQuery(" AND ", matchingArgs);
-            Console.WriteLine(Command.CommandText = cmd);
-            try
-            {
-                int numRows  = Command.ExecuteNonQuery();
-                return numRows > 0;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Update failed: " + ex.Message);
-                return false;
-            }
-            finally
-            {
-                CloseConnection();
-            }
-        }
-
-        public bool? DeleteQuery(string tableName, Dictionary<string, object> args)
-        {
-            if (!OpenConnection())
-            {
-                // Return false when connection fails
-                return false;
-            }
-            Command = Connection.CreateCommand();
-            string cmd = "DELETE FROM " + tableName +
-                " WHERE " + ConstructMatchingColumnQuery(" AND ", args);
-            Console.WriteLine(Command.CommandText = cmd);
-            return ExecuteNonQuery();
-        }
-
-        //Adds to query "specified column name" = "specifed column vlaue" with delimiter inbetween each set
-        private string ConstructMatchingColumnQuery(string delimiter, Dictionary<string, object> args)
-        {
-            string query = "";
-            for (int i = 0; i < args.Count; i++)
-            {
-                if (i > 0)
-                {
-                    query += delimiter;
-                }
-                query += args.ElementAt(i).Key + " = '" + args.ElementAt(i).Value + "'";
-            }
-            return query;
-        }
     }
 }
