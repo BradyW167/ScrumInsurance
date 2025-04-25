@@ -130,6 +130,12 @@
     <Compile Include="Ctrls\ctrlFooter.Designer.cs">
       <DependentUpon>ctrlFooter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ctrls\ctrlCompose.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctrls\ctrlCompose.Designer.cs">
+      <DependentUpon>ctrlCompose.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database\Account.cs" />
     <Compile Include="Database\Claim.cs" />
     <Compile Include="Queries\DeleteQuery.cs" />
@@ -266,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlClaimsList.resx">
       <DependentUpon>ctrlClaimsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctrls\ctrlCompose.resx">
+      <DependentUpon>ctrlCompose.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ctrls\ctrlInbox.resx">
       <DependentUpon>ctrlInbox.cs</DependentUpon>

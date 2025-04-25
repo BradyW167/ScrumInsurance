@@ -338,6 +338,30 @@ namespace ScrumInsurance
             return messages;
         }
 
+        public List<Account> GetUserList(string user_string)
+        {
+            List<string> account_columns = new List<string>()
+            {
+                "id", "username", "role"
+            };
+
+            Connection.Query = new SelectQuery(account_columns).From("users")
+                .Where("username", "like", user_string+"%");
+            List<Row> rows = Connection.ExecuteSelect();
+
+            if (rows == null) return null;
+
+            //Stores accounts to return in list
+            List<Account> users = new List<Account>();
+            foreach (Row row in rows)
+            {
+                Account acc = new Account(row);
+                users.Add(acc);
+            }
+
+            return users;
+        }
+
         // Get message data from input message ID
         public Message GetMessage(long message_id)
         {
