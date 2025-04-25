@@ -317,7 +317,7 @@ namespace ScrumInsurance
 
             Connection.Query = new SelectQuery(message_columns).From("messages")
                 .Join("message_recipients" , "id", "message_id")
-                .Join("users", "id", "id")
+                .Join("users", "sender_id", "id")
                 .Where("recipient_id", "=", user_id);
 
             // If the new account has a duplicated username, return false
