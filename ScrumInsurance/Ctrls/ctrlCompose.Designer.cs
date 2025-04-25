@@ -40,6 +40,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.lblErrorList = new System.Windows.Forms.Label();
+            this.lblSubject = new System.Windows.Forms.Label();
+            this.txtSubject = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -134,10 +136,10 @@
             // txtContents
             // 
             this.txtContents.Font = new System.Drawing.Font("Microsoft Tai Le", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContents.Location = new System.Drawing.Point(524, 166);
+            this.txtContents.Location = new System.Drawing.Point(524, 216);
             this.txtContents.Name = "txtContents";
             this.txtContents.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtContents.Size = new System.Drawing.Size(1032, 602);
+            this.txtContents.Size = new System.Drawing.Size(1032, 552);
             this.txtContents.TabIndex = 121;
             this.txtContents.Text = "";
             // 
@@ -175,11 +177,31 @@
             this.lblErrorList.TabIndex = 123;
             this.lblErrorList.Text = "**HIDDEN ON INITIALIZE**";
             // 
+            // lblSubject
+            // 
+            this.lblSubject.AutoSize = true;
+            this.lblSubject.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblSubject.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Italic);
+            this.lblSubject.Location = new System.Drawing.Point(519, 174);
+            this.lblSubject.Name = "lblSubject";
+            this.lblSubject.Size = new System.Drawing.Size(104, 30);
+            this.lblSubject.TabIndex = 124;
+            this.lblSubject.Text = "Subject: ";
+            // 
+            // txtSubject
+            // 
+            this.txtSubject.Location = new System.Drawing.Point(629, 177);
+            this.txtSubject.Name = "txtSubject";
+            this.txtSubject.Size = new System.Drawing.Size(320, 26);
+            this.txtSubject.TabIndex = 125;
+            // 
             // ctrlCompose
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
+            this.Controls.Add(this.txtSubject);
+            this.Controls.Add(this.lblSubject);
             this.Controls.Add(this.lblErrorList);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.txtSearch);
@@ -215,5 +237,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.Label lblErrorList;
+        private System.Windows.Forms.Label lblSubject;
+        private System.Windows.Forms.TextBox txtSubject;
     }
 }

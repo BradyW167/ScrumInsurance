@@ -193,6 +193,7 @@ namespace ScrumInsurance
 
             Connection.Query = new InsertQuery("user_id", LastInsertedID).Into(role_table);
 
+
             return Connection.ExecuteNonQuery();
         }
 
@@ -373,6 +374,33 @@ namespace ScrumInsurance
             return messages;
         }
 
+        public List<Message> GetMessageList()
+        {
+            List<string> message_columns = new List<string>()
+            {
+                "messages.id", "sender_id", "subject", "date"
+            };
+
+            Connection.Query = new SelectQuery(message_columns).From("messages");
+
+            // If the new account has a duplicated username, return false
+            List<Row> rows = Connection.ExecuteSelect();
+
+            if (rows == null) return null;
+
+            // Stores messages to return in list
+            List<Message> messages = new List<Message>();
+
+            foreach (Row row in rows)
+            {
+                Message msg = new Message(row);
+
+                messages.Add(msg);
+            }
+
+            return messages;
+        }
+
         public List<Account> GetUserList(string user_string)
         {
             List<string> account_columns = new List<string>()
@@ -382,6 +410,29 @@ namespace ScrumInsurance
 
             Connection.Query = new SelectQuery(account_columns).From("users")
                 .Where("username", "like", user_string+"%");
+            List<Row> rows = Connection.ExecuteSelect();
+
+            if (rows == null) return null;
+
+            //Stores accounts to return in list
+            List<Account> users = new List<Account>();
+            foreach (Row row in rows)
+            {
+                Account acc = new Account(row);
+                users.Add(acc);
+            }
+
+            return users;
+        }
+
+        public List<Account> GetUserList()
+        {
+            List<string> account_columns = new List<string>()
+            {
+                "id", "username", "role"
+            };
+
+            Connection.Query = new SelectQuery(account_columns).From("users");
             List<Row> rows = Connection.ExecuteSelect();
 
             if (rows == null) return null;
@@ -617,6 +668,34 @@ namespace ScrumInsurance
 
             return documents;
         }
+
+
+        public bool? SendMessage(long userID, string subject, string content, long recipientID)
+        {
+            Dictionary<string, object> message_columns = new Dictionary<string, object> {
+                { "sender_id", userID },
+                { "subject", subject },
+                { "content", content },
+                { "date", DateTime.Now }
+            };
+
+            Connection.Query = new InsertQuery(message_columns).Into("messages");
+            Connection.ExecuteNonQuery();
+
+            //temporary solution to grab the message id from the most recently added message - 
+            int messageID = GetMessageList().Count;
+            Console.WriteLine(messageID + "= message id");
+
+            Dictionary<string, object> messageRecipient_columns = new Dictionary<string, object> {
+                { "message_id", messageID },
+                { "recipient_id", recipientID }
+            };
+
+            Connection.Query = new InsertQuery(messageRecipient_columns).Into("message_recipients");
+
+            return Connection.ExecuteNonQuery();
+        }
+
     }
 
 }
