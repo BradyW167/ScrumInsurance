@@ -43,33 +43,46 @@ namespace ScrumInsurance
         public Query Query { get; set; }
 
         // Attempts to open a connection to a MySQL database.
-        // Returns true on successful connection, false on failure
+        // Returns true on successful opening of connection, false on failure
         public bool OpenConnection()
         {
-            // If connection is not instantiated or connection has been closed
-            if (Connection == null || Connection.State == ConnectionState.Closed)
+            try
             {
-                // Format connection string
+                if (Connection != null)
+                {
+                    // Check if it's marked open but is actually unusable
+                    if (Connection.State == ConnectionState.Open)
+                    {
+                        // Throws if connection is dead
+                        Connection.Ping();
+                        return true;
+                    }
+                    else
+                    {
+                        Connection.Dispose();
+                        Connection = null;
+                    }
+                }
+
+                // Recreate and try to connect
                 string connString = string.Format("Server={0};Database={1};Uid={2};Pwd={3};Connection Timeout={4}", 
                                                   ServerName, DatabaseName, DatabaseUsername, DatabasePassword, TimeoutWait);
                 Connection = new MySqlConnection(connString);
 
-                try
-                {
                     Connection.Open();
+                return true;
                 }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Returning false, MySQL connection error: " + ex.Message);
+                return false;
+            }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.ToString());
-
-                    // Returns false on connection error
+                Console.WriteLine("Returning false, Unexpected error: " + ex.Message);
                     return false;
                 }
             }
-
-            // Returns true on already open connection or successful connection
-            return true;
-        }
 
         // Closes a MySQL database connection.
         public void CloseConnection()
@@ -80,6 +93,9 @@ namespace ScrumInsurance
         // Returns a list of rows from executing a SelectQuery stored in Query
         public List<Row> ExecuteSelect()
         {
+            // Test for open connection
+            if (!OpenConnection()) { return null; }
+
             // If Query was not a SelectQuery object, return null
             if (!(Query is SelectQuery))
             {
@@ -90,8 +106,6 @@ namespace ScrumInsurance
             // Cast query as a SelectQuery for class-specific methods
             SelectQuery sq = (SelectQuery)Query;
 
-            if (!OpenConnection()) { return null; }
-
             // Initialize command to query database
             Command = Connection.CreateCommand();
 
@@ -100,6 +114,9 @@ namespace ScrumInsurance
 
             // Passes the actual values into the command
             Query.InsertParameters(Command);
+
+            // Test for open connection
+            if (!OpenConnection()) { return null; }
 
             // Execute command and input results into reader
             using (Reader = Command.ExecuteReader())
