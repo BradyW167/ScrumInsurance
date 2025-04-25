@@ -142,7 +142,7 @@ namespace ScrumInsurance.Ctrls
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            //DBController.
+            DBController.SendMessage(Session.UserAccount.ID, txtSubject.Text, txtContents.Text, LoadedUserID);
         }
 
         //   private void btnMessageC_Click(object sender, EventArgs e)
