@@ -155,14 +155,46 @@ namespace ScrumInsurance
             // Create parameter dictionary for new account
             Dictionary<string, object> account_info = new Dictionary<string, object>
             {
-                { "username", (object)new_account.Username },
-                { "password", (object)new_account.Password },
-                { "role", (object)new_account.Role },
-                { "security_question", (object)new_account.SecurityQuestion },
-                { "security_answer", (object)new_account.SecurityAnswer }
+                { "username", new_account.Username },
+                { "password", new_account.Password },
+                { "role", new_account.Role },
+                { "security_question", new_account.SecurityQuestion },
+                { "security_answer", new_account.SecurityAnswer }
             };
 
             Connection.Query = new InsertQuery(account_info).Into("users");
+
+            bool? userInserted = Connection.ExecuteNonQuery();
+
+            // Return false if insert failed
+            if (userInserted != true) return false;
+
+            // Inserts this user's id into their role specific table
+            return AddRoleSpecificAccount(new_account.Role);
+        }
+
+        // Inserts an entry into a role specific subtype table
+        public bool? AddRoleSpecificAccount(string role)
+        {
+            LastInsertedID = Connection.GetLastInsertedID();
+
+            // Return null on database error
+            if (LastInsertedID == null) return null;
+
+            string role_table = "";
+
+            // Gets the name of the input role's database table
+            if (role == "client") {role_table = "clients"; }
+            else if (role == "claim_manager") { role_table = "claim_managers"; }
+            else if (role == "finance_manager") { role_table = "finance_managers"; }
+            else if (role == "admin") { role_table = "admins"; }
+            else
+            {
+                Console.WriteLine("Unknown role: " + role);
+                return false;
+            }
+
+            Connection.Query = new InsertQuery("user_id", LastInsertedID).Into(role_table);
 
             return Connection.ExecuteNonQuery();
         }
@@ -211,9 +243,10 @@ namespace ScrumInsurance
 
             // If no account was found with input username, return null
             if (found_account == null) return null;
-
-            // Return the found account if its password matches input password, null if not
-            return found_account.Password.Equals(password) ? found_account : null;
+            // If the account is empty, or the password is not equal return an empty account
+            else if (found_account.Password == null || !found_account.Password.Equals(password)) return new Account();
+            // Else account is valid
+            else {return found_account;}
         }
 
         /**
@@ -236,7 +269,7 @@ namespace ScrumInsurance
             {
                 errorMessages.AppendLine("Username must only contain letters and numbers");
             }
-            if (CheckDuplicateUsername(username))
+            if (CheckDuplicateUsername(username) == true)
             {
                 errorMessages.AppendLine("Choose a different Username");
             }
@@ -294,10 +327,10 @@ namespace ScrumInsurance
         }
 
         // Checks if input username already exists in database
-        public bool CheckDuplicateUsername(string username)
+        public bool? CheckDuplicateUsername(string username)
         {
             // Return true when a duplicate username is found, false when not
-            return (GetAccountByUsername(username) != null);
+            return (GetAccountByUsername(username).ID != 0);
         }
 
         // Checks if input password already exists in database
