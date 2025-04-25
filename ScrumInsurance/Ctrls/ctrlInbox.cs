@@ -155,9 +155,14 @@ namespace ScrumInsurance.Ctrls
 
         }
 
-     //   private void btnMessageC_Click(object sender, EventArgs e)
-     //   {
+        private void btnCompose_Click(object sender, EventArgs e)
+        {
+            SwapCtrlMain(new ctrlCompose(this));
+        }
 
-     //   }
+        //   private void btnMessageC_Click(object sender, EventArgs e)
+        //   {
+
+        //   }
     }
 }
