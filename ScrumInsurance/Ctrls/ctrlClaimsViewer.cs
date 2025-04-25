@@ -88,8 +88,10 @@ namespace ScrumInsurance.Ctrls
 
         private void btnTransfer_Click(object sender, EventArgs e)
         {
-            long financerId = DBController.GetFinanceManagerID();
-            DBController.UpdateClaim(Claim.ID, "finance_manager_id", financerId.ToString());
+            // Gets the ID of the finance manager with the least claims assigned
+            long financer_id = DBController.GetLeastClaimsManagerID(false);
+            
+            DBController.UpdateClaim(Claim.ID, "finance_manager_id", financer_id);
         }
 
         private void btnReturn_Click(object sender, EventArgs e)

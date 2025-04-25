@@ -19,7 +19,7 @@ namespace ScrumInsurance.Queries
         }
 
         // Add one column and value to update
-        public UpdateQuery Set(string column, string value)
+        public UpdateQuery Set(string column, object value)
         {
             SetColumns.Add(column, value);
             return this;

@@ -43,32 +43,45 @@ namespace ScrumInsurance
         public Query Query { get; set; }
 
         // Attempts to open a connection to a MySQL database.
-        // Returns true on successful connection, false on failure
+        // Returns true on successful opening of connection, false on failure
         public bool OpenConnection()
         {
-            // If connection is not instantiated or connection has been closed
-            if (Connection == null || Connection.State == ConnectionState.Closed)
+            try
             {
-                // Format connection string
-                string connString = string.Format("Server={0};Database={1};Uid={2};Pwd={3};Connection Timeout={4}", 
+                if (Connection != null)
+                {
+                    // Check if it's marked open but is actually unusable
+                    if (Connection.State == ConnectionState.Open)
+                    {
+                        // Throws if connection is dead
+                        Connection.Ping();
+                        return true;
+                    }
+                    else
+                    {
+                        Connection.Dispose();
+                        Connection = null;
+                    }
+                }
+
+                // Recreate and try to connect
+                string connString = string.Format("Server={0};Database={1};Uid={2};Pwd={3};Connection Timeout={4}",
                                                   ServerName, DatabaseName, DatabaseUsername, DatabasePassword, TimeoutWait);
                 Connection = new MySqlConnection(connString);
 
-                try
-                {
-                    Connection.Open();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
-
-                    // Returns false on connection error
-                    return false;
-                }
+                Connection.Open();
+                return true;
             }
-
-            // Returns true on already open connection or successful connection
-            return true;
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Returning false, MySQL connection error: " + ex.Message);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Returning false, Unexpected error: " + ex.Message);
+                return false;
+            }
         }
 
         // Closes a MySQL database connection.
@@ -80,6 +93,9 @@ namespace ScrumInsurance
         // Returns a list of rows from executing a SelectQuery stored in Query
         public List<Row> ExecuteSelect()
         {
+            // Test for open connection
+            if (!OpenConnection()) { return null; }
+
             // If Query was not a SelectQuery object, return null
             if (!(Query is SelectQuery))
             {
@@ -90,8 +106,6 @@ namespace ScrumInsurance
             // Cast query as a SelectQuery for class-specific methods
             SelectQuery sq = (SelectQuery)Query;
 
-            if (!OpenConnection()) { return null; }
-
             // Initialize command to query database
             Command = Connection.CreateCommand();
 
@@ -100,6 +114,9 @@ namespace ScrumInsurance
 
             // Passes the actual values into the command
             Query.InsertParameters(Command);
+
+            // Test for open connection
+            if (!OpenConnection()) { return null; }
 
             // Execute command and input results into reader
             using (Reader = Command.ExecuteReader())
@@ -168,12 +185,12 @@ namespace ScrumInsurance
 
             Row account_data = new Row();
 
-            // If the select query returned any rows, return the first one
-            if (rows != null) { return rows[0]; }
+            // If the query failed, return null
+            if (rows == null) { return null; }
             // If the list of rows is empty, return an empty row
             else if (rows.Count == 0) { return new Row(); }
-            // Else return null
-            else { return null; }
+            // Else return the first row
+            else { return rows[0]; }
         }
 
         // Returns a boolean for success of executing a NonQuery (Insert,Update,Delete) stored in Query
@@ -200,6 +217,8 @@ namespace ScrumInsurance
             // Passes the actual values into the command
             Query.InsertParameters(Command);
 
+            Console.WriteLine(Command.CommandText);
+
             try
             {
                 result = Command.ExecuteNonQuery();
@@ -215,6 +234,40 @@ namespace ScrumInsurance
             
             // Returns true if any columns were altered
             return result > 0;
+        }
+
+        // Returns the last inserted ID for follow-up inserts
+        public long? GetLastInsertedID()
+        {
+            if (!OpenConnection()) { return null; }
+
+            // Initialize command to query database
+            Command = Connection.CreateCommand();
+
+            // Store parameterized SelectQuery converted to string in Command
+            Command.CommandText = "SELECT LAST_INSERT_ID()";
+
+            // Execute command and input results into reader
+            using (Reader = Command.ExecuteReader())
+            {
+                // If matching data was not found in the database..+.
+                if (!Reader.HasRows)
+                {
+                    Console.WriteLine("No last inserted ID found");
+                    return 0;
+                }
+                // Else matching data was found
+                else
+                {
+                    // Move to the first record
+                    Reader.Read();
+
+                    // Convert the first record to a long
+                    long lastId = Reader.GetInt64(0);
+
+                    return lastId;
+                }
+            }
         }
 
         /**

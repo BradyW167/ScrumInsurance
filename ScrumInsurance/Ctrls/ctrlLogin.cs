@@ -55,19 +55,15 @@ namespace ScrumInsurance.Ctrls
         {
             lblLoginError.Text = "";
 
-            try
-            {
-                // Attempt to login with input username and password, store returned data in session acccount
-                Session.UserAccount = DBController.ValidateLogin(txtUsername.Text, txtPassword.Text);
-            }
-            catch
-            {
-                lblLoginError.Text = "Database connection failed";
-            }
+            // Attempt to login with input username and password, store returned data in session acccount
+            Session.UserAccount = DBController.ValidateLogin(txtUsername.Text, txtPassword.Text);
 
             // If no valid, matching account was found...
             if (Session.UserAccount == null)
             {
+                lblLoginError.Text = "Database connection failed";
+            }
+            else if (Session.UserAccount.ID == 0) {
                 lblLoginError.Text = "Incorrect username or password";
             }
             // Else input username and password access a valid account
