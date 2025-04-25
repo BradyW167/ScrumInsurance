@@ -18,17 +18,22 @@ using ScrumInsurance.Queries;
 using System.Data;
 using Google.Protobuf.WellKnownTypes;
 using MySqlX.XDevAPI.Relational;
+using System.Data.Common;
 
 namespace ScrumInsurance
 {
     public class DatabaseController
     {
+        // Stores the back-end Connection for directly querying the database
         private DatabaseConnection Connection {  get; set; }
 
         // Stores data for loading into front-end tables
         public DataSet AccountDataSet { get; set; }
 
-        public DatabaseController(uint timeoutWait = 5)
+        // Stores the last inserted ID for follow-up inserts
+        public long? LastInsertedID { get; set; }
+
+        public DatabaseController(uint timeoutWait = 3)
         {
             Connection = new DatabaseConnection();
 
@@ -430,11 +435,17 @@ namespace ScrumInsurance
             }
         }
 
-        public bool? SubmitClaim(long userID, string content)
+        // Inserts claim into database under input user_id with input content
+        // Automatically assigns claim to claim manager with least claims
+        public bool? SubmitClaim(long userID, string content, List<string> documentPaths)
         {
+            long claimManagerID = GetLeastClaimsManagerID(true);
+
+            if (claimManagerID == 0) { return false; }
+
             Dictionary<string, object> claim_columns = new Dictionary<string, object> {
                 { "client_id", userID },
-                { "claim_manager_id", DBNull.Value },
+                { "claim_manager_id", claimManagerID },
                 { "finance_manager_id", DBNull.Value },
                 { "status", "Pending" },
                 { "amount", DBNull.Value },
@@ -444,39 +455,80 @@ namespace ScrumInsurance
 
             Connection.Query = new InsertQuery(claim_columns).Into("claims");
 
-            return Connection.ExecuteNonQuery();
+            Connection.ExecuteNonQuery();
+
+            // Proceed to uploading documents and return the result
+            return UploadDocuments(documentPaths);
         }
 
-        public bool? UpdateClaim(object claimID, string column, string value)
+
+
+        // Updates claim of input claimID's input column with input value
+        public bool? UpdateClaim(long claimID, string column, object value)
         {
             Connection.Query = new UpdateQuery("claims").Set(column, value).Where(column, "=", value);
 
             return Connection.ExecuteNonQuery();
         }
 
-        public long GetFinanceManagerID()
+        // Returns ID of input manager type with the least number of assigned claims
+        public long GetLeastClaimsManagerID (bool isClaimManager)
         {
-            // Gets the IDs of Finance Managers ordered by number of claims assigned
-            Connection.Query = new SelectQuery().From("finance_managers")
-                .Join("claims", "user_id", "finance_manager_id", "LEFT")
-                .GroupBy("user_id").OrderBy("COUNT(claims.id)");
+            // Stores the type of manager input from boolean
+            string role = isClaimManager ? "claim_manager" : "finance_manager";
+
+            // Gets the IDs of chosen role's manager ordered by number of claims assigned
+            Connection.Query = new SelectQuery("user_id").From($"{role}s")
+                .Join("claims", "user_id", $"{role}_id", "LEFT")
+                .GroupBy("user_id").OrderBy("COUNT(id)");
 
             List<Row> rows = Connection.ExecuteSelect();
 
             // If a matching row was found, create an object with it and return it
-            if (rows != null) {
+            if (rows != null)
+            {
                 // If a user_id is found in the first row
                 if (rows[0].Columns.TryGetValue("user_id", out var id))
                 {
+                    Console.WriteLine("Manager ID: " + id.ToString());
+
                     return Convert.ToInt64(id);
                 }
+                // Return 0 on no managers found
                 else { return 0; }
             }
-            // Else return 0
+            // Return 0 on no managers found
             else { return 0; }
         }
 
-        public void UploadDocument(long claim_id, string file_name, byte[] file_data)
+        public bool? UploadDocuments(List<string> documentPaths)
+        {
+            LastInsertedID = Connection.GetLastInsertedID();
+
+            // Return null on failed ID get
+            if (LastInsertedID == null) return null;
+
+            // Loop through each document in the List
+            foreach (string document_path in documentPaths)
+            {
+                // Stores file name from path
+                string file_name = Path.GetFileName(document_path);
+
+                // Stores file data as byte array
+                byte[] file_data = File.ReadAllBytes(document_path);
+
+                // Upload document info to database
+                bool? result = UploadDocument((long)LastInsertedID, file_name, file_data);
+
+                // Return result if upload was unseccssful
+                if (result != true) return result;
+            }
+
+            // Return true on successful upload of all documents
+            return true;
+        }
+
+        public bool? UploadDocument(long claim_id, string file_name, byte[] file_data)
         {
             // Create parameter dictionary for document upload
             Dictionary<string, object> document_info = new Dictionary<string, object>
@@ -490,10 +542,9 @@ namespace ScrumInsurance
             // Create insertion query and store it in Connection.Query property
             Connection.Query = new InsertQuery(document_info).Into("documents");
 
-            // Upload document
-            if (Connection.ExecuteNonQuery() == false) throw new InvalidOperationException("File upload failed.");
+            // Upload document and return success state
+            return Connection.ExecuteNonQuery();
         }
-
     }
 
 }

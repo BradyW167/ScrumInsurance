@@ -65,24 +65,24 @@ namespace ScrumInsurance
                 }
 
                 // Recreate and try to connect
-                string connString = string.Format("Server={0};Database={1};Uid={2};Pwd={3};Connection Timeout={4}", 
+                string connString = string.Format("Server={0};Database={1};Uid={2};Pwd={3};Connection Timeout={4}",
                                                   ServerName, DatabaseName, DatabaseUsername, DatabasePassword, TimeoutWait);
                 Connection = new MySqlConnection(connString);
 
-                    Connection.Open();
+                Connection.Open();
                 return true;
-                }
+            }
             catch (MySqlException ex)
             {
                 Console.WriteLine("Returning false, MySQL connection error: " + ex.Message);
                 return false;
             }
-                catch (Exception ex)
-                {
+            catch (Exception ex)
+            {
                 Console.WriteLine("Returning false, Unexpected error: " + ex.Message);
-                    return false;
-                }
+                return false;
             }
+        }
 
         // Closes a MySQL database connection.
         public void CloseConnection()
@@ -185,12 +185,12 @@ namespace ScrumInsurance
 
             Row account_data = new Row();
 
-            // If the select query returned any rows, return the first one
-            if (rows != null) { return rows[0]; }
+            // If the query failed, return null
+            if (rows == null) { return null; }
             // If the list of rows is empty, return an empty row
             else if (rows.Count == 0) { return new Row(); }
-            // Else return null
-            else { return null; }
+            // Else return the first row
+            else { return rows[0]; }
         }
 
         // Returns a boolean for success of executing a NonQuery (Insert,Update,Delete) stored in Query
@@ -217,6 +217,8 @@ namespace ScrumInsurance
             // Passes the actual values into the command
             Query.InsertParameters(Command);
 
+            Console.WriteLine(Command.CommandText);
+
             try
             {
                 result = Command.ExecuteNonQuery();
@@ -232,6 +234,40 @@ namespace ScrumInsurance
             
             // Returns true if any columns were altered
             return result > 0;
+        }
+
+        // Returns the last inserted ID for follow-up inserts
+        public long? GetLastInsertedID()
+        {
+            if (!OpenConnection()) { return null; }
+
+            // Initialize command to query database
+            Command = Connection.CreateCommand();
+
+            // Store parameterized SelectQuery converted to string in Command
+            Command.CommandText = "SELECT LAST_INSERT_ID()";
+
+            // Execute command and input results into reader
+            using (Reader = Command.ExecuteReader())
+            {
+                // If matching data was not found in the database..+.
+                if (!Reader.HasRows)
+                {
+                    Console.WriteLine("No last inserted ID found");
+                    return 0;
+                }
+                // Else matching data was found
+                else
+                {
+                    // Move to the first record
+                    Reader.Read();
+
+                    // Convert the first record to a long
+                    long lastId = Reader.GetInt64(0);
+
+                    return lastId;
+                }
+            }
         }
 
         /**
