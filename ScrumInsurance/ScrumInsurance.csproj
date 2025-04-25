@@ -145,7 +145,6 @@
     <Compile Include="Queries\SelectQuery.cs" />
     <Compile Include="Queries\Query.cs" />
     <Compile Include="Database\Message.cs" />
-    <Compile Include="Database\Client.cs" />
     <Compile Include="Ctrls\ctrlLandingAdmin.cs">
       <SubType>UserControl</SubType>
     </Compile>
