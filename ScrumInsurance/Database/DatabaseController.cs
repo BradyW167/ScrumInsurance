@@ -571,7 +571,7 @@ namespace ScrumInsurance
         // Updates claim of input claimID's input column with input value
         public bool? UpdateClaim(long claimID, string column, object value)
         {
-            Connection.Query = new UpdateQuery("claims").Set(column, value).Where(column, "=", value);
+            Connection.Query = new UpdateQuery("claims").Set(column, value).Where("id", "=", claimID);
 
             return Connection.ExecuteNonQuery();
         }

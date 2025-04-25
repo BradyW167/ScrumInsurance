@@ -21,6 +21,7 @@ namespace ScrumInsurance.Queries
         // Add one column and value to update
         public UpdateQuery Set(string column, object value)
         {
+            SetColumns = new Dictionary<string, object>();
             SetColumns.Add(column, value);
             return this;
         }
