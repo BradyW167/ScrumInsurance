@@ -15,10 +15,12 @@ using System.Windows.Forms;
 using System.Security.Claims;
 using SelectQuery = ScrumInsurance.Queries.SelectQuery;
 using ScrumInsurance.Queries;
+using ScrumInsurance.Database;
 using System.Data;
 using Google.Protobuf.WellKnownTypes;
 using MySqlX.XDevAPI.Relational;
 using System.Data.Common;
+using MySqlX.XDevAPI.Common;
 
 namespace ScrumInsurance
 {
@@ -111,11 +113,6 @@ namespace ScrumInsurance
             Connection.Query = new SelectQuery().From("users").Where("role", "=", role);
 
             List<Row> account_rows = Connection.ExecuteSelect();
-
-            foreach (Row row in account_rows)
-            {
-                Console.WriteLine(row.ToString());
-            }
 
             // Return null, if no account with input username was found
             if (account_rows == null) return null;
@@ -601,6 +598,24 @@ namespace ScrumInsurance
 
             // Upload document and return success state
             return Connection.ExecuteNonQuery();
+        }
+
+        // Returns a list of documents associated with input claim ID
+        public List<Document> GetDocuments(long claim_id)
+        {
+            Connection.Query = new SelectQuery().From("documents")
+                .Where("claim_id", "=", claim_id);
+
+            // Executes and stores query results as a list of row objects
+            List<Row> document_rows = Connection.ExecuteSelect();
+
+            // Create Documents from each row and store them in a list
+            List<Document> documents = document_rows.Select(row => new Document(row)).ToList();
+
+            // Return null on failed query
+            if (documents == null) return null;
+
+            return documents;
         }
     }
 

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Renci.SshNet.Messages;
+using ScrumInsurance.Database;
 
 namespace ScrumInsurance.Ctrls
 {
@@ -27,32 +29,31 @@ namespace ScrumInsurance.Ctrls
             string status = Claim.Status.ToString();
 
             // Set the status label text
-            lblStatusType.Text = status;
+            lblClaimStatusValue.Text = status;
 
             // Set the label's color based on the status
             if (status == "Pending")
             {
-                lblStatusType.ForeColor = Color.Olive;
+                lblClaimStatusValue.ForeColor = Color.Olive;
             }
             else if (status == "Financing")
             {
-                lblStatusType.ForeColor = Color.SeaGreen;
+                lblClaimStatusValue.ForeColor = Color.SeaGreen;
             }
             else if (status == "Approved")
             {
-                lblStatusType.ForeColor = Color.Green;
+                lblClaimStatusValue.ForeColor = Color.Green;
             }
             else if (status == "Rejected")
             {
-                lblStatusType.ForeColor = Color.Red;
+                lblClaimStatusValue.ForeColor = Color.Red;
             }
 
             // Set the claim amount label
-            lblAmount.Text = Claim.Amount.ToString();
+            lblClaimAmountValue.Text = Claim.Amount.ToString();
             
             // Set the claim content text
             rtxDetails.Text = Claim.Content.ToString();
-
         }
 
         private void btnApprove_Click(object sender, EventArgs e)
@@ -61,29 +62,24 @@ namespace ScrumInsurance.Ctrls
             {
                 if(DBController.UpdateClaim(Claim.ID, "Status", "Financing") == true) 
                 {
-                    lblStatusType.Text = "Financing";
-                    lblStatusType.ForeColor = Color.SeaGreen;
+                    lblClaimStatusValue.Text = "Financing";
+                    lblClaimStatusValue.ForeColor = Color.SeaGreen;
                 }
                 
             }
             else if (Session.UserAccount.Role.Equals("finance_manager"))
             {
                 DBController.UpdateClaim(Claim.ID, "Status", "Approved");
-                lblStatusType.Text = "Approved";
-                lblStatusType.ForeColor = Color.Green;
+                lblClaimStatusValue.Text = "Approved";
+                lblClaimStatusValue.ForeColor = Color.Green;
             }
         }
 
         private void btnReject_Click(object sender, EventArgs e)
         {
             DBController.UpdateClaim(Claim.ID, "Status", "Rejected");
-            lblStatusType.Text = "Rejected";
-            lblStatusType.ForeColor = Color.Red;
-        }
-
-        private void btnReport_Click(object sender, EventArgs e)
-        {
-
+            lblClaimStatusValue.Text = "Rejected";
+            lblClaimStatusValue.ForeColor = Color.Red;
         }
 
         private void btnTransfer_Click(object sender, EventArgs e)
@@ -97,6 +93,53 @@ namespace ScrumInsurance.Ctrls
         private void btnReturn_Click(object sender, EventArgs e)
         {
             SwapCtrlMain(new ctrlClaimsList(this));
+        }
+
+        private void btnClientProfile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnViewDocs_Click(object sender, EventArgs e)
+        {
+            // Get the documents associated with this claim as a list
+            List<Document> documents = DBController.GetDocuments(Claim.ID);
+
+            // If documents is null, there was a database error
+            if (documents == null)
+            {
+                errClaim.SetError(btnViewDocs, "Database connection error");
+            }
+            // If there are no documents, display to user
+            else if (documents.Count == 0)
+            {
+                errClaim.SetError(btnViewDocs, "No documents found");
+            }
+            else
+            {
+                // Clear error text
+                errClaim.SetError(btnViewDocs, "");
+
+                foreach (Document document in documents)
+                {
+                    DownloadDocument(document);
+                }
+            }
+        }
+
+        private void DownloadDocument(Document doc)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.FileName = doc.FileName;
+                saveFileDialog.Filter = "All files (*.*)|*.*";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    File.WriteAllBytes(saveFileDialog.FileName, doc.FileData);
+                    MessageBox.Show("File downloaded successfully!", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
     }
 }

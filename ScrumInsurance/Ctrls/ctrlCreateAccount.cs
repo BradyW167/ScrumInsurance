@@ -58,8 +58,8 @@ namespace ScrumInsurance.Ctrls
             // If any errors were found, set the error message in error provider
             if (errors.Length > 0) { e.Cancel = true; }
 
-            // Show the error text to user
-            else { errCreateAccount.SetError(txtCreateUsername, errors); }
+            // Show the error text to user, if any exists
+            errCreateAccount.SetError(txtCreateUsername, errors);
         }
 
         private void txtCreatePassword_Validating(object sender, CancelEventArgs e)
@@ -70,7 +70,7 @@ namespace ScrumInsurance.Ctrls
             // If any errors were found, set the error message in error provider
             if (errors.Length > 0) { e.Cancel = true; }
 
-            // Show the error text to user
+            // Show the error text to user, if any exists
             errCreateAccount.SetError(txtCreatePassword, errors);
         }
 
