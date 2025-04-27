@@ -88,6 +88,11 @@ namespace ScrumInsurance.Ctrls
             long financer_id = DBController.GetLeastClaimsManagerID(false);
             
             DBController.UpdateClaim(Claim.ID, "finance_manager_id", financer_id);
+            if (DBController.UpdateClaim(Claim.ID, "Status", "Financing") == true)
+            {
+                lblClaimStatusValue.Text = "Financing";
+                lblClaimStatusValue.ForeColor = Color.SeaGreen;
+            }
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
