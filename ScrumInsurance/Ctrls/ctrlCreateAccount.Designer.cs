@@ -176,8 +176,7 @@
             "What is your mother\'s maiden name?​",
             "What is your father\'s middle name?​",
             "What was your favorite food as a child?​",
-            "What is your favorite movie?​",
-            "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA"});
+            "What is your favorite movie?​"});
             this.cmbSecurityQuestion.Location = new System.Drawing.Point(406, 333);
             this.cmbSecurityQuestion.Margin = new System.Windows.Forms.Padding(0);
             this.cmbSecurityQuestion.Name = "cmbSecurityQuestion";
