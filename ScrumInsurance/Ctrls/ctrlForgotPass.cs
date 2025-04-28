@@ -42,7 +42,7 @@ namespace ScrumInsurance.Ctrls
             Session.UserAccount = DBController.GetAccountByUsername(txtUsername.Text);
 
             // If the username was found in the database...
-            if (Session.UserAccount != null)
+            if (Session.UserAccount != null && Session.UserAccount.ID != 0)
             {
                 // Clear errors
                 errForgotPass.SetError(txtUsername, "");
@@ -81,7 +81,7 @@ namespace ScrumInsurance.Ctrls
             if (txtQuestionAnswer.Text.Equals(Session.UserAccount.SecurityAnswer))
             {
                 // Clear errors
-                errForgotPass.SetError(txtConfirmNewPassword, "");
+                errForgotPass.SetError(txtQuestionAnswer, "");
 
                 // Show new password input fields
                 lblNewPassword.Visible = true;
@@ -93,16 +93,17 @@ namespace ScrumInsurance.Ctrls
             // Else input answer is invalid
             else
             {
-                errForgotPass.SetError(txtQuestionAnswer, "Incorrect answer" + Session.ForgotPassFailCount);
-
                 // Increment fail counter for erroneous answers
                 Session.ForgotPassFailCount++;
 
                 // If three or more fails have occurred, alert the user and close the form
-                if (Session.ForgotPassFailCount >= 3) {
+                if (Session.ForgotPassFailCount >= 3)
+                {
                     MessageBox.Show("Too many incorrect answers, closing application", "Scrum Insurance");
                     Application.Exit();
                 }
+
+                errForgotPass.SetError(txtQuestionAnswer, "Incorrect answer " + Session.ForgotPassFailCount);
             }
         }
 

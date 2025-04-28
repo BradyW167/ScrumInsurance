@@ -90,7 +90,7 @@
             this.lblSecurityQuestion.Location = new System.Drawing.Point(407, 248);
             this.lblSecurityQuestion.Margin = new System.Windows.Forms.Padding(0);
             this.lblSecurityQuestion.Name = "lblSecurityQuestion";
-            this.lblSecurityQuestion.Size = new System.Drawing.Size(268, 20);
+            this.lblSecurityQuestion.Size = new System.Drawing.Size(283, 20);
             this.lblSecurityQuestion.TabIndex = 9;
             this.lblSecurityQuestion.Text = "Question";
             this.lblSecurityQuestion.Visible = false;
