@@ -75,6 +75,20 @@ namespace ScrumInsurance.Ctrls
             ReloadDataGrid();
         }
 
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            // Store the selected row
+            DataGridViewRow row = dgvUserinfo.SelectedRows[0];
+
+            // Store the ID of the selected row
+            long selectedID = Convert.ToInt64(row.Cells["id"].Value);
+
+            // Store the account of the selected ID
+            Account selectedAccount = DBController.GetAccountByID(selectedID);
+
+            SwapCtrlMain(new ctrlEditProfile(this, selectedAccount));
+        }
+
         private void ReloadDataGrid()
         {
             // Store the selected role in the combobox dropdown
@@ -106,36 +120,6 @@ namespace ScrumInsurance.Ctrls
 
             // Clear the where conditions after use
             WhereConditions.Clear();
-        }
-
-        private void dgvUserinfo_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                // Access updated data
-                var updatedRow = AccountDataSet.Tables["Accounts"].Rows[e.RowIndex];
-                var updatedValue = updatedRow[e.ColumnIndex];
-            }
-        }
-
-        private void btnCommit_Click(object sender, EventArgs e)
-        {
-            // Force commit of any current edit in progress
-            dgvUserinfo.EndEdit();
-
-            // Optional: also commit to DataTable if bound via BindingSource
-            if (dgvUserinfo.DataSource is BindingSource bs)
-            {
-                bs.EndEdit();
-            }
-
-            DBController.CommitAccountChanges();
-        }
-
-        // Refreshes the data grid view, undoing changes without committing them to database
-        private void btnUndo_Click(object sender, EventArgs e)
-        {
-            ReloadDataGrid();
         }
     }
 }

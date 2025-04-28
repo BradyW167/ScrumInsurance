@@ -34,8 +34,7 @@
             this.cmbSelectRole = new System.Windows.Forms.ComboBox();
             this.lblSelectRole = new System.Windows.Forms.Label();
             this.pbxPillar2 = new System.Windows.Forms.PictureBox();
-            this.btnCommit = new System.Windows.Forms.Button();
-            this.btnUndo = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserinfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPillar2)).BeginInit();
             this.SuspendLayout();
@@ -66,15 +65,20 @@
             // dgvUserinfo
             // 
             this.dgvUserinfo.AllowUserToAddRows = false;
+            this.dgvUserinfo.AllowUserToDeleteRows = false;
+            this.dgvUserinfo.AllowUserToResizeRows = false;
             this.dgvUserinfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUserinfo.GridColor = System.Drawing.Color.Azure;
             this.dgvUserinfo.Location = new System.Drawing.Point(133, 135);
             this.dgvUserinfo.Margin = new System.Windows.Forms.Padding(0);
+            this.dgvUserinfo.MultiSelect = false;
             this.dgvUserinfo.Name = "dgvUserinfo";
+            this.dgvUserinfo.ReadOnly = true;
             this.dgvUserinfo.RowHeadersWidth = 62;
             this.dgvUserinfo.RowTemplate.Height = 28;
+            this.dgvUserinfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUserinfo.Size = new System.Drawing.Size(814, 377);
             this.dgvUserinfo.TabIndex = 3;
-            this.dgvUserinfo.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserinfo_CellValueChanged);
             // 
             // cmbSelectRole
             // 
@@ -115,37 +119,24 @@
             this.pbxPillar2.TabIndex = 82;
             this.pbxPillar2.TabStop = false;
             // 
-            // btnCommit
+            // btnEdit
             // 
-            this.btnCommit.AutoSize = true;
-            this.btnCommit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.btnCommit.Location = new System.Drawing.Point(590, 525);
-            this.btnCommit.Name = "btnCommit";
-            this.btnCommit.Size = new System.Drawing.Size(140, 35);
-            this.btnCommit.TabIndex = 85;
-            this.btnCommit.Text = "Commit";
-            this.btnCommit.UseVisualStyleBackColor = true;
-            this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
-            // 
-            // btnUndo
-            // 
-            this.btnUndo.AutoSize = true;
-            this.btnUndo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.btnUndo.Location = new System.Drawing.Point(350, 525);
-            this.btnUndo.Name = "btnUndo";
-            this.btnUndo.Size = new System.Drawing.Size(140, 35);
-            this.btnUndo.TabIndex = 86;
-            this.btnUndo.Text = "Undo";
-            this.btnUndo.UseVisualStyleBackColor = true;
-            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
+            this.btnEdit.AutoSize = true;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.btnEdit.Location = new System.Drawing.Point(470, 525);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(140, 35);
+            this.btnEdit.TabIndex = 85;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // ctrlLandingAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.Controls.Add(this.btnUndo);
-            this.Controls.Add(this.btnCommit);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.lblSelectRole);
             this.Controls.Add(this.cmbSelectRole);
             this.Controls.Add(this.dgvUserinfo);
@@ -169,7 +160,6 @@
         private System.Windows.Forms.PictureBox pbxPillar2;
         private System.Windows.Forms.ComboBox cmbSelectRole;
         private System.Windows.Forms.Label lblSelectRole;
-        private System.Windows.Forms.Button btnCommit;
-        private System.Windows.Forms.Button btnUndo;
+        private System.Windows.Forms.Button btnEdit;
     }
 }
