@@ -146,7 +146,7 @@ namespace ScrumInsurance.Queries
             if (OrderColumn != string.Empty) { query.Append($"\nORDER BY {OrderColumn} {OrderType.ToString()}"); }
 
             // If there is a limit condition, append it
-            if (RowLimit > 0) { query.Append($"\nLimit = {RowLimit.ToString()}"); }
+            if (RowLimit > 0) { query.Append($"\nLIMIT {RowLimit.ToString()}"); }
 
             // Console.WriteLine(query.ToString());
 
