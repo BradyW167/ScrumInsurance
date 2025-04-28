@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlDashboard));
             this.btnInbox = new System.Windows.Forms.Button();
-            this.btnSupport = new System.Windows.Forms.Button();
+            this.btnClaims = new System.Windows.Forms.Button();
             this.btnAccount = new System.Windows.Forms.Button();
             this.btnLanding = new System.Windows.Forms.Button();
             this.lblUser = new System.Windows.Forms.Label();
@@ -46,7 +46,7 @@
             this.btnInbox.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.btnInbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInbox.ForeColor = System.Drawing.Color.White;
-            this.btnInbox.Location = new System.Drawing.Point(284, 2);
+            this.btnInbox.Location = new System.Drawing.Point(214, 2);
             this.btnInbox.Margin = new System.Windows.Forms.Padding(2);
             this.btnInbox.Name = "btnInbox";
             this.btnInbox.Size = new System.Drawing.Size(67, 36);
@@ -55,21 +55,21 @@
             this.btnInbox.UseVisualStyleBackColor = false;
             this.btnInbox.Click += new System.EventHandler(this.btnInbox_Click);
             // 
-            // btnSupport
+            // btnClaims
             // 
-            this.btnSupport.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnSupport.BackColor = System.Drawing.Color.Black;
-            this.btnSupport.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
-            this.btnSupport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSupport.ForeColor = System.Drawing.Color.White;
-            this.btnSupport.Location = new System.Drawing.Point(214, 2);
-            this.btnSupport.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSupport.Name = "btnSupport";
-            this.btnSupport.Size = new System.Drawing.Size(67, 36);
-            this.btnSupport.TabIndex = 10;
-            this.btnSupport.Text = "Support";
-            this.btnSupport.UseVisualStyleBackColor = false;
-            this.btnSupport.Click += new System.EventHandler(this.btnSupport_Click);
+            this.btnClaims.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnClaims.BackColor = System.Drawing.Color.Black;
+            this.btnClaims.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
+            this.btnClaims.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClaims.ForeColor = System.Drawing.Color.White;
+            this.btnClaims.Location = new System.Drawing.Point(284, 2);
+            this.btnClaims.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClaims.Name = "btnClaims";
+            this.btnClaims.Size = new System.Drawing.Size(67, 36);
+            this.btnClaims.TabIndex = 10;
+            this.btnClaims.Text = "Claims";
+            this.btnClaims.UseVisualStyleBackColor = false;
+            this.btnClaims.Click += new System.EventHandler(this.btnClaims_Click);
             // 
             // btnAccount
             // 
@@ -153,7 +153,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
             this.Controls.Add(this.btnInbox);
-            this.Controls.Add(this.btnSupport);
+            this.Controls.Add(this.btnClaims);
             this.Controls.Add(this.btnAccount);
             this.Controls.Add(this.btnLanding);
             this.Controls.Add(this.lblUser);
@@ -174,7 +174,7 @@
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Button btnLanding;
         private System.Windows.Forms.Button btnAccount;
-        private System.Windows.Forms.Button btnSupport;
+        private System.Windows.Forms.Button btnClaims;
         private System.Windows.Forms.Button btnInbox;
         private System.Windows.Forms.PictureBox pbxLogo;
     }

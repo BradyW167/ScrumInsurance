@@ -19,6 +19,15 @@ namespace ScrumInsurance.Ctrls
             // Set the username label
             lblUser.Text = Session.UserAccount.Username;
 
+            if (Session.UserAccount.Role == "admin")
+            {
+                btnClaims.Visible = false;
+            }
+            else
+            {
+                btnClaims.Visible = true;
+            }
+
             // Anchor this to the top of the screen
             this.Anchor = AnchorStyles.None;
         }
@@ -60,9 +69,9 @@ namespace ScrumInsurance.Ctrls
             SwapCtrlMain(new ctrlEditProfile(this));
         }
 
-        private void btnSupport_Click(object sender, EventArgs e)
+        private void btnClaims_Click(object sender, EventArgs e)
         {
-
+            SwapCtrlMain(new ctrlClaimsList(this));
         }
 
         private void btnInbox_Click(object sender, EventArgs e)
