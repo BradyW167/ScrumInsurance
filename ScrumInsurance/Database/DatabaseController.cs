@@ -642,7 +642,6 @@ namespace ScrumInsurance
             return UploadDocuments(documentPaths);
         }
 
-
         // Updates claim of input claimID's input column with input value
         public bool? UpdateClaim(long claimID, string column, object value)
         {
@@ -743,7 +742,6 @@ namespace ScrumInsurance
 
             return documents;
         }
-
 
         public bool? SendMessage(long userID, string subject, string content, long recipientID)
         {

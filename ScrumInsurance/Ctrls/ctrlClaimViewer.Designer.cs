@@ -46,6 +46,9 @@
             this.lblClaimViewer = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.errClaim = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnSetAmount = new System.Windows.Forms.Button();
+            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.lblAmountError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errClaim)).BeginInit();
             this.SuspendLayout();
@@ -263,11 +266,54 @@
             // 
             this.errClaim.ContainerControl = this;
             // 
+            // btnSetAmount
+            // 
+            this.btnSetAmount.BackColor = System.Drawing.Color.Azure;
+            this.btnSetAmount.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnSetAmount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetAmount.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
+            this.btnSetAmount.Location = new System.Drawing.Point(206, 300);
+            this.btnSetAmount.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnSetAmount.Name = "btnSetAmount";
+            this.btnSetAmount.Size = new System.Drawing.Size(165, 33);
+            this.btnSetAmount.TabIndex = 118;
+            this.btnSetAmount.Text = "Set Amount";
+            this.btnSetAmount.UseVisualStyleBackColor = false;
+            this.btnSetAmount.Visible = false;
+            this.btnSetAmount.Click += new System.EventHandler(this.btnSetAmount_Click);
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtAmount.Location = new System.Drawing.Point(206, 265);
+            this.txtAmount.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(165, 23);
+            this.txtAmount.TabIndex = 119;
+            this.txtAmount.Visible = false;
+            // 
+            // lblAmountError
+            // 
+            this.lblAmountError.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblAmountError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmountError.ForeColor = System.Drawing.Color.Red;
+            this.lblAmountError.Location = new System.Drawing.Point(240, 336);
+            this.lblAmountError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAmountError.Name = "lblAmountError";
+            this.lblAmountError.Size = new System.Drawing.Size(100, 13);
+            this.lblAmountError.TabIndex = 120;
+            this.lblAmountError.Text = "Clear on Start";
+            this.lblAmountError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAmountError.Visible = false;
+            // 
             // ctrlClaimViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
+            this.Controls.Add(this.lblAmountError);
+            this.Controls.Add(this.txtAmount);
+            this.Controls.Add(this.btnSetAmount);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.lblClaimDateValue);
             this.Controls.Add(this.lblClaimDate);
@@ -313,5 +359,8 @@
         private System.Windows.Forms.Label lblClaimDate;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.ErrorProvider errClaim;
+        private System.Windows.Forms.Button btnSetAmount;
+        private System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.Label lblAmountError;
     }
 }

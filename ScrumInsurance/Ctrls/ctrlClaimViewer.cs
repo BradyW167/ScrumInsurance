@@ -50,17 +50,24 @@ namespace ScrumInsurance.Ctrls
                 lblClaimStatusValue.ForeColor = Color.Red;
             }
 
-            // Set the claim amount label
-            if (Claim.Amount == 0) { lblClaimAmountValue.Text = "Not assigned"; }
-            else { lblClaimAmountValue.Text = Claim.Amount.ToString("C0"); }
+            lblAmountError.Text = "";
 
-            lblClaimDateValue.Text = Claim.Date.ToString("d");
+            UpdateAmount();
             
             // Set the claim content text
             rtxDetails.Text = Claim.Content.ToString();
 
             // Determines which buttons this user can see
             LoadDisplayByRole();
+        }
+
+        private void UpdateAmount()
+        {
+            // Set the claim amount label
+            if (Claim.Amount == 0) { lblClaimAmountValue.Text = "Not assigned"; }
+            else { lblClaimAmountValue.Text = Claim.Amount.ToString("C0"); }
+
+            lblClaimDateValue.Text = Claim.Date.ToString("d");
         }
 
         private void LoadDisplayByRole()
@@ -77,11 +84,15 @@ namespace ScrumInsurance.Ctrls
             else if (role.Equals("finance_manager"))
             {
                 btnApprove.Text = "Finance";
-                btnApprove.Location = new Point(775, 445);
+                btnApprove.Location = new Point(775, 455);
 
                 btnApprove.Visible = true;
+                btnReject.Visible = false;
                 btnViewDocs.Visible = true;
                 btnClientProfile.Visible = true;
+                txtAmount.Visible = true;
+                btnSetAmount.Visible = true;
+                lblAmountError.Visible = true;
             }
             else if (role.Equals("client"))
             {
@@ -111,9 +122,19 @@ namespace ScrumInsurance.Ctrls
             }
             else if (role.Equals("finance_manager"))
             {
-                DBController.UpdateClaim(Claim.ID, "Status", "Approved");
-                lblClaimStatusValue.Text = "Approved";
-                lblClaimStatusValue.ForeColor = Color.Green;
+                if (Claim.Amount > 0)
+                {
+                    DBController.UpdateClaim(Claim.ID, "status", "Approved");
+                    DBController.UpdateClaim(Claim.ID, "amount", Claim.Amount);
+                    lblClaimStatusValue.Text = "Approved";
+                    lblClaimStatusValue.ForeColor = Color.Green;
+                    txtAmount.Text = "";
+                    lblAmountError.Text = "";
+                }
+                else
+                {
+                    lblAmountError.Text = "Enter Amount";
+                }
             }
         }
 
@@ -173,6 +194,22 @@ namespace ScrumInsurance.Ctrls
                     File.WriteAllBytes(saveFileDialog.FileName, doc.FileData);
                     MessageBox.Show("File downloaded successfully!", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+        }
+
+        private void btnSetAmount_Click(object sender, EventArgs e)
+        {
+            if (long.TryParse(txtAmount.Text, out long amount))
+            {
+                Claim.Amount = amount;
+
+                UpdateAmount();
+
+                lblAmountError.Text = "";
+            }
+            else
+            {
+                lblAmountError.Text = "Invalid amount";
             }
         }
     }
