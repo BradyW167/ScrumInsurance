@@ -128,7 +128,7 @@ namespace ScrumInsurance
             return account_list;
         }
 
-        public Account GetAccountByID(string id)
+        public Account GetAccountByID(long id)
         {
             Connection.Query = new SelectQuery().From("users").Where("id", "=", id);
 
@@ -141,6 +141,53 @@ namespace ScrumInsurance
             Account found_account = new Account(account_row);
 
             return found_account;
+        }
+
+        public List<Account> GetUserList(string user_string)
+        {
+            List<string> account_columns = new List<string>()
+            {
+                "id", "username", "role"
+            };
+
+            Connection.Query = new SelectQuery(account_columns).From("users")
+                .Where("username", "like", user_string + "%");
+            List<Row> rows = Connection.ExecuteSelect();
+
+            if (rows == null) return null;
+
+            //Stores accounts to return in list
+            List<Account> users = new List<Account>();
+            foreach (Row row in rows)
+            {
+                Account acc = new Account(row);
+                users.Add(acc);
+            }
+
+            return users;
+        }
+
+        public List<Account> GetUserList()
+        {
+            List<string> account_columns = new List<string>()
+            {
+                "id", "username", "role"
+            };
+
+            Connection.Query = new SelectQuery(account_columns).From("users");
+            List<Row> rows = Connection.ExecuteSelect();
+
+            if (rows == null) return null;
+
+            //Stores accounts to return in list
+            List<Account> users = new List<Account>();
+            foreach (Row row in rows)
+            {
+                Account acc = new Account(row);
+                users.Add(acc);
+            }
+
+            return users;
         }
 
         /**
@@ -251,7 +298,7 @@ namespace ScrumInsurance
          * Returns error string on invalid username with info about what is invalid
          * Returns empty string on valid username
          */
-        public string ValidateUsername(string username)
+        public string ValidateUsername(string username, bool checkDuplicate = true)
         {
             StringBuilder errorMessages = new StringBuilder(string.Empty);
 
@@ -267,9 +314,11 @@ namespace ScrumInsurance
             {
                 errorMessages.AppendLine("Username must only contain letters and numbers");
             }
-            if (CheckDuplicateUsername(username) == true)
-            {
-                errorMessages.AppendLine("Choose a different Username");
+            if (checkDuplicate){
+                if (CheckDuplicateUsername(username) == true)
+                {
+                    errorMessages.AppendLine("Choose a different Username");
+                }
             }
             
             return errorMessages.ToString();
@@ -280,7 +329,7 @@ namespace ScrumInsurance
          * Returns empty string on valid username
          * If username is input it returns an error if password and username are equal
          */
-        public string ValidatePassword(string password, string username = "")
+        public string ValidatePassword(string password, string username = "", bool checkDuplicate = true)
         {
             StringBuilder errorMessages = new StringBuilder(string.Empty);
 
@@ -316,9 +365,12 @@ namespace ScrumInsurance
             {
                 errorMessages.AppendLine("Password must be different from username");
             }
-            if (CheckDuplicatePassword(password))
+            if (checkDuplicate)
             {
-                errorMessages.AppendLine("Choose a different password");
+                if (CheckDuplicatePassword(password))
+                {
+                    errorMessages.AppendLine("Choose a different password");
+                }
             }
 
             return errorMessages.ToString();
@@ -401,53 +453,6 @@ namespace ScrumInsurance
             return messages;
         }
 
-        public List<Account> GetUserList(string user_string)
-        {
-            List<string> account_columns = new List<string>()
-            {
-                "id", "username", "role"
-            };
-
-            Connection.Query = new SelectQuery(account_columns).From("users")
-                .Where("username", "like", user_string+"%");
-            List<Row> rows = Connection.ExecuteSelect();
-
-            if (rows == null) return null;
-
-            //Stores accounts to return in list
-            List<Account> users = new List<Account>();
-            foreach (Row row in rows)
-            {
-                Account acc = new Account(row);
-                users.Add(acc);
-            }
-
-            return users;
-        }
-
-        public List<Account> GetUserList()
-        {
-            List<string> account_columns = new List<string>()
-            {
-                "id", "username", "role"
-            };
-
-            Connection.Query = new SelectQuery(account_columns).From("users");
-            List<Row> rows = Connection.ExecuteSelect();
-
-            if (rows == null) return null;
-
-            //Stores accounts to return in list
-            List<Account> users = new List<Account>();
-            foreach (Row row in rows)
-            {
-                Account acc = new Account(row);
-                users.Add(acc);
-            }
-
-            return users;
-        }
-
         // Get message data from input message ID
         public Message GetMessage(long message_id)
         {
@@ -474,6 +479,33 @@ namespace ScrumInsurance
             if (row != null) { return (string)row.GetValue("content"); }
             // Else return null
             else { return null; }
+        }
+
+        // Gets five most recent messages for input recipient id
+        public List<Message> GetRecentMessages(long recipient_id)
+        {
+            Connection.Query = new SelectQuery("subject").From("messages")
+                                .Join("message_recipients", "id", "message_id")
+                                .Where("recipient_id", "=", recipient_id)
+                                .OrderBy("date", OrderType.ASC)
+                                .Limit(5);
+
+            // If the new account has a duplicated username, return false
+            List<Row> rows = Connection.ExecuteSelect();
+
+            if (rows == null) return null;
+
+            // Stores messages to return in list
+            List<Message> messages = new List<Message>();
+
+            foreach (Row row in rows)
+            {
+                Message msg = new Message(row);
+
+                messages.Add(msg);
+            }
+
+            return messages;
         }
 
         // Get claim data from input claim ID
@@ -540,6 +572,46 @@ namespace ScrumInsurance
             }
         }
 
+        // Returns the most recent claim for input user account
+        public Claim GetRecentClaim(Account userAccount)
+        {
+            List<Claim> claims = GetClaimList(userAccount);
+
+            // Return null if claims are empty
+            if (claims == null || claims.Count == 0) { return null; }
+            // Else return newest claim
+            else { return claims.OrderByDescending(c => c.Date).FirstOrDefault(); }
+        }
+
+        // Returns the number of claims that are assocaited with input account
+        public int? GetClaimCount(Account userAccount)
+        {
+            // Stores the id column for the input user's role
+            string id_column_name = string.Empty;
+
+            if (userAccount.Role == "claim_manager")
+            {
+                id_column_name = "claim_manager_id";
+            }
+            else if (userAccount.Role == "finance_manager")
+            {
+                id_column_name = "finance_manager_id";
+            }
+            else
+            {
+                id_column_name = "client_id";
+            }
+
+            Connection.Query = new SelectQuery("COUNT(id)").From("claims").Where(id_column_name, "=", userAccount.ID.ToString());
+
+            Row row = Connection.ExecuteSingleSelect();
+
+            // If a matching row was found, return its content column
+            if (row != null) { return Convert.ToInt32(row.GetValue("COUNT(id)")); }
+            // Else return null
+            else { return null; }
+        }
+
         // Inserts claim into database under input user_id with input content
         // Automatically assigns claim to claim manager with least claims
         public bool? SubmitClaim(long userID, string content, List<string> documentPaths)
@@ -565,7 +637,6 @@ namespace ScrumInsurance
             // Proceed to uploading documents and return the result
             return UploadDocuments(documentPaths);
         }
-
 
 
         // Updates claim of input claimID's input column with input value
