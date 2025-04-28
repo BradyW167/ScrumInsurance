@@ -21,11 +21,6 @@ namespace ScrumInsurance.Ctrls
             txtPassword.Text = Session.UserAccount.Password;
         }
 
-        private void passCheckbox_CheckedChanged(object sender, EventArgs e)
-        {
-            txtPassword.UseSystemPasswordChar = !txtPassword.UseSystemPasswordChar;
-        }
-
         private void pbxShowPassword_MouseDown(object sender, MouseEventArgs e)
         {
             // Disable hidden password characters
@@ -47,19 +42,19 @@ namespace ScrumInsurance.Ctrls
         private void txtUsername_Validating(object sender, CancelEventArgs e)
         {
             // Stores errors if input password is invalid
-            string errors = DBController.ValidateUsername(txtUsername.Text);
+            string errors = DBController.ValidateUsername(txtUsername.Text, false);
 
             // If any errors were found, set the error message in error provider
             if (errors.Length > 0) { e.Cancel = true; }
 
             // Show the error text to user
-            else { errEditProfile.SetError(txtUsername, errors); }
+            errEditProfile.SetError(txtUsername, errors);
         }
 
         private void txtPassword_Validating(object sender, CancelEventArgs e)
         {
             // Stores errors if input password is invalid
-            string errors = DBController.ValidatePassword(txtPassword.Text);
+            string errors = DBController.ValidatePassword(txtPassword.Text, txtUsername.Text, false);
 
             // If any errors were found, set the error message in error provider
             if (errors.Length > 0) { e.Cancel = true; }
