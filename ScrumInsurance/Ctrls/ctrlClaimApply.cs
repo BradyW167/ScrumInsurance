@@ -28,6 +28,8 @@ namespace ScrumInsurance.Ctrls
 
             lblError.Text = "";
 
+            rtxDetails.Text = "";
+
             DocumentPaths = new List<string>();
 
             DocumentCount = 0;
@@ -146,6 +148,21 @@ namespace ScrumInsurance.Ctrls
             container.Dispose();
         }
 
+        private void RemoveDocuments()
+        {
+            // Empty the document paths list
+            DocumentPaths.Clear();
+
+            // Dispose of all controls
+            foreach (Control ctrl in flpDocumentList.Controls)
+            {
+                ctrl.Dispose();
+            }
+
+            // Clear the flow layout panel
+            flpDocumentList.Controls.Clear();
+        }
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (DocumentPaths.Count == 0)
@@ -155,7 +172,7 @@ namespace ScrumInsurance.Ctrls
             }
 
             // Submit the claim along with the documents and store the result
-            bool? result = DBController.SubmitClaim(Session.UserAccount.ID, txtDetails.Text, DocumentPaths);
+            bool? result = DBController.SubmitClaim(Session.UserAccount.ID, rtxDetails.Text, DocumentPaths);
 
             // If upload was succesful
             if (result == true)
@@ -163,7 +180,9 @@ namespace ScrumInsurance.Ctrls
                 lblError.ForeColor = Color.ForestGreen;
                 lblError.Text = "Claim submitted";
 
-                txtDetails.Text = "";
+                RemoveDocuments();
+
+                rtxDetails.Text = "";
             }
             // If upload failed for some data reason
             else if (result == false)

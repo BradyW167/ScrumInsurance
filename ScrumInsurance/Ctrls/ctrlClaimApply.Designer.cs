@@ -31,7 +31,7 @@
             this.lblHeader = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.lblClaimDetails = new System.Windows.Forms.Label();
-            this.txtDetails = new System.Windows.Forms.RichTextBox();
+            this.rtxDetails = new System.Windows.Forms.RichTextBox();
             this.pbxPillar2 = new System.Windows.Forms.PictureBox();
             this.btnBrowseFiles = new System.Windows.Forms.Button();
             this.lblError = new System.Windows.Forms.Label();
@@ -76,16 +76,20 @@
             this.lblClaimDetails.TabIndex = 4;
             this.lblClaimDetails.Text = "Enter Claim Overview";
             // 
-            // txtDetails
+            // rtxDetails
             // 
-            this.txtDetails.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDetails.Location = new System.Drawing.Point(560, 218);
-            this.txtDetails.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.txtDetails.Name = "txtDetails";
-            this.txtDetails.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtDetails.Size = new System.Drawing.Size(300, 158);
-            this.txtDetails.TabIndex = 6;
-            this.txtDetails.Text = "";
+            this.rtxDetails.BackColor = System.Drawing.Color.Azure;
+            this.rtxDetails.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rtxDetails.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
+            this.rtxDetails.Location = new System.Drawing.Point(560, 218);
+            this.rtxDetails.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.rtxDetails.Name = "rtxDetails";
+            this.rtxDetails.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.rtxDetails.Size = new System.Drawing.Size(300, 158);
+            this.rtxDetails.TabIndex = 6;
+            this.rtxDetails.Text = "Here is some default text. This will be filled with the user given claim details." +
+    " This cannot be edited by the CManager and is simply here to display text while " +
+    "having a scroll option. ";
             // 
             // pbxPillar2
             // 
@@ -155,7 +159,7 @@
             this.Controls.Add(this.flpDocumentList);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnBrowseFiles);
-            this.Controls.Add(this.txtDetails);
+            this.Controls.Add(this.rtxDetails);
             this.Controls.Add(this.lblClaimDetails);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.lblHeader);
@@ -174,7 +178,7 @@
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label lblClaimDetails;
-        private System.Windows.Forms.RichTextBox txtDetails;
+        private System.Windows.Forms.RichTextBox rtxDetails;
         private System.Windows.Forms.PictureBox pbxPillar2;
         private System.Windows.Forms.Button btnBrowseFiles;
         private System.Windows.Forms.Label lblError;
