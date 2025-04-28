@@ -13,12 +13,56 @@ namespace ScrumInsurance.Ctrls
 {
     public partial class ctrlEditProfile : ScrumUserControl
     {
+        private Account LoadedAccount {  get; set; }
+
+        // Default constructor, used when editing own account
         public ctrlEditProfile(ScrumUserControl oldCtrl) : base(oldCtrl)
         {
             InitializeComponent();
 
+            LoadedAccount = Session.UserAccount;
+
             txtUsername.Text = Session.UserAccount.Username;
             txtPassword.Text = Session.UserAccount.Password;
+
+            lblError.Text = "";
+
+            // Hide role selection if editing own account
+            cmbSelectRole.Visible = false;
+            lblSelectRole.Visible = false;
+        }
+
+        // Constructor for editing another user's account
+        public ctrlEditProfile(ScrumUserControl oldCtrl, Account userAccount) : base(oldCtrl)
+        {
+            InitializeComponent();
+
+            LoadedAccount = userAccount;
+
+            txtUsername.Text = userAccount.Username;
+            txtPassword.Text = userAccount.Password;
+
+            lblError.Text = "";
+
+            // Show role selection if editing another user's account
+            cmbSelectRole.Visible = true;
+            lblSelectRole.Visible = true;
+
+            Dictionary<string, string> role_pairs = new Dictionary<string, string>()
+            {
+                {"Admin", "admin" },
+                {"Claim Manager", "claim_manager" },
+                {"Finance Manager", "finance_manager" },
+                {"Client", "client" }
+            };
+
+            cmbSelectRole.DataSource = new BindingSource(role_pairs, null);
+            cmbSelectRole.DisplayMember = "Key";
+            cmbSelectRole.ValueMember = "Value";
+
+            cmbSelectRole.DropDownHeight = cmbSelectRole.ItemHeight * (cmbSelectRole.Items.Count + 1);
+
+            cmbSelectRole.SelectedValue = userAccount.Role;
         }
 
         private void pbxShowPassword_MouseDown(object sender, MouseEventArgs e)
@@ -70,8 +114,31 @@ namespace ScrumInsurance.Ctrls
             // Else input account info is valid
             else
             {
-                // Updates this user's database info with the new username and password
-                DBController.UpdateAccount(Session.UserAccount.ID, txtUsername.Text, txtPassword.Text);
+                bool? result = null;
+
+                if (cmbSelectRole.Visible)
+                {
+                    // Store the selected role in the combobox dropdown
+                    string selected_role = ((KeyValuePair<string, string>)cmbSelectRole.SelectedItem).Value;
+
+    
+
+                    // Updates this user's database info with the new username, password, and role
+                    result = DBController.UpdateAccount(LoadedAccount.ID, 
+                                                              txtUsername.Text, 
+                                                              txtPassword.Text, 
+                                                              selected_role);
+
+                }
+                else
+                {
+                    // Updates this user's database info with the new username and password
+                    result = DBController.UpdateAccount(LoadedAccount.ID, txtUsername.Text, txtPassword.Text);
+                }
+
+                if (result == null) { lblError.Text = "Database error";  }
+                else if (result == false ) { lblError.Text = "Nothing changed"; }
+                else { lblError.Text = "Account updated";}
             }
         }
     }

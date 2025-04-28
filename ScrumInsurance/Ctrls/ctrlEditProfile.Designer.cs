@@ -38,6 +38,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.errEditProfile = new System.Windows.Forms.ErrorProvider(this.components);
             this.pbxShowPassword = new System.Windows.Forms.PictureBox();
+            this.lblSelectRole = new System.Windows.Forms.Label();
+            this.cmbSelectRole = new System.Windows.Forms.ComboBox();
+            this.lblError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errEditProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxShowPassword)).BeginInit();
@@ -141,11 +144,54 @@
             this.pbxShowPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbxShowPassword_MouseDown);
             this.pbxShowPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbxShowPassword_MouseUp);
             // 
+            // lblSelectRole
+            // 
+            this.lblSelectRole.AutoSize = true;
+            this.lblSelectRole.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblSelectRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblSelectRole.Location = new System.Drawing.Point(321, 135);
+            this.lblSelectRole.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSelectRole.Name = "lblSelectRole";
+            this.lblSelectRole.Size = new System.Drawing.Size(91, 20);
+            this.lblSelectRole.TabIndex = 86;
+            this.lblSelectRole.Text = "Select Role";
+            // 
+            // cmbSelectRole
+            // 
+            this.cmbSelectRole.DropDownHeight = 100;
+            this.cmbSelectRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSelectRole.DropDownWidth = 200;
+            this.cmbSelectRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSelectRole.FormattingEnabled = true;
+            this.cmbSelectRole.IntegralHeight = false;
+            this.cmbSelectRole.ItemHeight = 25;
+            this.cmbSelectRole.Location = new System.Drawing.Point(324, 155);
+            this.cmbSelectRole.Margin = new System.Windows.Forms.Padding(0);
+            this.cmbSelectRole.Name = "cmbSelectRole";
+            this.cmbSelectRole.Size = new System.Drawing.Size(263, 33);
+            this.cmbSelectRole.TabIndex = 85;
+            // 
+            // lblError
+            // 
+            this.lblError.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(490, 385);
+            this.lblError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(100, 13);
+            this.lblError.TabIndex = 87;
+            this.lblError.Text = "Clear on Start";
+            this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ctrlEditProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
+            this.Controls.Add(this.lblError);
+            this.Controls.Add(this.lblSelectRole);
+            this.Controls.Add(this.cmbSelectRole);
             this.Controls.Add(this.pbxShowPassword);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
@@ -176,5 +222,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ErrorProvider errEditProfile;
         private System.Windows.Forms.PictureBox pbxShowPassword;
+        private System.Windows.Forms.Label lblSelectRole;
+        private System.Windows.Forms.ComboBox cmbSelectRole;
+        private System.Windows.Forms.Label lblError;
     }
 }
