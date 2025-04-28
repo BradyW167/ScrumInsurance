@@ -33,8 +33,6 @@
             this.lblCurrentClaim = new System.Windows.Forms.Label();
             this.lblClaimDate = new System.Windows.Forms.Label();
             this.lblClaimStatus = new System.Windows.Forms.Label();
-            this.btnViewClaim = new System.Windows.Forms.Button();
-            this.btnMessageClient = new System.Windows.Forms.Button();
             this.pbxPillar1 = new System.Windows.Forms.PictureBox();
             this.pbxFloatingTextBG = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -50,6 +48,8 @@
             this.lblMessage4 = new System.Windows.Forms.Label();
             this.lblMessage5 = new System.Windows.Forms.Label();
             this.btnMessageCM = new System.Windows.Forms.Button();
+            this.btnMessageClient = new System.Windows.Forms.Button();
+            this.btnViewClaim = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPillar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFloatingTextBG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -79,10 +79,10 @@
             this.lblWelcomeInformation.Location = new System.Drawing.Point(108, 156);
             this.lblWelcomeInformation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWelcomeInformation.Name = "lblWelcomeInformation";
-            this.lblWelcomeInformation.Size = new System.Drawing.Size(386, 26);
+            this.lblWelcomeInformation.Size = new System.Drawing.Size(437, 52);
             this.lblWelcomeInformation.TabIndex = 26;
-            this.lblWelcomeInformation.Text = "View current claim, list of claims, and recent messages to estimate claim amounts" +
-    "\r\n\r\n";
+            this.lblWelcomeInformation.Text = "View status of claims, list of claims, and recent messages from fellow employees " +
+    "and clients.\r\n\r\nEstimate claim amounts using provided documents.\r\n\r\n";
             // 
             // lblCurrentClaim
             // 
@@ -123,30 +123,6 @@
             this.lblClaimStatus.Text = "Status:";
             this.lblClaimStatus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // btnViewClaim
-            // 
-            this.btnViewClaim.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnViewClaim.Location = new System.Drawing.Point(111, 380);
-            this.btnViewClaim.Margin = new System.Windows.Forms.Padding(2);
-            this.btnViewClaim.Name = "btnViewClaim";
-            this.btnViewClaim.Size = new System.Drawing.Size(167, 30);
-            this.btnViewClaim.TabIndex = 47;
-            this.btnViewClaim.Text = "View";
-            this.btnViewClaim.UseVisualStyleBackColor = true;
-            this.btnViewClaim.Click += new System.EventHandler(this.btnViewClaim_Click);
-            // 
-            // btnMessageClient
-            // 
-            this.btnMessageClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnMessageClient.Location = new System.Drawing.Point(111, 415);
-            this.btnMessageClient.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMessageClient.Name = "btnMessageClient";
-            this.btnMessageClient.Size = new System.Drawing.Size(167, 30);
-            this.btnMessageClient.TabIndex = 48;
-            this.btnMessageClient.Text = "Message Client";
-            this.btnMessageClient.UseVisualStyleBackColor = true;
-            this.btnMessageClient.Click += new System.EventHandler(this.btnMessageClient_Click);
-            // 
             // pbxPillar1
             // 
             this.pbxPillar1.BackColor = System.Drawing.Color.LightSteelBlue;
@@ -181,10 +157,10 @@
             // btnClaimsList
             // 
             this.btnClaimsList.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.btnClaimsList.Location = new System.Drawing.Point(479, 333);
+            this.btnClaimsList.Location = new System.Drawing.Point(456, 341);
             this.btnClaimsList.Margin = new System.Windows.Forms.Padding(2);
             this.btnClaimsList.Name = "btnClaimsList";
-            this.btnClaimsList.Size = new System.Drawing.Size(120, 60);
+            this.btnClaimsList.Size = new System.Drawing.Size(167, 40);
             this.btnClaimsList.TabIndex = 50;
             this.btnClaimsList.Text = "View Claims";
             this.btnClaimsList.UseVisualStyleBackColor = true;
@@ -262,6 +238,7 @@
             this.lblMessage1.TabIndex = 53;
             this.lblMessage1.Text = "Message 1";
             this.lblMessage1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblMessage1.Visible = false;
             // 
             // lblMessage2
             // 
@@ -274,6 +251,7 @@
             this.lblMessage2.TabIndex = 54;
             this.lblMessage2.Text = "Message 2";
             this.lblMessage2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblMessage2.Visible = false;
             // 
             // lblMessage3
             // 
@@ -286,6 +264,7 @@
             this.lblMessage3.TabIndex = 55;
             this.lblMessage3.Text = "Message 3";
             this.lblMessage3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblMessage3.Visible = false;
             // 
             // lblMessage4
             // 
@@ -298,6 +277,7 @@
             this.lblMessage4.TabIndex = 56;
             this.lblMessage4.Text = "Message 4";
             this.lblMessage4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblMessage4.Visible = false;
             // 
             // lblMessage5
             // 
@@ -310,18 +290,46 @@
             this.lblMessage5.TabIndex = 57;
             this.lblMessage5.Text = "Message 5";
             this.lblMessage5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblMessage5.Visible = false;
             // 
             // btnMessageCM
             // 
             this.btnMessageCM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnMessageCM.Location = new System.Drawing.Point(111, 450);
+            this.btnMessageCM.Location = new System.Drawing.Point(111, 379);
             this.btnMessageCM.Margin = new System.Windows.Forms.Padding(2);
             this.btnMessageCM.Name = "btnMessageCM";
             this.btnMessageCM.Size = new System.Drawing.Size(167, 30);
-            this.btnMessageCM.TabIndex = 64;
+            this.btnMessageCM.TabIndex = 88;
             this.btnMessageCM.Text = "Message CM";
             this.btnMessageCM.UseVisualStyleBackColor = true;
+            this.btnMessageCM.Visible = false;
             this.btnMessageCM.Click += new System.EventHandler(this.btnMessageCM_Click);
+            // 
+            // btnMessageClient
+            // 
+            this.btnMessageClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnMessageClient.Location = new System.Drawing.Point(111, 415);
+            this.btnMessageClient.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMessageClient.Name = "btnMessageClient";
+            this.btnMessageClient.Size = new System.Drawing.Size(167, 30);
+            this.btnMessageClient.TabIndex = 87;
+            this.btnMessageClient.Text = "Message Client";
+            this.btnMessageClient.UseVisualStyleBackColor = true;
+            this.btnMessageClient.Visible = false;
+            this.btnMessageClient.Click += new System.EventHandler(this.btnMessageClient_Click);
+            // 
+            // btnViewClaim
+            // 
+            this.btnViewClaim.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnViewClaim.Location = new System.Drawing.Point(111, 451);
+            this.btnViewClaim.Margin = new System.Windows.Forms.Padding(2);
+            this.btnViewClaim.Name = "btnViewClaim";
+            this.btnViewClaim.Size = new System.Drawing.Size(167, 30);
+            this.btnViewClaim.TabIndex = 86;
+            this.btnViewClaim.Text = "View";
+            this.btnViewClaim.UseVisualStyleBackColor = true;
+            this.btnViewClaim.Visible = false;
+            this.btnViewClaim.Click += new System.EventHandler(this.btnViewClaim_Click);
             // 
             // ctrlLandingFManager
             // 
@@ -329,6 +337,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.Controls.Add(this.btnMessageCM);
+            this.Controls.Add(this.btnMessageClient);
+            this.Controls.Add(this.btnViewClaim);
             this.Controls.Add(this.lblClaimID);
             this.Controls.Add(this.lblMessage5);
             this.Controls.Add(this.lblMessage4);
@@ -338,8 +348,6 @@
             this.Controls.Add(this.lblInformation);
             this.Controls.Add(this.btnClaimsList);
             this.Controls.Add(this.lblNumClaims);
-            this.Controls.Add(this.btnMessageClient);
-            this.Controls.Add(this.btnViewClaim);
             this.Controls.Add(this.lblClaimStatus);
             this.Controls.Add(this.lblClaimDate);
             this.Controls.Add(this.lblCurrentClaim);
@@ -370,8 +378,6 @@
         private System.Windows.Forms.Label lblCurrentClaim;
         private System.Windows.Forms.Label lblClaimDate;
         private System.Windows.Forms.Label lblClaimStatus;
-        private System.Windows.Forms.Button btnViewClaim;
-        private System.Windows.Forms.Button btnMessageClient;
         private System.Windows.Forms.PictureBox pbxFloatingTextBG;
         private System.Windows.Forms.Button btnClaimsList;
         private System.Windows.Forms.PictureBox pbxPillar2;
@@ -385,5 +391,7 @@
         private System.Windows.Forms.Label lblMessage4;
         private System.Windows.Forms.Label lblMessage5;
         private System.Windows.Forms.Button btnMessageCM;
+        private System.Windows.Forms.Button btnMessageClient;
+        private System.Windows.Forms.Button btnViewClaim;
     }
 }

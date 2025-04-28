@@ -28,35 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlLandingClient));
             this.lblWelcome = new System.Windows.Forms.Label();
             this.lblWelcomeInformation = new System.Windows.Forms.Label();
-            this.btnClaimOneSubmit = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.lblNumClaims = new System.Windows.Forms.Label();
             this.btnNewClaim = new System.Windows.Forms.Button();
-            this.lblInformation = new System.Windows.Forms.Label();
-            this.lblInfoName = new System.Windows.Forms.Label();
-            this.lblEmail1 = new System.Windows.Forms.Label();
-            this.lblEmail2 = new System.Windows.Forms.Label();
-            this.lblPhone1 = new System.Windows.Forms.Label();
-            this.lblPhone2 = new System.Windows.Forms.Label();
-            this.lblAddress = new System.Windows.Forms.Label();
-            this.pbxPillar3 = new System.Windows.Forms.PictureBox();
             this.pbxPillar2 = new System.Windows.Forms.PictureBox();
             this.pbxPillar1 = new System.Windows.Forms.PictureBox();
             this.pbxFloatingTextBG = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pbxPillar3 = new System.Windows.Forms.PictureBox();
+            this.lblMessage5 = new System.Windows.Forms.Label();
+            this.lblMessage4 = new System.Windows.Forms.Label();
+            this.lblMessage3 = new System.Windows.Forms.Label();
+            this.lblMessage2 = new System.Windows.Forms.Label();
+            this.lblMessage1 = new System.Windows.Forms.Label();
+            this.lblMessages = new System.Windows.Forms.Label();
+            this.lblNumClaims = new System.Windows.Forms.Label();
             this.lblClaimID = new System.Windows.Forms.Label();
             this.lblClaimStatus = new System.Windows.Forms.Label();
             this.lblClaimDate = new System.Windows.Forms.Label();
-            this.lblCurrentClaim = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxPillar3)).BeginInit();
+            this.lblRecentClaim = new System.Windows.Forms.Label();
+            this.btnMessageFM = new System.Windows.Forms.Button();
+            this.btnMessageCM = new System.Windows.Forms.Button();
+            this.btnViewClaim = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPillar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPillar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFloatingTextBG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxPillar3)).BeginInit();
             this.SuspendLayout();
             // 
             // lblWelcome
@@ -65,13 +63,12 @@
             this.lblWelcome.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.lblWelcome.ForeColor = System.Drawing.Color.Black;
-            this.lblWelcome.Location = new System.Drawing.Point(108, 121);
+            this.lblWelcome.Location = new System.Drawing.Point(108, 122);
             this.lblWelcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(187, 26);
+            this.lblWelcome.Size = new System.Drawing.Size(273, 26);
             this.lblWelcome.TabIndex = 24;
-            this.lblWelcome.Text = "Welcome, Client";
-            this.lblWelcome.Click += new System.EventHandler(this.lblWelcome_Click);
+            this.lblWelcome.Text = "Welcome, Client (Name)";
             // 
             // lblWelcomeInformation
             // 
@@ -82,56 +79,10 @@
             this.lblWelcomeInformation.Location = new System.Drawing.Point(108, 156);
             this.lblWelcomeInformation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWelcomeInformation.Name = "lblWelcomeInformation";
-            this.lblWelcomeInformation.Size = new System.Drawing.Size(561, 39);
+            this.lblWelcomeInformation.Size = new System.Drawing.Size(415, 13);
             this.lblWelcomeInformation.TabIndex = 26;
-            this.lblWelcomeInformation.Text = resources.GetString("lblWelcomeInformation.Text");
-            // 
-            // btnClaimOneSubmit
-            // 
-            this.btnClaimOneSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnClaimOneSubmit.Location = new System.Drawing.Point(140, 395);
-            this.btnClaimOneSubmit.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClaimOneSubmit.Name = "btnClaimOneSubmit";
-            this.btnClaimOneSubmit.Size = new System.Drawing.Size(109, 27);
-            this.btnClaimOneSubmit.TabIndex = 35;
-            this.btnClaimOneSubmit.Text = "Edit";
-            this.btnClaimOneSubmit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnClaimOneSubmit.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button3.Location = new System.Drawing.Point(111, 425);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(167, 27);
-            this.button3.TabIndex = 47;
-            this.button3.Text = "Contact Manager";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button4.Location = new System.Drawing.Point(111, 455);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(167, 27);
-            this.button4.TabIndex = 48;
-            this.button4.Text = "Contact Admin";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // lblNumClaims
-            // 
-            this.lblNumClaims.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblNumClaims.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
-            this.lblNumClaims.ForeColor = System.Drawing.Color.Black;
-            this.lblNumClaims.Location = new System.Drawing.Point(441, 240);
-            this.lblNumClaims.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblNumClaims.Name = "lblNumClaims";
-            this.lblNumClaims.Size = new System.Drawing.Size(197, 24);
-            this.lblNumClaims.TabIndex = 49;
-            this.lblNumClaims.Text = "No Claims";
-            this.lblNumClaims.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblWelcomeInformation.Text = "View status of claims, list of all claims, and recent messages from insurance emp" +
+    "loyees.";
             // 
             // btnNewClaim
             // 
@@ -145,105 +96,10 @@
             this.btnNewClaim.UseVisualStyleBackColor = true;
             this.btnNewClaim.Click += new System.EventHandler(this.btnNewClaim_Click);
             // 
-            // lblInformation
-            // 
-            this.lblInformation.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
-            this.lblInformation.ForeColor = System.Drawing.Color.Black;
-            this.lblInformation.Location = new System.Drawing.Point(788, 240);
-            this.lblInformation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblInformation.Name = "lblInformation";
-            this.lblInformation.Size = new System.Drawing.Size(197, 24);
-            this.lblInformation.TabIndex = 51;
-            this.lblInformation.Text = "My Information";
-            this.lblInformation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblInfoName
-            // 
-            this.lblInfoName.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblInfoName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblInfoName.ForeColor = System.Drawing.Color.Black;
-            this.lblInfoName.Location = new System.Drawing.Point(788, 285);
-            this.lblInfoName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblInfoName.Name = "lblInfoName";
-            this.lblInfoName.Size = new System.Drawing.Size(197, 16);
-            this.lblInfoName.TabIndex = 52;
-            this.lblInfoName.Text = "Name: None";
-            this.lblInfoName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblEmail1
-            // 
-            this.lblEmail1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblEmail1.ForeColor = System.Drawing.Color.Black;
-            this.lblEmail1.Location = new System.Drawing.Point(788, 335);
-            this.lblEmail1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblEmail1.Name = "lblEmail1";
-            this.lblEmail1.Size = new System.Drawing.Size(197, 11);
-            this.lblEmail1.TabIndex = 53;
-            this.lblEmail1.Text = "Primary Email: None";
-            this.lblEmail1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblEmail2
-            // 
-            this.lblEmail2.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblEmail2.ForeColor = System.Drawing.Color.Black;
-            this.lblEmail2.Location = new System.Drawing.Point(788, 365);
-            this.lblEmail2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblEmail2.Name = "lblEmail2";
-            this.lblEmail2.Size = new System.Drawing.Size(197, 11);
-            this.lblEmail2.TabIndex = 54;
-            this.lblEmail2.Text = "Secondary Email: None";
-            this.lblEmail2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblPhone1
-            // 
-            this.lblPhone1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblPhone1.ForeColor = System.Drawing.Color.Black;
-            this.lblPhone1.Location = new System.Drawing.Point(788, 394);
-            this.lblPhone1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPhone1.Name = "lblPhone1";
-            this.lblPhone1.Size = new System.Drawing.Size(197, 11);
-            this.lblPhone1.TabIndex = 55;
-            this.lblPhone1.Text = "Home Phone: None";
-            this.lblPhone1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblPhone2
-            // 
-            this.lblPhone2.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblPhone2.ForeColor = System.Drawing.Color.Black;
-            this.lblPhone2.Location = new System.Drawing.Point(788, 425);
-            this.lblPhone2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPhone2.Name = "lblPhone2";
-            this.lblPhone2.Size = new System.Drawing.Size(197, 13);
-            this.lblPhone2.TabIndex = 56;
-            this.lblPhone2.Text = "Work Phone: None";
-            this.lblPhone2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblAddress
-            // 
-            this.lblAddress.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblAddress.ForeColor = System.Drawing.Color.Black;
-            this.lblAddress.Location = new System.Drawing.Point(788, 455);
-            this.lblAddress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(197, 11);
-            this.lblAddress.TabIndex = 57;
-            this.lblAddress.Text = "Mailing Address: None";
-            this.lblAddress.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // pbxPillar3
-            // 
-            this.pbxPillar3.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pbxPillar3.Location = new System.Drawing.Point(788, 235);
-            this.pbxPillar3.Margin = new System.Windows.Forms.Padding(2);
-            this.pbxPillar3.Name = "pbxPillar3";
-            this.pbxPillar3.Size = new System.Drawing.Size(197, 257);
-            this.pbxPillar3.TabIndex = 29;
-            this.pbxPillar3.TabStop = false;
-            // 
             // pbxPillar2
             // 
             this.pbxPillar2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pbxPillar2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbxPillar2.Location = new System.Drawing.Point(441, 235);
             this.pbxPillar2.Margin = new System.Windows.Forms.Padding(2);
             this.pbxPillar2.Name = "pbxPillar2";
@@ -254,6 +110,7 @@
             // pbxPillar1
             // 
             this.pbxPillar1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pbxPillar1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbxPillar1.Location = new System.Drawing.Point(96, 235);
             this.pbxPillar1.Margin = new System.Windows.Forms.Padding(2);
             this.pbxPillar1.Name = "pbxPillar1";
@@ -264,6 +121,7 @@
             // pbxFloatingTextBG
             // 
             this.pbxFloatingTextBG.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pbxFloatingTextBG.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbxFloatingTextBG.Location = new System.Drawing.Point(95, 115);
             this.pbxFloatingTextBG.Margin = new System.Windows.Forms.Padding(2);
             this.pbxFloatingTextBG.Name = "pbxFloatingTextBG";
@@ -280,16 +138,118 @@
             this.pictureBox4.TabIndex = 25;
             this.pictureBox4.TabStop = false;
             // 
+            // pbxPillar3
+            // 
+            this.pbxPillar3.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pbxPillar3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbxPillar3.Location = new System.Drawing.Point(788, 235);
+            this.pbxPillar3.Margin = new System.Windows.Forms.Padding(2);
+            this.pbxPillar3.Name = "pbxPillar3";
+            this.pbxPillar3.Size = new System.Drawing.Size(197, 257);
+            this.pbxPillar3.TabIndex = 29;
+            this.pbxPillar3.TabStop = false;
+            // 
+            // lblMessage5
+            // 
+            this.lblMessage5.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblMessage5.ForeColor = System.Drawing.Color.Black;
+            this.lblMessage5.Location = new System.Drawing.Point(796, 418);
+            this.lblMessage5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMessage5.Name = "lblMessage5";
+            this.lblMessage5.Size = new System.Drawing.Size(180, 13);
+            this.lblMessage5.TabIndex = 76;
+            this.lblMessage5.Text = "Message 5";
+            this.lblMessage5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblMessage5.Visible = false;
+            // 
+            // lblMessage4
+            // 
+            this.lblMessage4.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblMessage4.ForeColor = System.Drawing.Color.Black;
+            this.lblMessage4.Location = new System.Drawing.Point(796, 388);
+            this.lblMessage4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMessage4.Name = "lblMessage4";
+            this.lblMessage4.Size = new System.Drawing.Size(180, 13);
+            this.lblMessage4.TabIndex = 75;
+            this.lblMessage4.Text = "Message 4";
+            this.lblMessage4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblMessage4.Visible = false;
+            // 
+            // lblMessage3
+            // 
+            this.lblMessage3.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblMessage3.ForeColor = System.Drawing.Color.Black;
+            this.lblMessage3.Location = new System.Drawing.Point(796, 358);
+            this.lblMessage3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMessage3.Name = "lblMessage3";
+            this.lblMessage3.Size = new System.Drawing.Size(180, 13);
+            this.lblMessage3.TabIndex = 74;
+            this.lblMessage3.Text = "Message 3";
+            this.lblMessage3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblMessage3.Visible = false;
+            // 
+            // lblMessage2
+            // 
+            this.lblMessage2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblMessage2.ForeColor = System.Drawing.Color.Black;
+            this.lblMessage2.Location = new System.Drawing.Point(796, 328);
+            this.lblMessage2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMessage2.Name = "lblMessage2";
+            this.lblMessage2.Size = new System.Drawing.Size(180, 13);
+            this.lblMessage2.TabIndex = 73;
+            this.lblMessage2.Text = "Message 2";
+            this.lblMessage2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblMessage2.Visible = false;
+            // 
+            // lblMessage1
+            // 
+            this.lblMessage1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblMessage1.ForeColor = System.Drawing.Color.Black;
+            this.lblMessage1.Location = new System.Drawing.Point(796, 298);
+            this.lblMessage1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMessage1.Name = "lblMessage1";
+            this.lblMessage1.Size = new System.Drawing.Size(180, 13);
+            this.lblMessage1.TabIndex = 72;
+            this.lblMessage1.Text = "Message 1";
+            this.lblMessage1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblMessage1.Visible = false;
+            // 
+            // lblMessages
+            // 
+            this.lblMessages.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.lblMessages.ForeColor = System.Drawing.Color.Black;
+            this.lblMessages.Location = new System.Drawing.Point(796, 240);
+            this.lblMessages.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMessages.Name = "lblMessages";
+            this.lblMessages.Size = new System.Drawing.Size(180, 26);
+            this.lblMessages.TabIndex = 77;
+            this.lblMessages.Text = "Messages";
+            this.lblMessages.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblNumClaims
+            // 
+            this.lblNumClaims.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblNumClaims.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.lblNumClaims.ForeColor = System.Drawing.Color.Black;
+            this.lblNumClaims.Location = new System.Drawing.Point(449, 240);
+            this.lblNumClaims.Margin = new System.Windows.Forms.Padding(0);
+            this.lblNumClaims.Name = "lblNumClaims";
+            this.lblNumClaims.Size = new System.Drawing.Size(180, 24);
+            this.lblNumClaims.TabIndex = 78;
+            this.lblNumClaims.Text = "# Claims";
+            this.lblNumClaims.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // lblClaimID
             // 
             this.lblClaimID.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblClaimID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.lblClaimID.ForeColor = System.Drawing.Color.Black;
-            this.lblClaimID.Location = new System.Drawing.Point(96, 272);
+            this.lblClaimID.Location = new System.Drawing.Point(104, 272);
             this.lblClaimID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblClaimID.Name = "lblClaimID";
-            this.lblClaimID.Size = new System.Drawing.Size(197, 26);
-            this.lblClaimID.TabIndex = 71;
+            this.lblClaimID.Size = new System.Drawing.Size(180, 26);
+            this.lblClaimID.TabIndex = 82;
             this.lblClaimID.Text = "None";
             this.lblClaimID.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -298,11 +258,11 @@
             this.lblClaimStatus.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblClaimStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblClaimStatus.ForeColor = System.Drawing.Color.Black;
-            this.lblClaimStatus.Location = new System.Drawing.Point(96, 345);
+            this.lblClaimStatus.Location = new System.Drawing.Point(104, 345);
             this.lblClaimStatus.Margin = new System.Windows.Forms.Padding(0);
             this.lblClaimStatus.Name = "lblClaimStatus";
-            this.lblClaimStatus.Size = new System.Drawing.Size(197, 20);
-            this.lblClaimStatus.TabIndex = 70;
+            this.lblClaimStatus.Size = new System.Drawing.Size(180, 20);
+            this.lblClaimStatus.TabIndex = 81;
             this.lblClaimStatus.Text = "Status:";
             this.lblClaimStatus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -311,48 +271,86 @@
             this.lblClaimDate.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblClaimDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblClaimDate.ForeColor = System.Drawing.Color.Black;
-            this.lblClaimDate.Location = new System.Drawing.Point(96, 315);
+            this.lblClaimDate.Location = new System.Drawing.Point(104, 315);
             this.lblClaimDate.Margin = new System.Windows.Forms.Padding(0);
             this.lblClaimDate.Name = "lblClaimDate";
-            this.lblClaimDate.Size = new System.Drawing.Size(197, 20);
-            this.lblClaimDate.TabIndex = 69;
+            this.lblClaimDate.Size = new System.Drawing.Size(180, 20);
+            this.lblClaimDate.TabIndex = 80;
             this.lblClaimDate.Text = "Date:";
             this.lblClaimDate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // lblCurrentClaim
+            // lblRecentClaim
             // 
-            this.lblCurrentClaim.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblCurrentClaim.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
-            this.lblCurrentClaim.ForeColor = System.Drawing.Color.Black;
-            this.lblCurrentClaim.Location = new System.Drawing.Point(96, 240);
-            this.lblCurrentClaim.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblCurrentClaim.Name = "lblCurrentClaim";
-            this.lblCurrentClaim.Size = new System.Drawing.Size(197, 26);
-            this.lblCurrentClaim.TabIndex = 68;
-            this.lblCurrentClaim.Text = "Current Claim";
-            this.lblCurrentClaim.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblRecentClaim.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblRecentClaim.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.lblRecentClaim.ForeColor = System.Drawing.Color.Black;
+            this.lblRecentClaim.Location = new System.Drawing.Point(104, 240);
+            this.lblRecentClaim.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRecentClaim.Name = "lblRecentClaim";
+            this.lblRecentClaim.Size = new System.Drawing.Size(180, 24);
+            this.lblRecentClaim.TabIndex = 79;
+            this.lblRecentClaim.Text = "Recent Claim";
+            this.lblRecentClaim.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // btnMessageFM
+            // 
+            this.btnMessageFM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnMessageFM.Location = new System.Drawing.Point(111, 379);
+            this.btnMessageFM.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMessageFM.Name = "btnMessageFM";
+            this.btnMessageFM.Size = new System.Drawing.Size(167, 30);
+            this.btnMessageFM.TabIndex = 85;
+            this.btnMessageFM.Text = "Message FM";
+            this.btnMessageFM.UseVisualStyleBackColor = true;
+            this.btnMessageFM.Visible = false;
+            this.btnMessageFM.Click += new System.EventHandler(this.btnMessageFM_Click);
+            // 
+            // btnMessageCM
+            // 
+            this.btnMessageCM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnMessageCM.Location = new System.Drawing.Point(111, 415);
+            this.btnMessageCM.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMessageCM.Name = "btnMessageCM";
+            this.btnMessageCM.Size = new System.Drawing.Size(167, 30);
+            this.btnMessageCM.TabIndex = 84;
+            this.btnMessageCM.Text = "Message CM";
+            this.btnMessageCM.UseVisualStyleBackColor = true;
+            this.btnMessageCM.Visible = false;
+            this.btnMessageCM.Click += new System.EventHandler(this.btnMessageCM_Click);
+            // 
+            // btnViewClaim
+            // 
+            this.btnViewClaim.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnViewClaim.Location = new System.Drawing.Point(111, 451);
+            this.btnViewClaim.Margin = new System.Windows.Forms.Padding(2);
+            this.btnViewClaim.Name = "btnViewClaim";
+            this.btnViewClaim.Size = new System.Drawing.Size(167, 30);
+            this.btnViewClaim.TabIndex = 83;
+            this.btnViewClaim.Text = "View";
+            this.btnViewClaim.UseVisualStyleBackColor = true;
+            this.btnViewClaim.Visible = false;
+            this.btnViewClaim.Click += new System.EventHandler(this.btnViewClaim_Click);
             // 
             // ctrlLandingClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
+            this.Controls.Add(this.btnMessageFM);
+            this.Controls.Add(this.btnMessageCM);
+            this.Controls.Add(this.btnViewClaim);
             this.Controls.Add(this.lblClaimID);
             this.Controls.Add(this.lblClaimStatus);
             this.Controls.Add(this.lblClaimDate);
-            this.Controls.Add(this.lblCurrentClaim);
-            this.Controls.Add(this.lblAddress);
-            this.Controls.Add(this.lblPhone2);
-            this.Controls.Add(this.lblPhone1);
-            this.Controls.Add(this.lblEmail2);
-            this.Controls.Add(this.lblEmail1);
-            this.Controls.Add(this.lblInfoName);
-            this.Controls.Add(this.lblInformation);
-            this.Controls.Add(this.btnNewClaim);
+            this.Controls.Add(this.lblRecentClaim);
             this.Controls.Add(this.lblNumClaims);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.btnClaimOneSubmit);
+            this.Controls.Add(this.lblMessages);
+            this.Controls.Add(this.lblMessage5);
+            this.Controls.Add(this.lblMessage4);
+            this.Controls.Add(this.lblMessage3);
+            this.Controls.Add(this.lblMessage2);
+            this.Controls.Add(this.lblMessage1);
+            this.Controls.Add(this.btnNewClaim);
             this.Controls.Add(this.pbxPillar3);
             this.Controls.Add(this.pbxPillar2);
             this.Controls.Add(this.pbxPillar1);
@@ -362,11 +360,11 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ctrlLandingClient";
             this.Size = new System.Drawing.Size(1080, 607);
-            ((System.ComponentModel.ISupportInitialize)(this.pbxPillar3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPillar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPillar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFloatingTextBG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxPillar3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,23 +376,22 @@
         private System.Windows.Forms.Label lblWelcomeInformation;
         private System.Windows.Forms.PictureBox pbxPillar1;
         private System.Windows.Forms.PictureBox pbxPillar2;
-        private System.Windows.Forms.PictureBox pbxPillar3;
-        private System.Windows.Forms.Button btnClaimOneSubmit;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label lblNumClaims;
         private System.Windows.Forms.Button btnNewClaim;
-        private System.Windows.Forms.Label lblInformation;
-        private System.Windows.Forms.Label lblInfoName;
-        private System.Windows.Forms.Label lblEmail1;
-        private System.Windows.Forms.Label lblEmail2;
-        private System.Windows.Forms.Label lblPhone1;
-        private System.Windows.Forms.Label lblPhone2;
-        private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.PictureBox pbxFloatingTextBG;
+        private System.Windows.Forms.PictureBox pbxPillar3;
+        private System.Windows.Forms.Label lblMessage5;
+        private System.Windows.Forms.Label lblMessage4;
+        private System.Windows.Forms.Label lblMessage3;
+        private System.Windows.Forms.Label lblMessage2;
+        private System.Windows.Forms.Label lblMessage1;
+        private System.Windows.Forms.Label lblMessages;
+        private System.Windows.Forms.Label lblNumClaims;
         private System.Windows.Forms.Label lblClaimID;
         private System.Windows.Forms.Label lblClaimStatus;
         private System.Windows.Forms.Label lblClaimDate;
-        private System.Windows.Forms.Label lblCurrentClaim;
+        private System.Windows.Forms.Label lblRecentClaim;
+        private System.Windows.Forms.Button btnMessageFM;
+        private System.Windows.Forms.Button btnMessageCM;
+        private System.Windows.Forms.Button btnViewClaim;
     }
 }
