@@ -20,10 +20,11 @@ namespace ScrumInsurance.Ctrls
         public ctrlClaimViewer(ScrumUserControl oldCtrl, long claim_id) : base(oldCtrl)
         {
             InitializeComponent();
-            string role = Session.UserAccount.Role;
 
             // Stores queried claim matching input claim_id in class property
             Claim = DBController.GetClaim(claim_id);
+
+            lblClientNameValue.Text = DBController.GetAccountByID(Claim.ClientID).Username;
 
             // Stores status of the input claim
             string status = Claim.Status.ToString();
@@ -50,24 +51,65 @@ namespace ScrumInsurance.Ctrls
             }
 
             // Set the claim amount label
-            lblClaimAmountValue.Text = Claim.Amount.ToString();
+            if (Claim.Amount == 0) { lblClaimAmountValue.Text = "Not assigned"; }
+            else { lblClaimAmountValue.Text = Claim.Amount.ToString("C0"); }
+
+            lblClaimDateValue.Text = Claim.Date.ToString("d");
             
             // Set the claim content text
             rtxDetails.Text = Claim.Content.ToString();
+
+            // Determines which buttons this user can see
+            LoadDisplayByRole();
+        }
+
+        private void LoadDisplayByRole()
+        {
+            string role = Session.UserAccount.Role;
+
+            if (role.Equals("claim_manager"))
+            {
+                btnApprove.Visible = true;
+                btnReject.Visible = true;
+                btnViewDocs.Visible = true;
+                btnClientProfile.Visible = true;
+            }
+            else if (role.Equals("finance_manager"))
+            {
+                btnApprove.Text = "Finance";
+                btnApprove.Location = new Point(775, 445);
+
+                btnApprove.Visible = true;
+                btnViewDocs.Visible = true;
+                btnClientProfile.Visible = true;
+            }
+            else if (role.Equals("client"))
+            {
+                btnApprove.Visible = false;
+                btnReject.Visible = false;
+                btnViewDocs.Visible = false;
+                btnClientProfile.Visible = false;
+            }
         }
 
         private void btnApprove_Click(object sender, EventArgs e)
         {
-            if (Session.UserAccount.Role.Equals("claim_manager"))
+            string role = Session.UserAccount.Role;
+
+            if (role.Equals("claim_manager"))
             {
-                if(DBController.UpdateClaim(Claim.ID, "Status", "Financing") == true) 
+                // Gets the ID of the finance manager with the least claims assigned
+                long financer_id = DBController.GetLeastClaimsManagerID(false);
+
+                DBController.UpdateClaim(Claim.ID, "finance_manager_id", financer_id);
+                if (DBController.UpdateClaim(Claim.ID, "Status", "Financing") == true)
                 {
                     lblClaimStatusValue.Text = "Financing";
                     lblClaimStatusValue.ForeColor = Color.SeaGreen;
                 }
-                
+
             }
-            else if (Session.UserAccount.Role.Equals("finance_manager"))
+            else if (role.Equals("finance_manager"))
             {
                 DBController.UpdateClaim(Claim.ID, "Status", "Approved");
                 lblClaimStatusValue.Text = "Approved";
@@ -82,19 +124,6 @@ namespace ScrumInsurance.Ctrls
             lblClaimStatusValue.ForeColor = Color.Red;
         }
 
-        private void btnTransfer_Click(object sender, EventArgs e)
-        {
-            // Gets the ID of the finance manager with the least claims assigned
-            long financer_id = DBController.GetLeastClaimsManagerID(false);
-            
-            DBController.UpdateClaim(Claim.ID, "finance_manager_id", financer_id);
-            if (DBController.UpdateClaim(Claim.ID, "Status", "Financing") == true)
-            {
-                lblClaimStatusValue.Text = "Financing";
-                lblClaimStatusValue.ForeColor = Color.SeaGreen;
-            }
-        }
-
         private void btnReturn_Click(object sender, EventArgs e)
         {
             SwapCtrlMain(new ctrlClaimsList(this));
@@ -102,7 +131,7 @@ namespace ScrumInsurance.Ctrls
 
         private void btnClientProfile_Click(object sender, EventArgs e)
         {
-
+            SwapCtrlMain(new ctrlEditProfile(this));
         }
 
         private void btnViewDocs_Click(object sender, EventArgs e)

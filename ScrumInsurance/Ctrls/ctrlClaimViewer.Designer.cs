@@ -37,7 +37,6 @@
             this.lblClaimAmountValue = new System.Windows.Forms.Label();
             this.lblClaimStatusValue = new System.Windows.Forms.Label();
             this.lblClientName = new System.Windows.Forms.Label();
-            this.btnTransfer = new System.Windows.Forms.Button();
             this.lblClaimStatus = new System.Windows.Forms.Label();
             this.lblClaimAmount = new System.Windows.Forms.Label();
             this.btnClientProfile = new System.Windows.Forms.Button();
@@ -155,21 +154,6 @@
             this.lblClientName.TabIndex = 12;
             this.lblClientName.Text = "Client Name:";
             // 
-            // btnTransfer
-            // 
-            this.btnTransfer.BackColor = System.Drawing.Color.Azure;
-            this.btnTransfer.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnTransfer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTransfer.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
-            this.btnTransfer.Location = new System.Drawing.Point(206, 209);
-            this.btnTransfer.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnTransfer.Name = "btnTransfer";
-            this.btnTransfer.Size = new System.Drawing.Size(165, 33);
-            this.btnTransfer.TabIndex = 11;
-            this.btnTransfer.Text = "Send to Finance";
-            this.btnTransfer.UseVisualStyleBackColor = false;
-            this.btnTransfer.Click += new System.EventHandler(this.btnTransfer_Click);
-            // 
             // lblClaimStatus
             // 
             this.lblClaimStatus.AutoSize = true;
@@ -257,7 +241,7 @@
             this.lblClaimViewer.AutoSize = true;
             this.lblClaimViewer.BackColor = System.Drawing.Color.Transparent;
             this.lblClaimViewer.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.lblClaimViewer.Location = new System.Drawing.Point(185, 77);
+            this.lblClaimViewer.Location = new System.Drawing.Point(185, 76);
             this.lblClaimViewer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblClaimViewer.Name = "lblClaimViewer";
             this.lblClaimViewer.Size = new System.Drawing.Size(136, 26);
@@ -292,7 +276,6 @@
             this.Controls.Add(this.lblClaimAmountValue);
             this.Controls.Add(this.lblClaimStatusValue);
             this.Controls.Add(this.lblClientName);
-            this.Controls.Add(this.btnTransfer);
             this.Controls.Add(this.lblClaimStatus);
             this.Controls.Add(this.lblClaimAmount);
             this.Controls.Add(this.btnClientProfile);
@@ -321,7 +304,6 @@
         private System.Windows.Forms.Button btnClientProfile;
         private System.Windows.Forms.Label lblClaimAmount;
         private System.Windows.Forms.Label lblClaimStatus;
-        private System.Windows.Forms.Button btnTransfer;
         private System.Windows.Forms.Label lblClientName;
         private System.Windows.Forms.Label lblClaimStatusValue;
         private System.Windows.Forms.Label lblClaimAmountValue;
