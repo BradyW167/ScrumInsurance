@@ -245,15 +245,17 @@ namespace ScrumInsurance
         }
 
         // Updates user of 'user_id' with new input username and password
-        public bool? UpdateAccount(long user_id, string new_username, string new_password)
+        public bool? UpdateAccount(long user_id, string new_username, string new_password, string role = null)
         {
             Dictionary<string, object> credential_columns = new Dictionary<string, object>
             {
                 { "username", new_username },
-                { "password", new_password }
+                { "password", new_password }       
             };
 
-            Connection.Query = new UpdateQuery("users").Set(credential_columns).Where("id", "=", user_id.ToString());
+            if (role != null) { credential_columns.Add("role", role); }
+
+            Connection.Query = new UpdateQuery("users").Set(credential_columns).Where("id", "=", user_id);
 
             return Connection.ExecuteNonQuery();
         }
