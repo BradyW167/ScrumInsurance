@@ -29,7 +29,7 @@ namespace ScrumInsurance.Ctrls
             lblDate.Hide();
             lblContents.Hide();
             lblClaim.Hide();
-            pnlMessageContents.Hide();
+            rtxContents.Hide();
 
             MessageCount = 0;
             MessageRowHeight = 60;
@@ -115,10 +115,7 @@ namespace ScrumInsurance.Ctrls
             LoadedMessageID = message.ID;
 
             // Unload previous message from contents panel
-            if (pnlMessageContents.Controls.Count > 0)
-            {
-                pnlMessageContents.Controls.RemoveAt(0);
-            }
+            rtxContents.Text = "";
 
             // Show message properties on labels
             lblSender.Text = "Sender: " + message.SenderUsername;
@@ -131,28 +128,15 @@ namespace ScrumInsurance.Ctrls
             lblHeader.Show();
 
             string message_content = DBController.GetMessageContent(message.ID);
-            pnlMessageContents.Show();
+
+            if (message_content != null ) { rtxContents.Text = message_content; }
+
+            rtxContents.Show();
 
             lblClaim.Text = "Claim ID: " + message.ID;
             lblClaim.Show();
 
             lblContents.Show();
-
-            // Create label for message and style it
-            Label msg = new Label();
-            msg.BackColor = Color.Azure;
-            msg.TextAlign = ContentAlignment.TopLeft;
-            msg.Text = message_content;
-            msg.Font = new Font("Microsoft Tai Le", 12, FontStyle.Regular);
-            msg.Location = new Point(25,25);
-            msg.Width = 550;
-
-            //to handle heights dynamically, each line is roughly 90 characters
-            int numLines = 1 + (message_content.Length / 90);
-
-            msg.Height = numLines * 22;
-            pnlMessageContents.Controls.Add(msg);
-
         }
 
         private void btnCompose_Click(object sender, EventArgs e)

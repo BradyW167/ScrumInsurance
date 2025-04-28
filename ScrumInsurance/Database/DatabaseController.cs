@@ -21,6 +21,8 @@ using Google.Protobuf.WellKnownTypes;
 using MySqlX.XDevAPI.Relational;
 using System.Data.Common;
 using MySqlX.XDevAPI.Common;
+using Org.BouncyCastle.Cms;
+using Renci.SshNet.Messages;
 
 namespace ScrumInsurance
 {
@@ -755,12 +757,20 @@ namespace ScrumInsurance
             Connection.Query = new InsertQuery(message_columns).Into("messages");
             Connection.ExecuteNonQuery();
 
-            //temporary solution to grab the message id from the most recently added message - 
-            int messageID = GetMessageList().Count;
-            Console.WriteLine(messageID + "= message id");
+            // Inserts data into the message_recipients table
+            return SendToRecipient(recipientID);
+        }
+
+        public bool? SendToRecipient(long recipientID)
+        {
+            // Stores ID of just sent message
+            LastInsertedID = Connection.GetLastInsertedID();
+
+            // Return null on failed ID get
+            if (LastInsertedID == null) return null;
 
             Dictionary<string, object> messageRecipient_columns = new Dictionary<string, object> {
-                { "message_id", messageID },
+                { "message_id", LastInsertedID },
                 { "recipient_id", recipientID }
             };
 

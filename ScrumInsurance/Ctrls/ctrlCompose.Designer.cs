@@ -114,7 +114,7 @@
             this.flpMessageList.Location = new System.Drawing.Point(25, 113);
             this.flpMessageList.Margin = new System.Windows.Forms.Padding(0);
             this.flpMessageList.Name = "flpMessageList";
-            this.flpMessageList.Padding = new System.Windows.Forms.Padding(25, 25, 25, 25);
+            this.flpMessageList.Padding = new System.Windows.Forms.Padding(25);
             this.flpMessageList.Size = new System.Drawing.Size(280, 468);
             this.flpMessageList.TabIndex = 0;
             this.flpMessageList.WrapContents = false;
@@ -122,7 +122,7 @@
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(51, 43);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(230, 20);
             this.txtSearch.TabIndex = 0;
@@ -130,7 +130,7 @@
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(51, 73);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(229, 23);
             this.btnSearch.TabIndex = 1;
@@ -142,7 +142,7 @@
             // 
             this.txtContents.Font = new System.Drawing.Font("Microsoft Tai Le", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContents.Location = new System.Drawing.Point(349, 140);
-            this.txtContents.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtContents.Margin = new System.Windows.Forms.Padding(2);
             this.txtContents.Name = "txtContents";
             this.txtContents.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.txtContents.Size = new System.Drawing.Size(689, 360);
@@ -153,7 +153,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pictureBox2.Location = new System.Drawing.Point(25, 25);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(279, 90);
             this.pictureBox2.TabIndex = 0;
@@ -165,7 +165,7 @@
             this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSend.Font = new System.Drawing.Font("Microsoft Tai Le", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSend.Location = new System.Drawing.Point(902, 514);
-            this.btnSend.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(2);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(135, 52);
             this.btnSend.TabIndex = 122;
@@ -190,7 +190,7 @@
             // 
             this.txtSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtSubject.Location = new System.Drawing.Point(431, 54);
-            this.txtSubject.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSubject.Margin = new System.Windows.Forms.Padding(2);
             this.txtSubject.Name = "txtSubject";
             this.txtSubject.Size = new System.Drawing.Size(215, 26);
             this.txtSubject.TabIndex = 125;
