@@ -47,8 +47,44 @@ namespace ScrumInsurance.Ctrls
             }
         }
 
+        // Constructor with input account to send a message to
+        public ctrlCompose(ScrumUserControl oldCtrl, Account newMessageRecipientAccount) : base(oldCtrl)
+        {
+            InitializeComponent();
+            lblDate.Text = DateTime.Now.ToShortDateString();
+            lblErrorList.Hide();
+            UserCount = 0;
+            UserRowHeight = 60;
+            LoadedUserID = 0;
+
+            // Stores messages in a list for account tied to Session User ID
+            List<Account> users = DBController.GetUserList(txtSearch.Text);
+
+            // Loop through each message
+            if (users != null)
+            {
+                foreach (Account acc in users)
+                {
+                    AddAccount(acc);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No accounts found.");
+            }
+
+            // Store this message's id as the loaded message
+            LoadedUserID = newMessageRecipientAccount.ID;
+
+            //show username on compose 
+            lblRecipient.Text = "Send To: " + newMessageRecipientAccount.Username;
+        }
+
         private void AddAccount(Account user)
         {
+            // Skip own account
+            if (user.ID == Session.UserAccount.ID) { return; }
+
             UserCount += 1;
 
             // Stores the horizontal padding size of the claim list panel
@@ -111,7 +147,6 @@ namespace ScrumInsurance.Ctrls
 
             //show username on compose 
             lblRecipient.Text = "Send To: " + user.Username;
-
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
